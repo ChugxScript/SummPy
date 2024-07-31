@@ -5,6 +5,7 @@ from .blueprints.about import about
 from .blueprints.home import home
 from .blueprints.donate import donate
 from .blueprints.summ import summ
+from .blueprints.now import now
 
 def create_app():
     app = Flask(__name__)
@@ -14,6 +15,7 @@ def create_app():
     app.register_blueprint(get_started)
     app.register_blueprint(donate)
     app.register_blueprint(summ)
+    app.register_blueprint(now)
     # app.register_blueprint(summary)
 
     return app
