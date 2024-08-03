@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/summ.css') }}">
+    <title>SummPy | 5-pager Summarizer</title>
+</head>
+<body>
+    <img class="bg" src="{{ url_for('static', filename='images/6.png') }}" alt="main background" width="1920" height="1080">
+
+    <a href="{{url_for('home.home_page')}}" class="back-to-home">Back to Home</a>
+
+    <h1>Upload your document</h1>
+    
+    <div class="upload-box" id="upload-box">
+        <span>Select or Drop a file</span>
+        <h3>We support .pdf, .doc, .docx files up to 100 MB</h3>
+        <input type="file" id="file-input">
+    </div>
+
+    <a href="{{url_for('now.now_page')}}">
+        <button class="summ-btn">SUMMARIZE</button>
+    </a>
+
+    <div class="lines"></div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const uploadBox = document.getElementById('upload-box');
+        const fileInput = document.getElementById('file-input');
+
+        uploadBox.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            uploadBox.classList.add('dragover');
+        });
+
+        uploadBox.addEventListener('dragleave', () => {
+            uploadBox.classList.remove('dragover');
+        });
+
+        uploadBox.addEventListener('drop', (event) => {
+            event.preventDefault();
+            uploadBox.classList.remove('dragover');
+
+            const files = event.dataTransfer.files;
+            if (files.length) {
+                fileInput.files = files;
+            }
+        });
+
+        uploadBox.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', () => {
+            // You can add your file handling logic here
+        });
+    });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/donate.css') }}">
+    <title>Donate</title>
+</head>
+<body>
+    <img class="bg" src="{{ url_for('static', filename='images/12.png') }}" alt="main background" width="1920" height="1080">
+    <div class="hero">
+        <div class="nav-container">
+            <nav>
+                <ul>
+                    <li><a class="home-button" href="{{url_for('home.home_page')}}">HOME</a></li>
+                    <li><a href="{{url_for('about.about_page')}}">HOW TO USE</a></li>
+                    <li><a href="{{url_for('get_started.get_started_page')}}">ABOUT US</a></li>
+                    <li><a href="{{url_for('donate.donate_page')}}">DONATE</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="content-container">
+            <div class="qr-container">
+                <img src="{{ url_for('static', filename='images/gcash.png') }}" alt="QR Code">
+            </div>
+            <div class="verse-container">
+                <img class="verse-icon" src="{{ url_for('static', filename='images/icon.png') }}" alt="Icon">
+                <br><br>
+                <p class="verse">Proverbs 11:25 <br><br> "A generous person will prosper; whoever refreshes others will be refreshed."</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

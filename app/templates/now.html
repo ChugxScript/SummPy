@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/now.css') }}">
+    <title>SummPy | 5-pager Summarizer</title>
+</head>
+<body>
+
+    <img class="bg" src="{{ url_for('static', filename='images/10.png') }}" alt="main background" width="1920" height="1080">
+
+    <div class="nav-bar">
+        <a href="{{url_for('summ.summ_page')}}" class="back-to-home">Return</a>
+    </div>
+
+    <div class="container">
+        <div class="empty-div"></div> <!-- for thesis preview -->
+        <div class="chapter-container">
+            <div class="chapter">
+                <span>Chapter 1</span>
+                <input type="text" placeholder="PAGE NUMBER">
+            </div>
+            <div class="chapter">
+                <span>Chapter 2</span>
+                <input type="text" placeholder="PAGE NUMBER">
+            </div>
+            <div class="chapter">
+                <span>Chapter 3</span>
+                <input type="text" placeholder="PAGE NUMBER">
+            </div>
+            <div class="chapter">
+                <span>Chapter 4</span>
+                <input type="text" placeholder="PAGE NUMBER">
+            </div>
+            <div class="chapter">
+                <span>Chapter 5</span>
+                <input type="text" placeholder="PAGE NUMBER">
+            </div>
+            <button class="continue-button">CONTINUE</button>
+        </div>
+    </div>
+</body>
+</html>
