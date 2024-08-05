@@ -23,18 +23,25 @@
     align-items: flex-start;
     justify-content: center;
     margin-top: -60px; /* Adjust this value to move the navigation links upwards */
+    background:
 }
 
 .nav-box-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative; /* Ensure relative positioning for proper layering */
 }
 
 nav {
     display: flex;
     justify-content: flex-end;
-    width: 100%;                
+    width: 100%;
+    z-index: 20; /* Ensure the nav is on top of other elements */
+    position: relative; /* Ensure the nav is positioned relatively */
+    left: 350px;
+    top: -10px; 
+    z-index: 20;
 }
 
 nav ul {
@@ -51,13 +58,14 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: rgb(208, 255, 0);
     text-decoration: none;
     font-weight: bold;
+    z-index: 20; /* Ensure links are on top */
 }
 
 nav ul li a:hover {
-    color: red;
+    color: rgb(0, 119, 255);
     transition: .3s;
 }
 
@@ -74,13 +82,14 @@ nav ul li a:hover {
     color: white;
     cursor: pointer;
     transition: color 0.3s ease;
+    z-index:25;
 }
 
 .logo-container {
     position: absolute;
     top: 90px;
-    left: 245px;
-    z-index: -1; /* Ensure it's below the nav-container */
+    left: 220px;
+    z-index: 10; /* Ensure it's below the nav-container but above other elements */
 }
 
 .logo {
@@ -94,25 +103,44 @@ nav ul li a:hover {
     border: 0;
     height: 2px; /* Adjust height for thickness */
     background: linear-gradient(90deg, #928f94, #724b8f); /* Match the nav-container gradient */
-    margin-top: 80px; /* Adjust spacing */
+    margin-top: 90px; /* Adjust spacing */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for effect */
     opacity: 75%;
 }
 
-
-
 .container {
     display: flex;
-    gap: 40px; /* Space between boxes */
-    margin-top: 20px; /* Adjust spacing between nav and boxes */
+    gap: 36px; /* Space between boxes */
+    left: 385px;
+    margin-top: -55px; /* Adjust this margin to ensure boxes are below the nav */
+    padding-top: -10px; /* Optional: Adjust if you need extra spacing from the top of the container */
+    position: relative; /* Ensure relative positioning if needed */
 }
 
 .box {
-    width: 140px; /* Adjust width as needed */
-    height: 40px; /* Adjust height as needed */
+    width: 165px; /* Adjust width as needed */
+    height: 45px; /* Adjust height as needed */
     background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
     border-radius: 8px; /* Optional: Rounded corners */
     padding: 20px; /* Optional: Padding inside the box */
     background: linear-gradient(95deg, rgba(255, 255, 255, 0.11), rgba(0, 0, 0, 0.021)); /* Gradient from top left to bottom right */
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3); /* Add shadow for effect */
+    margin-top: 0; /* Remove any extra margin if needed */
+    z-index: 1;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for background color and scale */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-link {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit color from parent */
+    display: block; /* Make the link fill the box */
+}
+
+.box:hover {
+    background: linear-gradient(95deg, #FBFF12, #05C4D7, #423B8E); /* Gradient colors on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3); /* Add a darker shadow on hover */
 }

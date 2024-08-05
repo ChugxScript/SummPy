@@ -5,3 +5,6 @@ now = Blueprint('now', __name__)
 @now.route('/now')
 def now_page():
     return render_template('now.html')
+
+
+
