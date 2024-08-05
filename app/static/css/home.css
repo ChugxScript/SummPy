@@ -22,21 +22,15 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    margin-top: -60px; /* Adjust this value to move the navigation links upwards */
+
 }
 
-.nav-container{
-    background: linear-gradient(90deg, #48404c, #724b8f);
-    padding: 10px;
-    border-radius: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 50px;
-    width: 85%; 
-}
 
 nav{
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-end;
+    width: 100%;                
 }
 
 nav ul{
@@ -44,7 +38,7 @@ nav ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
-    margin-left: auto; 
+    margin-right: auto; 
 }
 
 nav ul li{
@@ -76,4 +70,26 @@ nav ul li a:hover{
     color: white;
     cursor: pointer;
     transition: color 0.3s ease; 
+}
+
+.logo-container {
+    position: absolute;
+    top: -1px; /* Adjust this value to move the logo down if necessary */
+    z-index: -1; /* Ensure it's below the nav-container */
+}
+
+.logo {
+    width: 1920px; /* Adjust the width as necessary */
+    height: 1080px; /* Maintain aspect ratio */
+}
+
+.header-line {
+    width: 100%; /* Match the nav-container width */
+    margin: 0 auto; /* Center align */
+    border: 0;
+    height: 2px; /* Adjust height for thickness */
+    background: linear-gradient(90deg, #928f94, #724b8f); /* Match the nav-container gradient */
+    margin-top: 80px; /* Adjust spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for effect */
+    opacity:75%;
 }

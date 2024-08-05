@@ -9,7 +9,16 @@
 </head>
 
 <body>
-    <img class="bg" src="{{ url_for('static', filename='images/13.png') }}" alt="main background" width="1920" height="1080">
+    <img class="bg" src="{{ url_for('static', filename='images/bg.png') }}" alt="main background" width="1920" height="1080">
+    
+      <!-- Horizontal line below the header -->
+      <hr class="header-line">
+
+
+    <div class="logo-container">
+        <img class="logo" src="{{ url_for('static', filename='images/logo.gif') }}" alt="logo" width="1920" height="1080">
+    </div>
+
     <div class="hero">
         <div class="nav-container">
             <nav>
@@ -39,6 +48,8 @@
             <button class="now" type="button">SUMMARIZE NOW</button>
         </a>
     </div>
+
+
 
 </body>
 </html>
