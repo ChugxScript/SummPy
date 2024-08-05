@@ -74,13 +74,14 @@ nav ul li a:hover{
 
 .logo-container {
     position: absolute;
-    top: -1px; /* Adjust this value to move the logo down if necessary */
+    top:90px;
+    left:245px;
     z-index: -1; /* Ensure it's below the nav-container */
 }
 
 .logo {
-    width: 1920px; /* Adjust the width as necessary */
-    height: 1080px; /* Maintain aspect ratio */
+    width: 1400px; /* Adjust the width as necessary */
+    height: 700px; /* Maintain aspect ratio */
 }
 
 .header-line {
