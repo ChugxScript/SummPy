@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SummPy | 5-pager Summarizer</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800&display=swap');
 
         * {
             padding: 0;
             margin: 0;
-            box-sizing: border-box; /* Ensure all padding and borders are included in the element's total width and height */
             font-family: 'Poppins', sans-serif;
         }
 
@@ -18,34 +17,335 @@
             height: 100%;
             width: 100%;
             background: linear-gradient(135deg, #500079, #724B8F, #E4C1FF);
-      
-    
         }
 
         .logo {
-        
-            margin-top: 10px;
+            margin-top: -15px;
+            margin-left: 50px;
         }
 
         .container {
-  
             width: 100%;
         }
 
-        .chat {
-            width: 30%; /* Adjust width as needed */
-            height: 100px; /* Adjust height as needed */
-            background-color: #b3b3b3;
-            margin-top: 50px; 
+        .newchat {
+            width: 16%; /* Adjust width as needed */
+            height: 915px; /* Adjust height as needed */
+            background-color: #33004D;
+            margin-top: -155px; 
         }
+
+        .new-chat-btn {
+            position: absolute;
+            top: 150px; /* Adjust this value to move the button up or down */
+            left: 20px; /* Adjust this value to position it from the left */
+            cursor: pointer;
+            padding: 10px 20px;
+            border: 2px solid;
+            border-radius: 25px;
+            border-image: linear-gradient(to right, #7e7e7e, #E4C1FF) 1;
+            background-color: transparent;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            display: inline-block;
+            width: 210px;
+        }
+
+        .new-chat-btn:hover {
+            background-color: rgba(255, 255, 255, 0.212);
+        }
+
+        .box-container {
+            position: relative;
+            width: 100%;
+            height: 200px; /* Adjust height as needed */
+            margin-top: 20px;
+        }
+
+        .box {
+            position: absolute;
+           
+        }
+
+        .box1 {
+            width: 1550px; /* Adjust width as needed */
+            height: 70px; /* Adjust height as needed */
+            top: -935px; /* Adjust top position */
+            left: 296px; /* Adjust left position */
+            border: 2px solid ;
+            border-image: linear-gradient(to right, #500079, #E4C1FF) 1;
+            background: linear-gradient(135deg, #410061, #724B8F, #E4C1FF);
+        }
+
+        .box2 {
+            width: 850px; /* Adjust width as needed */
+            height: 840px; /* Adjust height as needed */
+            top: -860px; /* Adjust top position */
+            left: 296px;/* Adjust right position */
+            background: #a1a1a1;
+        }
+
+        .box3 {
+            width: 705px; /* Adjust width as needed */
+            height: 840px; /* Adjust height as needed */
+            top: -860px;
+            right: 0px; /* Adjust right position */
+            background: linear-gradient(135deg, #500079, #724B8F, #E4C1FF);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 3; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4); 
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #500079, #724B8F, #E4C1FF);
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-header, .modal-footer {
+            padding: 10px;
+            background-color: #33004D;
+            color: white;
+        }
+
+        .modal-body {
+            padding: 10px 20px;
+            color: white;
+        }
+
+        .robot {
+            margin-top: 90px;
+            margin-left: 950px;
+            position: absolute;
+            z-index:2;
+        }
+
+        .summpy {
+            margin-top: -10px;
+            margin-left: 765px;
+            position: absolute;
+            z-index:2;
+        }
+
+        .user-text {
+            position: absolute;
+            top: 100px;
+            right: 20px;
+            width: 550px;
+            height:420px;
+            padding: 20px;
+            border: 2px solid;
+            border-image: linear-gradient(to right, #500079, #E4C1FF) 1;
+            border-radius: 10px;
+            font-size: 18px;
+            background-color: transparent;
+            color: white;
+        }
+   
+        .user-input-container {
+            position: absolute;
+            top: 820px; /* Adjust the top position as needed */
+            right: 0px; /* Adjust the left position as needed */
+            width: 690px; /* Adjust width if needed */
+            padding: 0; /* Remove padding if no outer box is needed */
+            background-color: transparent; /* Ensure the background is transparent */
+        }
+
+        .user-input-container input[type="text"] {
+            width: 80%; /* Adjust input width as needed */
+            padding: 10px;
+            margin-right: 10px; /* Space between input and button */
+            border: 2px solid;
+            border-image: linear-gradient(to right, #e9c0fd, #ddb0ff) 1;
+            background-color: transparent; /* Transparent background for the input */
+            color: rgb(212, 212, 212); /* White text color for the input */
+            outline: none; /* Remove default focus outline */
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .user-input-container input[type="text"]::placeholder {
+            color: white; /* White placeholder text color */
+            opacity: 1; /* Ensure full opacity */
+        }
+
+        .user-input-container input[type="text"]:focus,
+        .user-input-container input[type="text"]:hover {
+            border-color: #E4C1FF; /* Change border color on hover/focus */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover/focus */
+        }
+
+        .user-input-container button {
+            padding: 10px 20px;
+            background-color: #E26890; /* Solid background color for the button */
+            color: white; /* White text color for the button */
+            cursor: pointer;
+            border: none; /* Remove the border */
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+
+        .user-input-container button:hover {
+            background-color: #b64aec; /* Change background color on hover */
+            color: #f3d9e2; /* Change text color on hover */
+            transform: scale(1.05); /* Slightly enlarge the button on hover */
+        }
+
+        .user-input-container .regen-btn {
+            position: relative; /* Ensure positioning is relative to the container */
+            top: -100px; /* Adjust top positioning as needed */
+            margin-left: 160px; /* Space from the Submit button */
+            background-color: #FF7F50; /* Different background color for the regenerate button */
+            width: 350px; /* Adjust width as needed */
+            padding: 10px 20px; /* Adjust padding if needed */
+            border: none; /* Remove border */
+            color: white; /* Text color */
+            cursor: pointer;
+            border-radius: 5px; /* Rounded corners */
+            display: flex; /* Flexbox for icon and text alignment */
+            align-items: center; /* Center items vertically */
+            justify-content: center; /* Center items horizontally */
+            gap: 10px; /* Space between icon and text */
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+
+        .user-input-container .regen-btn:hover {
+            background-color: #FF6347; /* Change background color on hover */
+            transform: scale(1.05); /* Slightly enlarge the button on hover */
+        }
+
+        .user-input-container .regen-btn svg {
+            width: 20px; /* Adjust icon size as needed */
+            height: 20px; /* Adjust icon size as needed */
+            fill: white; /* Icon color */
+        }
+
+
+
     </style>
 </head>
 
 <body>
-    <h1>ganda ko</h1>
+
+    <div>
+        <img class="logo" src="{{ url_for('static', filename='images/small logo.gif') }}" alt="logo" width="160" height="160">
+        <img class="robot" src="{{ url_for('static', filename='images/robot.gif') }}" alt="robot" width="60" height="60">
+        <img class="summpy" src="{{ url_for('static', filename='images/summpy.gif') }}" alt="summpy" width="200" height="100">
+    </div>
+
+    <div>
+      
+    </div>
+  
     <div class="container">
-        <div class="chat"></div>
+        <div class="newchat"></div>
+    </div>
+
+    <div class="new-chat-btn" onclick="openModal()">+ New Chat</div>
+
+    <!-- Box Container -->
+    <div class="box-container">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="newChatModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>Start New Chat</h2>
+            </div>
+            <div class="modal-body">
+                <p>Enter details to start a new chat:</p>
+                <input type="text" placeholder="Chat Topic" style="width: 100%; padding: 10px; margin: 10px 0;">
+                <textarea placeholder="Message" style="width: 100%; padding: 10px; margin: 10px 0;" rows="4" ></textarea>
+            </div>
+            <div class="modal-footer">
+                <button onclick="startNewChat()" style="padding: 10px 20px; border: none; border-radius: 5px; background-color: #aaa7a7; color: white; cursor: pointer;">Start Chat</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="user-input-container">
+        <input type="text" id="user-input" placeholder="Enter text here...">
+        <button onclick="displayUserText()">Submit</button>
+        <button class="regen-btn" onclick="regenerateResponse()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
+            </svg>
+            Regenerate
+        </button>
     </div>
     
+    <div class="user-text" id="user-text"></div>
+    
+    <script>
+        function openModal() {
+            document.getElementById('newChatModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('newChatModal').style.display = 'none';
+        }
+
+        function startNewChat() {
+            // Add the functionality to start a new chat here
+            alert('New chat started!');
+            closeModal();
+            // You can replace the alert with your actual new chat functionality
+        }
+
+        // Close the modal if the user clicks outside of it
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('newChatModal')) {
+                closeModal();
+            }
+        }
+
+        function displayUserText() {
+            var userInput = document.getElementById('user-input').value;
+            document.getElementById('user-text').innerText = userInput;
+        }
+
+        function regenerateResponse() {
+            // Add the functionality to regenerate a response here
+            alert('Regenerating response...');
+            // You can replace the alert with your actual regeneration functionality
+        }
+
+
+    </script>
 </body>
 </html>
