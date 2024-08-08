@@ -23,7 +23,6 @@
     align-items: flex-start;
     justify-content: center;
     margin-top: -60px; /* Adjust this value to move the navigation links upwards */
-    background:
 }
 
 .nav-box-container {
@@ -31,6 +30,7 @@
     flex-direction: column;
     align-items: center;
     position: relative; /* Ensure relative positioning for proper layering */
+    z-index: 10000;
 }
 
 nav {
