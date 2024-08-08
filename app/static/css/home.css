@@ -7,15 +7,12 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+.home-container{
+    display: flex;
+    flex-direction: column;
 }
 
+<<<<<<< HEAD
 .hero {
     height: 100vh;
     width: 100%;
@@ -23,58 +20,102 @@
     align-items: flex-start;
     justify-content: center;
     margin-top: -60px; /* Adjust this value to move the navigation links upwards */
+=======
+.first-section{
+    position: relative;
+    background-image: url('../images/bg.png');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+>>>>>>> df58c0ef0d8e4797099149831c2d51c11d5584e7
 }
 
 .nav-box-container {
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     align-items: center;
     position: relative; /* Ensure relative positioning for proper layering */
     z-index: 10000;
+=======
+    height: 10vh;
+    position: relative;
+>>>>>>> df58c0ef0d8e4797099149831c2d51c11d5584e7
 }
-
 nav {
     display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    z-index: 20; /* Ensure the nav is on top of other elements */
-    position: relative; /* Ensure the nav is positioned relatively */
-    left: 350px;
-    top: -10px; 
-    z-index: 20;
+    flex: 1;
 }
-
 nav ul {
     display: flex;
+    flex: 1;
     list-style-type: none;
-    margin: 0;
+    justify-content: right;
+    align-items: center;
     padding: 0;
-    margin-right: auto;
+    margin: 0;
 }
-
-nav ul li {
-    padding: 10px 20px;
-    margin-left: 80px;
+nav li {
+    margin-right: 50px;
+    border-radius: 8px;
 }
-
-nav ul li a {
+nav a {
     color: rgb(208, 255, 0);
     text-decoration: none;
     font-weight: bold;
-    z-index: 20; /* Ensure links are on top */
+    position: relative;
+    
 }
-
-nav ul li a:hover {
+nav li a:hover {
     color: rgb(0, 119, 255);
     transition: .3s;
+    z-index: 1; 
+}
+
+.box {
+    width: 165px;
+    height: 45px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    background: linear-gradient(95deg, rgba(255, 255, 255, 0.11), rgba(0, 0, 0, 0.021)); 
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3); 
+    margin-top: 0;
+    z-index: 1;
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.box:hover {
+    background: linear-gradient(95deg, #FBFF12, #05C4D7, #423B8E); 
+    transform: scale(1.05); 
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3);
+}
+
+.header-line {
+    width: 100%; 
+    height: 2px; 
+    background: linear-gradient(90deg, #928f94, #724b8f); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 75%;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12vh;
+}
+
+.logo {
+    display: flex;
+    width: 70%;
+    height: auto; 
 }
 
 .now {
-    position: absolute;
     font-family: Poppins;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     padding: 16px 40px;
     text-decoration: none;
     background: #724b8f;
@@ -82,65 +123,41 @@ nav ul li a:hover {
     color: white;
     cursor: pointer;
     transition: color 0.3s ease;
-    z-index:25;
 }
 
-.logo-container {
-    position: absolute;
-    top: 90px;
-    left: 220px;
-    z-index: 10; /* Ensure it's below the nav-container but above other elements */
+.second-section{
+    position: relative;
+    height: 100vh;
+    background-image: url('../images/bg.png');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
 }
 
-.logo {
-    width: 1400px; /* Adjust the width as necessary */
-    height: 700px; /* Maintain aspect ratio */
+@media (max-width: 1000px) {
+    nav a{
+        font-size: 12px;
+    }
+    .box{
+        width: 100px;
+    }
 }
 
-.header-line {
-    width: 100%; /* Match the nav-container width */
-    margin: 0 auto; /* Center align */
-    border: 0;
-    height: 2px; /* Adjust height for thickness */
-    background: linear-gradient(90deg, #928f94, #724b8f); /* Match the nav-container gradient */
-    margin-top: 90px; /* Adjust spacing */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for effect */
-    opacity: 75%;
-}
-
-.container {
-    display: flex;
-    gap: 36px; /* Space between boxes */
-    left: 385px;
-    margin-top: -55px; /* Adjust this margin to ensure boxes are below the nav */
-    padding-top: -10px; /* Optional: Adjust if you need extra spacing from the top of the container */
-    position: relative; /* Ensure relative positioning if needed */
-}
-
-.box {
-    width: 165px; /* Adjust width as needed */
-    height: 45px; /* Adjust height as needed */
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    border-radius: 8px; /* Optional: Rounded corners */
-    padding: 20px; /* Optional: Padding inside the box */
-    background: linear-gradient(95deg, rgba(255, 255, 255, 0.11), rgba(0, 0, 0, 0.021)); /* Gradient from top left to bottom right */
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3); /* Add shadow for effect */
-    margin-top: 0; /* Remove any extra margin if needed */
-    z-index: 1;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for background color and scale */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.box-link {
-    text-decoration: none; /* Remove underline from links */
-    color: inherit; /* Inherit color from parent */
-    display: block; /* Make the link fill the box */
-}
-
-.box:hover {
-    background: linear-gradient(95deg, #FBFF12, #05C4D7, #423B8E); /* Gradient colors on hover */
-    transform: scale(1.05); /* Slightly increase size on hover */
-    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3); /* Add a darker shadow on hover */
+@media (max-width: 600px){
+    nav li {
+        margin-right: 10px;
+    }
+    nav a{
+        font-size: 7px;
+    }
+    .box{
+        width: 50px;
+        padding: 5px;
+    }
+    .logo {
+        width: 100%;
+    }
+    .now{
+        font-size: 10px;
+    }
 }
