@@ -15,24 +15,24 @@
                 <nav>
                     <ul>
                         <li>
-                            <div class="box">
-                                <a class="home-button" href="{{url_for('home.home_page')}}" >HOME</a>
-                            </div>
+                            <a href="{{url_for('home.home_page')}}" class="box">
+                                HOME
+                            </a>
                         </li>
                         <li>
-                            <div class="box">
-                                <a href="{{url_for('about.about_page')}}">HOW TO USE</a>
-                            </div>
+                            <a href="{{url_for('about.about_page')}}" class="box">
+                                HOW TO USE
+                            </a>
                         </li>
                         <li>
-                            <div class="box">
-                                <a href="{{url_for('get_started.get_started_page')}}">ABOUT US</a>
-                            </div>
+                            <a href="{{url_for('get_started.get_started_page')}}" class="box">
+                                ABOUT US
+                            </a>
                         </li>
                         <li>
-                            <div class="box">
-                                <a href="{{url_for('donate.donate_page')}}">DONATE</a>
-                            </div>
+                            <a href="{{url_for('donate.donate_page')}}" class="box">
+                                DONATE
+                            </a>
                         </li>
                     </ul>
                 </nav>
@@ -41,17 +41,31 @@
 
             <div class="logo-container">
                 <img class="logo" src="{{ url_for('static', filename='images/logo.gif') }}" alt="logo">
-                <a href="{{url_for('summ.summ_page')}}"><button class="now" type="button">SUMMARIZE NOW</button></a>
+                <a href="{{url_for('summ.summ_page')}}"><button class="now" type="button">SUMMARIZE NOW - IT'S FREE</button></a>
             </div>
         </div>
 
-        <div class="second-section">
-            this is second section
+      
+
+        <div class="second-section" style="display: flex; justify-content: center; align-items: center;">
+            <img src="{{ url_for('static', filename='images/video.gif') }}" alt="insert video here" style="width: 90%; height: auto; margin: 0 10px;">
         </div>
 
-    </div>
-    
+         <div class="third-section" style="display: flex; justify-content: center; align-items: center;">
+            <img src="{{ url_for('static', filename='images/description.gif') }}" alt="fast" style="width: 90%; height: auto; margin: 0 10px;">
+        </div>
 
-  
+        <div class="fourth-section" style="display: flex; justify-content: center; align-items: center;">
+            <img src="{{ url_for('static', filename='images/fast.gif') }}" alt="fast" style="width: 25%; height: auto; margin: 10px;">
+            <img src="{{ url_for('static', filename='images/easy.gif') }}" alt="easy" style="width: 25%; height: auto; margin: 0 10px;">
+            <img src="{{ url_for('static', filename='images/just.gif') }}" alt="just" style="width: 25%; height: auto; margin: 0 10px;">
+        </div>
+
+        <div class="fifth-section" style="display: flex; justify-content: center; align-items: center;">
+            <img src="{{ url_for('static', filename='images/fast.gif') }}" alt="fast" style="width: 90%; height: auto; margin: 0 10px;">
+        </div>
+
+
+    </div>
 </body>
 </html>

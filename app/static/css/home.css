@@ -12,6 +12,7 @@
     flex-direction: column;
 }
 
+
 .first-section{
     position: relative;
     background-image: url('../images/bg.png');
@@ -26,6 +27,7 @@
     height: 10vh;
     position: relative;
 }
+
 nav {
     display: flex;
     flex: 1;
@@ -44,14 +46,14 @@ nav li {
     border-radius: 8px;
 }
 nav a {
-    color: rgb(208, 255, 0);
+    color: white;
     text-decoration: none;
     font-weight: bold;
     position: relative;
     
 }
 nav li a:hover {
-    color: rgb(0, 119, 255);
+
     transition: .3s;
     z-index: 1; 
 }
@@ -71,7 +73,8 @@ nav li a:hover {
     justify-content: center;
 }
 .box:hover {
-    background: linear-gradient(95deg, #FBFF12, #05C4D7, #423B8E); 
+    background: linear-gradient(95deg, #C4FF00, #640F8F); 
+    opacity:100%;
     transform: scale(1.05); 
     box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3);
 }
@@ -92,6 +95,7 @@ nav li a:hover {
     margin-bottom: 12vh;
 }
 
+
 .logo {
     display: flex;
     width: 70%;
@@ -102,14 +106,29 @@ nav li a:hover {
     font-family: Poppins;
     padding: 16px 40px;
     text-decoration: none;
-    background: #724b8f;
+    background-color: #dd00d2 ; 
     font-size: 26px;
     color: white;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Optional: Add rounded corners */
 }
 
-.second-section{
+.now:hover {
+   
+    background: #4e3361;
+    color: #e4c1ff; /* Change text color on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+.now:active {
+    transform: scale(0.95); /* Slightly shrink the button when clicked */
+    background-color: #3a2449; /* Further darken the background on click */
+    color: #d4a3ff; /* Optional: Change text color on click */
+}
+
+.second-section {
     position: relative;
     height: 100vh;
     background-image: url('../images/bg.png');
@@ -144,4 +163,32 @@ nav li a:hover {
     .now{
         font-size: 10px;
     }
+}
+
+
+.third-section{
+    position: relative;
+    height: 100vh;
+    background-image: url('../images/bg.png');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+
+.fourth-section{
+    position: relative;
+    height: 100vh;
+    background-image: url('../images/bg.png');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;  
+}
+
+.fifth-section{
+    position: relative;
+    height: 100vh;
+    background-image: url('../images/bg.png');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;  
 }
