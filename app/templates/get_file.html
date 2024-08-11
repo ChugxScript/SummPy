@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/summ.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/get_file.css') }}">
     <title>SummPy | 5-pager Summarizer</title>
 </head>
 <body>
@@ -19,11 +19,13 @@
         <input type="file" id="file-input">
     </div>
 
-    <a href="{{url_for('now.now_page')}}">
+    <a href="{{url_for('get_file_pages.get_file_pages_page')}}">
         <button class="summ-btn">SUMMARIZE</button>
     </a>
 
     <div class="lines"></div>
+
+    <script src="{{ url_for('static', filename='js/get_file.js') }}"></script>
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {

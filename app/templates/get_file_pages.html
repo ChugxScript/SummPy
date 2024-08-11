@@ -11,7 +11,7 @@
     <img class="bg" src="{{ url_for('static', filename='images/10.png') }}" alt="main background" width="1920" height="1080">
 
     <div class="nav-bar">
-        <a href="{{url_for('summ.summ_page')}}" class="back-to-home">Return</a>
+        <a href="{{url_for('get_file.get_file_page')}}" class="back-to-home">Return</a>
     </div>
 
     <div class="container">
@@ -37,7 +37,7 @@
                 <span>Chapter 5</span>
                 <input type="text" placeholder="PAGE NUMBER">
             </div>
-            <a href="{{url_for('result.result_page')}}"><button class="continue-button">CONTINUE</button></a> <!-- Updated line -->
+            <a href="{{url_for('summary_result.summary_result_page')}}"><button class="continue-button">CONTINUE</button></a> <!-- Updated line -->
         </div>
     </div>
 </body>
