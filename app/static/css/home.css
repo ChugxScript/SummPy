@@ -12,35 +12,19 @@
     flex-direction: column;
 }
 
-<<<<<<< HEAD
-.hero {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    margin-top: -60px; /* Adjust this value to move the navigation links upwards */
-=======
 .first-section{
     position: relative;
     background-image: url('../images/bg.png');
     background-size: cover; 
     background-position: center;
     background-repeat: no-repeat; 
->>>>>>> df58c0ef0d8e4797099149831c2d51c11d5584e7
 }
 
 .nav-box-container {
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
-    align-items: center;
-    position: relative; /* Ensure relative positioning for proper layering */
-    z-index: 10000;
-=======
     height: 10vh;
     position: relative;
->>>>>>> df58c0ef0d8e4797099149831c2d51c11d5584e7
 }
 nav {
     display: flex;
