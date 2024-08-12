@@ -7,7 +7,64 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body {
+.get-file-pages-container{
+    background-image: url('../images/10.png');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    color: white;
+    padding: 20px;
+}
+
+.pdf-title{
+    margin-top: 30px;
+    color: rgb(94, 240, 9);
+}
+.pdf-files-container{
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+    border-bottom: solid white 1px;
+}
+
+.display-pdf-pages{
+    flex: 0 80%;
+    background-color: aliceblue;
+    color: black;
+}
+
+.chapter-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    padding: 20px;
+}
+.chapter-container h2{
+    margin-bottom: 20px;
+}
+
+.chapter {
+    margin-bottom: 10px;
+}
+
+.chapter input[type="number"]{
+    width: 150px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff5e7e;
+    color: #ffffff;
+    text-align: center;
+}
+
+.chapter input::placeholder {
+    color: #ffffff;
+}
+
+
+/* body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -116,4 +173,4 @@ body {
 
 .continue-button:hover {
     background-color: #453a6f;
-}
+} */

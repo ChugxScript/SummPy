@@ -3,19 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/now.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/get_file_pages.css') }}">
     <title>SummPy | 5-pager Summarizer</title>
 </head>
 <body>
+    <div class="get-file-pages-container">
+        <form action="">
+            {% for file in uploaded_files %}
+            <h1 class="pdf-title">filename: {{ file }}</h1>
+            <div class="pdf-files-container">
+                <div class="display-pdf-pages">
+                    pdf pages will display here
+                </div>
+                <div class="chapter-container">
+                    <h2>Please input the following page number for each chapters.</h2>
+                    <div class="chapter">
+                        <label for="{{ file }}_chapter_1">{{ file }}_chapter_1 Chapter 1:</label>
+                        <input type="number" id="{{ file }}_chapter_1" name="{{ file }}_chapter_1" placeholder="Page number">
+                    </div>
+                    <div class="chapter">
+                        <label for="{{ file }}_chapter_2">Chapter 2:</label>
+                        <input type="number" id="{{ file }}_chapter_2" name="{{ file }}_chapter_2" placeholder="Page number">
+                    </div>
+                    <div class="chapter">
+                        <label for="{{ file }}_chapter_3">Chapter 3:</label>
+                        <input type="number" id="{{ file }}_chapter_3" name="{{ file }}_chapter_3" placeholder="Page number">
+                    </div>
+                    <div class="chapter">
+                        <label for="{{ file }}_chapter_4">Chapter 4:</label>
+                        <input type="number" id="{{ file }}_chapter_4" name="{{ file }}_chapter_4" placeholder="Page number">
+                    </div>
+                    <div class="chapter">
+                        <label for="{{ file }}_chapter_5">Chapter 5:</label>
+                        <input type="number" id="{{ file }}_chapter_5" name="{{ file }}_chapter_5" placeholder="Page number">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </form>
+    </div>
+    
 
-    <img class="bg" src="{{ url_for('static', filename='images/10.png') }}" alt="main background" width="1920" height="1080">
+    <!-- <img class="bg" src="{{ url_for('static', filename='images/10.png') }}" alt="main background" width="1920" height="1080">
 
     <div class="nav-bar">
         <a href="{{url_for('get_file.get_file_page')}}" class="back-to-home">Return</a>
-    </div>
+    </div> -->
 
-    <div class="container">
-        <div class="empty-div"></div> <!-- for thesis preview -->
+    <!-- <div class="container">
+        <h1>display the file name here</h1>
+        <div class="empty-div">display the fiel pages here</div> 
         <div class="chapter-container">
             <div class="chapter">
                 <span>Chapter 1</span>
@@ -37,8 +74,11 @@
                 <span>Chapter 5</span>
                 <input type="text" placeholder="PAGE NUMBER">
             </div>
-            <a href="{{url_for('summary_result.summary_result_page')}}"><button class="continue-button">CONTINUE</button></a> <!-- Updated line -->
+            <a href="{{url_for('summary_result.summary_result_page')}}"><button class="continue-button">CONTINUE</button></a>
         </div>
-    </div>
+    </div> -->
+
+    
+    
 </body>
 </html>

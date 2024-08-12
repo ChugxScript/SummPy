@@ -24,6 +24,7 @@ if __name__ == '__main__':
     │   │   ├── images
     │   │   ├── js
     │   │   │   ├── get_file.js
+    │   │   ├── uploads
     │   ├── templates
     │   │   ├── about.html
     │   │   ├── donate.html

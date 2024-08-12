@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from .blueprints.get_started import get_started
 from .blueprints.about import about
@@ -10,6 +11,11 @@ from .blueprints.summary_result import summary_result
 def create_app():
     app = Flask(__name__)
     app.secret_key = 'secret-key'
+    app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), 'app/static/uploads')
+    app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024  # 100 MB limit
+
+    os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+
     app.register_blueprint(home)
     app.register_blueprint(about)
     app.register_blueprint(get_started)

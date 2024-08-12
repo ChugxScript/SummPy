@@ -12,54 +12,64 @@
     <a href="{{url_for('home.home_page')}}" class="back-to-home">Back to Home</a>
 
     <h1>Upload your document</h1>
-    
-    <div class="upload-box" id="upload-box">
-        <span>Select or Drop a file</span>
-        <h3>We support .pdf, .doc, .docx files up to 100 MB</h3>
-        <input type="file" id="file-input">
+
+    <form action="{{ url_for('get_file.get_file_page') }}" method="POST" enctype="multipart/form-data">
+        <div class="upload-box" id="upload-box">
+            <span>Select or Drop a file</span>
+            <h3>We support .pdf, .doc, .docx files up to 100 MB</h3>
+            <input type="file" id="file-input" name="file" required>
+        </div>
+    </form>
+
+    <!-- show the uploaded file here -->
+    {% if uploaded_files %}
+    <div class="uploaded-file">
+        <h2>Uploaded File:</h2>
+        <ul>
+            {% for file in uploaded_files %}
+            <li><a href="{{ url_for('static', filename='uploads/' ~ file) }}" target="_blank">{{ file }}</a></li>
+            {% endfor %}
+        </ul>
     </div>
+    {% endif %}
 
-    <a href="{{url_for('get_file_pages.get_file_pages_page')}}">
-        <button class="summ-btn">SUMMARIZE</button>
-    </a>
-
-    <div class="lines"></div>
-
-    <script src="{{ url_for('static', filename='js/get_file.js') }}"></script>
+    <button onclick="redirect_to_next_page()" class="summ-btn" id="summ-btn">SUMMARIZE</button>
 
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const uploadBox = document.getElementById('upload-box');
-        const fileInput = document.getElementById('file-input');
+        document.addEventListener('DOMContentLoaded', () => {
+            const fileInput = document.getElementById('file-input');
+            check_uploaded_files();
 
-        uploadBox.addEventListener('dragover', (event) => {
-            event.preventDefault();
-            uploadBox.classList.add('dragover');
-        });
+            fileInput.addEventListener('change', function() {
+                if (fileInput.files.length > 0) {
+                    // Auto-submit the form
+                    this.form.submit();
+                } 
+            });
 
-        uploadBox.addEventListener('dragleave', () => {
-            uploadBox.classList.remove('dragover');
-        });
-
-        uploadBox.addEventListener('drop', (event) => {
-            event.preventDefault();
-            uploadBox.classList.remove('dragover');
-
-            const files = event.dataTransfer.files;
-            if (files.length) {
-                fileInput.files = files;
+            // Display flash messages as alerts
+            const flashMessage = "{{ get_flashed_messages()[0] }}";
+            if (flashMessage) {
+                alert(flashMessage);
             }
         });
 
-        uploadBox.addEventListener('click', () => {
-            fileInput.click();
-        });
+        function check_uploaded_files(){
+            const uploadedFiles = JSON.parse('{{ uploaded_files|tojson|safe }}');
+            const submitButton = document.getElementById('summ-btn');
+            if (uploadedFiles.length > 0) {
+                console.log("Uploaded files:", uploadedFiles);
+                submitButton.style.backgroundColor = 'blue';
+                submitButton.disabled = false;
+            } else {
+                submitButton.style.backgroundColor = 'red';
+                submitButton.disabled = true;
+            }
+        }
 
-        fileInput.addEventListener('change', () => {
-            // You can add your file handling logic here
-        });
-    });
-
+        function redirect_to_next_page(){
+            window.location.href = "{{ url_for('get_file_pages.get_file_pages_page') }}";
+        }
     </script>
 </body>
 </html>
