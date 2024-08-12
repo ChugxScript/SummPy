@@ -45,7 +45,7 @@ h1 {
 }
 
 .upload-box:hover {
-    border-color: #724b8f;
+    border-color: #C4FF00;
 }
 
 .upload-box input {
@@ -82,7 +82,7 @@ h1 {
     margin-top: 20px;
     padding: 16px 40px;
     text-decoration: none;
-    background: #724b8f;
+    background: #5a3a6e;
     font-size: 26px;
     color: white;
     cursor: pointer;
@@ -90,7 +90,8 @@ h1 {
 }
 
 .summ-btn:hover {
-    background: #5a3a6e;
+    background:  rgb(208, 255, 0);
+    color:#5a3a6e   ;
 }
 
 .back-to-home {
@@ -109,4 +110,31 @@ h1 {
 .upload-box.dragover {
     border-color: #5a3a6e;
     background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+.now {
+    font-family: Poppins;
+    padding: 16px 40px;
+    text-decoration: none;
+    background-color: #dd00d2 ; 
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+.now:hover {
+   
+    background: #4e3361;
+    color: #e4c1ff; /* Change text color on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+.now:active {
+    transform: scale(0.95); /* Slightly shrink the button when clicked */
+    background-color: #3a2449; /* Further darken the background on click */
+    color: #d4a3ff; /* Optional: Change text color on click */
 }
