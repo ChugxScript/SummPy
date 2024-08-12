@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 
 * {
     padding: 0;
@@ -7,18 +7,24 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.home-container{
+.home-container {
     display: flex;
     flex-direction: column;
 }
 
-
-.first-section{
+.first-section, 
+.second-section,
+.third-section,
+.fourth-section,
+.fifth-section {
     position: relative;
     background-image: url('../images/bg.png');
-    background-size: cover; 
+    background-size: cover;
     background-position: center;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
+    height: 100vh; /* Ensure full viewport height */
+    margin: 0; /* Ensure no margin */
+    padding: 0; /* Ensure no padding */
 }
 
 .nav-box-container {
@@ -28,34 +34,23 @@
     position: relative;
 }
 
-nav {
-    display: flex;
-    flex: 1;
-}
 nav ul {
     display: flex;
-    flex: 1;
     list-style-type: none;
-    justify-content: right;
+    justify-content: flex-end;
     align-items: center;
     padding: 0;
     margin: 0;
 }
+
 nav li {
     margin-right: 50px;
-    border-radius: 8px;
 }
+
 nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    position: relative;
-    
-}
-nav li a:hover {
-
-    transition: .3s;
-    z-index: 1; 
 }
 
 .box {
@@ -63,27 +58,24 @@ nav li a:hover {
     height: 45px;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 8px;
-    background: linear-gradient(95deg, rgba(255, 255, 255, 0.11), rgba(0, 0, 0, 0.021)); 
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3); 
-    margin-top: 0;
-    z-index: 1;
-    transition: background-color 0.3s ease, transform 0.3s ease; 
+    background: linear-gradient(95deg, rgba(255, 255, 255, 0.11), rgba(0, 0, 0, 0.021));
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
 .box:hover {
-    background: linear-gradient(95deg, #C4FF00, #640F8F); 
-    opacity:100%;
-    transform: scale(1.05); 
+    background: linear-gradient(95deg, #C4FF00, #640F8F);
+    transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3);
 }
 
 .header-line {
-    width: 100%; 
-    height: 2px; 
-    background: linear-gradient(90deg, #928f94, #724b8f); 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #928f94, #724b8f);
     opacity: 75%;
 }
 
@@ -95,100 +87,60 @@ nav li a:hover {
     margin-bottom: 12vh;
 }
 
-
 .logo {
-    display: flex;
     width: 70%;
-    height: auto; 
+    height: auto;
 }
 
 .now {
     font-family: Poppins;
     padding: 16px 40px;
-    text-decoration: none;
-    background-color: #dd00d2 ; 
+    background-color: #dd00d2;
     font-size: 26px;
     color: white;
     cursor: pointer;
+    border: none;
+    border-radius: 5px;
     transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Optional: Add rounded corners */
 }
 
 .now:hover {
-   
     background: #4e3361;
-    color: #e4c1ff; /* Change text color on hover */
-    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    color: #e4c1ff;
+    transform: scale(1.05);
 }
 
 .now:active {
-    transform: scale(0.95); /* Slightly shrink the button when clicked */
-    background-color: #3a2449; /* Further darken the background on click */
-    color: #d4a3ff; /* Optional: Change text color on click */
+    transform: scale(0.95);
+    background-color: #3a2449;
+    color: #d4a3ff;
 }
 
-.second-section {
-    position: relative;
-    height: 100vh;
-    background-image: url('../images/bg.png');
-    background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat; 
-}
-
+/* Media Queries for Responsiveness */
 @media (max-width: 1000px) {
-    nav a{
+    nav a {
         font-size: 12px;
     }
-    .box{
+    .box {
         width: 100px;
     }
 }
 
-@media (max-width: 600px){
+@media (max-width: 600px) {
     nav li {
         margin-right: 10px;
     }
-    nav a{
+    nav a {
         font-size: 7px;
     }
-    .box{
+    .box {
         width: 50px;
         padding: 5px;
     }
     .logo {
         width: 100%;
     }
-    .now{
+    .now {
         font-size: 10px;
     }
-}
-
-
-.third-section{
-    position: relative;
-    height: 100vh;
-    background-image: url('../images/bg.png');
-    background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat; 
-}
-
-.fourth-section{
-    position: relative;
-    height: 100vh;
-    background-image: url('../images/bg.png');
-    background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat;  
-}
-
-.fifth-section{
-    position: relative;
-    height: 100vh;
-    background-image: url('../images/bg.png');
-    background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat;  
 }

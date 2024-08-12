@@ -38,22 +38,24 @@
                 </nav>
             </div>
             <hr class="header-line">
-            <h1>hiiii</h1>
 
             <div class="logo-container">
                 <img class="logo" src="{{ url_for('static', filename='images/logo.gif') }}" alt="logo">
+                <h1 style="text-align: center; max-width: 60%; margin: auto; font-size: 22px; font-family: 'Calibri', sans-serif; color: #dddada; text-shadow: 2px 2px 4px rgb(54, 53, 53);">
+                    SUMMPY is a tool that quickly summarizes academic papers and research articles organized in the IMRAD format (Introduction, Methods, Results, and Discussion). It helps you easily understand the main points of a paper by highlighting the most important parts, saving you time and effort in reading long documents. This summarizer is perfect for students, researchers, and anyone needing a quick overview of academic papers.
+                </h1>
+
                 <a href="{{url_for('summ.summ_page')}}"><button class="now" type="button">SUMMARIZE NOW - IT'S FREE</button></a>
             </div>
-        </div>
-
-      
+        </div> <!-- Ensure this div is closed -->
 
         <div class="second-section" style="display: flex; justify-content: center; align-items: center;">
-            <img src="{{ url_for('static', filename='images/video.gif') }}" alt="insert video here" style="width: 90%; height: auto; margin: 0 10px;">
+            <video src="{{ url_for('static', filename='images/video.mp4') }}" controls style="width: 50%; height: auto; margin: 0 10px;">
+            </video>
         </div>
 
-         <div class="third-section" style="display: flex; justify-content: center; align-items: center;">
-            <img src="{{ url_for('static', filename='images/description.gif') }}" alt="fast" style="width: 90%; height: auto; margin: 0 10px;">
+        <div class="third-section" style="display: flex; justify-content: center; align-items: center;">
+            <img src="{{ url_for('static', filename='images/description.gif') }}" alt="description" style="width: 90%; height: auto; margin: 0 10px;">
         </div>
 
         <div class="fourth-section" style="display: flex; justify-content: center; align-items: center;">
@@ -62,11 +64,9 @@
             <img src="{{ url_for('static', filename='images/just.gif') }}" alt="just" style="width: 25%; height: auto; margin: 0 10px;">
         </div>
 
-        <!-- <div class="fifth-section" style="display: flex; justify-content: center; align-items: center;">
-            <img src="{{ url_for('static', filename='images/fast.gif') }}" alt="fast" style="width: 90%; height: auto; margin: 0 10px;">
-        </div> -->
-
-
+        <div class="fifth-section" style="display: flex; justify-content: center; align-items: center;">
+            <img src="{{ url_for('static', filename='images/one tool.png') }}" alt="one tool" style="width: 90%; height: auto; margin: 0 10px;">
+        </div>
     </div>
 </body>
 </html>
