@@ -12,9 +12,11 @@ def create_app():
     app = Flask(__name__)
     app.secret_key = 'secret-key'
     app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), 'app/static/uploads')
+    app.config['SUMMARIZED_FOLDER'] = os.path.join(os.getcwd(), 'app/static/summarized_doc')
     app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024  # 100 MB limit
 
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+    os.makedirs(app.config['SUMMARIZED_FOLDER'], exist_ok=True)
 
     app.register_blueprint(home)
     app.register_blueprint(about)

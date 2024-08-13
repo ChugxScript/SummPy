@@ -12,7 +12,15 @@
     flex-direction: column;
 }
 
-.first-section, 
+.first-section {
+    position: relative;
+    background-image: url('../images/bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0; 
+    padding: 0; 
+}
 .second-section,
 .third-section,
 .fourth-section,
@@ -22,9 +30,9 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh; /* Ensure full viewport height */
-    margin: 0; /* Ensure no margin */
-    padding: 0; /* Ensure no padding */
+    height: 100vh; 
+    margin: 0;
+    padding: 0; 
 }
 
 .nav-box-container {

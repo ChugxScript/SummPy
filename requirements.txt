@@ -1,1 +1,9 @@
 flask
+langchain
+langchain_community
+transformers
+fpdf
+torch 
+torchvision 
+torchaudio
+pypdfium2

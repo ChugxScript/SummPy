@@ -16,6 +16,24 @@
     padding: 20px;
 }
 
+.nav-bar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px 50px;
+    background-color: transparent;
+}
+
+.back-to-home {
+    font-size: 18px;
+    color: #bdb0d0;
+    text-decoration: none;
+}
+
+.back-to-home:hover {
+    color: #724b8f;
+}
+
 .pdf-title{
     margin-top: 30px;
     color: rgb(94, 240, 9);
@@ -32,6 +50,11 @@
     flex: 0 80%;
     background-color: aliceblue;
     color: black;
+}
+
+.display-pdf-pages embed{
+    height: 100%;
+    width: 100%;
 }
 
 .chapter-container{
@@ -62,115 +85,3 @@
 .chapter input::placeholder {
     color: #ffffff;
 }
-
-
-/* body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #1b0b1a;
-    color: white;
-    position: relative;
-}
-
-.bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    object-fit: cover;
-}
-
-.nav-bar {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    padding: 20px 50px;
-    background-color: transparent;
-}
-
-.back-to-home {
-    font-size: 18px;
-    color: #bdb0d0;
-    text-decoration: none;
-}
-
-.back-to-home:hover {
-    color: #724b8f;
-}
-
-.container {
-    display: flex;
-    width: 100%;
-    height: calc(100% - 70px); 
-    margin: 70px 70px 70px 70px; 
-}
-
-.empty-div {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #000000; 
-}
-
-.chapter-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0 50px;
-}
-
-.chapter {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%; 
-    margin: 10px 0;
-}
-
-
-.chapter span {
-    color: #ffffff;
-    font-size: 20px;
-    margin-bottom: 10px; 
-}
-
-
-.chapter input {
-    width: 150px;
-    padding: 5px;
-    border: none;
-    border-radius: 5px;
-    background-color: #ff5e7e;
-    color: #ffffff;
-    text-align: center;
-    font-size: 16px;
-}
-
-.chapter input::placeholder {
-    color: #ffffff;
-}
-
-.continue-button {
-    margin-top: 50px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    background-color: #5f4b8b;
-    color: #ffffff;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.continue-button:hover {
-    background-color: #453a6f;
-} */
