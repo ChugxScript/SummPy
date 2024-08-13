@@ -18,7 +18,6 @@
     display: flex;
     flex-direction: column;
     flex: 0 10%;
-    border: solid black 1px;
 }
 
 .img-logo{
@@ -76,19 +75,26 @@
     padding: 10px;
     overflow-x: auto;
     max-height: 88vh;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    /* border: solid black 1px; */
+    
 }
 
 .display-pdfs-container{
     display: flex;
     flex-direction: column;
+    width: 100%;
+    border: solid black 1px;
+}
+
+.display-pdfs-container h1{
+    font-size: 15px;
 }
 
 .display-pdfs-container embed{
-    width: 90%;
-    height: 50vh;
+    width: 95%;
+    height: 60vh;
     margin-left: 5px;
 }
 
