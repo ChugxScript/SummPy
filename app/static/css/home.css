@@ -24,7 +24,8 @@
 .second-section,
 .third-section,
 .fourth-section,
-.fifth-section {
+.fifth-section,
+.six-section {
     position: relative;
     background-image: url('../images/bg.png');
     background-size: cover;
@@ -62,6 +63,7 @@ nav a {
 }
 
 .box {
+    margin-top: 30px;
     width: 165px;
     height: 45px;
     background: rgba(0, 0, 0, 0.5);
