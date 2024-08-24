@@ -84,7 +84,7 @@ h1 {
     text-decoration: none;
     background: #5a3a6e;
     font-size: 26px;
-    color: white;
+    color: black;
     cursor: pointer;
     transition: color 0.3s ease;
 }
@@ -99,12 +99,12 @@ h1 {
     top: 80px;
     left: 80px;
     font-size: 18px;
-    color: #bdb0d0;
+    color: #c4ff00;
     text-decoration: none;
 }
 
 .back-to-home:hover {
-    color: #724b8f;
+    color: #dd00d2;
 }
 
 .upload-box.dragover {
