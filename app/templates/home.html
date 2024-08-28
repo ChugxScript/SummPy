@@ -7,72 +7,145 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
     <title>SummPy | 5-pager Summarizer</title>
 </head>
-
 <body>
-    <div class="home-container">
-        <div class="first-section">
-            <div class="nav-box-container">
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="{{url_for('home.home_page')}}" class="box">
-                                HOME
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{url_for('about.about_page')}}" class="box">
-                                HOW TO USE
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{url_for('get_started.get_started_page')}}" class="box">
-                                ABOUT US
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{url_for('donate.donate_page')}}" class="box">
-                                DONATE
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+
+    <header class="header">
+        <a href="#" class="logo"> Logo </a>
+
+        <nav class="navbar">
+            <a href="{{url_for('home.home_page')}}">HOME</a>
+            <a href="{{url_for('about.about_page')}}">HOW TO USE</a>
+            <a href="{{url_for('get_started.get_started_page')}}">ABOUT US</a>
+            <a href="{{url_for('donate.donate_page')}}">DONATE</a>
+        </nav>
+    </header>
+    <div class="whole">
+        <div class="first">
+            <div class="one">
+                <div class="text">
+                    <h1 class="purple">IMRAD</h1>
+                    <h1 class="white">Summarizer For Thesis Papers</h1>
+                    <p> Lorem ipsum odor amet, consectetuer adipiscing elit. 
+                        Turpis hendrerit vivamus condimentum velit arcu nam 
+                        dignissim justo blandit.</p>
+                </div>
+                <button> SUMMARIZE NOW </button>
             </div>
-            <hr class="header-line">
-
-            <div class="logo-container">
-                <img class="logo" src="{{ url_for('static', filename='images/logo.gif') }}" alt="logo">
-
-                <h1 style="text-align: center; max-width: 60%; margin: auto; font-size: 22px; font-family: 'Poppins', sans-serif; color: #dddada; text-shadow: 2px 2px 4px rgb(54, 53, 53);">
-                    SUMMPY is a tool that quickly summarizes academic papers and research articles organized in the IMRAD format (Introduction, Methods, Results, and Discussion). It helps you easily understand the main points of a paper by highlighting the most important parts, saving you time and effort in reading long documents. This summarizer is perfect for students, researchers, and anyone needing a quick overview of academic papers.
-                </h1><br><br>
-
-                <a href="{{url_for('get_file.get_file_page')}}"><button class="now" type="button">SUMMARIZE NOW - IT'S FREE</button></a>
-
+            <div class="two">
+                <video src="{{ url_for('static', filename='images/video.mp4') }}" autoplay muted> </video>
             </div>
-        </div> <!-- Ensure this div is closed -->
-
-        <div class="second-section" style="display: flex; justify-content: center; align-items: center;">
-            <video src="{{ url_for('static', filename='images/video.mp4') }}" controls style="width: 50%; height: auto; margin: 0 10px;">
-            </video>
         </div>
 
-        <div class="third-section" style="display: flex; justify-content: center; align-items: center;">
-            <img src="{{ url_for('static', filename='images/description.gif') }}" alt="description" style="width: 90%; height: auto; margin: 0 10px;">
+        <div class="second">
+            <h1> WHY SUMMPY? </h1>
+            <div class="three">
+                <div class="string">
+                    <h1>FROM <span class="purple1">COMPLEX</span> TO 
+                        <span class="purple1">COMPACT</span> SUMMARY WITH 
+                        <span class="green">AI</span>
+                    </h1>
+                    <p>Lorem ipsum odor amet, consectetuer adipiscing elit. 
+                        Volutpat amet odio curae ultrices proin purus tempus. 
+                        Ad suscipit cursus tristique placerat; laoreet vestibulum est per.
+                    </p>
+                </div>
+                <div class="pix">
+                    <img src="{{ url_for('static', filename='images/pdf.png')}}">
+                </div>
+            </div>
+
+            <div class="fej">
+                <div class="fast">
+                    <img src="{{ url_for('static', filename='images/fast.png')}}">
+                    <h1>FAST</h1>
+                </div>
+                <div class="easy">
+                    <img src="{{ url_for('static', filename='images/easy.png')}}">
+                    <h1>EASY</h1>
+                </div>
+                <div class="just">
+                    <img src="{{ url_for('static', filename='images/just.png')}}">
+                    <h1>JUST</h1>
+                </div>
+            </div>
         </div>
 
-        <div class="fourth-section" style="display: flex; justify-content: center; align-items: center;">
-            <img src="{{ url_for('static', filename='images/fast.gif') }}" alt="fast" style="width: 25%; height: auto; margin: 10px;">
-            <img src="{{ url_for('static', filename='images/easy.gif') }}" alt="easy" style="width: 25%; height: auto; margin: 0 10px;">
-            <img src="{{ url_for('static', filename='images/just.gif') }}" alt="just" style="width: 25%; height: auto; margin: 0 10px;">
+        <div class="third">
+            <div class="four">
+                <h1>ONE TOOL INFINITE CLARITY</h1>
+                <p>Lorem ipsum odor amet, consectetuer adipiscing elit. 
+                    Volutpat amet odio curae ultrices proin purus tempus. 
+                    Ad suscipit cursus tristique placerat; laoreet vestibulum est per.
+                </p>
+            </div>
+            <div class="five">
+                <div class="cons">
+                    <h2>Consistency Across Sections</h2>
+                </div>
+                <div class="tail">
+                    <h2>Tailored for Research</h2>
+                </div>
+                <div class="eff">
+                    <h2>Efficient Time-Saver</h2>
+                </div>
+                <div class="enh">
+                    <h2>Enhanced Clarity</h2>
+                </div>
+                <div class="boo">
+                    <h2>Boosts Productivity</h2>
+                </div>
+                <div class="user">
+                    <h2>User Friendly Interface</h2>
+                </div>
+                <div class="red">
+                    <h2>Reduces Information Overload</h2>
+                </div>
+                <div class="imp">
+                    <h2>Improves Comprehension</h2>
+                </div>
+            </div>
         </div>
 
-        <div class="fifth-section" style="display: flex; justify-content: center; align-items: center;">
-            <img src="{{ url_for('static', filename='images/one tool.png') }}" alt="one tool" style="width: 90%; height: auto; margin: 0 10px;">
+        <div class="fourth">
+            <h1> WHO IS <span class="purple2">SUMMPY</span> FOR?</h1>
+            <img src="{{ url_for('static', filename='images/finally.png')}}">
         </div>
 
-        <div class="six-section" style="display: flex; justify-content: center; align-items: center;">
-            <img src="{{ url_for('static', filename='images/for.png') }}" alt="for who" style="width: 100%; height: auto; margin: 0 10px;">
+        <div class="footer">
+            <h1> LOGO </h1>
+            <h2> IMRAD Document Summarizer</h2>
+
+            <div class="links">
+                <a href="{{url_for('home.home_page')}}">HOME</a>
+                <a href="{{url_for('about.about_page')}}">HOW TO USE</a>
+                <a href="{{url_for('get_started.get_started_page')}}">ABOUT US</a>
+                <a href="{{url_for('donate.donate_page')}}">DONATE</a>
+            </div>
+
+            <p> © 2024 SummPy. All rights reserved. </p>
         </div>
     </div>
+    <img class="dot" src="{{ url_for('static', filename='images/polka.png') }}">
+    <img class="dot2" src="{{ url_for('static', filename='images/polka.png') }}">
+    <img class="dot3" src="{{ url_for('static', filename='images/polka.png') }}">
+    <img class="dot3-1" src="{{ url_for('static', filename='images/polka.png') }}">
+    <img class="dot4" src="{{ url_for('static', filename='images/polka.png') }}">
+    <img class="dot5" src="{{ url_for('static', filename='images/polka.png') }}">
+    <img class="dot6" src="{{ url_for('static', filename='images/polka.png') }}">
+    <img class="dot7" src="{{ url_for('static', filename='images/polka.png') }}">
+    <img class="dot8" src="{{ url_for('static', filename='images/polka.png') }}">
+
+    
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) { // Adjust the value based on when you want to trigger the background change
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
 </body>
 </html>

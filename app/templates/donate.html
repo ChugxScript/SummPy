@@ -7,45 +7,44 @@
     <title>Donate</title>
 </head>
 <body>
-    <div class="home-container">
-        <div class="first-section">
-            <div class="nav-box-container">
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="{{url_for('home.home_page')}}" class="box">
-                                HOME
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{url_for('about.about_page')}}" class="box">
-                                HOW TO USE
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{url_for('get_started.get_started_page')}}" class="box">
-                                ABOUT US
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{url_for('donate.donate_page')}}" class="box">
-                                DONATE
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+    <header class="header">
+        <a href="#" class="logo"> Logo </a>
+
+        <nav class="navbar">
+            <a href="{{url_for('home.home_page')}}">HOME</a>
+            <a href="{{url_for('about.about_page')}}">HOW TO USE</a>
+            <a href="{{url_for('get_started.get_started_page')}}">ABOUT US</a>
+            <a href="{{url_for('donate.donate_page')}}">DONATE</a>
+        </nav>
+    </header>
+    <div class="whole">
+        <h1 class="whole2">THANK YOU <span>FOR YOUR KINDNESS</span></h1>
+        <div class="kind">
+            <div class="verse">
+                <img src="{{ url_for('static', filename='images/icon.png') }}">
+                <h1 class="proverbs"> Proverbs 11:25 </h1>
+                <h1 class="generous"> "A generous person will prosper; whoever refreshes others will be refreshed."</h1>
             </div>
-            <hr class="header-line">
-            
-        <div class="content-container">
-            <div class="qr-container">
-                <img src="{{ url_for('static', filename='images/gcash.png') }}" alt="QR Code">
-            </div>
-            <div class="verse-container">
-                <img class="verse-icon" src="{{ url_for('static', filename='images/icon.png') }}" alt="Icon">
-                <br><br>
-                <p class="verse">Proverbs 11:25 <br><br> "A generous person will prosper; whoever refreshes others will be refreshed."</p>
+            <div class="gcash">
+                <img src="{{ url_for('static', filename='images/gcash.png') }}">
             </div>
         </div>
+        <div class="footer">
+            <h1> LOGO </h1>
+            <h2> IMRAD Document Summarizer</h2>
+
+            <div class="links">
+                <a href="{{url_for('home.home_page')}}">HOME</a>
+                <a href="{{url_for('about.about_page')}}">HOW TO USE</a>
+                <a href="{{url_for('get_started.get_started_page')}}">ABOUT US</a>
+                <a href="{{url_for('donate.donate_page')}}">DONATE</a>
+            </div>
+
+            <p> © 2024 SummPy. All rights reserved. </p>
+        </div>
+    </div>
+    <img class="dot" src="{{ url_for('static', filename='images/polka.png') }}">
+    <img class="dot1" src="{{ url_for('static', filename='images/polka.png') }}">
+    <img class="dot2" src="{{ url_for('static', filename='images/polka.png') }}">
 </body>
 </html>
