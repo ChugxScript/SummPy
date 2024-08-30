@@ -8,77 +8,71 @@
 </head>
 <body>
     <div class="get-file-pages-container">
-        <form action="">
+        <div class="nav-bar">
+            <a href="{{url_for('get_file.get_file_page')}}" class="back-to-home">Return</a>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class=flashes>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('get_file_pages.get_file_pages_page') }}" method="POST" >
             {% for file in uploaded_files %}
             <h1 class="pdf-title">filename: {{ file }}</h1>
             <div class="pdf-files-container">
                 <div class="display-pdf-pages">
-                    pdf pages will display here
+                    <embed src="{{ url_for('static', filename='uploads/' + file) }}" type="application/pdf">
                 </div>
                 <div class="chapter-container">
                     <h2>Please input the following page number for each chapters.</h2>
                     <div class="chapter">
-                        <label for="{{ file }}_chapter_1">{{ file }}_chapter_1 Chapter 1:</label>
-                        <input type="number" id="{{ file }}_chapter_1" name="{{ file }}_chapter_1" placeholder="Page number">
+                        <label for="{{ file }}_chapter_1">Chapter 1:</label>
+                        <input type="number" id="{{ file }}_chapter_1" name="{{ file }}_chapter_1" placeholder="Page number" required>
                     </div>
                     <div class="chapter">
                         <label for="{{ file }}_chapter_2">Chapter 2:</label>
-                        <input type="number" id="{{ file }}_chapter_2" name="{{ file }}_chapter_2" placeholder="Page number">
+                        <input type="number" id="{{ file }}_chapter_2" name="{{ file }}_chapter_2" placeholder="Page number" required>
                     </div>
                     <div class="chapter">
                         <label for="{{ file }}_chapter_3">Chapter 3:</label>
-                        <input type="number" id="{{ file }}_chapter_3" name="{{ file }}_chapter_3" placeholder="Page number">
+                        <input type="number" id="{{ file }}_chapter_3" name="{{ file }}_chapter_3" placeholder="Page number" required>
                     </div>
                     <div class="chapter">
                         <label for="{{ file }}_chapter_4">Chapter 4:</label>
-                        <input type="number" id="{{ file }}_chapter_4" name="{{ file }}_chapter_4" placeholder="Page number">
+                        <input type="number" id="{{ file }}_chapter_4" name="{{ file }}_chapter_4" placeholder="Page number" required>
                     </div>
                     <div class="chapter">
                         <label for="{{ file }}_chapter_5">Chapter 5:</label>
-                        <input type="number" id="{{ file }}_chapter_5" name="{{ file }}_chapter_5" placeholder="Page number">
+                        <input type="number" id="{{ file }}_chapter_5" name="{{ file }}_chapter_5" placeholder="Page number" required>
+                    </div>
+                    <div class="chapter">
+                        <label for="{{ file }}_bibliography_references">Bibliography or References:</label>
+                        <input type="number" id="{{ file }}_bibliography_references" name="{{ file }}_bibliography_references" placeholder="Page number" required>
                     </div>
                 </div>
             </div>
             {% endfor %}
+
+            <button type="submit">SUBMIT</button>
         </form>
-    </div>
-    
 
-    <!-- <img class="bg" src="{{ url_for('static', filename='images/10.png') }}" alt="main background" width="1920" height="1080">
-
-    <div class="nav-bar">
-        <a href="{{url_for('get_file.get_file_page')}}" class="back-to-home">Return</a>
-    </div> -->
-
-    <!-- <div class="container">
-        <h1>display the file name here</h1>
-        <div class="empty-div">display the fiel pages here</div> 
-        <div class="chapter-container">
-            <div class="chapter">
-                <span>Chapter 1</span>
-                <input type="text" placeholder="PAGE NUMBER">
-            </div>
-            <div class="chapter">
-                <span>Chapter 2</span>
-                <input type="text" placeholder="PAGE NUMBER">
-            </div>
-            <div class="chapter">
-                <span>Chapter 3</span>
-                <input type="text" placeholder="PAGE NUMBER">
-            </div>
-            <div class="chapter">
-                <span>Chapter 4</span>
-                <input type="text" placeholder="PAGE NUMBER">
-            </div>
-            <div class="chapter">
-                <span>Chapter 5</span>
-                <input type="text" placeholder="PAGE NUMBER">
-            </div>
-            <a href="{{url_for('summary_result.summary_result_page')}}"><button class="continue-button">CONTINUE</button></a>
+        <!-- Display the submitted form data -->
+        {% if form_data %}
+        <div class="submitted-data">
+            <h2>Submitted Data:</h2>
+            <ul>
+                {% for key, value in form_data.items() %}
+                <li>{{ key }}: {{ value }}</li>
+                {% endfor %}
+            </ul>
         </div>
-    </div> -->
-
-    
-    
+        {% endif %}
+    </div>
 </body>
 </html>
