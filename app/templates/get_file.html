@@ -7,7 +7,7 @@
     <title>SummPy | 5-pager Summarizer</title>
 </head>
 <body>
-    <img class="bg" src="{{ url_for('static', filename='images/6.png') }}" alt="main background" width="1920" height="1080">
+    <img class="bg" src="{{ url_for('static', filename='images/bg.png') }}" alt="main background" width="1920" height="1080">
 
     <a href="{{url_for('home.home_page')}}" class="back-to-home">Back to Home</a>
 
@@ -33,7 +33,7 @@
     </div>
     {% endif %}
 
-    <button onclick="redirect_to_next_page()" class="summ-btn" id="summ-btn">SUMMARIZE</button>
+        <button onclick="redirect_to_next_page()" class="now" id="summarize">SUMMARIZE</button>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

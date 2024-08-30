@@ -112,29 +112,26 @@ h1 {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-
 .now {
     font-family: Poppins;
     padding: 16px 40px;
-    text-decoration: none;
-    background-color: #dd00d2 ; 
+    background-color: #dd00d2;
     font-size: 26px;
     color: white;
     cursor: pointer;
+    border: none;
+    border-radius: 5px;
     transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Optional: Add rounded corners */
 }
 
 .now:hover {
-   
     background: #4e3361;
-    color: #e4c1ff; /* Change text color on hover */
-    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    color: #e4c1ff;
+    transform: scale(1.05);
 }
 
 .now:active {
-    transform: scale(0.95); /* Slightly shrink the button when clicked */
-    background-color: #3a2449; /* Further darken the background on click */
-    color: #d4a3ff; /* Optional: Change text color on click */
+    transform: scale(0.95);
+    background-color: #3a2449;
+    color: #d4a3ff;
 }
