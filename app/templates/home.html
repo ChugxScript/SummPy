@@ -24,31 +24,21 @@
             <div class="one">
                 <div class="text">
                     <h1 class="purple">IMRAD</h1>
-                    <h1 class="white">Summarizer For Thesis Papers</h1>
+                    <h1 class="white">Summarizer For</h1>
+                    <h1 class="white">Thesis Papers</h1>
                     <p> Lorem ipsum odor amet, consectetuer adipiscing elit. 
                         Turpis hendrerit vivamus condimentum velit arcu nam 
                         dignissim justo blandit.</p>
                 </div>
-                <button> SUMMARIZE NOW </button>
+                <!-- Removed: <button> SUMMARIZE NOW </button> -->
             </div>
 
-            <hr class="header-line">
-
-            <div class="logo-container">
-                <img class="logo" src="{{ url_for('static', filename='images/logo.gif') }}" alt="logo">
-                <a href="{{url_for('get_file.get_file_page')}}"><button class="now" type="button">SUMMARIZE NOW - IT'S FREE</button></a>
+            <div class="second-section" style="display: flex; justify-content: center; align-items: center;">
+                <video src="{{ url_for('static', filename='images/video.mp4') }}" controls style="width: 60%; height: auto; margin: 0 10px;">
+                </video>
             </div>
-
+     
         </div> 
-
-        <div class="second-section" style="display: flex; justify-content: center; align-items: center;">
-            <video src="{{ url_for('static', filename='images/video.mp4') }}" controls style="width: 60%; height: auto; margin: 0 10px;">
-            </video>
-=======
-            <div class="two">
-                <video src="{{ url_for('static', filename='images/video.mp4') }}" autoplay muted> </video>
-            </div>
-        </div>
 
         <div class="second">
             <h1> WHY SUMMPY? </h1>
@@ -58,9 +48,7 @@
                         <span class="purple1">COMPACT</span> SUMMARY WITH 
                         <span class="green">AI</span>
                     </h1>
-                    <p>Lorem ipsum odor amet, consectetuer adipiscing elit. 
-                        Volutpat amet odio curae ultrices proin purus tempus. 
-                        Ad suscipit cursus tristique placerat; laoreet vestibulum est per.
+                    <p>An advanced tool that transforms intricate IMRAD research papers into concise, easy-to-understand summaries. Ideal for students, researchers, and professionals, it leverages AI to make complex scientific content accessible and clear.
                     </p>
                 </div>
                 <div class="pix">
@@ -92,6 +80,7 @@
                     Ad suscipit cursus tristique placerat; laoreet vestibulum est per.
                 </p>
             </div>
+            
             <div class="five">
                 <div class="cons">
                     <h2>Consistency Across Sections</h2>

@@ -12,12 +12,12 @@ body {
     background-color: #09020E;
 }
 
-.header{
+.header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 100px;
+    padding: 20px 5%;
     background: transparent;
     display: flex;
     justify-content: space-between;
@@ -26,22 +26,22 @@ body {
 }
 
 .logo {
-    font-size: 32px;
+    font-size: 3vw; /* Adjusted for larger size */
     color: white;
     text-decoration: none;
     font-weight: 700;
 }
 
-.navbar a{
+.navbar a {
     position: relative;
-    font-size: 18px;
+    font-size: 1.5vw; /* Adjusted for larger size */
     color: white;
     font-weight: 500;
     text-decoration: none;
-    margin-left: 40px;
+    margin-left: 2vw; /* Adjusted margin */
 }
 
-.navbar a::before{
+.navbar a::before {
     content: '';
     position: absolute;
     top: 100%;
@@ -52,7 +52,7 @@ body {
     transition: .3s;
 }
 
-.navbar a:hover::before{
+.navbar a:hover::before {
     width: 100%;
 }
 
@@ -61,162 +61,175 @@ body {
     transition: background-color 0.3s; /* Smooth transition */
 }
 
-.whole{
-    margin:150px;
+.whole {
+    margin: 10vw; /* Adjusted for responsiveness */
     z-index: 10;
     position: relative;
 }
 
-
-.first{
+.first {
     display: flex;
     flex-direction: row;
+    align-items: center; /* Align items vertically */
+    flex-wrap: wrap; /* Allow items to wrap */
 }
 
-.text{
+.one {
+    flex: 1;
+}
+
+.second-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    margin-left: 2vw; /* Adjusted margin */
+}
+
+.second-section video {
+    width: 100%;
+    height: auto;
+    max-width: 100%; /* Ensure responsiveness */
+}
+
+.text {
     display: flex;
     flex: 1;
     flex-direction: column;
     border-bottom: solid white 1px;
 }
 
-.purple{
+.purple {
     color: #500079;
-    font-size: 64px;
+    font-size: 5vw; /* Adjusted for larger size */
     font-weight: 800;
     margin: 0;
 }
 
-.white{
+.white {
     color: white;
-    font-size: 64px;
+    font-size: 5vw; /* Adjusted for larger size */
     font-weight: 800;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-top: 1vw;
+    margin-bottom: 2vw;
 }
 
-.text p{
+.text p {
     color: white;
-    font-size: 20px;
-    margin-bottom: 40px;
+    font-size: 1.5vw; /* Adjusted for larger size */
+    margin-bottom: 2vw;
     line-height: 1.5;
 }
 
-button{
-    margin-top: 35px;
+button {
+    margin-top: 3vw;
     background-color: #500079;
     color: white;
-    padding: 15px 60px;
+    padding: 1vw 3vw;
     font-weight: 500;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
     border-radius: 20px;
-    font-family: 'Poppins';
-    font-size: 24px;
+    font-size: 1.5vw; /* Adjusted for larger size */
 }
 
-button:hover{
+button:hover {
     background: linear-gradient(95deg, #C4FF00, #640F8F);
 }
 
-.two{
+.two {
     display: flex;
-    flex: 0 70%;
-}
-
-.two video{
     flex: 1;
-    display: flex;
-    width: 100%;
-    margin-left: 50px;
-    margin-bottom: 20px;
+    flex-direction: column;
 }
 
-.second{
+.two video {
+    width: 100%;
+    margin: 0;
+}
+
+.second {
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    margin: 2vw;
     justify-content: center;
-    margin-top: 300px;
+    margin-top: 10vw;
 }
 
-.second h1{
+.second h1 {
     color: white;
-    font-size: 64px;
+    font-size: 5vw; /* Adjusted for larger size */
     font-weight: 800;
 }
 
-.three{
+.three {
     display: flex;
     flex: 1;
     flex-direction: row;
     border: solid white 1px;
-    padding: 25px;
+    padding: 2vw;
     border-radius: 20px;
-    margin-bottom: 60px;
+    margin-bottom: 6vw;
     background-color: #09020e77;
 }
 
-
-.string{
+.string {
     display: flex;
-    flex: 0 60%;
+    flex: 1;
     flex-direction: column;
 }
 
-.string h1{
+.string h1 {
     color: white;
-    font-size: 55px;
+    font-size: 3vw; /* Adjusted for larger size */
     font-weight: 800;
     margin: 0;
-    font-family: Poppins;
-    margin-bottom: 20px;
 }
 
-.purple1{
+.purple1 {
     color: #500079;
-    font-size: 55px;
+    font-size: 3vw; /* Adjusted for larger size */
     font-weight: 800;
     margin: 0;
-    font-family: Poppins;
 }
 
-.green{
+.green {
     color: #88EC3A;
-    font-size: 55px;
+    font-size: 3vw; /* Adjusted for larger size */
     font-weight: 800;
-    font-family: Poppins;
 }
 
-.string p{
+.string p {
     color: white;
-    font-size: 20px;
-    margin-bottom: 40px;
+    font-size: 1.5vw; /* Adjusted for larger size */
+    margin-bottom: 2vw;
     line-height: 1.5;
 }
 
-.pix{
+.pix {
     display: flex;
     align-items: center;
     justify-content: center;
     flex: 1;
 }
 
-.fej{
-   display: flex;
-   flex-direction: row;
-   gap: 100px; 
-   width: 100%;
-   justify-content: center;
+.fej {
+    display: flex;
+    flex-direction: row;
+    gap: 5vw; /* Adjusted gap */
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
-.fej img{
-    width: 350px;
+.fej img {
+    width: 100%;
+    max-width: 25vw; /* Adjusted for larger size */
     height: auto;
 }
 
-.fast{
+.fast, .easy, .just {
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -224,32 +237,18 @@ button:hover{
     align-items: center;
     text-align: center;
     background: linear-gradient(#C4FF00, #09020E);
-    border-radius: 20px ;
+    border-radius: 20px;
     border: solid #AEAEAE 1px;
+    padding: 2vw; /* Adjusted padding */
+    margin: 1vw; /* Adjusted margin */
 }
 
-.easy{
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
+.easy {
     background: linear-gradient(#640F8F, #09020E);
-    border-radius: 20px ;
-    border: solid #AEAEAE 1px;
 }
 
-.just{
-    display: flex;
-    flex: 1; 
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
+.just {
     background: linear-gradient(#E26890, #09020E);
-    border-radius: 20px ;
-    border: solid #AEAEAE 1px;
 }
 
 .fast h1, .easy h1, .just h1 {
@@ -257,111 +256,107 @@ button:hover{
     align-self: flex-end; /* Align the text at the bottom */
     width: 100%;
     text-align: center;
+    font-size: 2.5vw; /* Adjusted for larger size */
 }
 
-.fast img, .easy img{
-    margin-top: 70px;
+.fast img, .easy img {
+    margin-top: 2vw;
 }
 
-.third{
+.third {
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    margin: 2vw;
     justify-content: center;
     text-align: center;
-    margin-top: 200px;
+    margin-top: 10vw;
 }
 
 .four {
     display: flex;
-    flex: 1;
     flex-direction: column;
-    padding: 25px;
+    padding: 2vw;
     border-radius: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 3vw;
 }
 
-.four h1{
+.four h1 {
     color: white;
-    font-size: 96px;
+    font-size: 5vw; /* Adjusted for larger size */
     font-weight: 800;
     margin: 0;
     font-family: Poppins;
-    margin-bottom: 5px;
+    margin-bottom: 1vw;
 }
 
-.four p{
+.four p {
     color: white;
-    font-size: 20px;
-    margin-bottom: 40px;
+    font-size: 1.5vw; /* Adjusted for larger size */
+    margin-bottom: 2vw;
     line-height: 1.5;
-    margin-right: 100px;
-    margin-left: 100px;
+    margin-right: 2vw;
+    margin-left: 2vw;
 }
-
 .five {
     display: grid;
-    grid-template-columns: repeat(4, auto);
-    gap: 20px; /* Adjust the gap between the items as needed */
-    padding: 20px;
+    grid-template-columns: repeat(4, 1fr); /* Create 4 equal columns */
+    gap: 2vw; /* Adjust the gap between items */
+    padding: 2vw;
     justify-content: center;
     align-items: center;
-    
 }
 
 .five > div {
     display: flex;
-    width: 300px; 
+    width: 100%;
     height: 150px;
-    flex: 1 1 calc(25% - 16px); /* Four items per row */
     background-color: black; /* Example background color */
     border-radius: 15px; /* Rounded corners */
-    padding: 20px;
+    padding: 2vw;
     text-align: center;
     justify-content: center;
     align-items: center;
     border: 1px #500079 solid;
-    
     box-sizing: border-box; /* Ensures padding is included in the width */
 }
 
-.five h2{
-    font-size: 20px;
+.five h2 {
+    font-size: 1.5vw; /* Adjusted for larger size */
     margin: 0;
     color: #ffffff; /* White text color */
     font-weight: 200;
 }
 
-.fourth{
+.fourth {
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    margin: 2vw;
     justify-content: center;
     text-align: center;
-    margin-top: 200px;
+    margin-top: 10vw;
 }
-.fourth h1{
+
+.fourth h1 {
     color: white;
-    font-size: 96px;
+    font-size: 5vw; /* Adjusted for larger size */
     font-weight: 800;
     margin: 0;
     font-family: Poppins;
-    margin-bottom: 5px;
-
+    margin-bottom: 1vw;
 }
 
-.purple2{
+.purple2 {
     color: #500079;
-    font-size: 96px;
+    font-size: 5vw; /* Adjusted for larger size */
     font-weight: 800;
     margin: 0;
     font-family: Poppins;
-    margin-bottom: 5px;
+    margin-bottom: 1vw;
 }
 
-.footer{
+.footer {
     border-top: solid white 1px;
-    margin-top: 200px;
+    margin-top: 10vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -369,150 +364,185 @@ button:hover{
     color: white;
 }
 
-.footer h1{
-    margin-top: 40px;
+.footer h1 {
+    margin-top: 2vw;
     font-weight: 800;
+    font-size: 2.5vw; /* Adjusted for larger size */
 }
 
-.footer h2{
-    margin-top: 20px;
+.footer h2 {
+    margin-top: 1vw;
     font-weight: 300;
+    font-size: 1.5vw; /* Adjusted for larger size */
 }
 
-.links{
+.links {
     position: relative;
-    font-size: 18px;
+    font-size: 1.5vw; /* Adjusted for larger size */
     color: white;
     font-weight: 500;
     text-decoration: none;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    gap: 50px;
+    justify-content: center;
+    gap: 2vw; /* Adjusted gap */
 }
 
-.links a{
-    margin-top: 100px;
-    position: relative;
-    font-size: 18px;
+.links a {
+    margin-top: 2vw;
+    font-size: 1.5vw; /* Adjusted for larger size */
     color: white;
     font-weight: 500;
     text-decoration: none;
-    margin-bottom: 100px;
 }
 
-.footer p{
-    margin-bottom: 30px;
+.footer p {
+    margin-bottom: 2vw;
 }
 
-.dot{
+.dot {
     position: absolute;
     top: -200px;
     right: -200px;
     z-index: 1;
 }
 
-.dot2{
+.dot2 {
     position: absolute;
     top: 100px;
     left: -200px;
     z-index: 1;
 }
 
-.dot3{
+.dot3 {
     position: absolute;
     top: 800px;
     left: 20px;
     z-index: 1;
 }
 
-.dot3-1{
+.dot3-1 {
     position: absolute;
     top: 1300px;
     right: 300px;
     z-index: 1;
 }
 
-.dot4{
+.dot4 {
     position: absolute;
     top: 2100px;
     right: 20px;
     z-index: 1;
 }
 
-.dot5{
+.dot5 {
     position: absolute;
     top: 2500px;
     left: 20px;
     z-index: 1;
 }
 
-.dot6{
+.dot6 {
     position: absolute;
     top: 3200px;
     right: 20px;
     z-index: 1;
 }
 
-.dot7{
+.dot7 {
     position: absolute;
     top: 4600px;
     left: 150px;
     z-index: 1;
 }
 
-.dot8{
+.dot8 {
     position: absolute;
     top: 5700px;
     right: 400px;
     z-index: 1;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Media Queries for Responsiveness */
-@media (max-width: 1000px) {
-    nav a {
-        font-size: 12px;
-    }
-    .box {
-        width: 100px;
-    }
-} 
-
-@media (max-width: 600px) {
-    nav li {
-        margin-right: 10px;
-    }
-    nav a {
-        font-size: 7px;
-    }
-    .box {
-        width: 50px;
-        padding: 5px;
+@media (max-width: 1200px) {
+    .header {
+        padding: 20px 5%;
     }
     .logo {
-        width: 100%;
+        font-size: 5vw; /* Adjusted for larger size */
     }
-    .now {
-        font-size: 10px;
+    .navbar a {
+        font-size: 2vw; /* Adjusted for larger size */
     }
-}  
+}
+
+@media (max-width: 800px) {
+    .header {
+        padding: 20px 5%;
+    }
+    .logo {
+        font-size: 4vw; /* Adjusted for larger size */
+    }
+    .navbar a {
+        font-size: 1.5vw; /* Adjusted for larger size */
+    }
+    .first {
+        flex-direction: column;
+    }
+    .second-section video {
+        max-width: 100%;
+    }
+    .text {
+        font-size: 2vw; /* Adjusted for larger size */
+    }
+    .fej {
+        flex-direction: column;
+        gap: 3vw; /* Adjusted gap */
+    }
+    .fej img {
+        max-width: 40vw; /* Adjusted for larger size */
+    }
+    .button {
+        font-size: 1.5vw; /* Adjusted for larger size */
+        padding: 1vw 2vw;
+    }
+    .fourth h1 {
+        font-size: 4vw; /* Adjusted for larger size */
+    }
+    @media (max-width: 1200px) {
+        .five {
+            grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+        }
+    }
+    
+    @media (max-width: 800px) {
+        .five {
+            grid-template-columns: repeat(1, 1fr); /* 1 column for small screens */
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        padding: 10px 5%;
+    }
+    .logo {
+        font-size: 3vw; /* Adjusted for larger size */
+    }
+    .navbar a {
+        font-size: 1vw; /* Adjusted for larger size */
+    }
+    .button {
+        font-size: 1vw; /* Adjusted for larger size */
+        padding: 0.8vw 1.6vw;
+    }
+    .text {
+        font-size: 1.2vw; /* Adjusted for larger size */
+    }
+    .fej img {
+        max-width: 30vw; /* Adjusted for larger size */
+    }
+    .fourth h1 {
+        font-size: 3vw; /* Adjusted for larger size */
+    }
+}
