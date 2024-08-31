@@ -10,7 +10,10 @@
 <body>
 
     <header class="header">
-        <a href="#" class="logo"> Logo </a>
+        <a href="{{ url_for('home.home_page') }}" class="logo">
+            <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" class="logo-img">
+        </a>
+        
 
         <nav class="navbar">
             <a href="{{url_for('home.home_page')}}">HOME</a>
@@ -19,24 +22,30 @@
             <a href="{{url_for('donate.donate_page')}}">DONATE</a>
         </nav>
     </header>
+    
     <div class="whole">
         <div class="first">
             <div class="one">
                 <div class="text">
                     <h1 class="purple">IMRAD</h1>
-                    <h1 class="white">Summarizer For</h1>
-                    <h1 class="white">Thesis Papers</h1>
-                    <p> Lorem ipsum odor amet, consectetuer adipiscing elit. 
-                        Turpis hendrerit vivamus condimentum velit arcu nam 
-                        dignissim justo blandit.</p>
+                    <h1 style="line-height: 1.5; color: white;">Summarizer For</h1>
+                    <h1 style="line-height: 1.3; color: white;">Thesis Papers</h1>
+                    <p style="text-align: justify;">
+                        SUMMPY swiftly summarizes academic papers and research articles in the 
+                        IMRAD format (Introduction, Methods, Results, Discussion). 
+                        It highlights key points, making it easier to grasp the 
+                        main ideas without the need to read lengthy documents.
+                    </p>
+                    
                 </div>
                 <!-- Removed: <button> SUMMARIZE NOW </button> -->
             </div>
 
             <div class="second-section" style="display: flex; justify-content: center; align-items: center;">
-                <video src="{{ url_for('static', filename='images/video.mp4') }}" controls style="width: 60%; height: auto; margin: 0 10px;">
+                <video src="{{ url_for('static', filename='images/video.mp4') }}" controls autoplay style="width: 100%; height: auto; margin: 0 10px;">
                 </video>
             </div>
+            
      
         </div> 
 
@@ -48,7 +57,7 @@
                         <span class="purple1">COMPACT</span> SUMMARY WITH 
                         <span class="green">AI</span>
                     </h1>
-                    <p>An advanced tool that transforms intricate IMRAD research papers into concise, easy-to-understand summaries. Ideal for students, researchers, and professionals, it leverages AI to make complex scientific content accessible and clear.
+                    <p style="text-align: justify;">An advanced tool that transforms intricate IMRAD research papers into concise, easy-to-understand summaries. Ideal for students, researchers, and professionals, it leverages AI to make complex scientific content accessible and clear.
                     </p>
                 </div>
                 <div class="pix">
@@ -80,7 +89,7 @@
                     Ad suscipit cursus tristique placerat; laoreet vestibulum est per.
                 </p>
             </div>
-            
+
             <div class="five">
                 <div class="cons">
                     <h2>Consistency Across Sections</h2>
@@ -115,7 +124,10 @@
         </div>
 
         <div class="footer">
-            <h1> LOGO </h1>
+            <a href="{{ url_for('home.home_page') }}" class="logo">
+                <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" style="width: 200px; height: 200px; object-fit: contain;">
+            </a>
+            
             <h2> IMRAD Document Summarizer</h2>
 
             <div class="links">

@@ -17,7 +17,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 5%;
+    padding: 1px 5%;
     background: transparent;
     display: flex;
     justify-content: space-between;
@@ -26,17 +26,21 @@ body {
 }
 
 .logo {
-    font-size: 3vw; /* Adjusted for larger size */
-    color: white;
-    text-decoration: none;
-    font-weight: 700;
+    font-size: 1vw; 
 }
+
+.logo-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
 
 .navbar a {
     position: relative;
-    font-size: 1.5vw; /* Adjusted for larger size */
+    font-size: 1vw; /* Adjusted for larger size */
     color: white;
-    font-weight: 500;
+    font-weight: 700;
     text-decoration: none;
     margin-left: 2vw; /* Adjusted margin */
 }
@@ -98,6 +102,11 @@ body {
     flex-direction: column;
     border-bottom: solid white 1px;
 }
+
+.text h1 {
+    font-size: 4vw; /* Scales with viewport width, e.g., 4% of the viewport's width */
+}
+
 
 .purple {
     color: #500079;
