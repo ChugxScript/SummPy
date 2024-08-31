@@ -43,6 +43,7 @@ body {
     font-weight: 700;
     text-decoration: none;
     margin-left: 2vw; /* Adjusted margin */
+    transition: color 0.3s; /* Smooth transition for color change */
 }
 
 .navbar a::before {
@@ -52,8 +53,12 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: white;
-    transition: .3s;
+    background: #88EC3A;
+    transition: width 0.3s; /* Smooth transition for underline */
+}
+
+.navbar a:hover {
+    color: #ae00ff; /* Color change on hover */
 }
 
 .navbar a:hover::before {
@@ -130,22 +135,7 @@ body {
     line-height: 1.5;
 }
 
-button {
-    margin-top: 3vw;
-    background-color: #500079;
-    color: white;
-    padding: 1vw 3vw;
-    font-weight: 500;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 20px;
-    font-size: 1.5vw; /* Adjusted for larger size */
-}
 
-button:hover {
-    background: linear-gradient(95deg, #C4FF00, #640F8F);
-}
 
 .two {
     display: flex;
@@ -385,6 +375,7 @@ button:hover {
     font-size: 1.5vw; /* Adjusted for larger size */
 }
 
+/* Container for links */
 .links {
     position: relative;
     font-size: 1.5vw; /* Adjusted for larger size */
@@ -397,13 +388,58 @@ button:hover {
     gap: 2vw; /* Adjusted gap */
 }
 
+/* Individual link styling */
 .links a {
     margin-top: 2vw;
-    font-size: 1.5vw; /* Adjusted for larger size */
+    font-size: 1.2vw; /* Adjusted for larger size */
     color: white;
     font-weight: 500;
     text-decoration: none;
+    position: relative; /* Positioning context for the pseudo-element */
+    opacity: 0; /* Start hidden for fade-in effect */
+    transform: translateY(20px); /* Start off slightly down for slide effect */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth transition for hover */
 }
+
+/* Animated underline pseudo-element */
+.links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Adjust as needed */
+    width: 0;
+    height: 2px; /* Thickness of the underline */
+    background: #C4FF00; /* Color of the underline */
+    transition: width 0.3s ease; /* Smooth transition for underline */
+}
+
+/* Hover effects */
+.links a:hover {
+    color: #ae00ff; /* Change color on hover */
+    transform: translateY(0); /* Slide up to original position */
+    opacity: 1; /* Fade in */
+}
+
+.links a:hover::after {
+    width: 100%; /* Expand underline on hover */
+}
+
+/* Animation on page load */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.links a {
+    animation: fadeInUp 0.5s ease forwards; /* Apply fade-in and slide-up effect */
+}
+
 
 .footer p {
     margin-bottom: 2vw;
@@ -546,12 +582,30 @@ button:hover {
         padding: 0.8vw 1.6vw;
     }
     .text {
-        font-size: 1.2vw; /* Adjusted for larger size */
+        font-size: 1.2vw; 
     }
     .fej img {
-        max-width: 30vw; /* Adjusted for larger size */
+        max-width: 30vw; 
     }
     .fourth h1 {
-        font-size: 3vw; /* Adjusted for larger size */
+        font-size: 3vw; 
     }
 }
+
+.sum-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.5vw;
+    color: white;
+    background-color: #500079;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 20px; /* Space between paragraph and button */
+}
+
+.sum-button:hover {
+    background: linear-gradient(95deg, #C4FF00, #640F8F);
+    transform: scale(1.05); /* Slightly scale up the button on hover */
+}
+
