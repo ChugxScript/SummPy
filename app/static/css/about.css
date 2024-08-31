@@ -1,71 +1,292 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
-.first-section {
-    position: relative;
-    background-image: url('../images/bg.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0; 
-    padding: 0; 
+body {
+    height: 100vh;
+    background-color: #09020E;
 }
 
-.nav-box-container {
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 5%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.navbar a {
+    position: relative;
+    font-size: 1rem;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    transition: color 0.3s;
+}
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #88EC3A;
+    transition: width 0.3s;
+}
+
+.navbar a:hover {
+    color: #ae00ff;
+}
+
+.navbar a:hover::before {
+    width: 100%;
+}
+
+.navbar.scrolled {
+    background-color: rgba(134, 38, 38, 0.8);
+    transition: background-color 0.3s;
+}
+
+.whole {
+    margin: 5vw;
+    z-index: 10;
+    position: relative;
+}
+
+.first {
     display: flex;
     flex-direction: column;
-    height: 10vh;
-    position: relative;
-}
-
-nav ul {
-    display: flex;
-    list-style-type: none;
-    justify-content: flex-end;
     align-items: center;
-    padding: 0;
-    margin: 0;
+    padding: 5% 5%;
 }
 
-nav li {
-    margin-right: 50px;
-}
-
-nav a {
+.text-container {
+    text-align: center;
+    padding: 0 5%;
     color: white;
-    text-decoration: none;
+}
+
+:root {
+    --neon-color: #88EC3A;
+    --viola-color: #500079;
+}
+
+.viola-text {
+    font-size: 2.5rem;
     font-weight: bold;
+    color: var(--viola-color);
+    margin: 10px 0;
+    line-height: 1.5;
 }
 
-.box {
-    margin-top: 30px;
-    width: 165px;
-    height: 45px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-    background: linear-gradient(95deg, rgba(255, 255, 255, 0.11), rgba(0, 0, 0, 0.021));
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+.follow-text {
+    font-size: 3rem;
+    margin: 0;
+    line-height: 1;
+    color: white;
+    padding: 0 5%;
 }
 
-.box:hover {
-    background: linear-gradient(95deg, #C4FF00, #640F8F);
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3);
+.neon-text {
+    padding: 0 5%;
+    font-size: 10rem;
+    font-weight: bold;
+    color: var(--neon-color);
+    margin: 20px 0;
+    line-height: 1;
 }
 
-.header-line {
+/* Media Queries */
+@media (max-width: 1024px) {
+    .logo-img {
+        width: 80px;
+        height: 80px;
+    }
+    .navbar a {
+        font-size: 0.9rem;
+        margin-left: 1rem;
+    }
+    .follow-text {
+        font-size: 1.2rem;
+    }
+    .neon-text {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-img {
+        width: 60px;
+        height: 60px;
+    }
+    .navbar a {
+        font-size: 0.8rem;
+        margin-left: 0.8rem;
+    }
+    .follow-text {
+        font-size: 1rem;
+    }
+    .neon-text {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        width: 50px;
+        height: 50px;
+    }
+    .navbar a {
+        font-size: 0.7rem;
+        margin-left: 0.5rem;
+    }
+    .follow-text {
+        font-size: 0.9rem;
+    }
+    .neon-text {
+        font-size: 2.5rem;
+    }
+}
+
+/* Responsive Image Styling */
+.steps-image {
     width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, #928f94, #724b8f);
-    opacity: 75%;
+    height: auto;
+    max-width: 1700px;
+    margin-top: -20px;
+}
+
+@media (max-width: 1024px) {
+    .steps-image {
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    .steps-image {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .steps-image {
+        max-width: 300px;
+    }
+}
+
+.features-image {
+    width: 100%;
+    height: auto;
+    max-width: 1700px;
+    display: block;
+    margin: 20px auto; /* Center image and add spacing */
+}
+
+@media (max-width: 1024px) {
+    .features-image {
+        max-width: 800px;
+    }
+}
+
+@media (max-width: 768px) {
+    .features-image {
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 480px) {
+    .features-image {
+        max-width: 100%;
+    }
+}
+
+/* Dot Image Styling */
+.dot, .dot2, .dot3, .dot3-1 {
+    position: absolute;
+    z-index: -1;
+}
+
+.dot {
+    top: -200px;
+    right: -200px;
+}
+
+.dot2 {
+    top: 100px;
+    left: -200px;
+}
+
+.dot3 {
+    top: 800px;
+    left: 20px;
+}
+
+.dot3-1 {
+    top: 1300px;
+    right: 300px;
+}
+
+/* Second Section Styling */
+.second {
+    padding: 20px;
+    text-align: left;
+}
+
+.second .neon-text {
+    font-size: 10rem; /* Default size */
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.second .features-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px 0; /* Add margin for spacing */
+}
+
+/* Media Queries for .second section */
+@media (max-width: 1024px) {
+    .second .neon-text {
+        font-size: 4rem; /* Adjust font size */
+    }
+    .second .features-image {
+        max-width: 800px; /* Adjust maximum width */
+    }
+}
+
+@media (max-width: 768px) {
+    .second .neon-text {
+        font-size: 3rem; /* Further reduce font size */
+    }
+    .second .features-image {
+        max-width: 600px; /* Adjust maximum width */
+    }
+}
+
+@media (max-width: 480px) {
+    .second .neon-text {
+        font-size: 2rem; /* Further reduce font size */
+    }
+    .second .features-image {
+        max-width: 100%; /* Ensure the image scales with the container */
+    }
 }
