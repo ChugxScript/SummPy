@@ -17,7 +17,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 10px 5%;
+    padding: 1px 5%;
     background: transparent;
     display: flex;
     justify-content: space-between;
@@ -34,6 +34,7 @@ body {
     height: 150px;
     object-fit: cover; /* Ensures the image covers the area without distortion */
 }
+
 
 .navbar a {
     position: relative;
@@ -68,6 +69,7 @@ body {
     background-color: rgba(134, 38, 38, 0.8); /* Adjust the color and transparency as needed */
     transition: background-color 0.3s; /* Smooth transition */
 }
+
 
 .whole {
     margin: 10vw;
@@ -250,14 +252,14 @@ body {
 
 .dot4 {
     position: absolute;
-    top: 2100px;
+    top: 2000px;
     right: 20px;
     z-index: 1;
 }
 
 .dot5 {
     position: absolute;
-    top: 2500px;
+    top: 2100px;
     left: 20px;
     z-index: 1;
 }
