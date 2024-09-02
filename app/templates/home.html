@@ -35,14 +35,13 @@
                         IMRAD format (Introduction, Methods, Results, Discussion). 
                         It highlights key points, making it easier to grasp the 
                         main ideas without the need to read lengthy documents.
-                    </p>
-                    
+                    </p>   
                 </div>
-                <!-- Removed: <button> SUMMARIZE NOW </button> -->
+                    <a href="{{url_for('get_file.get_file_page')}}" class="sum-button">SUMMARIZE NOW - IT'S FREE</a>
             </div>
 
             <div class="second-section" style="display: flex; justify-content: center; align-items: center;">
-                <video src="{{ url_for('static', filename='images/video.mp4') }}" controls autoplay style="width: 100%; height: auto; margin: 0 10px;">
+                <video src="{{ url_for('static', filename='images/video.mp4') }}" controls autoplay muted style="width: 100%; height: auto; margin: 0 10px;">
                 </video>
             </div>
             
@@ -84,9 +83,7 @@
         <div class="third">
             <div class="four">
                 <h1>ONE TOOL INFINITE CLARITY</h1>
-                <p>Lorem ipsum odor amet, consectetuer adipiscing elit. 
-                    Volutpat amet odio curae ultrices proin purus tempus. 
-                    Ad suscipit cursus tristique placerat; laoreet vestibulum est per.
+                <p>Turning complex research into concise understanding — your gateway to simplified knowledge.
                 </p>
             </div>
 
@@ -141,6 +138,7 @@
         </div>
 
     </div>
+
     <img class="dot" src="{{ url_for('static', filename='images/polka.png') }}">
     <img class="dot2" src="{{ url_for('static', filename='images/polka.png') }}">
     <img class="dot3" src="{{ url_for('static', filename='images/polka.png') }}">

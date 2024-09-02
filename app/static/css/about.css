@@ -25,20 +25,24 @@ body {
     z-index: 100;
 }
 
+.logo {
+    font-size: 1vw; 
+}
+
 .logo-img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
 }
 
 .navbar a {
     position: relative;
-    font-size: 1rem;
+    font-size: 1vw; /* Adjusted for larger size */
     color: white;
     font-weight: 700;
     text-decoration: none;
-    margin-left: 1.5rem;
-    transition: color 0.3s;
+    margin-left: 2vw; /* Adjusted margin */
+    transition: color 0.3s; /* Smooth transition for color change */
 }
 
 .navbar a::before {
@@ -49,11 +53,11 @@ body {
     width: 0;
     height: 2px;
     background: #88EC3A;
-    transition: width 0.3s;
+    transition: width 0.3s; /* Smooth transition for underline */
 }
 
 .navbar a:hover {
-    color: #ae00ff;
+    color: #ae00ff; /* Color change on hover */
 }
 
 .navbar a:hover::before {
@@ -61,21 +65,21 @@ body {
 }
 
 .navbar.scrolled {
-    background-color: rgba(134, 38, 38, 0.8);
-    transition: background-color 0.3s;
+    background-color: rgba(134, 38, 38, 0.8); /* Adjust the color and transparency as needed */
+    transition: background-color 0.3s; /* Smooth transition */
 }
 
 .whole {
-    margin: 5vw;
+    margin: 10vw;
     z-index: 10;
     position: relative;
 }
 
 .first {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 5% 5%;
+    flex-direction: row;
+    align-items: center; /* Align items vertically */
+    flex-wrap: wrap; /* Allow items to wrap */
 }
 
 .text-container {
@@ -244,6 +248,20 @@ body {
     right: 300px;
 }
 
+.dot4 {
+    position: absolute;
+    top: 2100px;
+    right: 20px;
+    z-index: 1;
+}
+
+.dot5 {
+    position: absolute;
+    top: 2500px;
+    left: 20px;
+    z-index: 1;
+}
+
 /* Second Section Styling */
 .second {
     padding: 20px;
@@ -290,3 +308,96 @@ body {
         max-width: 100%; /* Ensure the image scales with the container */
     }
 }
+
+.footer {
+    border-top: solid white 1px;
+    margin-top: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.footer h1 {
+    margin-top: 2vw;
+    font-weight: 800;
+    font-size: 2.5vw; /* Adjusted for larger size */
+}
+
+.footer h2 {
+    margin-top: 1vw;
+    font-weight: 300;
+    font-size: 1.5vw; /* Adjusted for larger size */
+}
+
+/* Container for links */
+.links {
+    position: relative;
+    font-size: 1.5vw; /* Adjusted for larger size */
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2vw; /* Adjusted gap */
+}
+
+/* Individual link styling */
+.links a {
+    margin-top: 2vw;
+    font-size: 1.2vw; /* Adjusted for larger size */
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    position: relative; /* Positioning context for the pseudo-element */
+    opacity: 0; /* Start hidden for fade-in effect */
+    transform: translateY(20px); /* Start off slightly down for slide effect */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth transition for hover */
+}
+
+/* Animated underline pseudo-element */
+.links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Adjust as needed */
+    width: 0;
+    height: 2px; /* Thickness of the underline */
+    background: #C4FF00; /* Color of the underline */
+    transition: width 0.3s ease; /* Smooth transition for underline */
+}
+
+/* Hover effects */
+.links a:hover {
+    color: #ae00ff; /* Change color on hover */
+    transform: translateY(0); /* Slide up to original position */
+    opacity: 1; /* Fade in */
+}
+
+.links a:hover::after {
+    width: 100%; /* Expand underline on hover */
+}
+
+/* Animation on page load */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.links a {
+    animation: fadeInUp 0.5s ease forwards; /* Apply fade-in and slide-up effect */
+}
+
+
+.footer p {
+    margin-bottom: 2vw;
+}
+
