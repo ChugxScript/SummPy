@@ -7,8 +7,12 @@
     <title>Donate</title>
 </head>
 <body>
+
     <header class="header">
-        <a href="#" class="logo"> Logo </a>
+        <a href="{{ url_for('home.home_page') }}" class="logo">
+            <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" class="logo-img">
+        </a>
+        
 
         <nav class="navbar">
             <a href="{{url_for('home.home_page')}}">HOME</a>
@@ -17,6 +21,7 @@
             <a href="{{url_for('donate.donate_page')}}">DONATE</a>
         </nav>
     </header>
+    
     <div class="whole">
         <h1 class="whole2">THANK YOU <span>FOR YOUR KINDNESS</span></h1>
         <div class="kind">

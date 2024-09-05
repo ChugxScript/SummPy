@@ -22,7 +22,7 @@
     </header>
 
 <div class="whole">
-            
+            <!-- 1st section -->
             <div class="first">
                 <div class="text-container">
                     <p class="follow-text">FOLLOW OUR</p>
@@ -31,35 +31,42 @@
                         <span style="color: #500079">BASIC</span> 
                         <span style="color: white;">STEPS</span>
                     </p>
-                    <img src="{{ url_for('static', filename='images/steps.png') }}" alt="steps" class="steps-image">
+                     <img src="{{ url_for('static', filename='images/steps.png') }}" alt="steps" class="steps-image">
                 </div>
             </div>
+            <!-- end -->
+          
+            <!-- 2nd section -->
+            <div class="second">
+               <div>
+                 <p class="neon-text">
+                        <span style="color: white; font-size: 6rem;">ADDITIONAL</span> 
+                        <span style="color: #500079; font-size: 6rem;" >FEATURES</span>
+                        <span style="color: #ffffff; font-size: 6rem;" >THAT YOU CAN TRY</span>
+                </p>
+               </div>
             
-        <div class="second">
-            <p class="neon-text">
-                    <span style="color: white; font-size: 6rem;">ADDITIONAL</span> 
-                    <span style="color: #500079; font-size: 6rem;" >FEATURES</span>
-            </p>
-            <p class="neon-text" style="color: white; font-size: 6rem;">THAT YOU CAN TRY</p>
-            <img src="{{ url_for('static', filename='images/features.png') }}" alt="features" class="features-image" style="margin-top: -100px;">
-        </div>
+                <img src="{{ url_for('static', filename='images/features.png') }}" alt="features" class="features-image" style="margin-top: -100px;">
+            </div>
+            <!-- end -->
 
-        <div class="footer">
-            <a href="{{ url_for('home.home_page') }}" class="logo">
-                <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" style="width: 200px; height: 200px; object-fit: contain;">
-            </a>
-            
-            <h2> IMRAD Document Summarizer</h2>
+            <div class="footer">
+                <a href="{{ url_for('home.home_page') }}" class="logo">
+                    <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" style="width: 200px; height: 200px; object-fit: contain;">
+                </a>
+                
+                <h2> IMRAD Document Summarizer</h2>
 
-            <div class="links">
-                <a href="{{url_for('home.home_page')}}">HOME</a>
-                <a href="{{url_for('about.about_page')}}">HOW TO USE</a>
-                <a href="{{url_for('get_started.get_started_page')}}">ABOUT US</a>
-                <a href="{{url_for('donate.donate_page')}}">DONATE</a>
+                <div class="links">
+                    <a href="{{url_for('home.home_page')}}">HOME</a>
+                    <a href="{{url_for('about.about_page')}}">HOW TO USE</a>
+                    <a href="{{url_for('get_started.get_started_page')}}">ABOUT US</a>
+                    <a href="{{url_for('donate.donate_page')}}">DONATE</a>
+                </div>
+
+                <p> © 2024 SummPy. All rights reserved. </p>
             </div>
 
-            <p> © 2024 SummPy. All rights reserved. </p>
-        </div>
 </div>
 
     <img class="dot" src="{{ url_for('static', filename='images/polka.png') }}">

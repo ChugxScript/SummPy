@@ -12,61 +12,73 @@ body {
     background-color: #09020E;
 }
 
-.header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 100px;
-    background: transparent;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-}
 
-.logo {
-    font-size: 32px;
-    color: white;
-    text-decoration: none;
-    font-weight: 700;
-}
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1px 5%;
+        background: transparent;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+    }
 
-.navbar a{
-    position: relative;
-    font-size: 18px;
-    color: white;
-    font-weight: 500;
-    text-decoration: none;
-    margin-left: 40px;
-}
+    .logo {
+        font-size: 1vw; 
+    }
 
-.navbar a::before{
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: white;
-    transition: .3s;
-}
+    .logo-img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover; /* Ensures the image covers the area without distortion */
+    }
 
-.navbar a:hover::before{
-    width: 100%;
-}
 
-.navbar.scrolled {
-    background-color: rgba(134, 38, 38, 0.8); /* Adjust the color and transparency as needed */
-    transition: background-color 0.3s; /* Smooth transition */
-}
+    .navbar a {
+        position: relative;
+        font-size: 1vw; /* Adjusted for larger size */
+        color: white;
+        font-weight: 700;
+        text-decoration: none;
+        margin-left: 2vw; /* Adjusted margin */
+        transition: color 0.3s; /* Smooth transition for color change */
+    }
 
-.whole {
-    margin: 150px;
-    text-align: center;
-    position: relative;
-    z-index: 10;
-}
+    .navbar a::before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #88EC3A;
+        transition: width 0.3s; /* Smooth transition for underline */
+    }
+
+    .navbar a:hover {
+        color: #ae00ff; /* Color change on hover */
+    }
+
+    .navbar a:hover::before {
+        width: 100%;
+    }
+
+    .navbar.scrolled {
+        background-color: rgba(134, 38, 38, 0.8); /* Adjust the color and transparency as needed */
+        transition: background-color 0.3s; /* Smooth transition */
+    }
+
+
+    .whole {
+        position: relative;
+        margin: 150px auto;
+        text-align: center;
+        z-index: 10;
+    }
+
 
 .whole2{
     font-size: 96px;

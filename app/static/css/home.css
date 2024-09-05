@@ -508,18 +508,6 @@
             z-index: 1;
         }
 
-        /* Media Queries for Responsiveness */
-        @media (max-width: 1200px) {
-            .header {
-                padding: 20px 5%;
-            }
-            .logo {
-                font-size: 5vw; /* Adjusted for larger size */
-            }
-            .navbar a {
-                font-size: 2vw; /* Adjusted for larger size */
-            }
-        }
 
         @media (max-width: 800px) {
             .header {
