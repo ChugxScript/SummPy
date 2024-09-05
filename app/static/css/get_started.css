@@ -153,54 +153,98 @@
     }
 
 
-    .footer{
+    .footer {
         border-top: solid white 1px;
-        margin-top: 200px;
+        margin-top: 10vw;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         color: white;
-        margin-left: 75px;
-        margin-right: 75px;
     }
 
-    .footer h1{
-        font-size: 40px;
-        margin-top: 20px;
+    .footer h1 {
+        margin-top: 2vw;
         font-weight: 800;
+        font-size: 2.5vw; /* Adjusted for larger size */
     }
 
-    .footer h2{
-        font-size: 20px;
+    .footer h2 {
+        margin-top: 1vw;
         font-weight: 300;
+        font-size: 1.5vw; /* Adjusted for larger size */
     }
 
-    .links{
+    /* Container for links */
+    .links {
         position: relative;
-        font-size: 18px;
+        font-size: 1.5vw; /* Adjusted for larger size */
         color: white;
         font-weight: 500;
         text-decoration: none;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        gap: 50px;
+        justify-content: center;
+        gap: 2vw; /* Adjusted gap */
     }
 
-    .links a{
-        margin-top: 100px;
-        position: relative;
-        font-size: 18px;
+    /* Individual link styling */
+    .links a {
+        margin-top: 2vw;
+        font-size: 1.2vw; /* Adjusted for larger size */
         color: white;
         font-weight: 500;
         text-decoration: none;
-        margin-bottom: 100px;
+        position: relative; /* Positioning context for the pseudo-element */
+        opacity: 0; /* Start hidden for fade-in effect */
+        transform: translateY(20px); /* Start off slightly down for slide effect */
+        transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth transition for hover */
     }
 
-    .footer p{
-        margin-bottom: 30px;
+    /* Animated underline pseudo-element */
+    .links a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -5px; /* Adjust as needed */
+        width: 0;
+        height: 2px; /* Thickness of the underline */
+        background: #C4FF00; /* Color of the underline */
+        transition: width 0.3s ease; /* Smooth transition for underline */
     }
+
+    /* Hover effects */
+    .links a:hover {
+        color: #ae00ff; /* Change color on hover */
+        transform: translateY(0); /* Slide up to original position */
+        opacity: 1; /* Fade in */
+    }
+
+    .links a:hover::after {
+        width: 100%; /* Expand underline on hover */
+    }
+
+    /* Animation on page load */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .links a {
+        animation: fadeInUp 0.5s ease forwards; /* Apply fade-in and slide-up effect */
+    }
+
+
+    .footer p {
+        margin-bottom: 2vw;
+    }
+
 
     .dot{
         position: absolute;

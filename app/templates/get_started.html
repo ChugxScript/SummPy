@@ -110,7 +110,10 @@
         </div>
     
         <div class="footer">
-            <h1> LOGO </h1>
+            <a href="{{ url_for('home.home_page') }}" class="logo">
+                <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" style="width: 200px; height: 200px; object-fit: contain;">
+            </a>
+            
             <h2> IMRAD Document Summarizer</h2>
 
             <div class="links">
