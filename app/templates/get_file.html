@@ -26,12 +26,11 @@
 
             <!-- 1st section -->
             <div class="first">
-                <div class="text-container" style="text-align: left; padding-left: 0;">
-                    <p class="neon-text" style="font-size: 3rem; font-weight: bold; color: white; white-space: nowrap; margin-left: 0;">
+                <div class="text-container" style="padding-left: 0;">
+                    <p class="neon-text" style="font-weight: bold; color: white; white-space: nowrap; margin-left: 0;">
                         <span style="color: #500079;">UPLOAD</span> YOUR DOCUMENT
                     </p>
                 </div>
-            </div>
             
             <!-- end -->
              
@@ -63,7 +62,7 @@
                 check_uploaded_files();
     
                 fileInput.addEventListener('change', function() {
-                    if (fileInput.files.length > 0) {
+                    if (fileInput.files.length > 0) {   
                         // Auto-submit the form
                         this.form.submit();
                     } 
@@ -94,6 +93,11 @@
             }
         </script>
 
+    </div>
 </div>
+
+    <img class="dot" src="{{ url_for('static', filename='images/polka.png') }}">
+    <img class="dot2" src="{{ url_for('static', filename='images/polka.png') }}">
+
 </body>
 </html>
