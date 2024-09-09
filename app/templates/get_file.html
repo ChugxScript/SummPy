@@ -22,18 +22,61 @@
         </nav>
     </header>
 
-<div class="whole">
+    <div class="whole">
+        <!-- first container -->
+         <!-- title -->
+          <div class="title-container">
+            <h1><span class="titlePurple">Upload</span> your document</h1>
 
-            <!-- 1st section -->
-            <div class="first">
+          </div>
+
+
+        <!-- second container -->
+         <!-- upload containers -->
+          <div class="upload-container">
+            <!-- this is where the user upload the file -->
+            <div class="file-upload-container">
+                <p class="file-upload-text1">Select or Drop a file</p>
+                <p class="file-upload-text2">We support .pdf, .doc, .docx files up to 100 MB</p>
+            </div>
+
+            <!-- this is where the file uploads will appear -->
+            <div class="file-content-container">
+                <div class="file-content-card">
+                    <p class="file-name">FILENAMEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE</p>
+
+                    <!-- delete button -->
+                    <div class="file-delete-button">
+                        <p>X</p>
+                    </div>
+                </div>
+            </div>
+
+          </div>
+
+        <!-- third container -->
+         <!-- buttons container -->
+          <div class="buttons-container">
+                <!-- back button -->
+                 <div id="backButton">
+                    <p>BACK</p>
+                 </div>
+
+                <!-- next button -->
+                 <div id="nextButton">
+                    <p>NEXT</p>
+                 </div>
+          </div>
+
+
+            <!-- <div class="first">
                 <div class="text-container" style="padding-left: 0;">
                     <p class="neon-text" style="font-weight: bold; color: white; white-space: nowrap; margin-left: 0;">
                         <span style="color: #500079;">UPLOAD</span> YOUR DOCUMENT
                     </p>
                 </div>
             
-            <!-- end -->
-             
+                     
         <form action="{{ url_for('get_file.get_file_page') }}" method="POST" enctype="multipart/form-data">
             <div class="upload-box" id="upload-box">
                 <span>Select or Drop a file</span>
@@ -42,7 +85,6 @@
             </div>
         </form>
     
-        <!-- show the uploaded file here -->
         {% if uploaded_files %}
         <div class="uploaded-file">
             <h2>Uploaded File:</h2>
@@ -63,12 +105,11 @@
     
                 fileInput.addEventListener('change', function() {
                     if (fileInput.files.length > 0) {   
-                        // Auto-submit the form
                         this.form.submit();
                     } 
                 });
     
-                // Display flash messages as alerts
+               
                 const flashMessage = "{{ get_flashed_messages()[0] }}";
                 if (flashMessage) {
                     alert(flashMessage);
@@ -93,8 +134,8 @@
             }
         </script>
 
+    </div> -->
     </div>
-</div>
 
     <img class="dot" src="{{ url_for('static', filename='images/polka.png') }}">
     <img class="dot2" src="{{ url_for('static', filename='images/polka.png') }}">

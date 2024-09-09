@@ -7,15 +7,235 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.get-file-pages-container{
-    background-image: url('../images/10.png');
-    background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat; 
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: #09020E;
     color: white;
+}
+
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1px 5%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1vw; 
+}
+
+.logo-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+
+.navbar a {
+    position: relative;
+    font-size: 1vw; /* Adjusted for larger size */
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 2vw; /* Adjusted margin */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #88EC3A;
+    transition: width 0.3s; /* Smooth transition for underline */
+}
+
+.navbar a:hover {
+    color: #ae00ff; /* Color change on hover */
+}
+
+.navbar a:hover::before {
+    width: 100%;
+}
+
+.navbar.scrolled {
+    background-color: rgba(134, 38, 38, 0.8); /* Adjust the color and transparency as needed */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+
+.get-file-pages-container{
+    display: flex;
+    flex-direction: column; 
+    margin-top: 5%;
+    padding-left: 10%;  
+    padding-right: 10%;
+    height: 100vh;
+    z-index: 100;
+    /* border: white 1px solid; */
+}
+
+
+.title-container h1{
+    font-size: 45px;
+}
+
+.titlePurple{
+    color: #500079;
+}
+
+.display-content-container{
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    padding: 10px;
+    height: 100vh;
+    max-height: 100vh;
+    gap: 10px;
+    border-radius: 20px;
+    border: white 3px solid;
+    background-color: #09020E;
+    z-index: 10;
+}
+
+.get-file-content-page{
+    display: flex;
+    flex-direction: row;
+    height: 800px;
+    flex-shrink: 0;
+    padding: 10px;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    border: white 1px solid;
+    border-radius: 20px;
+}
+
+.display-pdf-container{
+    display: flex;
+    flex: 1;
+    height: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: white 1px solid;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.get-file-pages-container2{
+    display: flex;
+    flex-direction: column;
+    flex: 0 30%;
+    height: 100%;
+    padding: 40px;
+    border: white 1px solid;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.file-name-p{
+    font-size: 50px;
+    margin-bottom: 40px;
+}
+
+.chapter {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    align-items: center;
+    /* border: white 1px solid; */
+}
+
+.chapter label{
+    display: flex;
+    flex: 1;
+    font-size: 30px;
+    margin-right: 20px;
+}
+
+.chapter input[type="number"]{
+    display: flex;
+    flex: 0 40%;
+    font-size: 20px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #E26890;
+    color: #ffffff;
+    text-align: center;
+}
+
+.chapter input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+} 
+
+#errorMessage{
+    text-align: center;
+    color: red;
+}
+
+.buttons-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     padding: 20px;
 }
 
+#backButton{
+    width: 30%;
+    padding: 20px;
+    text-align: center;
+    border-radius: 50px;
+    cursor: pointer;
+    border: white 1px solid;
+}
+
+#backButton:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#nextButton{
+    width: 30%;
+    padding: 20px;
+    text-align: center;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: #4B1174;
+}
+
+#nextButton:hover{
+    background-color: rgba(122, 73, 157, 0.3);
+}
+
+.dot {
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    z-index: 1;
+}
+
+.dot2 {
+    position: absolute;
+    top: 100px;
+    left: -200px;
+    z-index: 1;
+}
+
+/* 
 .nav-bar {
     width: 100%;
     display: flex;
@@ -84,4 +304,4 @@
 
 .chapter input::placeholder {
     color: #ffffff;
-}
+} */
