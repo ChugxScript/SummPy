@@ -10,131 +10,230 @@
 body {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     height: 100vh;
     margin: 0;
-    background-color: #1b0b1a;
+    background-color: #09020E;
     color: white;
-    position: relative;
 }
 
-.bg {
-    position: absolute;
+
+.header {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    padding: 1px 5%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1vw; 
+}
+
+.logo-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+
+.navbar a {
+    position: relative;
+    font-size: 1vw; /* Adjusted for larger size */
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 2vw; /* Adjusted margin */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #88EC3A;
+    transition: width 0.3s; /* Smooth transition for underline */
+}
+
+.navbar a:hover {
+    color: #ae00ff; /* Color change on hover */
+}
+
+.navbar a:hover::before {
+    width: 100%;
+}
+
+.navbar.scrolled {
+    background-color: rgba(134, 38, 38, 0.8); /* Adjust the color and transparency as needed */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.whole {
+    display: flex;
+    flex-direction: column; 
+    margin-top: 10%;
+    padding-left: 10%;  
+    padding-right: 10%;
+    height: 78vh;
+    /* border: white 1px solid; */
+}
+
+.title-container h1{
+    font-size: 60px;
+}
+
+.titlePurple{
+    color: #500079;
+}
+
+.upload-container{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
     height: 100%;
-    z-index: -1;
+    gap: 10px;
 }
 
-h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+.file-upload-container{
+    display: flex;  
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    cursor: pointer;
+    border: white 2px dashed;
 }
 
-.upload-box {
-    border: 2px dashed #bdb0d0;
-    padding: 60px;
+.file-upload-container:hover{
+    background-color: rgba(80, 0, 121, 0.5);
+}
+
+.file-upload-text1{
+    font-size: 30px;
+}
+
+.file-upload-text2{
+    font-weight: bold;
+}
+
+.file-content-container{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    border-radius: 20px;
+    overflow-y: auto;
+    padding: 10px;
+    border: white 2px solid;
+}
+
+.file-content-card{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    
+    align-items: center;
     border-radius: 10px;
-    margin-bottom: 20px;
-    position: relative;
-    width: 500px;
-    height: 300px;
-    text-align: center;
+    border: white 1px solid;
 }
 
-.upload-box:hover {
-    border-color: #C4FF00;
+.file-name{
+    word-wrap: break-word;  
+    overflow-wrap: break-word;
+    word-break: break-all;  
+    max-width: 100%;  
+    margin-right: 20px;
 }
 
-.upload-box input {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    cursor: pointer;
+.file-delete-button{
+    background-color: #500079;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
 }
-
-.upload-box h3 {
-    margin: 0;
-    font-size: 14px;
+.file-delete-button p{
     color: white;
 }
 
-.upload-box span {
-    display: block;
-    margin-top: 50px;
-    font-size: 22px;
-    color: #bdb0d0;
+.buttons-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
 }
 
-.upload-box h1 {
-    display: block;
-    margin-top: 10px;
-    font-size: 22px;
-    color: #bdb0d0;
-}
-
-.summ-btn {
-    margin-top: 20px;
-    padding: 16px 40px;
-    text-decoration: none;
-    background: #5a3a6e;
-    font-size: 26px;
-    color: black;
+#backButton{
+    width: 30%;
+    padding: 20px;
+    text-align: center;
+    border-radius: 50px;
     cursor: pointer;
-    transition: color 0.3s ease;
+    border: white 1px solid;
 }
 
-.summ-btn:hover {
-    background:  rgb(208, 255, 0);
-    color:#5a3a6e   ;
-}
-
-.back-to-home {
-    position: absolute;
-    top: 80px;
-    left: 80px;
-    font-size: 18px;
-    color: #c4ff00;
-    text-decoration: none;
-}
-
-.back-to-home:hover {
-    color: #dd00d2;
-}
-
-.upload-box.dragover {
-    border-color: #5a3a6e;
+#backButton:hover{
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-
-.now {
-    font-family: Poppins;
-    padding: 16px 40px;
-    text-decoration: none;
-    background-color: #dd00d2 ; 
-    font-size: 26px;
-    color: white;
+#nextButton{
+    width: 30%;
+    padding: 20px;
+    text-align: center;
+    border-radius: 50px;
     cursor: pointer;
-    transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Optional: Add rounded corners */
+    background-color: #4B1174;
 }
 
-.now:hover {
-   
-    background: #4e3361;
-    color: #e4c1ff; /* Change text color on hover */
-    transform: scale(1.05); /* Slightly enlarge the button on hover */
+#nextButton:hover{
+    background-color: rgba(122, 73, 157, 0.3);
 }
 
-.now:active {
-    transform: scale(0.95); /* Slightly shrink the button when clicked */
-    background-color: #3a2449; /* Further darken the background on click */
-    color: #d4a3ff; /* Optional: Change text color on click */
+
+/* Dot Image Styling */
+.dot, .dot2, .dot3 {
+    position: absolute;
+    z-index: -10;
+}
+
+.dot {
+    top: -200px;
+    right: -100px;
+}
+
+.dot2 {
+    top: 100px;
+    left: -200px;
+}
+
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 1200px) {
+    .file-upload-text1{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .file-upload-text1{
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .file-upload-text1{
+        font-size: 10px;
+    }
 }

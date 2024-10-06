@@ -8,35 +8,84 @@
 </head>
 
 <body>
-    <div class="home-container">
-        <div class="first-section">
-            <div class="nav-box-container">
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="{{url_for('home.home_page')}}" class="box">
-                                HOME
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{url_for('about.about_page')}}" class="box">
-                                HOW TO USE
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{url_for('get_started.get_started_page')}}" class="box">
-                                ABOUT US
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{url_for('donate.donate_page')}}" class="box">
-                                DONATE
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <hr class="header-line">
-</body>
+    <header class="header">
+        <a href="{{ url_for('home.home_page') }}" class="logo">
+            <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" class="logo-img">
+        </a>
+        
+        <nav class="navbar">
+            <a href="{{url_for('home.home_page')}}">HOME</a>
+            <a href="{{url_for('about.about_page')}}">HOW TO USE</a>
+            <a href="{{url_for('get_started.get_started_page')}}">ABOUT US</a>
+            <a href="{{url_for('donate.donate_page')}}">DONATE</a>
+        </nav>
+    </header>
 
+<div class="whole">
+            <!-- 1st section -->
+            <div class="first">
+                <div class="text-container">
+                    <p class="follow-text">FOLLOW OUR</p>
+                    <p class="neon-text">
+                        <span style="color: white;">3</span> 
+                        <span style="color: #500079">BASIC</span> 
+                        <span style="color: white;">STEPS</span>
+                    </p>
+                     <img src="{{ url_for('static', filename='images/steps.png') }}" alt="steps" class="steps-image">
+                </div>
+            </div>
+            <!-- end -->
+          
+            <!-- 2nd section -->
+            <div class="second">
+               <div>
+                 <p class="neon-text">
+                        <span style="color: white; font-size: 6rem;">ADDITIONAL</span> 
+                        <span style="color: #500079; font-size: 6rem;" >FEATURES</span>
+                        <span style="color: #ffffff; font-size: 6rem;" >THAT YOU CAN TRY</span>
+                </p>
+               </div>
+            
+                <img src="{{ url_for('static', filename='images/features.png') }}" alt="features" class="features-image" style="margin-top: -100px;">
+            </div>
+            <!-- end -->
+
+            <div class="footer">
+                <a href="{{ url_for('home.home_page') }}" class="logo">
+                    <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" style="width: 200px; height: 200px; object-fit: contain;">
+                </a>
+                
+                <h2> IMRAD Document Summarizer</h2>
+
+                <div class="links">
+                    <a href="{{url_for('home.home_page')}}">HOME</a>
+                    <a href="{{url_for('about.about_page')}}">HOW TO USE</a>
+                    <a href="{{url_for('get_started.get_started_page')}}">ABOUT US</a>
+                    <a href="{{url_for('donate.donate_page')}}">DONATE</a>
+                </div>
+
+                <p> © 2024 SummPy. All rights reserved. </p>
+            </div>
+
+</div>
+
+    <img class="dot" src="{{ url_for('static', filename='images/polka.png') }}">
+    <img class="dot2" src="{{ url_for('static', filename='images/polka.png') }}">
+    <img class="dot3" src="{{ url_for('static', filename='images/polka.png') }}">
+    <img class="dot3-1" src="{{ url_for('static', filename='images/polka.png') }}">
+    <img class="dot4" src="{{ url_for('static', filename='images/polka.png') }}">
+    <img class="dot5" src="{{ url_for('static', filename='images/polka.png') }}">
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+</body>
 </html>

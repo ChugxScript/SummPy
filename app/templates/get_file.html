@@ -7,69 +7,138 @@
     <title>SummPy | 5-pager Summarizer</title>
 </head>
 <body>
-    <img class="bg" src="{{ url_for('static', filename='images/bg.png') }}" alt="main background" width="1920" height="1080">
 
-    <a href="{{url_for('home.home_page')}}" class="back-to-home">Back to Home</a>
+    <header class="header">
+        <a href="{{ url_for('home.home_page') }}" class="logo">
+            <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" class="logo-img">
+        </a>
+        
 
-    <h1>Upload your document</h1>
+        <nav class="navbar">
+            <a href="{{url_for('home.home_page')}}">HOME</a>
+            <a href="{{url_for('about.about_page')}}">HOW TO USE</a>
+            <a href="{{url_for('get_started.get_started_page')}}">ABOUT US</a>
+            <a href="{{url_for('donate.donate_page')}}">DONATE</a>
+        </nav>
+    </header>
 
-    <form action="{{ url_for('get_file.get_file_page') }}" method="POST" enctype="multipart/form-data">
-        <div class="upload-box" id="upload-box">
-            <span>Select or Drop a file</span>
-            <h3>We support .pdf, .doc, .docx files up to 100 MB</h3>
-            <input type="file" id="file-input" name="file" required>
+    <div class="whole">
+        <!-- first container -->
+         <!-- title -->
+          <div class="title-container">
+            <h1><span class="titlePurple">Upload</span> your document</h1>
+
+          </div>
+
+
+        <!-- second container -->
+         <!-- upload containers -->
+          <div class="upload-container">
+            <!-- this is where the user upload the file -->
+            <div class="file-upload-container">
+                <p class="file-upload-text1">Select or Drop a file</p>
+                <p class="file-upload-text2">We support .pdf, .doc, .docx files up to 100 MB</p>
+            </div>
+
+            <!-- this is where the file uploads will appear -->
+            <div class="file-content-container">
+                <div class="file-content-card">
+                    <p class="file-name">FILENAMEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE</p>
+
+                    <!-- delete button -->
+                    <div class="file-delete-button">
+                        <p>X</p>
+                    </div>
+                </div>
+            </div>
+
+          </div>
+
+        <!-- third container -->
+         <!-- buttons container -->
+          <div class="buttons-container">
+                <!-- back button -->
+                 <div id="backButton">
+                    <p>BACK</p>
+                 </div>
+
+                <!-- next button -->
+                 <div id="nextButton">
+                    <p>NEXT</p>
+                 </div>
+          </div>
+
+
+            <!-- <div class="first">
+                <div class="text-container" style="padding-left: 0;">
+                    <p class="neon-text" style="font-weight: bold; color: white; white-space: nowrap; margin-left: 0;">
+                        <span style="color: #500079;">UPLOAD</span> YOUR DOCUMENT
+                    </p>
+                </div>
+            
+                     
+        <form action="{{ url_for('get_file.get_file_page') }}" method="POST" enctype="multipart/form-data">
+            <div class="upload-box" id="upload-box">
+                <span>Select or Drop a file</span>
+                <h3>We support .pdf, .doc, .docx files up to 100 MB</h3>
+                <input type="file" id="file-input" name="file" required>
+            </div>
+        </form>
+    
+        {% if uploaded_files %}
+        <div class="uploaded-file">
+            <h2>Uploaded File:</h2>
+            <ul>
+                {% for file in uploaded_files %}
+                <li><a href="{{ url_for('static', filename='uploads/' ~ file) }}" target="_blank">{{ file }}</a></li>
+                {% endfor %}
+            </ul>
         </div>
-    </form>
-
-    <!-- show the uploaded file here -->
-    {% if uploaded_files %}
-    <div class="uploaded-file">
-        <h2>Uploaded File:</h2>
-        <ul>
-            {% for file in uploaded_files %}
-            <li><a href="{{ url_for('static', filename='uploads/' ~ file) }}" target="_blank">{{ file }}</a></li>
-            {% endfor %}
-        </ul>
-    </div>
-    {% endif %}
-
-    <button onclick="redirect_to_next_page()" class="summ-btn" id="summ-btn">SUMMARIZE</button>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const fileInput = document.getElementById('file-input');
-            check_uploaded_files();
-
-            fileInput.addEventListener('change', function() {
-                if (fileInput.files.length > 0) {
-                    // Auto-submit the form
-                    this.form.submit();
-                } 
+        {% endif %}
+    
+            <button onclick="redirect_to_next_page()" class="now" id="summarize">SUMMARIZE</button>
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const fileInput = document.getElementById('file-input');
+                check_uploaded_files();
+    
+                fileInput.addEventListener('change', function() {
+                    if (fileInput.files.length > 0) {   
+                        this.form.submit();
+                    } 
+                });
+    
+               
+                const flashMessage = "{{ get_flashed_messages()[0] }}";
+                if (flashMessage) {
+                    alert(flashMessage);
+                }
             });
-
-            // Display flash messages as alerts
-            const flashMessage = "{{ get_flashed_messages()[0] }}";
-            if (flashMessage) {
-                alert(flashMessage);
+    
+            function check_uploaded_files(){
+                const uploadedFiles = JSON.parse('{{ uploaded_files|tojson|safe }}');
+                const submitButton = document.getElementById('summ-btn');
+                if (uploadedFiles.length > 0) {
+                    console.log("Uploaded files:", uploadedFiles);
+                    submitButton.style.backgroundColor = '#c4ff00';
+                    submitButton.disabled = false;
+                } else {
+                    submitButton.style.backgroundColor = '#e26890';
+                    submitButton.disabled = true;
+                }
             }
-        });
-
-        function check_uploaded_files(){
-            const uploadedFiles = JSON.parse('{{ uploaded_files|tojson|safe }}');
-            const submitButton = document.getElementById('summ-btn');
-            if (uploadedFiles.length > 0) {
-                console.log("Uploaded files:", uploadedFiles);
-                submitButton.style.backgroundColor = '#c4ff00';
-                submitButton.disabled = false;
-            } else {
-                submitButton.style.backgroundColor = '#e26890';
-                submitButton.disabled = true;
+    
+            function redirect_to_next_page(){
+                window.location.href = "{{ url_for('get_file_pages.get_file_pages_page') }}";
             }
-        }
+        </script>
 
-        function redirect_to_next_page(){
-            window.location.href = "{{ url_for('get_file_pages.get_file_pages_page') }}";
-        }
-    </script>
+    </div> -->
+    </div>
+
+    <img class="dot" src="{{ url_for('static', filename='images/polka.png') }}">
+    <img class="dot2" src="{{ url_for('static', filename='images/polka.png') }}">
+
 </body>
 </html>

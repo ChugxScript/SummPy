@@ -37,19 +37,19 @@ def summary_result_page():
 	uploaded_files = []
 	results = []
 
-	if request.method == 'GET':
-		uploaded_files = get_uploaded_files()
+	# if request.method == 'GET':
+	# 	uploaded_files = get_uploaded_files()
 
-		# get the IMRAD summary
-		summarizer = SummPy()
-		results = summarizer.generate_summaries()
+	# 	# get the IMRAD summary
+	# 	summarizer = SummPy()
+	# 	results = summarizer.generate_summaries()
 
-		# make pdfs
-		for i, result in enumerate(results):
-			pdf_filename = f"summary_{uploaded_files[i]}"
-			generate_pdf(result, pdf_filename)
+	# 	# make pdfs
+	# 	for i, result in enumerate(results):
+	# 		pdf_filename = f"summary_{uploaded_files[i]}"
+	# 		generate_pdf(result, pdf_filename)
 
-		summarized_folder = get_summarized_files()
+	# 	summarized_folder = get_summarized_files()
       
       
 	return render_template('summary_result.html', summarized_folder=summarized_folder, summary_result=results)

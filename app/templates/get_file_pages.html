@@ -7,12 +7,126 @@
     <title>SummPy | 5-pager Summarizer</title>
 </head>
 <body>
+    <header class="header">
+        <a href="{{ url_for('home.home_page') }}" class="logo">
+            <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" class="logo-img">
+        </a>
+        
+
+        <nav class="navbar">
+            <a href="{{url_for('home.home_page')}}">HOME</a>
+            <a href="{{url_for('about.about_page')}}">HOW TO USE</a>
+            <a href="{{url_for('get_started.get_started_page')}}">ABOUT US</a>
+            <a href="{{url_for('donate.donate_page')}}">DONATE</a>
+        </nav>
+    </header>
+    
     <div class="get-file-pages-container">
-        <div class="nav-bar">
-            <a href="{{url_for('get_file.get_file_page')}}" class="back-to-home">Return</a>
+        <!-- first container -->
+         <!-- title -->
+         <div class="title-container">
+            <h1>
+                Please <span class="titlePurple">input</span> 
+                    the following <span class="titlePurple">page number</span> for 
+                    <span class="titlePurple">each chapters</span>
+            </h1>
+
+          </div>
+
+        <!-- second container -->
+         <!-- display content containers -->
+        <div class="display-content-container">
+            <!-- dynamically display the files here -->
+            <div class="get-file-content-page">
+                <!-- pdf container -->
+                 <div class="display-pdf-container">
+                    <p>Display pdf file here</p>
+                 </div>
+
+                <!-- get file pages container -->
+                 <div class="get-file-pages-container2">
+                    <p class="file-name-p">FILENAME.pdf</p>
+
+                    <!-- get chapters pages inputs -->
+                    <div class="chapter">
+                        <label for="{{ file }}_chapter_1">Chapter 1  : </label>
+                        <input 
+                            type="number" 
+                            id="{{ file }}_chapter_1" 
+                            name="{{ file }}_chapter_1" 
+                            placeholder="Page Number" 
+                            required>
+                    </div>
+                    <div class="chapter">
+                        <label for="{{ file }}_chapter_2">Chapter 2 : </label>
+                        <input 
+                            type="number" 
+                            id="{{ file }}_chapter_2" 
+                            name="{{ file }}_chapter_2" 
+                            placeholder="Page Number" 
+                            required>
+                    </div>
+                    <div class="chapter">
+                        <label for="{{ file }}_chapter_3">Chapter 3 : </label>
+                        <input 
+                            type="number" 
+                            id="{{ file }}_chapter_3" 
+                            name="{{ file }}_chapter_3" 
+                            placeholder="Page Number" 
+                            required>
+                    </div>
+                    <div class="chapter">
+                        <label for="{{ file }}_chapter_4">Chapter 4 : </label>
+                        <input 
+                            type="number" 
+                            id="{{ file }}_chapter_4" 
+                            name="{{ file }}_chapter_4" 
+                            placeholder="Page Number" 
+                            required>
+                    </div>
+                    <div class="chapter">
+                        <label for="{{ file }}_chapter_5">Chapter 5 : </label>
+                        <input 
+                            type="number" 
+                            id="{{ file }}_chapter_5" 
+                            name="{{ file }}_chapter_5" 
+                            placeholder="Page Number" 
+                            required>
+                    </div>
+                    <div class="chapter">
+                        <label for="{{ file }}_bibliography_references">Bibliography or References : </label>
+                        <input 
+                            type="number" 
+                            id="{{ file }}_bibliography_references" 
+                            name="{{ file }}_bibliography_references" 
+                            placeholder="Page Number" 
+                            required>
+                    </div>
+                 </div>
+            </div>
+
         </div>
 
-        {% with messages = get_flashed_messages() %}
+          <!-- error message -->
+           <p id="errorMessage">sample error message</p>
+
+         <!-- third container -->
+         <!-- buttons container -->
+         <div class="buttons-container">
+            <!-- back button -->
+             <div id="backButton">
+                <p>BACK</p>
+             </div>
+
+            <!-- next button -->
+             <div id="nextButton">
+                <p>SUMMARIZE</p>
+             </div>
+        </div>
+
+        
+
+        <!-- {% with messages = get_flashed_messages() %}
             {% if messages %}
                 <ul class=flashes>
                     {% for message in messages %}
@@ -62,7 +176,7 @@
             <button type="submit">SUBMIT</button>
         </form>
 
-        <!-- Display the submitted form data -->
+        
         {% if form_data %}
         <div class="submitted-data">
             <h2>Submitted Data:</h2>
@@ -72,7 +186,10 @@
                 {% endfor %}
             </ul>
         </div>
-        {% endif %}
+        {% endif %} -->
     </div>
+
+    <img class="dot" src="{{ url_for('static', filename='images/polka.png') }}">
+    <img class="dot2" src="{{ url_for('static', filename='images/polka.png') }}">
 </body>
 </html>
