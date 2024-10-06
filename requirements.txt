@@ -7,3 +7,6 @@ torch
 torchvision 
 torchaudio
 pypdfium2
+scikit-learn
+nltk
+psutil
