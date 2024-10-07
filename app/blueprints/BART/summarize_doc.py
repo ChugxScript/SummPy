@@ -37,7 +37,7 @@ class SummPy:
                 # Define chapters with start and end page numbers
                 chapters = [
                     (chapter_1_page - 1, chapter_2_page - 1, pages),
-                    (chapter_2_page - 1, chapter_3_page - 1, pages),
+                    #(chapter_2_page - 1, chapter_3_page - 1, pages),
                     (chapter_3_page - 1, chapter_4_page - 1, pages),
                     (chapter_4_page - 1, chapter_5_page - 1, pages),
                     (chapter_5_page - 1, end_page - 1, pages)

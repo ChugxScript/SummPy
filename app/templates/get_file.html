@@ -7,138 +7,117 @@
     <title>SummPy | 5-pager Summarizer</title>
 </head>
 <body>
-
-    <header class="header">
-        <a href="{{ url_for('home.home_page') }}" class="logo">
-            <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" class="logo-img">
-        </a>
-        
-
-        <nav class="navbar">
-            <a href="{{url_for('home.home_page')}}">HOME</a>
-            <a href="{{url_for('about.about_page')}}">HOW TO USE</a>
-            <a href="{{url_for('get_started.get_started_page')}}">ABOUT US</a>
-            <a href="{{url_for('donate.donate_page')}}">DONATE</a>
-        </nav>
-    </header>
-
-    <div class="whole">
-        <!-- first container -->
-         <!-- title -->
-          <div class="title-container">
-            <h1><span class="titlePurple">Upload</span> your document</h1>
-
-          </div>
-
-
-        <!-- second container -->
-         <!-- upload containers -->
-          <div class="upload-container">
-            <!-- this is where the user upload the file -->
-            <div class="file-upload-container">
-                <p class="file-upload-text1">Select or Drop a file</p>
-                <p class="file-upload-text2">We support .pdf, .doc, .docx files up to 100 MB</p>
+    <div class="get-file-main-container">
+        <div class="header">
+            <a href="{{ url_for('home.home_page') }}">
+                <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" class="logo-img">
+            </a>
+            <div class="navbar">
+                <a href="{{url_for('home.home_page')}}">HOME</a>
+                <a href="{{url_for('how_to_use.how_to_use_page')}}">HOW TO USE</a>
+                <a href="{{url_for('about_us.about_us_page')}}">ABOUT US</a>
+                <a href="{{url_for('donate.donate_page')}}">DONATE</a>
             </div>
+        </div>
+
+        <div class="title-container">
+            <h1><span class="titlePurple">Upload</span> your document</h1>
+        </div>
+
+        <div class="upload-container">
+            <!-- this is where the user upload the file -->
+            <form action="{{ url_for('get_file.upload_files') }}" method="POST" enctype="multipart/form-data" class="file-upload-container" id="dropDownForm">
+                <input type="file" id="fileInput" name="file" accept=".pdf,.doc,.docx" multiple required>
+                <p class="file-upload-text1">Select or Drop a file</p>
+                <p class="file-upload-text2">We support .pdf files</p>
+            </form>
 
             <!-- this is where the file uploads will appear -->
             <div class="file-content-container">
-                <div class="file-content-card">
-                    <p class="file-name">FILENAMEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE</p>
-
-                    <!-- delete button -->
-                    <div class="file-delete-button">
-                        <p>X</p>
-                    </div>
-                </div>
+                {% if uploaded_files %}
+                    {% for file in uploaded_files %}
+                        <div class="file-content-card">
+                            <p class="file-name">{{ file }}</p>
+                            <div class="file-delete-button" onclick="removeFile('{{ file }}')"><p>X</p></div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="file-content-container-p">No files uploaded yet.</p>
+                {% endif %}
             </div>
-
-          </div>
-
-        <!-- third container -->
-         <!-- buttons container -->
-          <div class="buttons-container">
-                <!-- back button -->
-                 <div id="backButton">
-                    <p>BACK</p>
-                 </div>
-
-                <!-- next button -->
-                 <div id="nextButton">
-                    <p>NEXT</p>
-                 </div>
-          </div>
-
-
-            <!-- <div class="first">
-                <div class="text-container" style="padding-left: 0;">
-                    <p class="neon-text" style="font-weight: bold; color: white; white-space: nowrap; margin-left: 0;">
-                        <span style="color: #500079;">UPLOAD</span> YOUR DOCUMENT
-                    </p>
-                </div>
-            
-                     
-        <form action="{{ url_for('get_file.get_file_page') }}" method="POST" enctype="multipart/form-data">
-            <div class="upload-box" id="upload-box">
-                <span>Select or Drop a file</span>
-                <h3>We support .pdf, .doc, .docx files up to 100 MB</h3>
-                <input type="file" id="file-input" name="file" required>
-            </div>
-        </form>
-    
-        {% if uploaded_files %}
-        <div class="uploaded-file">
-            <h2>Uploaded File:</h2>
-            <ul>
-                {% for file in uploaded_files %}
-                <li><a href="{{ url_for('static', filename='uploads/' ~ file) }}" target="_blank">{{ file }}</a></li>
-                {% endfor %}
-            </ul>
         </div>
-        {% endif %}
-    
-            <button onclick="redirect_to_next_page()" class="now" id="summarize">SUMMARIZE</button>
-    
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <p class="error-message">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="buttons-container">
+            <div id="backButton" onclick="goBack()">
+                <p>BACK</p>
+            </div>
+
+            <div id="nextButton" onclick="redirectToNextPage()">
+                <p>NEXT</p>
+            </div>
+        </div>
+
         <script>
             document.addEventListener('DOMContentLoaded', () => {
-                const fileInput = document.getElementById('file-input');
-                check_uploaded_files();
-    
-                fileInput.addEventListener('change', function() {
-                    if (fileInput.files.length > 0) {   
-                        this.form.submit();
-                    } 
+                const dropDownForm = document.getElementById("dropDownForm");
+                const fileInput = document.getElementById('fileInput');
+                submitForm();
+
+                dropDownForm.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    dropDownForm.classList.add('dragover');
+                });
+
+                dropDownForm.addEventListener('dragleave', () => {
+                    dropDownForm.classList.remove('dragover');
                 });
     
-               
-                const flashMessage = "{{ get_flashed_messages()[0] }}";
-                if (flashMessage) {
-                    alert(flashMessage);
-                }
+                // On file input change, enable the "Next" button if files are selected
+                fileInput.addEventListener('change', function() {
+                    dropDownForm.classList.remove('dragover');
+                    this.form.submit();
+                });
             });
     
-            function check_uploaded_files(){
+            // Check if there are uploaded files and enable the "Next" button accordingly
+            function submitForm() {
                 const uploadedFiles = JSON.parse('{{ uploaded_files|tojson|safe }}');
-                const submitButton = document.getElementById('summ-btn');
+                const nextButton = document.getElementById('nextButton');
                 if (uploadedFiles.length > 0) {
                     console.log("Uploaded files:", uploadedFiles);
-                    submitButton.style.backgroundColor = '#c4ff00';
-                    submitButton.disabled = false;
+                    nextButton.style.backgroundColor = '#4B1174';
+                    nextButton.disabled = false;
                 } else {
-                    submitButton.style.backgroundColor = '#e26890';
-                    submitButton.disabled = true;
+                    nextButton.style.backgroundColor = '#360c53a1';
+                    nextButton.disabled = true;
                 }
             }
     
-            function redirect_to_next_page(){
-                window.location.href = "{{ url_for('get_file_pages.get_file_pages_page') }}";
+            function removeFile(fileName) {
+                window.location.href = `{{ url_for('get_file.remove_file') }}?file=${fileName}`;
+            }
+
+            function goBack() {
+                window.history.back(); 
+            }
+
+            function redirectToNextPage(){
+                const nextButton = document.getElementById('nextButton');
+                if(!nextButton.disabled){
+                    window.location.href = "{{ url_for('get_file_pages.get_file_pages_page') }}";
+                }
             }
         </script>
-
-    </div> -->
     </div>
-
     <img class="dot" src="{{ url_for('static', filename='images/polka.png') }}">
     <img class="dot2" src="{{ url_for('static', filename='images/polka.png') }}">
-
 </body>
 </html>

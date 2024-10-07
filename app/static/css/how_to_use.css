@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
     overflow-x: hidden;
+    height: 100vh;
     background-color: #09020E;
 }
-
 
 .header {
     position: fixed;
@@ -29,7 +29,7 @@ body {
 .logo-img {
     width: 100px;
     height: 100px;
-    object-fit: cover; 
+    object-fit: cover;
 }
 
 .navbar a {
@@ -39,7 +39,7 @@ body {
     font-weight: 700;
     text-decoration: none;
     margin-left: 2vw; 
-    transition: color 0.3s;
+    transition: color 0.3s; 
 }
 
 .navbar a::before {
@@ -66,84 +66,82 @@ body {
     transition: background-color 0.3s; 
 }
 
-.donate-main-container {
-    margin: 10vw; 
+.how-to-use-main-container {
+    margin: 10vw;
     z-index: 10;
     position: relative;
     margin-bottom: 0;
 }
 
-.donate-main-container-h1{
-    font-size: 70px;
-    font-weight: 800;
-    color: #500079;
-    margin-bottom: 20px;
+/* **************************************** */
+.first-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    color: white;
 }
 
-.donate-main-container-h1 span {
-    font-size: 70px;
-    color: #ffffff;
+.text-container-follow-text {
+    font-size: 2vw;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1;
+    margin-bottom: 1vw;
+}
+
+.text-container-neon-text {
+    font-size: 7vw;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1;
+    margin-bottom: 1vw;
+}
+
+.span-white-1{
+    color: white;
+}
+
+.span-violet-1{
+    color: #500079
+}
+
+.text-container-steps-image {
+    width: 100%;
+    height: auto;
 }
 
 /* **************************************** */
-.donate-main-container-content{
+.second-container {
     display: flex;
-    flex-direction: row;
-    border: solid #A8A8A8 1px;
-    padding: 25px;
-    height: 90vh;
-    border-radius: 20px;
-    margin-bottom: 60px;
-    margin-left: 100px;
-    margin-right: 100px;
-    background: linear-gradient(30deg, #C89BF0, #270C3A);
-}
-
-.donate-main-container-text-content{
-    display: flex;
-    flex: 0 50%;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 25px;
+    margin-top: 5vw;
 }
 
-.donate-main-container-text-content img{
-    width: 120px;
-    height: 120px;
+.second-container-neon-text {
+    font-size: 5vw;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 1vw;
+    margin-top: 2vw;
+    text-align: left;
 }
 
-.h1-text-1{
-    color: white;
-    font-size: 24px;
-    font-weight: 300;
-    margin: 0;
-    font-family: Poppins;
-    margin-bottom: 20px;
+.span-white-2{
+    color: white; 
+    font-size: 6rem;
 }
 
-.h1-text-2{
-    color: white;
-    font-size: 24px;
-    font-weight: 300;
-    margin: 0;
-    font-family: Poppins;
-    margin-bottom: 20px;
+.span-violet-2{
+    color: #500079; 
+    font-size: 6rem;
 }
 
-.donate-main-container-gcash-content{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    background-color: #D9D9D9;
-    padding: 100px;
-    border-radius: 25px;
-}
-
-.donate-main-container-gcash-content img{
-    width: 350px;
-    height: 500px;
+.second-container-features-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px 0; 
 }
 
 /* **************************************** */
@@ -227,21 +225,42 @@ body {
     }
 }
 
-.dot{
+/* **************************************** */
+.dot, .dot2, .dot3, .dot3-1 {
     position: absolute;
-    top: -200px;
-    right: -200px;
-    z-index: 1;
+    z-index: -1;
 }
-.dot1{
-    position: absolute;
+
+.dot {
+    top: -200px;
+    right: -100px;
+}
+
+.dot2 {
     top: 100px;
     left: -200px;
+}
+
+.dot3 {
+    top: 500px;
+    left:900px;
+}
+
+.dot3-1 {
+    top: 900px;
+    right: 850px;
+}
+
+.dot4 {
+    position: absolute;
+    top: 1400px;
+    right: 70px;
     z-index: 1;
 }
-.dot2{
+
+.dot5 {
     position: absolute;
-    top: 700px;
-    right: 200px;
+    top: 1700px;
+    left: 20px;
     z-index: 1;
 }

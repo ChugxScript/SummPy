@@ -7,55 +7,50 @@
     <title>Donate</title>
 </head>
 <body>
-
-    <header class="header">
-        <a href="{{ url_for('home.home_page') }}" class="logo">
-            <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" class="logo-img">
-        </a>
-        
-
-        <nav class="navbar">
-            <a href="{{url_for('home.home_page')}}">HOME</a>
-            <a href="{{url_for('about.about_page')}}">HOW TO USE</a>
-            <a href="{{url_for('get_started.get_started_page')}}">ABOUT US</a>
-            <a href="{{url_for('donate.donate_page')}}">DONATE</a>
-        </nav>
-    </header>
-    
-    <div class="whole">
-        <h1 class="whole2">THANK YOU <span>FOR YOUR KINDNESS</span></h1>
-        <div class="kind">
-            <div class="verse">
-                <img src="{{ url_for('static', filename='images/icon.png') }}">
-                <h1 class="proverbs"> Proverbs 11:25 </h1>
-                <h1 class="generous"> "A generous person will prosper; whoever refreshes others will be refreshed."</h1>
+    <div class="donate-main-container">
+        <div class="header">
+            <a href="{{ url_for('home.home_page') }}">
+                <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" class="logo-img">
+            </a>
+            <div class="navbar">
+                <a href="{{url_for('home.home_page')}}">HOME</a>
+                <a href="{{url_for('how_to_use.how_to_use_page')}}">HOW TO USE</a>
+                <a href="{{url_for('about_us.about_us_page')}}">ABOUT US</a>
+                <a href="{{url_for('donate.donate_page')}}">DONATE</a>
             </div>
-            <div class="gcash">
+        </div>
+
+        <h1 class="donate-main-container-h1">THANK YOU <span>FOR YOUR KINDNESS</span></h1>
+        <div class="donate-main-container-content">
+            <div class="donate-main-container-text-content">
+                <img src="{{ url_for('static', filename='images/icon.png') }}">
+                <h1 class="h1-text-1"> Proverbs 11:25 </h1>
+                <h1 class="h1-text-2"> "A generous person will prosper; whoever refreshes others will be refreshed."</h1>
+            </div>
+            <div class="donate-main-container-gcash-content">
                 <img src="{{ url_for('static', filename='images/gcash.png') }}">
             </div>
         </div>
-        <div class="footer">
+
+        <div class="footer-container">
             <a href="{{ url_for('home.home_page') }}" class="logo">
-                <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" style="width: 200px; height: 200px; object-fit: contain;">
+                <img src="{{ url_for('static', filename='images/LOGO.gif') }}" class="logo-img">
             </a>
             
             <h2> IMRAD Document Summarizer</h2>
 
-            <div class="links">
+            <div class="links-footer">
                 <a href="{{url_for('home.home_page')}}">HOME</a>
-                <a href="{{url_for('about.about_page')}}">HOW TO USE</a>
-                <a href="{{url_for('get_started.get_started_page')}}">ABOUT US</a>
+                <a href="{{url_for('how_to_use.how_to_use_page')}}">HOW TO USE</a>
+                <a href="{{url_for('about_us.about_us_page')}}">ABOUT US</a>
                 <a href="{{url_for('donate.donate_page')}}">DONATE</a>
             </div>
 
             <p> © 2024 SummPy. All rights reserved. </p>
         </div>
-
     </div>
-
     <img class="dot" src="{{ url_for('static', filename='images/polka.png') }}">
     <img class="dot1" src="{{ url_for('static', filename='images/polka.png') }}">
     <img class="dot2" src="{{ url_for('static', filename='images/polka.png') }}">
-    
 </body>
 </html>

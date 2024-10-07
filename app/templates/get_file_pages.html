@@ -3,193 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/get_file_pages.css') }}">
     <title>SummPy | 5-pager Summarizer</title>
 </head>
 <body>
-    <header class="header">
-        <a href="{{ url_for('home.home_page') }}" class="logo">
-            <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" class="logo-img">
-        </a>
+    <div class="get-file-pages-main-container">
+        <div class="header">
+            <a href="{{ url_for('home.home_page') }}">
+                <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" class="logo-img">
+            </a>
+            <div class="navbar">
+                <a href="{{url_for('home.home_page')}}">HOME</a>
+                <a href="{{url_for('how_to_use.how_to_use_page')}}">HOW TO USE</a>
+                <a href="{{url_for('about_us.about_us_page')}}">ABOUT US</a>
+                <a href="{{url_for('donate.donate_page')}}">DONATE</a>
+            </div>
+        </div>
         
-
-        <nav class="navbar">
-            <a href="{{url_for('home.home_page')}}">HOME</a>
-            <a href="{{url_for('about.about_page')}}">HOW TO USE</a>
-            <a href="{{url_for('get_started.get_started_page')}}">ABOUT US</a>
-            <a href="{{url_for('donate.donate_page')}}">DONATE</a>
-        </nav>
-    </header>
-    
-    <div class="get-file-pages-container">
-        <!-- first container -->
-         <!-- title -->
-         <div class="title-container">
+        <div class="title-container">
             <h1>
                 Please <span class="titlePurple">input</span> 
-                    the following <span class="titlePurple">page number</span> for 
-                    <span class="titlePurple">each chapters</span>
+                the following <span class="titlePurple">page number</span> for 
+                <span class="titlePurple">each chapters</span>
             </h1>
+        </div>
 
-          </div>
-
-        <!-- second container -->
-         <!-- display content containers -->
         <div class="display-content-container">
             <!-- dynamically display the files here -->
-            <div class="get-file-content-page">
-                <!-- pdf container -->
-                 <div class="display-pdf-container">
-                    <p>Display pdf file here</p>
-                 </div>
-
-                <!-- get file pages container -->
-                 <div class="get-file-pages-container2">
-                    <p class="file-name-p">FILENAME.pdf</p>
-
-                    <!-- get chapters pages inputs -->
-                    <div class="chapter">
-                        <label for="{{ file }}_chapter_1">Chapter 1  : </label>
-                        <input 
-                            type="number" 
-                            id="{{ file }}_chapter_1" 
-                            name="{{ file }}_chapter_1" 
-                            placeholder="Page Number" 
-                            required>
-                    </div>
-                    <div class="chapter">
-                        <label for="{{ file }}_chapter_2">Chapter 2 : </label>
-                        <input 
-                            type="number" 
-                            id="{{ file }}_chapter_2" 
-                            name="{{ file }}_chapter_2" 
-                            placeholder="Page Number" 
-                            required>
-                    </div>
-                    <div class="chapter">
-                        <label for="{{ file }}_chapter_3">Chapter 3 : </label>
-                        <input 
-                            type="number" 
-                            id="{{ file }}_chapter_3" 
-                            name="{{ file }}_chapter_3" 
-                            placeholder="Page Number" 
-                            required>
-                    </div>
-                    <div class="chapter">
-                        <label for="{{ file }}_chapter_4">Chapter 4 : </label>
-                        <input 
-                            type="number" 
-                            id="{{ file }}_chapter_4" 
-                            name="{{ file }}_chapter_4" 
-                            placeholder="Page Number" 
-                            required>
-                    </div>
-                    <div class="chapter">
-                        <label for="{{ file }}_chapter_5">Chapter 5 : </label>
-                        <input 
-                            type="number" 
-                            id="{{ file }}_chapter_5" 
-                            name="{{ file }}_chapter_5" 
-                            placeholder="Page Number" 
-                            required>
-                    </div>
-                    <div class="chapter">
-                        <label for="{{ file }}_bibliography_references">Bibliography or References : </label>
-                        <input 
-                            type="number" 
-                            id="{{ file }}_bibliography_references" 
-                            name="{{ file }}_bibliography_references" 
-                            placeholder="Page Number" 
-                            required>
-                    </div>
-                 </div>
-            </div>
-
-        </div>
-
-          <!-- error message -->
-           <p id="errorMessage">sample error message</p>
-
-         <!-- third container -->
-         <!-- buttons container -->
-         <div class="buttons-container">
-            <!-- back button -->
-             <div id="backButton">
-                <p>BACK</p>
-             </div>
-
-            <!-- next button -->
-             <div id="nextButton">
-                <p>SUMMARIZE</p>
-             </div>
-        </div>
-
+            <form action="{{ url_for('get_file_pages.get_file_pages_page') }}" method="POST" id="formInput">
+                {% for file in uploaded_files %}
+                    <div class="get-file-content-page">
+                        <div class="display-pdf-container">
+                            <embed src="{{ url_for('static', filename='uploads/' + file) }}" type="application/pdf">
+                        </div>
         
+                        <div class="get-file-pages-container2">
+                            <p class="file-name-p">{{ file }}</p>
+        
+                            <!-- get chapters pages inputs -->
+                            <div class="chapter">
+                                <label for="{{ file }}_chapter_1">Chapter 1  : </label>
+                                <input type="number" id="{{ file }}_chapter_1" name="{{ file }}_chapter_1" placeholder="Page Number" required>
+                            </div>
+                            <div class="chapter">
+                                <label for="{{ file }}_chapter_2">Chapter 2 : </label>
+                                <input type="number" id="{{ file }}_chapter_2" name="{{ file }}_chapter_2" placeholder="Page Number" required>
+                            </div>
+                            <div class="chapter">
+                                <label for="{{ file }}_chapter_3">Chapter 3 : </label>
+                                <input type="number" id="{{ file }}_chapter_3" name="{{ file }}_chapter_3" placeholder="Page Number" required>
+                            </div>
+                            <div class="chapter">
+                                <label for="{{ file }}_chapter_4">Chapter 4 : </label>
+                                <input type="number" id="{{ file }}_chapter_4" name="{{ file }}_chapter_4" placeholder="Page Number" required>
+                            </div>
+                            <div class="chapter">
+                                <label for="{{ file }}_chapter_5">Chapter 5 : </label>
+                                <input type="number" id="{{ file }}_chapter_5" name="{{ file }}_chapter_5" placeholder="Page Number" required>
+                            </div>
+                            <div class="chapter">
+                                <label for="{{ file }}_bibliography_references">Bibliography or References : </label>
+                                <input type="number" id="{{ file }}_bibliography_references" name="{{ file }}_bibliography_references" placeholder="Page Number" required>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </form>
+        </div>
 
-        <!-- {% with messages = get_flashed_messages() %}
+        {% with messages = get_flashed_messages() %}
             {% if messages %}
-                <ul class=flashes>
-                    {% for message in messages %}
-                        <li>{{ message }}</li>
-                    {% endfor %}
-                </ul>
+                {% for message in messages %}
+                    <p id="errorMessage">{{ message }}</p>
+                {% endfor %}
             {% endif %}
         {% endwith %}
 
-        <form action="{{ url_for('get_file_pages.get_file_pages_page') }}" method="POST" >
-            {% for file in uploaded_files %}
-            <h1 class="pdf-title">filename: {{ file }}</h1>
-            <div class="pdf-files-container">
-                <div class="display-pdf-pages">
-                    <embed src="{{ url_for('static', filename='uploads/' + file) }}" type="application/pdf">
-                </div>
-                <div class="chapter-container">
-                    <h2>Please input the following page number for each chapters.</h2>
-                    <div class="chapter">
-                        <label for="{{ file }}_chapter_1">Chapter 1:</label>
-                        <input type="number" id="{{ file }}_chapter_1" name="{{ file }}_chapter_1" placeholder="Page number" required>
-                    </div>
-                    <div class="chapter">
-                        <label for="{{ file }}_chapter_2">Chapter 2:</label>
-                        <input type="number" id="{{ file }}_chapter_2" name="{{ file }}_chapter_2" placeholder="Page number" required>
-                    </div>
-                    <div class="chapter">
-                        <label for="{{ file }}_chapter_3">Chapter 3:</label>
-                        <input type="number" id="{{ file }}_chapter_3" name="{{ file }}_chapter_3" placeholder="Page number" required>
-                    </div>
-                    <div class="chapter">
-                        <label for="{{ file }}_chapter_4">Chapter 4:</label>
-                        <input type="number" id="{{ file }}_chapter_4" name="{{ file }}_chapter_4" placeholder="Page number" required>
-                    </div>
-                    <div class="chapter">
-                        <label for="{{ file }}_chapter_5">Chapter 5:</label>
-                        <input type="number" id="{{ file }}_chapter_5" name="{{ file }}_chapter_5" placeholder="Page number" required>
-                    </div>
-                    <div class="chapter">
-                        <label for="{{ file }}_bibliography_references">Bibliography or References:</label>
-                        <input type="number" id="{{ file }}_bibliography_references" name="{{ file }}_bibliography_references" placeholder="Page number" required>
-                    </div>
-                </div>
+        <div class="buttons-container">
+            <div id="backButton" onclick="goBack()">
+                <p>BACK</p>
             </div>
-            {% endfor %}
-
-            <button type="submit">SUBMIT</button>
-        </form>
-
-        
-        {% if form_data %}
-        <div class="submitted-data">
-            <h2>Submitted Data:</h2>
-            <ul>
-                {% for key, value in form_data.items() %}
-                <li>{{ key }}: {{ value }}</li>
-                {% endfor %}
-            </ul>
+            <div id="nextButton">
+                <p>SUMMARIZE</p>
+            </div>
         </div>
-        {% endif %} -->
     </div>
-
     <img class="dot" src="{{ url_for('static', filename='images/polka.png') }}">
     <img class="dot2" src="{{ url_for('static', filename='images/polka.png') }}">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const formInput = document.getElementById("formInput");
+            const nextButton = document.getElementById('nextButton');
+
+            nextButton.addEventListener("click", function() {
+                if (validateForm()) {
+                    formInput.submit();
+                }
+            });
+        });
+
+        function validateForm() {
+            const inputs = document.querySelectorAll('#formInput input[type="number"]');
+            let isValid = true;
+            let description = "";
+
+            // Loop through each input and check if it has a value
+            inputs.forEach(input => {
+                if (input.value.trim() === "") {
+                    isValid = false;
+                    input.style.borderColor = "red";  
+                    input.style.backgroundColor = "#b3003b";
+                    description = 'It looks like you are missed some inputs.\nPlease complete the inputs first.';
+                } else if (parseInt(input.value) <= 0){
+                    isValid = false;
+                    input.style.borderColor = "red";  
+                    input.style.backgroundColor = "#b3003b";
+                    description = 'It looks like you are enter invalid value.\nPlease input values greater than 0.';
+                } else {
+                    input.style.borderColor = "";  
+                    input.style.backgroundColor = "#E26890";
+                }
+            });
+
+            if (!isValid) {
+                Swal.fire({
+                        title: 'Ooops...',
+                        text: description,
+                        icon: 'warning',
+                        confirmButtonText: 'OK'
+                    });
+            }
+            return isValid;
+        }
+
+        function goBack() {
+            window.history.back(); 
+        }
+    </script>
 </body>
 </html>
+<!-- 
+    test values 5 10 29 38 46 49
+ -->

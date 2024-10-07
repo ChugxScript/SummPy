@@ -14,8 +14,8 @@ body {
     margin: 0;
     background-color: #09020E;
     color: white;
+    overflow-x: hidden;
 }
-
 
 .header {
     position: fixed;
@@ -30,25 +30,20 @@ body {
     z-index: 100;
 }
 
-.logo {
-    font-size: 1vw; 
-}
-
 .logo-img {
     width: 150px;
     height: 150px;
-    object-fit: cover; /* Ensures the image covers the area without distortion */
+    object-fit: cover; 
 }
-
 
 .navbar a {
     position: relative;
-    font-size: 1vw; /* Adjusted for larger size */
+    font-size: 1vw;
     color: white;
     font-weight: 700;
     text-decoration: none;
-    margin-left: 2vw; /* Adjusted margin */
-    transition: color 0.3s; /* Smooth transition for color change */
+    margin-left: 2vw; 
+    transition: color 0.3s; 
 }
 
 .navbar a::before {
@@ -59,11 +54,11 @@ body {
     width: 0;
     height: 2px;
     background: #88EC3A;
-    transition: width 0.3s; /* Smooth transition for underline */
+    transition: width 0.3s; 
 }
 
 .navbar a:hover {
-    color: #ae00ff; /* Color change on hover */
+    color: #ae00ff;
 }
 
 .navbar a:hover::before {
@@ -71,20 +66,20 @@ body {
 }
 
 .navbar.scrolled {
-    background-color: rgba(134, 38, 38, 0.8); /* Adjust the color and transparency as needed */
-    transition: background-color 0.3s; /* Smooth transition */
+    background-color: rgba(134, 38, 38, 0.8);
+    transition: background-color 0.3s; 
 }
 
-.whole {
+.get-file-main-container {
     display: flex;
     flex-direction: column; 
     margin-top: 10%;
     padding-left: 10%;  
     padding-right: 10%;
     height: 78vh;
-    /* border: white 1px solid; */
 }
 
+/* **************************************** */
 .title-container h1{
     font-size: 60px;
 }
@@ -110,10 +105,22 @@ body {
     align-items: center;
     border-radius: 20px;
     cursor: pointer;
+    position: relative;
     border: white 2px dashed;
 }
 
-.file-upload-container:hover{
+.file-upload-container input{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    cursor: pointer;
+}
+
+.file-upload-container:hover,
+.file-upload-container.dragover{
     background-color: rgba(80, 0, 121, 0.5);
 }
 
@@ -132,21 +139,32 @@ body {
     height: 100%;
     border-radius: 20px;
     overflow-y: auto;
+    max-height: 360px;
     padding: 10px;
     border: white 2px solid;
+}
+
+.file-content-container-p{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .file-content-card{
     display: flex;
     flex-direction: row;
     padding: 10px;
-    
+    margin-bottom: 3px;
     align-items: center;
     border-radius: 10px;
     border: white 1px solid;
 }
 
 .file-name{
+    display: flex;
+    flex: 1;
     word-wrap: break-word;  
     overflow-wrap: break-word;
     word-break: break-all;  
@@ -161,9 +179,15 @@ body {
     padding-bottom: 10px;
     padding-right: 15px;
     padding-left: 15px;
+    cursor: pointer;
 }
 .file-delete-button p{
     color: white;
+}
+
+.error-message{
+    display: none;
+    color: red;
 }
 
 .buttons-container{
@@ -199,6 +223,11 @@ body {
 
 #nextButton:hover{
     background-color: rgba(122, 73, 157, 0.3);
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
 }
 
 

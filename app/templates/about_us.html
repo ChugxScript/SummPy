@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about_us.css') }}">
+    <title>SummPy | 5-pager Summarizer</title>
+</head>
+</head>
+
+<body>
+    <div class="about-us-main-container">
+        <div class="header">
+            <a href="{{ url_for('home.home_page') }}">
+                <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" class="logo-img">
+            </a>
+            <div class="navbar">
+                <a href="{{url_for('home.home_page')}}">HOME</a>
+                <a href="{{url_for('how_to_use.how_to_use_page')}}">HOW TO USE</a>
+                <a href="{{url_for('about_us.about_us_page')}}">ABOUT US</a>
+                <a href="{{url_for('donate.donate_page')}}">DONATE</a>
+            </div>
+        </div>
+
+        <h1>MEET THE <span class="span-purple-1">TEAM</span></h1>
+        <div class="grid-container">
+            <div class="grid-top-container">
+                <div class="team-member">
+                    <img class="dp" src="{{ url_for('static', filename='images/barips.png') }}">
+                    <h1> Angelo Barrios </h1>
+                    <h2> Backend Developer </h2>
+                    <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”</p>
+                    <div class="socials">
+                        <div class="fb">
+                            <a href="#"> <img src="{{ url_for('static', filename='images/facebook.png') }}" alt="Facebook"></a>
+                        </div>
+                        <div class="git">
+                            <a href="https://github.com/" target="_blank"><img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img class="dp" src="{{ url_for('static', filename='images/phia.png') }}">
+                    <h1> Sophia Mer Enriquez </h1>
+                    <h2> Frontend Developer </h2>
+                    <p>“Fake it 'til you make it.”</p>
+                    <div class="socials">
+                        <div class="fb">
+                            <a href="https://www.facebook.com/05sophia"> <img src="{{ url_for('static', filename='images/facebook.png') }}" alt="Facebook"></a>
+                        </div>
+                        <div class="git">
+                            <a href="https://github.com/enriquez05" target="_blank"><img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img class="dp" src="{{ url_for('static', filename='images/janna.png') }}">
+                    <h1> Janna Rose Herrera </h1>
+                    <h2> Frontend Developer </h2>
+                    <p>“What's meant for me will always find its way.”</p>
+                    <div class="socials">
+                        <div class="fb">
+                            <a href="#"> <img src="{{ url_for('static', filename='images/facebook.png') }}" alt="Facebook"></a>
+                        </div>
+                        <div class="git">
+                            <a href="https://github.com/" target="_blank"><img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-bottom-container">
+                <div class="team-member">
+                    <img class="dp" src="{{ url_for('static', filename='images/mirai.png') }}">
+                    <h1> Almira Jill Garcia </h1>
+                    <h2> Data Analyst </h2>
+                    <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”</p>
+                    <div class="socials">
+                        <div class="fb">
+                            <a href="#"> <img src="{{ url_for('static', filename='images/facebook.png') }}" alt="Facebook"></a>
+                        </div>
+                        <div class="git">
+                            <a href="https://github.com/" target="_blank"><img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img class="dp" src="{{ url_for('static', filename='images/oloroso.png') }}">
+                    <h1> Andrew Oloroso </h1>
+                    <h2> Backend Developer </h2>
+                    <p> “Sheeesh Basic!”</p>
+                    <div class="socials">
+                        <div class="fb">
+                            <a href="#"> <img src="{{ url_for('static', filename='images/facebook.png') }}" alt="Facebook"></a>
+                        </div>
+                        <div class="git">
+                            <a href="https://github.com/" target="_blank"><img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-container">
+            <a href="{{ url_for('home.home_page') }}" class="logo">
+                <img src="{{ url_for('static', filename='images/LOGO.gif') }}" class="logo-img">
+            </a>
+            
+            <h2> IMRAD Document Summarizer</h2>
+
+            <div class="links-footer">
+                <a href="{{url_for('home.home_page')}}">HOME</a>
+                <a href="{{url_for('how_to_use.how_to_use_page')}}">HOW TO USE</a>
+                <a href="{{url_for('about_us.about_us_page')}}">ABOUT US</a>
+                <a href="{{url_for('donate.donate_page')}}">DONATE</a>
+            </div>
+
+            <p> © 2024 SummPy. All rights reserved. </p>
+        </div>
+    </div>
+    <img class="dot" src="{{ url_for('static', filename='images/polka.png') }}">
+    <img class="dot1" src="{{ url_for('static', filename='images/polka.png') }}">
+    <img class="dot2" src="{{ url_for('static', filename='images/polka.png') }}">
+</body>
+</html>

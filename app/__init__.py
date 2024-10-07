@@ -1,9 +1,10 @@
 import os
 from flask import Flask
-from .blueprints.get_started import get_started
-from .blueprints.about import about
 from .blueprints.home import home
+from .blueprints.how_to_use import how_to_use
+from .blueprints.about_us import about_us
 from .blueprints.donate import donate
+
 from .blueprints.get_file import get_file
 from .blueprints.get_file_pages import get_file_pages
 from .blueprints.summary_result import summary_result
@@ -19,8 +20,8 @@ def create_app():
     os.makedirs(app.config['SUMMARIZED_FOLDER'], exist_ok=True)
 
     app.register_blueprint(home)
-    app.register_blueprint(about)
-    app.register_blueprint(get_started)
+    app.register_blueprint(how_to_use)
+    app.register_blueprint(about_us)
     app.register_blueprint(donate)
     app.register_blueprint(get_file)
     app.register_blueprint(get_file_pages)

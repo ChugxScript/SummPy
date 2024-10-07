@@ -8,81 +8,95 @@
 </head>
 
 <body>
-    <header class="header">
-        <a href="{{ url_for('home.home_page') }}" class="logo">
-            <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" class="logo-img">
-        </a>
-        
-
-        <nav class="navbar">
-            <a href="{{url_for('home.home_page')}}">HOME</a>
-            <a href="{{url_for('about.about_page')}}">HOW TO USE</a>
-            <a href="{{url_for('get_started.get_started_page')}}">ABOUT US</a>
-            <a href="{{url_for('donate.donate_page')}}">DONATE</a>
-        </nav>
-    </header>
-
     <div class="summary-result-container">
-        <!-- side bar container -->
-         <div class="side-bar-container">
+        <div class="header">
+            <a href="{{ url_for('home.home_page') }}">
+                <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" class="logo-img">
+            </a>
+            <div class="navbar">
+                <a href="{{url_for('home.home_page')}}">HOME</a>
+                <a href="{{url_for('how_to_use.how_to_use_page')}}">HOW TO USE</a>
+                <a href="{{url_for('about_us.about_us_page')}}">ABOUT US</a>
+                <a href="{{url_for('donate.donate_page')}}">DONATE</a>
+            </div>
+        </div>
+        
+        <div class="side-bar-container">
             <div class="side-bar-options-container">
                 <!-- imrad summary option -->
-                 <div class="imrad-summary-option-container">
+                <div class="imrad-summary-option-container">
                     <div class="option-title-container">
-                        <p>> IMRAD SUMMARY</p>
+                        <p>IMRAD SUMMARY</p>
                     </div>
 
                     <!-- dynamically populate base on the files in the summary -->
-                     <div class="summary-result-options">
-                        <p>FILENAME.pdf</p>
-                     </div>
-                     <div class="summary-result-options">
-                        <p>FILENAME.pdf</p>
-                     </div>
-                     <div class="summary-result-options">
-                        <p>FILENAME.pdf</p>
-                     </div>
-                 </div>
+                    <!-- {% for file in uploaded_files %}
+                        <div class="summary-result-options {% if loop.first %}active{% endif %}">
+                            <p>{{ file }}</p>
+                        </div>
+                    {% endfor %} -->
+                </div>
 
                 <!-- chat with pdf option -->
-                 <div class="chat-with-pdf-option-container">
+                <!-- <div class="chat-with-pdf-option-container">
                     <p>CHAT WITH PDF</p>
-                 </div>
+                </div> -->
 
                 <!-- related study option -->
-                 <div class="related-study-option-container">
+                <!-- <div class="related-study-option-container">
                     <p>RELATED STUDIES</p>
-                 </div>
+                </div> -->
             </div>
 
             <div class="side-bar-copyright-text-container">
-                <p>© 2024 SummPy.<br>
-                    All rights reserved.</p>
+                <p>
+                    © 2024 SummPy.<br>
+                    All rights reserved.
+                </p>
             </div>
+        </div>
 
-         </div>
-
-
-        <!-- side bar content container -->
-         <div class="side-bar-content-container">
-            <!-- imrad summary result content container -->
-             <!-- dynamically populated base on the number of file uploads -->
-              <div class="imrad-summary-result-container">
+        <!-- 
+            side bar content container 
+            this part of the container contains the content
+            base on the category clicked by the user
+            and will update the content dynamically
+        -->
+        <div class="side-bar-content-container">
+            <div class="imrad-summary-result-container">
                 <div class="imrad-summary-result-title">
                     <h1><span class="titlePurple">IMRAD</span> SUMMARY RESULT</h1>
                 </div>
 
                 <div class="imrad-summary-result-content">
-
+                    {% for file in uploaded_files %}
+                        {% set summarized_file = 'summary_' + file %}
+                        {% if summarized_file in summarized_folder %}
+                            <p>{{ file }}</p>
+                            <div class="imrad-summary-result-content-container">
+                                <div class="original-pdf-container">
+                                    <embed src="{{ url_for('static', filename='uploads/' + file) }}" type="application/pdf">
+                                </div>
+                                <div class="summarized-pdf-container">
+                                    <embed src="{{ url_for('static', filename='summarized_doc/' + summarized_file) }}" type="application/pdf">
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
 
-                <div class="imrad-summary-result-download-button">
+                <!-- <div class="imrad-summary-result-download-button">
                     <p>DOWNLOAD IMRAD SUMMARY RESULT</p>
-                </div>
-              </div>
+                </div> -->
+            </div>
             
-            <!-- chat with pdf content container -->
-             <div class="chat-with-pdf-content-container">
+            <!-- 
+                chat with pdf content container
+                this part of the container contains the chat with pdf feature
+                where the user is freely chat with the chat bot
+                base on the uploaded content
+            -->
+            <div class="chat-with-pdf-content-container">
                 <div class="chat-with-pdf-content-title">
                     <h1>CHAT <span class="titlePurple">PDF</span> WITH 
                         <span class="titlePurple">SUMMPY!</span></h1>
@@ -99,10 +113,15 @@
                     </div>
                 </div>
 
-             </div>
+            </div>
             
-            <!-- related study content container -->
-             <div class="related-study-content-container">
+            <!-- 
+                related study content container 
+                this container contains the suggested
+                articales, study, news, or blogs 
+                related to the files uploaded
+            -->
+            <div class="related-study-content-container">
                 <div class="related-study-title">
                     <h1>RELATED STUDIES <span class="titlePurple">RECOMMENDATION</span></h1>
                 </div>
@@ -112,55 +131,10 @@
                         <p>Link: <span class="titlePurple">Lorem ipsum odor amet, consectetuer adipiscing elit.</span></p>
                     </div>
                 </div>
-             </div>
-         </div>
-
-
-
-        <!-- <div class="left-menu-container">
-            <img src="{{ url_for('static', filename='images/small logo.gif') }}" class="img-logo">
-            <div class="new-contents-container">
-                <div class="button-here-feature">MAHIRAP NEW CHAT FEATURE HAHA</div>
             </div>
-            <div class="home-button">HOME</div>
         </div>
-        <div class="right-menu-container">
-            <div class="container-header">
-                <img src="{{ url_for('static', filename='images/summpy.gif') }}" alt="">
-            </div>
-            <div class="content-container">
-                <div class="left-content-container">
-                    {% if summarized_folder %}
-                        {% for folder in summarized_folder %}
-                            <div class="display-pdfs-container">
-                                <h1>{{ folder }}</h1>
-                                <embed src="{{ url_for('static', filename='summarized_doc/' + folder) }}" type="application/pdf">
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                </div>
-                <div class="right-content-container">
-                    <div class="chat-container">
-                        {% if summary_result %}
-                            {% for results in summary_result %}
-                                <div class="chat-content">
-                                    <img src="{{ url_for('static', filename='images/robot.gif') }}" alt="">
-                                    <div class="text-content">
-                                        {% for result in results %}
-                                            <p>{{ result }}</p>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <form class="user-input-container" action="" method="POST">
-                        <input type="text" placeholder="Ask about the {{ file }} document.">
-                        <button type="submit">SUBMIT</button>
-                    </form>
-                </div>
-            </div>
-        </div> -->
     </div>
+    <img class="dot" src="{{ url_for('static', filename='images/polka.png') }}">
+    <img class="dot2" src="{{ url_for('static', filename='images/polka.png') }}">
 </body>
 </html>

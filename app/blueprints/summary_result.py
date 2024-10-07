@@ -31,25 +31,19 @@ def generate_pdf(summary_list, filename):
     pdf_path = os.path.join(summarized_folder, filename)
     pdf.output(pdf_path)
 
-@summary_result.route('/summary_result', methods=['GET', 'POST'])
+@summary_result.route('/summary_result', methods=['GET'])
 def summary_result_page():
-	summarized_folder = []
-	uploaded_files = []
-	results = []
+    uploaded_files = get_uploaded_files()
 
-	# if request.method == 'GET':
-	# 	uploaded_files = get_uploaded_files()
+    # get the IMRAD summary
+    summarizer = SummPy()
+    results = summarizer.generate_summaries()
 
-	# 	# get the IMRAD summary
-	# 	summarizer = SummPy()
-	# 	results = summarizer.generate_summaries()
+    # make pdfs
+    for i, result in enumerate(results):
+        pdf_filename = f"summary_{uploaded_files[i]}"
+        generate_pdf(result, pdf_filename)
 
-	# 	# make pdfs
-	# 	for i, result in enumerate(results):
-	# 		pdf_filename = f"summary_{uploaded_files[i]}"
-	# 		generate_pdf(result, pdf_filename)
+    summarized_folder = get_summarized_files()
 
-	# 	summarized_folder = get_summarized_files()
-      
-      
-	return render_template('summary_result.html', summarized_folder=summarized_folder, summary_result=results)
+    return render_template('summary_result.html', summarized_folder=summarized_folder, uploaded_files=uploaded_files)
