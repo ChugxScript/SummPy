@@ -69,6 +69,13 @@
                 </div>
 
                 <div class="imrad-summary-result-content">
+                    <!-- 
+                        since the uploaded file and the summarized result
+                        are already saved in their respective directories;
+                        can we switch this to javascript approach so that
+                        the displayed document is base on the document
+                        cliked by the user?
+                    -->
                     {% for file in uploaded_files %}
                         {% set summarized_file = 'summary_' + file %}
                         {% if summarized_file in summarized_folder %}

@@ -9,6 +9,8 @@ from .blueprints.get_file import get_file
 from .blueprints.get_file_pages import get_file_pages
 from .blueprints.summary_result import summary_result
 
+from .blueprints.admin.admin_dashboard import admin_dashboard
+
 def create_app():
     app = Flask(__name__)
     app.secret_key = 'secret-key'
@@ -26,6 +28,8 @@ def create_app():
     app.register_blueprint(get_file)
     app.register_blueprint(get_file_pages)
     app.register_blueprint(summary_result)
+
+    app.register_blueprint(admin_dashboard)
 
     return app
 

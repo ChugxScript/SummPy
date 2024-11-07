@@ -31,7 +31,7 @@ body {
     object-fit: cover;
 }
 
-.navbar a {
+#navbar a {
     position: relative;
     font-size: 1vw;
     color: white;
@@ -41,7 +41,7 @@ body {
     transition: color 0.3s; 
 }
 
-.navbar a::before {
+#navbar a::before {
     content: '';
     position: absolute;
     top: 100%;
@@ -52,16 +52,16 @@ body {
     transition: width 0.3s; 
 }
 
-.navbar a:hover {
+#navbar a:hover {
     color: #ae00ff; 
 }
 
-.navbar a:hover::before {
+#navbar a:hover::before {
     width: 100%;
 }
 
-.navbar.scrolled {
-    background-color: rgba(134, 38, 38, 0.8); 
+.scrolled {
+    background-color: rgba(20, 48, 85, 0.8); 
     transition: background-color 0.3s;
 }
 
