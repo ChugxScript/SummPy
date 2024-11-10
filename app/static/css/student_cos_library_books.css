@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #09020E;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    padding: 1px 5%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+#navbar a {
+    position: relative;
+    font-size: 1vw;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: 2vw;
+    transition: color 0.3s; 
+}
+
+#navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #88EC3A;
+    transition: width 0.3s; 
+}
+
+#navbar a:hover {
+    color: #ae00ff; 
+}
+
+#navbar a:hover::before {
+    width: 100%;
+}
+
+.scrolled {
+    background-color: rgba(20, 48, 85, 0.8); 
+    transition: background-color 0.3s;
+}
+
+.student-cos-library-books {
+    z-index: 10;
+    position: relative;
+    margin-bottom: 0;
+}
+
+/* ********************* */
+.content-containers{
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+    height: 92vh;
+    border-top: white solid 1px;
+}
+
+.side-bar-menu{
+    display: flex;
+    flex-direction: column;
+    flex: 0 15%;
+    color: white;
+    border-right: solid white 1px;
+}
+
+.main-content-container{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    color: white;
+}
