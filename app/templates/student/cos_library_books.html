@@ -48,8 +48,125 @@
                     <p>Doctorate</p>
                 </div>
             </div>
+
             <div class="main-content-container">
-                <h1>this is main content container</h1>
+                <div class="search-container">
+                    <form action="" id="search_form">
+                        <input type="text" placeholder="Search.." name="search">
+                        <div id="search_form_button">SEARCH</div>
+                    </form>
+                </div>
+                <p class="filter-tabs">Filter</p>
+
+                <!-- 
+                    the options will be transfered to the js file
+                    to process dynamically all the options
+                    base on the data we have in the database
+                    but for now it just a temporary value
+                -->
+                <form action="" id="filter_form">
+                    <div class="filter-container">
+                        <div class="filter-tabs-container">
+                            <p>Year Published</p>
+                            <div class="select-options-container">
+                                <select id="year_published">
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="filter-tabs-course-field-container">
+                            <p>Course</p>
+                            <div class="select-options-container">
+                                <select id="course_option">
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="filter-tabs-course-field-container">
+                            <p>Field of the Study</p>
+                            <div class="select-options-container">
+                                <select id="field_study_option">
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="filter_button">FILTER</div>
+                    </div>
+                </form>
+
+                <div class="study-card-container">
+                    <!-- 
+                        'study-card-details' divs will be transfer to the js file
+                        to dynamically adjust the content and the details of each
+                        book per category
+                    -->
+                    <div class="study-card-details">
+                        <div class="left-card-details">
+                            <p class="card-study-title">STUDY TITLE</p>
+                            <p class="card-publication-date">Publication date</p>
+                            <p class="card-authors">Authors</p>
+                            <p class="card-course">Course</p>
+                        </div>
+                        <div class="right-card-details">
+                            <p class="card-category">Category</p>
+                            <p class="card-field-study">Field of the Study</p>
+                        </div>
+                    </div>
+                    <div class="study-card-details">
+                        <div class="left-card-details">
+                            <p class="card-study-title">STUDY TITLE</p>
+                            <p class="card-publication-date">Publication date</p>
+                            <p class="card-authors">Authors</p>
+                            <p class="card-course">Course</p>
+                        </div>
+                        <div class="right-card-details">
+                            <p class="card-category">Category</p>
+                            <p class="card-field-study">Field of the Study</p>
+                        </div>
+                    </div>
+                    <div class="study-card-details">
+                        <div class="left-card-details">
+                            <p class="card-study-title">STUDY TITLE</p>
+                            <p class="card-publication-date">Publication date</p>
+                            <p class="card-authors">Authors</p>
+                            <p class="card-course">Course</p>
+                        </div>
+                        <div class="right-card-details">
+                            <p class="card-category">Category</p>
+                            <p class="card-field-study">Field of the Study</p>
+                        </div>
+                    </div>
+                    <div class="study-card-details">
+                        <div class="left-card-details">
+                            <p class="card-study-title">STUDY TITLE</p>
+                            <p class="card-publication-date">Publication date</p>
+                            <p class="card-authors">Authors</p>
+                            <p class="card-course">Course</p>
+                        </div>
+                        <div class="right-card-details">
+                            <p class="card-category">Category</p>
+                            <p class="card-field-study">Field of the Study</p>
+                        </div>
+                    </div>
+                    <div class="study-card-details">
+                        <div class="left-card-details">
+                            <p class="card-study-title">STUDY TITLE</p>
+                            <p class="card-publication-date">Publication date</p>
+                            <p class="card-authors">Authors</p>
+                            <p class="card-course">Course</p>
+                        </div>
+                        <div class="right-card-details">
+                            <p class="card-category">Category</p>
+                            <p class="card-field-study">Field of the Study</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

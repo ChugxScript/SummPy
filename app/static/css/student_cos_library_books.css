@@ -17,7 +17,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 50px;
+    height: 60px;
     padding: 1px 5%;
     background: transparent;
     display: flex;
@@ -76,8 +76,8 @@ body {
 .content-containers{
     display: flex;
     flex-direction: row;
-    margin-top: 50px;
-    height: 92vh;
+    margin-top: 60px;
+    height: 90vh;
     border-top: white solid 1px;
 }
 
@@ -121,4 +121,177 @@ body {
     flex-direction: column;
     flex: 1;
     color: white;
+}
+
+.search-container{
+    padding: 10px;
+}
+
+#search_form{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.search-container input[type=text]{
+    flex: 1;
+    height: 40px;
+    font-size: 15px;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#search_form_button{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #6750A4;
+    color: white;
+    height: 40px;
+    font-size: 15px;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#search_form_button:hover{
+    background-color: #4f2ea8;
+}
+
+.filter-tabs{
+    padding-left: 15px;
+}
+
+.filter-container{
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    gap: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-bottom: white solid 1px;
+}
+
+.filter-tabs-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    border: #09020E solid 1px;
+}
+
+.select-options-container{
+    padding-left: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+#year_published,
+#course_option,
+#field_study_option{
+    width: 100%;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 17px;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 15px;
+}
+
+.filter-tabs-course-field-container{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+#filter_button{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding-left: 57px;
+    padding-right: 57px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #6750A4;
+    color: white;
+    height: 40px;
+    font-size: 15px;
+    margin-top: 25px;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#filter_button:hover{
+    background-color: #4f2ea8;
+}
+
+.study-card-container{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    height: 100%;
+    overflow-y: auto;
+    /* background-color: #88EC3A; */
+}
+
+.study-card-details{
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 5px;
+    border: #292734 solid 1px;
+    background-color: #170523;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.study-card-details:hover{
+    background-color: #210831;
+}
+
+.left-card-details{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.card-study-title{
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.card-publication-date,
+.card-course,
+.card-category,
+.card-field-study{
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.card-authors{
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.right-card-details{
+    display: flex;
+    flex-direction: column;
+    flex: 0 30%;
+    text-align: end;
 }
