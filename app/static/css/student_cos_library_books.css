@@ -17,7 +17,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 50px;
+    height: 60px;
     padding: 1px 5%;
     background: transparent;
     display: flex;
@@ -76,8 +76,8 @@ body {
 .content-containers{
     display: flex;
     flex-direction: row;
-    margin-top: 50px;
-    height: 92vh;
+    margin-top: 60px;
+    height: 90vh;
     border-top: white solid 1px;
 }
 
@@ -89,9 +89,303 @@ body {
     border-right: solid white 1px;
 }
 
+#dashboard_tab{
+    margin-top: 10px;
+}
+
+.side-bar-tabs{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    /* border: white 1px solid; */
+    cursor: pointer;
+}
+
+.side-bar-tabs:hover{
+    background-color: #240836;
+}
+
+.books-tabs{
+    margin-top: 20px;
+    padding-left: 10px;
+}
+
+.side-bar-tabs img{
+    width: 20px;
+    height: 20px;
+}
+
 .main-content-container{
     display: flex;
+    /* display: none; */
     flex-direction: column;
     flex: 1;
     color: white;
+}
+
+.search-container{
+    padding: 10px;
+}
+
+#search_form{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.search-container input[type=text]{
+    flex: 1;
+    height: 40px;
+    font-size: 15px;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#search_form_button{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #6750A4;
+    color: white;
+    height: 40px;
+    font-size: 15px;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#search_form_button:hover{
+    background-color: #4f2ea8;
+}
+
+.filter-tabs{
+    padding-left: 15px;
+}
+
+.filter-container{
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    gap: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-bottom: white solid 1px;
+}
+
+.filter-tabs-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    border: #09020E solid 1px;
+}
+
+.select-options-container{
+    padding-left: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+#year_published,
+#course_option,
+#field_study_option{
+    width: 100%;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 17px;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 15px;
+}
+
+.filter-tabs-course-field-container{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+#filter_button{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding-left: 57px;
+    padding-right: 57px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #6750A4;
+    color: white;
+    height: 40px;
+    font-size: 15px;
+    margin-top: 25px;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#filter_button:hover{
+    background-color: #4f2ea8;
+}
+
+.study-card-container{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    height: 100%;
+    overflow-y: auto;
+    /* background-color: #88EC3A; */
+}
+
+.study-card-details{
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 5px;
+    border: #292734 solid 1px;
+    background-color: #170523;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.study-card-details:hover{
+    background-color: #210831;
+}
+
+.left-card-details{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.card-study-title{
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.card-publication-date,
+.card-course,
+.card-category,
+.card-field-study{
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.card-authors{
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.right-card-details{
+    display: flex;
+    flex-direction: column;
+    flex: 0 30%;
+    text-align: end;
+}
+
+.view-book-details-container{
+    /* display: flex; */
+    display: none;
+    flex-direction: column;
+    flex: 1;
+    color: white;
+    background-color: #170523;
+}
+
+#back_button{
+    width: 45px;
+    height: 45px;
+    margin-top: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.margin-container{
+    margin-left: 30px;
+    margin-top: 20px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.course-category-container,
+.authors-panels-container,
+.original-summarized-container{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.details-course-container,
+.details-category-container,
+.details-authors-container,
+.details-panels-container,
+.details-original-container,
+.details-summarized-container{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-top: 30px;
+}
+
+#study_title,
+.details-course-title,
+.details-category-title,
+.details-authors-title,
+.details-panels-title,
+.details-original-title,
+.details-summarized-title{
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+#publication_date,
+#details_course_value,
+#details_category_value,
+#details_authors_value,
+#details_panels_value{
+    font-size: 15px;
+    font-weight: 300;
+    padding-left: 10px;
+}
+
+.details-original-container embed,
+.details-summarized-container embed{
+    flex-shrink: 0;
+    width: auto;
+    height: 80vh;
+}
+
+#MOA_container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+    cursor: pointer;
+}
+
+#MOA_container img{
+    width: 17px;
+    height: 16px;
+}
+
+.MOA-title{
+    font-size: 15px;
+    font-weight: 300;
+    padding-left: 10px;
+    color: #A904FE;
 }

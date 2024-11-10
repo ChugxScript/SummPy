@@ -4,15 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SummPy | 5-pager Summarizer</title>
-
-  <!-- Poppins Font
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-  Material Icons
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet"> 
-
+  
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/COS Library - Student (dashboard).css">
+  <!-- ApexCharts CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  
 </head>
 
 <body>
@@ -33,11 +30,86 @@
          <!-- End header -->
 
          <!-- Sidebar -->
-          <aside id="sidebar"></aside>
-        <!-- End sidebar -->
+         <aside id="sidebar">
+           <nav>
+             <ul>
+               <li><a href="#">Dashboard</a></li>
+               <li><a href="#" style="font-size: 15px; color:rgb(230, 230, 230);">Books</a>
+                 <ul class="sub-menu">
+                   <li><a href="#">Under Graduate</a></li>
+                   <li><a href="#">Graduate</a></li>
+                   <li><a href="#">Masteral</a></li>
+                   <li><a href="#">Dissertation</a></li>
+                   <li><a href="#">Doctorate</a></li>
+                 </ul>
+               </li>
+             </ul>
+           </nav>
+         </aside>
+         <!-- End sidebar -->
 
-        <!-- Main -->
-        <main class="main-container"></main>
+        <!-- Main Content-->
+        <main class="main-container">
+          <div class="main-title">
+            <h2><span style="font-weight: 300; font-style: italic;">Welcome to</span> <span style="font-weight: bold;">DASHBOARD!</span></h2>
+          </div>
+
+          <div class="main-cards">
+            <div class="card">
+              <div class="card-inner">
+                <h3>UNDER GRADUATE</h3>
+                <div>139</div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-inner">
+                <h3>GRADUATE</h3>
+                <div>139</div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-inner">
+                <h3>MASTERAL</h3>
+                <div>139</div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-inner">
+                <h3>DISSERTATION</h3>
+                <div>139</div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-inner">
+                <h3>DOCTORATE</h3>
+                <div>139</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="charts">
+            <div class="charts-card">
+                <div id="line-chart-cs"></div>
+            </div>
+            <div class="charts-card">
+                <div id="line-chart-it"></div>
+            </div>
+            <div class="charts-card">
+                <div id="line-chart-is"></div>
+            </div>
+            <!-- Full-width chart for total published books -->
+            <div class="charts-card full-width-chart">
+                <div id="line-chart-total"></div>
+            </div>
+        </div>
+             
+
+          </div>
+        </main>
         <!-- End main -->
 
     </div>
@@ -45,7 +117,133 @@
     <!-- POLKA IN BACKGROUND -->
     <img class="dot" src="{{ url_for('static', filename='images/polka.png') }}">
 
+    <!-- Scripts -->
+
+    <script>
+
+      // ================= CS PUBLISHED BOOKS PER YEAR =================
+      var optionsCS = {
+        chart: {
+          type: 'line',
+          height: 130
+        },
+        series: [{
+          name: "Published Books",
+          data: [10, 15, 18, 22, 28, 35, 42, 50, 60, 75, 85]
+        }],
+        xaxis: {
+          categories: ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021']
+        },
+        title: {
+          text: 'CS Books Published Over the Years',
+          style: {
+            fontSize: '17.5px',   
+            color: 'white'
+          }
+        },
+        stroke: {
+          curve: 'smooth'
+        }
+      };
+      var chartCS = new ApexCharts(document.querySelector("#line-chart-cs"), optionsCS);
+      chartCS.render();
+
+      // ================= IT PUBLISHED BOOKS PER YEAR =================
+      var optionsIT = {
+        chart: {
+          type: 'line',
+          height: 130
+        },
+        series: [{
+          name: "Published Books",
+          data: [5, 8, 10, 12, 17, 25, 32, 40, 50, 65, 75]
+        }],
+        xaxis: {
+          categories: ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021']
+        },
+        title: {
+          text: 'IT Books Published Over the Years',
+          style: {
+            fontSize: '17.5px',   
+            color: 'white'
+          }
+        },
+        stroke: {
+          curve: 'smooth'
+        }
+      };
+      var chartIT = new ApexCharts(document.querySelector("#line-chart-it"), optionsIT);
+      chartIT.render();
+
+      //================= IS PUBLISHED BOOKS PER YEAR =================
+      var optionsIS = {
+        chart: {
+          type: 'line',
+          height: 130
+        },
+        series: [{
+          name: "Published Books",
+          data: [3, 7, 10, 14, 20, 28, 35, 42, 55, 70, 80]
+        }],
+        xaxis: {
+          categories: ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021']
+        },
+        title: {
+          text: 'IS Books Published Over the Years',
+          style: {
+            fontSize: '17.5px',   
+            color: 'white'
+          }
+        },
+        stroke: {
+          curve: 'smooth'
+        }
+      };
+      var chartIS = new ApexCharts(document.querySelector("#line-chart-is"), optionsIS);
+      chartIS.render();
+
+      var optionsTotal = {
+        chart: {
+          type: 'line',
+          height: 325
+        },
+        series: [{
+          name: "Total Published Books",
+          data: [
+            10 + 5 + 3,  // 2011
+            15 + 8 + 7,  // 2012
+            18 + 10 + 10, // 2013
+            22 + 12 + 14, // 2014
+            28 + 17 + 20, // 2015
+            35 + 25 + 28, // 2016
+            42 + 32 + 35, // 2017
+            50 + 40 + 42, // 2018
+            60 + 50 + 55, // 2019
+            75 + 65 + 70, // 2020
+            85 + 75 + 80  // 2021
+          ]
+        }],
+        xaxis: {
+          categories: ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021']
+        },
+        title: {
+          text: 'Total Number of Published Books Per Year',
+          style: {
+            fontSize: '25px',
+            color: 'white'
+          }
+        },
+        stroke: {
+          curve: 'smooth'
+        }
+      };
+
+    var chartTotal = new ApexCharts(document.querySelector("#line-chart-total"), optionsTotal);
+    chartTotal.render();
+
+    </script>
+    
     <!-- Custom JS -->
-     <script src="js/scripts.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
