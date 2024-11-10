@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/student_cos_library_books.css') }}">
+    <script src="{{ url_for('static', filename='js/student/student_library_books.js') }}" type="module"></script>
+    <title>SummPy | COS Library</title>
+</head>
+<body>
+    <div class="student-cos-library-books">
+        <div class="header">
+            <a href="{{ url_for('home.home_page') }}">
+                <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" class="logo-img">
+            </a>
+            <div id="navbar">
+                <a href="{{url_for('home.home_page')}}">HOME</a>
+                <a href="{{url_for('how_to_use.how_to_use_page')}}">HOW TO USE</a>
+                <a href="{{url_for('about_us.about_us_page')}}">ABOUT US</a>
+                <a href="{{url_for('donate.donate_page')}}">DONATE</a>
+            </div>
+        </div>
+
+        <div class="content-containers">
+            <div class="side-bar-menu">
+                <div id="dashboard_tab" class="side-bar-tabs">
+                    <img src="{{ url_for('static', filename='images/dashboard_icon1.png') }}" alt="">
+                    <p>Dashboard</p>
+                </div>
+                <p class="books-tabs">Books</p>
+                <div id="under_graduate_tab" class="side-bar-tabs">
+                    <img src="{{ url_for('static', filename='images/under_graduate_icon1.png') }}" alt="">
+                    <p>Under Graduate</p>
+                </div>
+                <div id="graduate_tab" class="side-bar-tabs">
+                    <img src="{{ url_for('static', filename='images/graduate_icon1.png') }}" alt="">
+                    <p>Graduate</p>
+                </div>
+                <div id="masteral_tab" class="side-bar-tabs">
+                    <img src="{{ url_for('static', filename='images/masteral_icon1.png') }}" alt="">
+                    <p>Masteral</p>
+                </div>
+                <div id="dissertation_tab" class="side-bar-tabs">
+                    <img src="{{ url_for('static', filename='images/dissertation_icon1.png') }}" alt="">
+                    <p>Dissertation</p>
+                </div>
+                <div id="doctorate_tab" class="side-bar-tabs">
+                    <img src="{{ url_for('static', filename='images/doctorate_icon1.png') }}" alt="">
+                    <p>Doctorate</p>
+                </div>
+            </div>
+
+            <div class="main-content-container" id="main_content_container">
+                <div class="search-container">
+                    <form action="" id="search_form">
+                        <input type="text" placeholder="Search.." name="search">
+                        <div id="search_form_button">SEARCH</div>
+                    </form>
+                </div>
+                <p class="filter-tabs">Filter</p>
+
+                <!-- 
+                    the options will be transfered to the js file
+                    to process dynamically all the options
+                    base on the data we have in the database
+                    but for now it just a temporary value
+                -->
+                <form action="" id="filter_form">
+                    <div class="filter-container">
+                        <div class="filter-tabs-container">
+                            <p>Year Published</p>
+                            <div class="select-options-container">
+                                <select id="year_published">
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="filter-tabs-course-field-container">
+                            <p>Course</p>
+                            <div class="select-options-container">
+                                <select id="course_option">
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="filter-tabs-course-field-container">
+                            <p>Field of the Study</p>
+                            <div class="select-options-container">
+                                <select id="field_study_option">
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="filter_button">FILTER</div>
+                    </div>
+                </form>
+
+                <div class="study-card-container">
+                    <!-- 
+                        'study-card-details' divs will be transfer to the js file
+                        to dynamically adjust the content and the details of each
+                        book per category
+                    -->
+                    <div class="study-card-details">
+                        <div class="left-card-details">
+                            <p class="card-study-title">STUDY TITLE</p>
+                            <p class="card-publication-date">Publication date</p>
+                            <p class="card-authors">Authors</p>
+                            <p class="card-course">Course</p>
+                        </div>
+                        <div class="right-card-details">
+                            <p class="card-category">Category</p>
+                            <p class="card-field-study">Field of the Study</p>
+                        </div>
+                    </div>
+                    <div class="study-card-details">
+                        <div class="left-card-details">
+                            <p class="card-study-title">STUDY TITLE</p>
+                            <p class="card-publication-date">Publication date</p>
+                            <p class="card-authors">Authors</p>
+                            <p class="card-course">Course</p>
+                        </div>
+                        <div class="right-card-details">
+                            <p class="card-category">Category</p>
+                            <p class="card-field-study">Field of the Study</p>
+                        </div>
+                    </div>
+                    <div class="study-card-details">
+                        <div class="left-card-details">
+                            <p class="card-study-title">STUDY TITLE</p>
+                            <p class="card-publication-date">Publication date</p>
+                            <p class="card-authors">Authors</p>
+                            <p class="card-course">Course</p>
+                        </div>
+                        <div class="right-card-details">
+                            <p class="card-category">Category</p>
+                            <p class="card-field-study">Field of the Study</p>
+                        </div>
+                    </div>
+                    <div class="study-card-details">
+                        <div class="left-card-details">
+                            <p class="card-study-title">STUDY TITLE</p>
+                            <p class="card-publication-date">Publication date</p>
+                            <p class="card-authors">Authors</p>
+                            <p class="card-course">Course</p>
+                        </div>
+                        <div class="right-card-details">
+                            <p class="card-category">Category</p>
+                            <p class="card-field-study">Field of the Study</p>
+                        </div>
+                    </div>
+                    <div class="study-card-details">
+                        <div class="left-card-details">
+                            <p class="card-study-title">STUDY TITLE</p>
+                            <p class="card-publication-date">Publication date</p>
+                            <p class="card-authors">Authors</p>
+                            <p class="card-course">Course</p>
+                        </div>
+                        <div class="right-card-details">
+                            <p class="card-category">Category</p>
+                            <p class="card-field-study">Field of the Study</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-book-details-container" id="view_book_details_container">
+                <img src="{{ url_for('static', filename='images/back_button_icon1.png') }}" alt="" id="back_button">
+                <div class="margin-container">
+                    <p id="study_title">STUDY TITLE</p>
+                    <p id="publication_date">Publication date</p>
+    
+                    <div class="course-category-container">
+                        <div class="details-course-container">
+                            <p class="details-course-title">Course:</p>
+                            <p id="details_course_value">course</p>
+                        </div>
+                        <div class="details-category-container">
+                            <p class="details-category-title">Category:</p>
+                            <p id="details_category_value">category</p>
+                        </div>
+                    </div>
+
+                    <div class="authors-panels-container">
+                        <div class="details-authors-container">
+                            <p class="details-authors-title">Authors:</p>
+                            <p id="details_authors_value">Author1</p>
+                            <p id="details_authors_value">Author2</p>
+                            <p id="details_authors_value">Author3</p>
+                            <p id="details_authors_value">Author4</p>
+                            <p id="details_authors_value">Author5</p>
+                        </div>
+                        <div class="details-panels-container">
+                            <p class="details-panels-title">Panels:</p>
+                            <p id="details_panels_value">Panel1</p>
+                            <p id="details_panels_value">Panel2</p>
+                            <p id="details_panels_value">Panel3</p>
+                            <p id="details_panels_value">Panel4</p>
+                        </div>
+                    </div>
+
+                    <div class="original-summarized-container">
+                        <div class="details-original-container">
+                            <p class="details-original-title">Original</p>
+                            <embed src="{{ url_for('static', filename='test/se_pdf.pdf') }}" type="application/pdf">
+                        </div>
+                        <div class="details-summarized-container">
+                            <p class="details-summarized-title">Summarized Result</p>
+                            <embed src="{{ url_for('static', filename='test/se_pdf.pdf') }}" type="application/pdf">
+                        </div>
+                    </div>
+
+                    <div id="MOA_container">
+                        <img src="{{ url_for('static', filename='images/redirect_icon1.png') }}" alt="">
+                        <p class="MOA-title">Memorandum of Agreement</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
