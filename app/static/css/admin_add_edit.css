@@ -89,6 +89,33 @@ body {
     border-right: solid white 1px;
 }
 
+#dashboard_tab{
+    margin-top: 10px;
+}
+
+.side-bar-tabs{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    /* border: white 1px solid; */
+    cursor: pointer;
+}
+
+.side-bar-tabs:hover{
+    background-color: #240836;
+}
+
+.books-tabs{
+    margin-top: 20px;
+    padding-left: 10px;
+}
+
+.side-bar-tabs img{
+    width: 20px;
+    height: 20px;
+}
+
 .main-content-container{
     display: flex;
     flex-direction: column;
