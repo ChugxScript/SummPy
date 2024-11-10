@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <script src="{{ url_for('static', filename='js/home.js') }}" type="module"></script>
     <title>SummPy | 5-pager Summarizer</title>
 </head>
 <body>
@@ -13,7 +14,7 @@
             <a href="{{ url_for('home.home_page') }}">
                 <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" class="logo-img">
             </a>
-            <div class="navbar">
+            <div id="navbar">
                 <a href="{{url_for('home.home_page')}}">HOME</a>
                 <a href="{{url_for('how_to_use.how_to_use_page')}}">HOW TO USE</a>
                 <a href="{{url_for('about_us.about_us_page')}}">ABOUT US</a>
