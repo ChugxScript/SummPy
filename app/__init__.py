@@ -10,6 +10,7 @@ from .blueprints.get_file_pages import get_file_pages
 from .blueprints.summary_result import summary_result
 
 from .blueprints.admin.admin_dashboard import admin_dashboard
+from .blueprints.student.student_library_books import student_library_books
 
 def create_app():
     app = Flask(__name__)
@@ -30,6 +31,7 @@ def create_app():
     app.register_blueprint(summary_result)
 
     app.register_blueprint(admin_dashboard)
+    app.register_blueprint(student_library_books)
 
     return app
 
