@@ -22,7 +22,31 @@
 
         <div class="content-containers">
             <div class="side-bar-menu">
-                <h1>this is side bar</h1>
+                <div id="dashboard_tab" class="side-bar-tabs">
+                    <img src="{{ url_for('static', filename='images/dashboard_icon1.png') }}" alt="">
+                    <p>Dashboard</p>
+                </div>
+                <p class="books-tabs">Books</p>
+                <div id="under_graduate_tab" class="side-bar-tabs">
+                    <img src="{{ url_for('static', filename='images/under_graduate_icon1.png') }}" alt="">
+                    <p>Under Graduate</p>
+                </div>
+                <div id="graduate_tab" class="side-bar-tabs">
+                    <img src="{{ url_for('static', filename='images/graduate_icon1.png') }}" alt="">
+                    <p>Graduate</p>
+                </div>
+                <div id="masteral_tab" class="side-bar-tabs">
+                    <img src="{{ url_for('static', filename='images/masteral_icon1.png') }}" alt="">
+                    <p>Masteral</p>
+                </div>
+                <div id="dissertation_tab" class="side-bar-tabs">
+                    <img src="{{ url_for('static', filename='images/dissertation_icon1.png') }}" alt="">
+                    <p>Dissertation</p>
+                </div>
+                <div id="doctorate_tab" class="side-bar-tabs">
+                    <img src="{{ url_for('static', filename='images/doctorate_icon1.png') }}" alt="">
+                    <p>Doctorate</p>
+                </div>
             </div>
             <div class="main-content-container">
                 <h1>this is main content container</h1>
