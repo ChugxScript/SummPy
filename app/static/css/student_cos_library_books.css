@@ -118,6 +118,7 @@ body {
 
 .main-content-container{
     display: flex;
+    /* display: none; */
     flex-direction: column;
     flex: 1;
     color: white;
@@ -294,4 +295,97 @@ body {
     flex-direction: column;
     flex: 0 30%;
     text-align: end;
+}
+
+.view-book-details-container{
+    /* display: flex; */
+    display: none;
+    flex-direction: column;
+    flex: 1;
+    color: white;
+    background-color: #170523;
+}
+
+#back_button{
+    width: 45px;
+    height: 45px;
+    margin-top: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.margin-container{
+    margin-left: 30px;
+    margin-top: 20px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.course-category-container,
+.authors-panels-container,
+.original-summarized-container{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.details-course-container,
+.details-category-container,
+.details-authors-container,
+.details-panels-container,
+.details-original-container,
+.details-summarized-container{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-top: 30px;
+}
+
+#study_title,
+.details-course-title,
+.details-category-title,
+.details-authors-title,
+.details-panels-title,
+.details-original-title,
+.details-summarized-title{
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+#publication_date,
+#details_course_value,
+#details_category_value,
+#details_authors_value,
+#details_panels_value{
+    font-size: 15px;
+    font-weight: 300;
+    padding-left: 10px;
+}
+
+.details-original-container embed,
+.details-summarized-container embed{
+    flex-shrink: 0;
+    width: auto;
+    height: 80vh;
+}
+
+#MOA_container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+    cursor: pointer;
+}
+
+#MOA_container img{
+    width: 17px;
+    height: 16px;
+}
+
+.MOA-title{
+    font-size: 15px;
+    font-weight: 300;
+    padding-left: 10px;
+    color: #A904FE;
 }
