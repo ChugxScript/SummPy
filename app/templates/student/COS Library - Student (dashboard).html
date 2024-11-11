@@ -31,21 +31,52 @@
 
          <!-- Sidebar -->
          <aside id="sidebar">
-           <nav>
-             <ul>
-               <li><a href="#">Dashboard</a></li>
-               <li><a href="#" style="font-size: 15px; color:rgb(230, 230, 230);">Books</a>
-                 <ul class="sub-menu">
-                   <li><a href="#">Under Graduate</a></li>
-                   <li><a href="#">Graduate</a></li>
-                   <li><a href="#">Masteral</a></li>
-                   <li><a href="#">Dissertation</a></li>
-                   <li><a href="#">Doctorate</a></li>
-                 </ul>
-               </li>
-             </ul>
-           </nav>
-         </aside>
+          <nav>
+            <ul>
+              <li>
+                <a href="#">
+                  <img src="{{ url_for('static', filename='images/dashboard.png') }}" alt="Dashboard" class="dashboard-icon">
+                  Dashboard
+                </a>
+              </li>
+              <li><a href="#" style="font-size: 15px; color:rgb(230, 230, 230);">Books</a>
+                <ul class="sub-menu">
+                  <li>
+                    <a href="#">
+                      <img src="{{ url_for('static', filename='images/undergraduate.png') }}" alt="Under Graduate" class="sub-menu-icon">
+                      Under Graduate
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="{{ url_for('static', filename='images/graduate.png') }}" alt="Graduate" class="sub-menu-icon">
+                      Graduate
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="{{ url_for('static', filename='images/masteral.png') }}" alt="Masteral" class="sub-menu-icon">
+                      Masteral
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="{{ url_for('static', filename='images/dissertation.png') }}" alt="Dissertation" class="sub-menu-icon">
+                      Dissertation
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="{{ url_for('static', filename='images/doctorate.png') }}" alt="Doctorate" class="sub-menu-icon">
+                      Doctorate
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+        
          <!-- End sidebar -->
 
         <!-- Main Content-->
@@ -57,34 +88,39 @@
           <div class="main-cards">
             <div class="card">
               <div class="card-inner">
+                <img src="{{ url_for('static', filename='images/undergraduate.png') }}" alt="Under Graduate" class="card-icon">
                 <h3>UNDER GRADUATE</h3>
                 <div>139</div>
               </div>
             </div>
-
+        
             <div class="card">
               <div class="card-inner">
+                <img src="{{ url_for('static', filename='images/graduate.png') }}" alt="Graduate" class="card-icon">
                 <h3>GRADUATE</h3>
                 <div>139</div>
               </div>
             </div>
-
+        
             <div class="card">
               <div class="card-inner">
+                <img src="{{ url_for('static', filename='images/masteral.png') }}" alt="Masteral" class="card-icon">
                 <h3>MASTERAL</h3>
                 <div>139</div>
               </div>
             </div>
-
+        
             <div class="card">
               <div class="card-inner">
+                <img src="{{ url_for('static', filename='images/dissertation.png') }}" alt="Dissertation" class="card-icon">
                 <h3>DISSERTATION</h3>
                 <div>139</div>
               </div>
             </div>
-
+        
             <div class="card">
               <div class="card-inner">
+                <img src="{{ url_for('static', filename='images/doctorate.png') }}" alt="Doctorate" class="card-icon">
                 <h3>DOCTORATE</h3>
                 <div>139</div>
               </div>
