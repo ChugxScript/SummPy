@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_add_edit.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script src="{{ url_for('static', filename='js/admin/admin_add_edit.js') }}" type="module"></script>
     <title>SummPy | COS Library</title>
 </head>
 <body>
-    <div class="student-cos-library-books">
+    <div class="admin-cos-library-books">
         <div class="header">
             <a href="{{ url_for('home.home_page') }}">
                 <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" class="logo-img">
@@ -50,187 +49,124 @@
                     <p>Doctorate</p>
                 </div>
             </div>
+
             <div class="main-content-container">
-                <div class="whole">
-                    <div class="arrow_back">
-                        <a href="#">
-                            <img src="{{ url_for('static', filename='images/arrow.png') }}" alt="arrow" class="arrow-img">
-                        </a>
-                    </div><br>
-                    <div class="study-title">
-                        <form>
-                            <label for="studyTitle">STUDY TITLE</label><br>
-                            <input type="text" id="studyTitle" name="studyTitle" placeholder="Title"><br>
-                        </form>
+                <img src="{{ url_for('static', filename='images/arrow.png') }}" alt="arrow" id="back_button">
+
+                <form action="" id="add_edit_book_form">
+                    <div class="title-container">
+                        <label for="studyTitle" class="title-text-form">STUDY TITLE</label>
+                        <input type="text" id="studyTitle" name="studyTitle" placeholder="Title" required>
                     </div>
-                    <div class="titles">
-                        <div class="published-date">
-                            <h3>Published Date</h3>
+                    
+                    <div class="date-category-container">
+                        <div class="published-date-container">
+                            <p class="title-text-form">Published Date</p>
+                            <div class="day-month-year-container">
+                                <div class="day-container">
+                                    <label for="dayInputValue">Day</label>
+                                    <input type="number" id="day_input_value" name="dayInputValue" placeholder="DD" required>
+                                </div>
+                                <div class="month-container">
+                                    <label for="monthInputValue">Month</label>
+                                    <select name="categories" id="month_input_value" required>
+                                        <option value="JANUARY">JANUARY</option>
+                                        <option value="FEBRUARY">FEBRUARY</option>
+                                        <option value="MARCH">MARCH</option>
+                                        <option value="APRIL">APRIL</option>
+                                        <option value="MAY">MAY</option>
+                                        <option value="JUNE">JUNE</option>
+                                        <option value="JULY">JULY</option>
+                                        <option value="AUGUST">AUGUST</option>
+                                        <option value="SEPTEMBER">SEPTEMBER</option>
+                                        <option value="OCTOBER">OCTOBER</option>
+                                        <option value="NOVEMBER">NOVEMBER</option>
+                                        <option value="DECEMBER">DECEMBER</option>
+                                    </select>
+                                </div>
+                                <div class="year-container">
+                                    <label for="yearInputValue">Year</label>
+                                    <input type="number" id="year_input_value" name="yearInputValue" placeholder="YYYY" required>
+                                </div>
+                            </div> 
                         </div>
-                        <div class="select-category">
-                            <h3>Select Category</h3>
-                        </div>
-                    </div>
 
-                    <div class="options">
-
-                        <div class="relative max-w-sm">
-                            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none mx-5">
-                                <!-- <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                                </svg> -->
-                            </div>
-                            <input datepicker id="default-datepicker" type="text" class="pl-[25px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-[20px] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
-                        </div>                                              
-                        
-
-                        <div class="categories">
-                            <select name="categories" id="categories">
-                            <option value="underGrad">   Under Graduate</option>
-                            <option value="grad">   Graduate</option>
-                            <option value="diss">   Dissertation</option>
-                            <option value="masteral">   Masteral</option>
-                            <option value="doctorate">   Doctorate</option>
+                        <div class="select-category-container">
+                            <p class="title-text-form">Select Category</p>
+                            <p class="category-subtitle1">Categories</p>
+                            <select name="categories" id="selected_category" required>
+                                <option value="UNDER_GRADUATE">Under Graduate</option>
+                                <option value="GRADUATE">Graduate</option>
+                                <option value="DISSERTATION">Dissertation</option>
+                                <option value="MASTERAL">Masteral</option>
+                                <option value="DOCTORATE">Doctorate</option>
                             </select>
                         </div>
+                    </div>
 
-                    </div><br><br>
+                    <p class="title-text-form other-details-text">Other Details</p>
 
-                    <h2 class="title-author">Authors</h2><br>
-
-                    <div class="authors-container" id="authors-container">
-                        <div class="authors" id="author-template">
-                            <div class="authors-fname">
-                                <label for="fname">First name:</label>
-                                <input type="text" name="fname" placeholder="First Name">
-                            </div>
-                            <div class="authors-mname">
-                                <label for="mname">Middle name:</label>
-                                <input type="text" name="mname" placeholder="Middle Name">
-                            </div>
-                            <div class="authors-lname">
-                                <label for="lname">Last name:</label>
-                                <input type="text" name="lname" placeholder="Last Name">
-                            </div>
-                            <img src="{{ url_for('static', filename='images/x.png') }}" alt="x" class="x-img" onclick="removeAuthor(this)">
+                    <div class="course-field-container">
+                        <div class="course-container">
+                            <p>Course</p>
+                            <select name="course" id="selected_course" required>
+                                <option value="BS_COMPUTER_SCIENCE">BS Computer Science</option>
+                                <option value="BS_INFORMATION_TECHNOLOGY">BS Information Technology</option>
+                                <option value="BS_INFORMATION_SYSTEM">BS Information System</option>
+                            </select>
+                        </div>
+                        <div class="field-study-container">
+                            <p>Field of the study <span>(separated by comma)</span></p>
+                            <textarea type="text" id="field_of_the_study" name="fieldOfTheStudy" placeholder="Artificial Intelligence, Machine Learning" required></textarea>
                         </div>
                     </div>
-                    
-                    <div class="add-author" onclick="addAuthor()">
-                        <img src="{{ url_for('static', filename='images/add.png') }}" alt="add" class="add-img">
-                        <p>Add another author</p>
-                    </div><br>
 
-                    <h2 class="title-panel">Panels</h2><br>
-
-                    <div class="panels-container" id="panels-container">
-                        <div class="panels" id="panel-template">
-                            <div class="panels-fname">
-                                <form>
-                                    <label for="fname">First name:</label><br>
-                                    <input type="text" id="pfname" name="fname" placeholder="First Name">
-                                </form>
-                            </div>
-                    
-                            <div class="panels-mname">
-                                <form>
-                                    <label for="mname">Middle name:</label><br>
-                                    <input type="text" id="pmname" name="mname" placeholder="Middle Name"><br>
-                                </form>
-                            </div>
-                    
-                            <div class="panels-lname">
-                                <form>
-                                    <label for="lname">Last name:</label><br>
-                                    <input type="text" id="plname" name="lname" placeholder="Last Name"><br>
-                                </form>
-                            </div>
-                    
-                            <img src="{{ url_for('static', filename='images/x.png') }}" alt="x" class="x-img" onclick="removePanel(this)">
+                    <div class="authors-container">
+                        <p class="title-text-form">Authors</p>
+                        <div id="author_list_main_container"></div>
+                        <div id="add_author_container">
+                            <img src="{{ url_for('static', filename='images/add.png') }}" alt="">
+                            <p>Add another author</p>
                         </div>
                     </div>
-                    
-                    <div class="add-panel" onclick="addPanel()">
-                        <img src="{{ url_for('static', filename='images/add.png') }}" alt="add" class="add-img">
-                        <p> Add another panel</p>
-                    </div>
-                    
-                    <div class="memo">
-                        <h1><span>Memorandum of Aggreement</span> (if applicable) </h1><br>      
-                        <form>
-                            <input type="file" id="memo" name="memo">
-                        </form>
-                    </div><br>
 
-                    <div class="study-docu">
-                        <h1><span>Upload study document</span> </h1><br>      
-                        <form>
-                            <input type="file" id="study-docu" name="study-docu">
-                        </form>
-                    </div>
-
-                        <div class="submit">
-                            <button>Submit</button>
+                    <div class="panels-container">
+                        <p class="title-text-form">Panels</p>
+                        <div id="panel_list_main_container"></div>
+                        <div id="add_panel_container">
+                            <img src="{{ url_for('static', filename='images/add.png') }}" alt="">
+                            <p>Add another panel</p>
                         </div>
-                </div>
+                    </div>
+
+                    <div class="study-document-container">
+                        <p class="title-text-form">Upload study document</p>
+                        <input type="file" id="moa_file" required>
+                    </div>
+
+                    <div class="moa-container">
+                        <p class="title-text-form">Memorandum of Agreement <span>(if applicable)</span></p>
+                        <input type="file" id="moa_file">
+                    </div>
+
+                    <div class="sumbit-button-container">
+                        <button>SUMBIT</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+
+    <script>
+        function removeAuthorDiv(divID){
+            console.log("Removed: "+divID);
+            const removeDivID = document.getElementById(divID);
+            if (removeDivID) {
+                removeDivID.remove(); 
+            } else {
+                alert("Not exist.");
+            }
+        }
+    </script>
 </body>
-
-<script>
-    function addAuthor() {
-        const container = document.getElementById("authors-container");
-        const template = document.getElementById("author-template");
-        const newAuthor = template.cloneNode(true);
-        newAuthor.querySelector("input[name='fname']").value = "";
-        newAuthor.querySelector("input[name='mname']").value = "";
-        newAuthor.querySelector("input[name='lname']").value = "";
-        container.appendChild(newAuthor);
-    }
-
-    function removeAuthor(element) {
-        const container = document.getElementById("authors-container");
-        const authorEntries = container.getElementsByClassName("authors");
-
-        // Check if there is more than one author entry before removing
-        if (authorEntries.length > 1) {
-            const authorEntry = element.closest(".authors");
-            if (authorEntry) {
-                authorEntry.remove();
-            }
-        } else {
-            alert("At least one author must remain.");
-        }
-    }
-    
-    function addPanel() {
-        const container = document.getElementById("panels-container");
-        const template = document.getElementById("panel-template");
-        const newPanel = template.cloneNode(true);
-        
-        // Clear values for the new panel
-        newPanel.querySelector("#pfname").value = "First Name";
-        newPanel.querySelector("#pmname").value = "Middle Name";
-        newPanel.querySelector("#plname").value = "Last Name";
-        
-        container.appendChild(newPanel);
-    }
-
-    function removePanel(element) {
-        const container = document.getElementById("panels-container");
-        const panelEntries = container.getElementsByClassName("panels");
-
-        // Ensure at least one panel remains
-        if (panelEntries.length > 1) {
-            const panelEntry = element.closest(".panels");
-            if (panelEntry) {
-                panelEntry.remove();
-            }
-        } else {
-            alert("At least one panel must remain.");
-        }
-    }
-</script>
-
 </html>

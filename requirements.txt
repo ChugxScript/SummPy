@@ -10,3 +10,4 @@ pypdfium2
 scikit-learn
 nltk
 psutil
+pypdf2
