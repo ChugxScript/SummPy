@@ -9,10 +9,7 @@ from .blueprints.get_file import get_file
 from .blueprints.get_file_pages import get_file_pages
 from .blueprints.summary_result import summary_result
 
-from .blueprints.admin.admin_dashboard import admin_dashboard
-from .blueprints.admin.admin_library_books import admin_library_books
-from .blueprints.admin.admin_add_edit import admin_add_edit
-
+from .blueprints.admin.admin_cos_library import admin_cos_library
 from .blueprints.student.student_library_books import student_library_books
 
 def create_app():
@@ -33,10 +30,7 @@ def create_app():
     app.register_blueprint(get_file_pages)
     app.register_blueprint(summary_result)
 
-    app.register_blueprint(admin_dashboard)
-    app.register_blueprint(admin_library_books)
-    app.register_blueprint(admin_add_edit)
-    
+    app.register_blueprint(admin_cos_library)
     app.register_blueprint(student_library_books)
 
     return app

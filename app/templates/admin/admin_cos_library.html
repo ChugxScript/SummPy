@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_cos_library.css') }}">
+    <script src="{{ url_for('static', filename='js/admin_cos_library.js') }}" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>SummPy | COS Library</title>
+</head>
+<body>
+    <div class="student-cos-library-books">
+        <div class="header">
+            <a href="{{ url_for('home.home_page') }}">
+                <img src="{{ url_for('static', filename='images/LOGO.gif') }}" alt="Logo" class="logo-img">
+            </a>
+            <div id="navbar">
+                <a href="{{url_for('home.home_page')}}">HOME</a>
+                <a href="{{url_for('how_to_use.how_to_use_page')}}">HOW TO USE</a>
+                <a href="{{url_for('about_us.about_us_page')}}">ABOUT US</a>
+                <a href="{{url_for('admin_cos_library.admin_cos_library_page')}}">COS LIBRARY</a>
+                <a href="{{url_for('donate.donate_page')}}">DONATE</a>
+            </div>
+        </div>
+
+        <div class="content-containers">
+            <div class="side-bar-menu">
+                <div id="dashboard_tab" class="side-bar-tabs">
+                    <img src="{{ url_for('static', filename='images/dashboard_icon1.png') }}" alt="">
+                    <p>Dashboard</p>
+                </div>
+                <p class="books-tabs">Books</p>
+                <div id="under_graduate_tab" class="side-bar-tabs">
+                    <img src="{{ url_for('static', filename='images/under_graduate_icon1.png') }}" alt="">
+                    <p>Under Graduate</p>
+                </div>
+                <div id="graduate_tab" class="side-bar-tabs">
+                    <img src="{{ url_for('static', filename='images/graduate_icon1.png') }}" alt="">
+                    <p>Graduate</p>
+                </div>
+                <div id="masteral_tab" class="side-bar-tabs">
+                    <img src="{{ url_for('static', filename='images/masteral_icon1.png') }}" alt="">
+                    <p>Masteral</p>
+                </div>
+                <div id="dissertation_tab" class="side-bar-tabs">
+                    <img src="{{ url_for('static', filename='images/dissertation_icon1.png') }}" alt="">
+                    <p>Dissertation</p>
+                </div>
+                <div id="doctorate_tab" class="side-bar-tabs">
+                    <img src="{{ url_for('static', filename='images/doctorate_icon1.png') }}" alt="">
+                    <p>Doctorate</p>
+                </div>
+            </div>
+
+            <!-- 
+                This part of the code displays the books
+                available in our database
+            -->
+            <div class="main-content-container" id="main_content_container">
+                <div class="search-container">
+                    <form action="" id="search_form">
+                        <input type="text" placeholder="Search.." name="search">
+                        <div id="search_form_button">SEARCH</div>
+                    </form>
+                </div>
+                <p class="filter-tabs">Filter</p>
+
+                <!-- 
+                    the options will be transfered to the js file
+                    to process dynamically all the options
+                    base on the data we have in the database
+                    but for now it just a temporary value
+                -->
+                <form action="" id="filter_form">
+                    <div class="filter-container">
+                        <div class="filter-tabs-container">
+                            <p>Year Published</p>
+                            <div class="select-options-container">
+                                <select id="year_published">
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="filter-tabs-course-field-container">
+                            <p>Course</p>
+                            <div class="select-options-container">
+                                <select id="course_option">
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="filter-tabs-course-field-container">
+                            <p>Field of the Study</p>
+                            <div class="select-options-container">
+                                <select id="field_study_option">
+                                    <option value="2020">2020</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2022">2022</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="filter_button">FILTER</div>
+                    </div>
+                </form>
+
+                <div class="add-button-container">
+                    <div id="add_button_trigger">
+                        <p>Add</p>
+                        <img src="{{ url_for('static', filename='images/add_icon2.png') }}" alt="">
+                    </div>
+                </div>
+
+                <div class="study-card-container" id="study_card_container">
+                    <!-- 
+                        'study-card-details' divs will be transfer to the js file
+                        to dynamically adjust the content and the details of each
+                        book per category
+                    -->
+                    
+                </div>
+            </div>
+
+            <!-- 
+                this part shows the details of the book.
+                the content of this will be transferred inside the js file
+                to dynamically display which book is being clicked.
+            -->
+            <div class="view-book-details-container" id="view_book_details_container">
+                <img src="{{ url_for('static', filename='images/back_button_icon1.png') }}" alt="" id="back_button_view">
+                <div class="margin-container">
+                    <p id="study_title">STUDY TITLE</p>
+                    <p id="publication_date">Publication date</p>
+    
+                    <div class="course-category-container">
+                        <div class="details-course-container">
+                            <p class="details-course-title">Course:</p>
+                            <p id="details_course_value">course</p>
+                        </div>
+                        <div class="details-category-container">
+                            <p class="details-category-title">Category:</p>
+                            <p id="details_category_value">category</p>
+                        </div>
+                    </div>
+
+                    <div class="authors-panels-container">
+                        <div class="details-authors-container">
+                            <p class="details-authors-title">Authors:</p>
+                            <p id="details_authors_value">Author1</p>
+                            <p id="details_authors_value">Author2</p>
+                            <p id="details_authors_value">Author3</p>
+                            <p id="details_authors_value">Author4</p>
+                            <p id="details_authors_value">Author5</p>
+                        </div>
+                        <div class="details-panels-container">
+                            <p class="details-panels-title">Panels:</p>
+                            <p id="details_panels_value">Panel1</p>
+                            <p id="details_panels_value">Panel2</p>
+                            <p id="details_panels_value">Panel3</p>
+                            <p id="details_panels_value">Panel4</p>
+                        </div>
+                    </div>
+
+                    <div class="original-summarized-container">
+                        <div class="details-original-container">
+                            <p class="details-original-title">Original</p>
+                            <embed src="{{ url_for('static', filename='test/se_pdf.pdf') }}" type="application/pdf">
+                        </div>
+                        <div class="details-summarized-container">
+                            <p class="details-summarized-title">Summarized Result</p>
+                            <embed src="{{ url_for('static', filename='test/se_pdf.pdf') }}" type="application/pdf">
+                        </div>
+                    </div>
+
+                    <div id="MOA_container">
+                        <img src="{{ url_for('static', filename='images/redirect_icon1.png') }}" alt="">
+                        <p class="MOA-title">Memorandum of Agreement</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 
+                this part shows the edit details of the book.
+                this will be transfered inside the js file to
+                dynamically place initial values base on the 
+                current value of the book.
+            -->
+            <div id="edit_form_content_container">
+                <img src="{{ url_for('static', filename='images/arrow.png') }}" alt="arrow" id="back_button_edit">
+
+                <form action="" id="add_edit_book_form">
+                    <div class="title-container">
+                        <label for="studyTitle" class="title-text-form">STUDY TITLE</label>
+                        <input type="text" id="studyTitle" name="studyTitle" placeholder="Title" required>
+                    </div>
+                    
+                    <div class="date-category-container">
+                        <div class="published-date-container">
+                            <p class="title-text-form">Published Date</p>
+                            <div class="day-month-year-container">
+                                <div class="day-container">
+                                    <label for="dayInputValue">Day</label>
+                                    <input type="number" id="day_input_value" name="dayInputValue" placeholder="DD" required>
+                                </div>
+                                <div class="month-container">
+                                    <label for="monthInputValue">Month</label>
+                                    <select name="categories" id="month_input_value" required>
+                                        <option value="JANUARY">JANUARY</option>
+                                        <option value="FEBRUARY">FEBRUARY</option>
+                                        <option value="MARCH">MARCH</option>
+                                        <option value="APRIL">APRIL</option>
+                                        <option value="MAY">MAY</option>
+                                        <option value="JUNE">JUNE</option>
+                                        <option value="JULY">JULY</option>
+                                        <option value="AUGUST">AUGUST</option>
+                                        <option value="SEPTEMBER">SEPTEMBER</option>
+                                        <option value="OCTOBER">OCTOBER</option>
+                                        <option value="NOVEMBER">NOVEMBER</option>
+                                        <option value="DECEMBER">DECEMBER</option>
+                                    </select>
+                                </div>
+                                <div class="year-container">
+                                    <label for="yearInputValue">Year</label>
+                                    <input type="number" id="year_input_value" name="yearInputValue" placeholder="YYYY" required>
+                                </div>
+                            </div> 
+                        </div>
+
+                        <div class="select-category-container">
+                            <p class="title-text-form">Select Category</p>
+                            <p class="category-subtitle1">Categories</p>
+                            <select name="categories" id="selected_category" required>
+                                <option value="UNDER_GRADUATE">Under Graduate</option>
+                                <option value="GRADUATE">Graduate</option>
+                                <option value="DISSERTATION">Dissertation</option>
+                                <option value="MASTERAL">Masteral</option>
+                                <option value="DOCTORATE">Doctorate</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <p class="title-text-form other-details-text">Other Details</p>
+
+                    <div class="course-field-container">
+                        <div class="course-container">
+                            <p>Course</p>
+                            <select name="course" id="selected_course" required>
+                                <option value="BS_COMPUTER_SCIENCE">BS Computer Science</option>
+                                <option value="BS_INFORMATION_TECHNOLOGY">BS Information Technology</option>
+                                <option value="BS_INFORMATION_SYSTEM">BS Information System</option>
+                            </select>
+                        </div>
+                        <div class="field-study-container">
+                            <p>Field of the study <span>(separated by comma)</span></p>
+                            <textarea type="text" id="field_of_the_study" name="fieldOfTheStudy" placeholder="Artificial Intelligence, Machine Learning" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="authors-container">
+                        <p class="title-text-form">Authors</p>
+                        <div id="author_list_main_container"></div>
+                        <div id="add_author_container">
+                            <img src="{{ url_for('static', filename='images/add.png') }}" alt="">
+                            <p>Add another author</p>
+                        </div>
+                    </div>
+
+                    <div class="panels-container">
+                        <p class="title-text-form">Panels</p>
+                        <div id="panel_list_main_container"></div>
+                        <div id="add_panel_container">
+                            <img src="{{ url_for('static', filename='images/add.png') }}" alt="">
+                            <p>Add another panel</p>
+                        </div>
+                    </div>
+
+                    <div class="study-document-container">
+                        <p class="title-text-form">Upload study document</p>
+                        <input type="file" id="study_file" accept=".pdf" required>
+                    </div>
+
+                    <div class="moa-container">
+                        <p class="title-text-form">Memorandum of Agreement <span>(if applicable)</span></p>
+                        <input type="file" id="moa_file">
+                    </div>
+
+                    <div class="sumbit-button-container">
+                        <button>SUMBIT</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 
+                this part shows the popup modal if success or not.
+                the content of the pop up modal will be dynamically
+                populate base on the result of the return value.
+                this can be seen inside the js file.
+            -->
+            <div id="modal_content_container">
+                <div class="modal-content">
+                    <img src="{{ url_for('static', filename='images/check_icon1.png') }}" alt="">
+                    <p>Document Added Successfully</p>
+
+                    <div class="modal-ok-button">
+                        <p>OK</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 
+                This part of the code shows the dashboard of 
+                our total books and other visualization.
+            -->
+            <div id="dashboard_content_container">
+                <div class="dashboard-welcome-text">
+                    <p>Welcome to <span>DASHBOARD!</span></p>
+                </div>
+                <div class="dashboard-total-book-numbers-container">
+                    <div class="undergraduate-container">
+                        <img src="../../static/images/under_graduate_icon1.png" alt="">
+                        <p id="undergraduate_total_value">283</p>
+                        <p class="total-number-title">UNDER GRADUATE</p>
+                    </div>
+                    <div class="graduate-container">
+                        <img src="../../static/images/graduate_icon1.png" alt="">
+                        <p id="graduate_total_value">205</p>
+                        <p class="total-number-title">GRADUATE</p>
+                    </div>
+                    <div class="masteral-container">
+                        <img src="../../static/images/masteral_icon1.png" alt="">
+                        <p id="masteral_total_value">180</p>
+                        <p class="total-number-title">MASTERAL</p>
+                    </div>
+                    <div class="dissertation-container">
+                        <img src="../../static/images/dissertation_icon1.png" alt="">
+                        <p id="dissertation_total_value">97</p>
+                        <p class="total-number-title">DISSERTATION</p>
+                    </div>
+                    <div class="doctorate-container">
+                        <img src="../../static/images/doctorate_icon1.png" alt="">
+                        <p id="doctorate_total_value">46</p>
+                        <p class="total-number-title">DOCTORATE</p>
+                    </div>
+                </div>
+                <div class="dashboard-published-books-container">
+                    <div id="cs_published_books_container">
+                        <p><span>CS</span> PUBLISHED BOOKS PER YEAR</p>
+                        <div id="cs_published_books_chart_container">
+
+                        </div>
+                    </div>
+                    <div id="it_published_books_container">
+                        <p><span>IT</span> PUBLISHED BOOKS PER YEAR</p>
+                        <div id="it_published_books_chart_container">
+                            
+                        </div>
+                    </div>
+                    <div id="is_published_books_container">
+                        <p><span>IS</span> PUBLISHED BOOKS PER YEAR</p>
+                        <div id="is_published_books_chart_container">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="dashboard_all_total_published_books">
+                    <p><span>TOTAL NUMBER</span> OF PUBLISHED BOOKS PER YEAR</p>
+                    <div id="dashboard_all_total_published_books_chart">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // this is for the removing the added authors
+        // this is placed here because its not working 
+        // inside the js fil. umay :)
+        function removeAuthorDiv(divID){
+            console.log("Removed: "+divID);
+            const removeDivID = document.getElementById(divID);
+            if (removeDivID) {
+                removeDivID.remove(); 
+            } else {
+                alert("Not exist.");
+            }
+        }
+    </script>
+</body>
+</html>

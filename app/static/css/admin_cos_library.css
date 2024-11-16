@@ -76,6 +76,7 @@ body {
 .content-containers{
     display: flex;
     flex-direction: row;
+    position: relative;
     margin-top: 60px;
     height: 100%;
     max-height: 90vh;
@@ -107,6 +108,10 @@ body {
     background-color: #240836;
 }
 
+.selected-side-bar-option{
+    background-color: #240836;
+}
+
 .books-tabs{
     margin-top: 20px;
     padding-left: 10px;
@@ -117,9 +122,10 @@ body {
     height: 20px;
 }
 
+/* ********BOOKS******** */
 .main-content-container{
-    display: flex;
-    /* display: none; */
+    /* display: flex; */
+    display: none;
     flex-direction: column;
     flex: 1;
     color: white;
@@ -246,7 +252,7 @@ body {
     align-items: end;
 }
 
-.add-button-trigger{
+#add_button_trigger{
     display: flex;
     flex-direction: row;
     background-color: #A904FE;
@@ -261,11 +267,11 @@ body {
     cursor: pointer;
 }
 
-.add-button-trigger:hover{
+#add_button_trigger:hover{
     background-color: #b848f0;
 }
 
-.add-button-trigger img{
+#add_button_trigger img{
     width: 20px;
     height: 20px;
 }
@@ -290,7 +296,6 @@ body {
     border: #292734 solid 1px;
     background-color: #170523;
     border-radius: 20px;
-    cursor: pointer;
 }
 
 .study-card-details:hover{
@@ -301,6 +306,7 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
+    cursor: pointer;
 }
 
 .card-study-title{
@@ -328,6 +334,7 @@ body {
     flex: 0 30%;
     text-align: end;
     padding-right: 20px;
+    cursor: pointer;
 }
 
 .right-card-details-options{
@@ -340,7 +347,7 @@ body {
     border-left: solid white 1px;
 }
 
-.card-edit-button-container,
+.card-edit-button-contianer,
 .card-remove-button-container{
     display: flex;
     flex-direction: row;
@@ -351,13 +358,13 @@ body {
     cursor: pointer;
 }
 
-.card-edit-button-container img,
+.card-edit-button-contianer img,
 .card-remove-button-container img{
     width: 20px;
     height: 20px;
 }
 
-.card-edit-button-container:hover,
+.card-edit-button-contianer:hover,
 .card-remove-button-container:hover{
     text-decoration: underline;
 }
@@ -371,7 +378,7 @@ body {
     background-color: #170523;
 }
 
-#back_button{
+#back_button_view{
     width: 45px;
     height: 45px;
     margin-top: 10px;
@@ -453,4 +460,415 @@ body {
     font-weight: 300;
     padding-left: 10px;
     color: #A904FE;
+}
+
+/* ********EDIT******** */
+#edit_form_content_container{
+    /* display: flex; */
+    display: none;
+    flex-direction: column;
+    flex: 1;
+    color: white;
+    background-color: #170523;
+}
+
+#back_button_edit{
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#add_edit_book_form{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    color: white;
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.title-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.title-text-form{
+    font-size: 20px;
+}
+
+.other-details-text{
+    margin-top: 40px;
+}
+
+#studyTitle{
+    height: 40px;
+    border-radius: 10px;
+    color: black;
+    padding: 10px;
+}
+
+.date-category-container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.published-date-container{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.day-month-year-container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.day-container {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+}
+
+.month-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.year-container{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+#day_input_value,
+#month_input_value,
+#year_input_value{
+    height: 40px;
+    border-radius: 10px;
+    color: black;
+    padding: 10px;
+}
+
+.select-category-container{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.category-subtitle1{
+    margin-top: 10px;
+}
+
+#selected_category,
+#selected_course {
+    height: 40px;
+    border-radius: 10px;
+    color: black;
+    padding: 10px;
+}
+
+.course-field-container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.course-container,
+.field-study-container{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.field-study-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.field-study-container span{
+    font-weight: 200;
+}
+
+#field_of_the_study{
+    height: 80px;
+    border-radius: 10px;
+    color: black;
+    padding: 10px;
+    max-height: 100px;
+    overflow-y: auto;
+    resize: none;
+}
+
+.authors-container,
+.panels-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+#author_list_main_container,
+#panel_list_main_container{
+    margin-top: 10px;
+}
+
+.author-list-container,
+.panel-list-container{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.author-name-container,
+.panel-name-container{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.author-name-container input,
+.panel-name-container input{
+    height: 40px;
+    border-radius: 10px;
+    color: black;
+    padding: 10px;
+}
+
+#add_author_container,
+#add_panel_container{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 15px;
+    color: #6750A4;
+    cursor: pointer;
+}
+
+.remove-author-form,
+.remove-panel-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.moa-container,
+.study-document-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.moa-container input,
+.study-document-container input{
+    cursor: pointer;
+}
+
+.moa-container span{
+    font-weight: 200;
+}
+
+.sumbit-button-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.sumbit-button-container button{
+    display: flex;
+    background-color: #A904FE;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+/* ********DASHBOARD******** */
+#dashboard_content_container{
+    display: flex;
+    /* display: none; */
+    flex-direction: column;
+    flex: 1;
+    color: white;
+    height: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.dashboard-welcome-text{
+    display: flex;
+    padding: 20px;
+}
+
+.dashboard-welcome-text p{
+    font-style: italic;
+}
+
+.dashboard-welcome-text span{
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.dashboard-total-book-numbers-container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.undergraduate-container,
+.graduate-container,
+.masteral-container,
+.dissertation-container,
+.doctorate-container{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border: #A904FE solid 1px;
+    background-color: black;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+#undergraduate_total_value,
+#graduate_total_value,
+#masteral_total_value,
+#dissertation_total_value,
+#doctorate_total_value{
+    font-size: 35px;
+    font-weight: 800;
+    color: #A904FE; 
+}
+
+.dashboard-published-books-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
+}
+
+#cs_published_books_container,
+#it_published_books_container,
+#is_published_books_container{
+    display: flex;
+    flex-direction: column;
+    background-color: #370054;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#cs_published_books_container p,
+#it_published_books_container p,
+#is_published_books_container p{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#cs_published_books_container span,
+#it_published_books_container span,
+#is_published_books_container span{
+    font-size: 20px;
+    font-weight: 600;
+    color: #6fe211;
+}
+
+#dashboard_all_total_published_books{
+    display: flex;
+    flex-direction: column;
+    /* background-color: #0F2A4A; */
+    background-color: #370054;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+}
+
+#dashboard_all_total_published_books p{
+    font-size: 20px;
+    font-weight: 600;
+    /* color: #fbff00; */
+}
+
+#dashboard_all_total_published_books span{
+    font-size: 25px;
+    font-weight: 700;
+    color: #6fe211;
+}
+
+.apexcharts-menu {
+    background-color: #333 !important; 
+    color: #fff !important; 
+    border: 1px solid #555; 
+}
+
+.apexcharts-menu-item:hover {
+    background-color: #444 !important; 
+    color: #fff !important;
+}
+
+
+/* ********POPUP MODAL******** */
+#modal_content_container{
+    /* display: flex; */
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    color: white;
+    background-color: #09020ec9;
+    z-index: 100;
+    margin-left: 15%;
+    height: 100%;
+    width: 85%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0B0211;
+    border: #A904FE solid 1px;
+    border-radius: 20px;
+}
+
+.modal-ok-button{
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #A904FE;
+    border-radius: 10px;
+    cursor: pointer;
 }
