@@ -129,6 +129,7 @@ body {
     height: 40px;
     margin-top: 10px;
     margin-left: 10px;
+    cursor: pointer;
 }
 
 #add_edit_book_form{
@@ -320,6 +321,11 @@ body {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
+}
+
+.moa-container input,
+.study-document-container input{
+    cursor: pointer;
 }
 
 .moa-container span{

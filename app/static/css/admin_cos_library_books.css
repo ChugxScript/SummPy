@@ -77,7 +77,8 @@ body {
     display: flex;
     flex-direction: row;
     margin-top: 60px;
-    height: 90vh;
+    height: 100%;
+    max-height: 90vh;
     border-top: white solid 1px;
 }
 
@@ -238,6 +239,37 @@ body {
     background-color: #4f2ea8;
 }
 
+.add-button-container{
+    display: flex;
+    padding: 10px;
+    justify-content: end;
+    align-items: end;
+}
+
+.add-button-trigger{
+    display: flex;
+    flex-direction: row;
+    background-color: #A904FE;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    padding-left: 25px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.add-button-trigger:hover{
+    background-color: #b848f0;
+}
+
+.add-button-trigger img{
+    width: 20px;
+    height: 20px;
+}
+
 .study-card-container{
     display: flex;
     flex-direction: column;
@@ -295,6 +327,39 @@ body {
     flex-direction: column;
     flex: 0 30%;
     text-align: end;
+    padding-right: 20px;
+}
+
+.right-card-details-options{
+    display: flex;
+    flex: 0 10%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    border-left: solid white 1px;
+}
+
+.card-edit-button-container,
+.card-remove-button-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.card-edit-button-container img,
+.card-remove-button-container img{
+    width: 20px;
+    height: 20px;
+}
+
+.card-edit-button-container:hover,
+.card-remove-button-container:hover{
+    text-decoration: underline;
 }
 
 .view-book-details-container{
