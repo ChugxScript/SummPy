@@ -13,15 +13,16 @@ body {
     margin: 0;
     background-color: #09020E;
     color: white;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .header {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    padding-left: 5%;
+    width: 100vw;
+    height: 60px;
+    padding: 1px 5%;
     background: transparent;
     display: flex;
     justify-content: space-between;
@@ -31,8 +32,8 @@ body {
 }
 
 .logo-img {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     object-fit: cover; 
 }
 
@@ -65,20 +66,19 @@ body {
     width: 100%;
 }
 
-.navbar.scrolled {
-    background-color: rgba(134, 38, 38, 0.8); 
-    transition: background-color 0.3s; 
+.scrolled {
+    background-color: rgba(1, 27, 61, 0.479); 
+    transition: background-color 0.3s;
 }
 
 .summary-result-container{
     display: flex;
     flex-direction: row; 
-    margin-top: 5%;
+    margin-top: 60px;
     height: 90vh;
     min-height: 90vh;
     max-height: 100vh; 
     z-index: 100;
-    padding-top: 10px;
     /* border: white 1px solid; */
 }
 
@@ -96,6 +96,8 @@ body {
     flex-direction: column;
     flex: 1;
     padding: 10px;
+    max-height: 90vh;
+    overflow-y: auto;
     border-top: white 3px solid;
     border-left: white 1px solid;
 }

@@ -53,15 +53,15 @@ def generate_pdf_with_first_page(summary_list, filename, original_file_path):
 def summary_result_page():
     uploaded_files = get_uploaded_files()
 
-    # get the IMRAD summary
-    summarizer = SummPy()
-    results = summarizer.generate_summaries()
+    # # get the IMRAD summary
+    # summarizer = SummPy()
+    # results = summarizer.generate_summaries()
 
-    # make pdfs with the first page of the original PDF
-    for i, result in enumerate(results):
-        original_file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], uploaded_files[i])
-        pdf_filename = f"summary_{uploaded_files[i]}"
-        generate_pdf_with_first_page(result, pdf_filename, original_file_path)
+    # # make pdfs with the first page of the original PDF
+    # for i, result in enumerate(results):
+    #     original_file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], uploaded_files[i])
+    #     pdf_filename = f"summary_{uploaded_files[i]}"
+    #     generate_pdf_with_first_page(result, pdf_filename, original_file_path)
 
     summarized_folder = get_summarized_files()
 

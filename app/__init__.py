@@ -9,8 +9,8 @@ from .blueprints.get_file import get_file
 from .blueprints.get_file_pages import get_file_pages
 from .blueprints.summary_result import summary_result
 
-from .blueprints.admin.admin_cos_library import admin_cos_library
-from .blueprints.student.student_library_books import student_library_books
+from .blueprints.admin_cos_library import admin_cos_library
+from .blueprints.student_cos_library import student_cos_library
 
 def create_app():
     app = Flask(__name__)
@@ -31,7 +31,7 @@ def create_app():
     app.register_blueprint(summary_result)
 
     app.register_blueprint(admin_cos_library)
-    app.register_blueprint(student_library_books)
+    app.register_blueprint(student_cos_library)
 
     return app
 

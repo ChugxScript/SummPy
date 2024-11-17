@@ -1,12 +1,7 @@
-let authorCount = 1;
-let panelCount = 1;
-
 let currentSidebarMenuOption;
 
 document.addEventListener("DOMContentLoaded", function() {
-    // setOnclickOnCards();
-    initializeAuthorForm();
-    initializePanelForm();
+    setOnclickOnCards();
     initializeDashboard();
 
     currentSidebarMenuOption = document.getElementById("dashboard_tab");
@@ -19,13 +14,8 @@ document.addEventListener("DOMContentLoaded", function() {
 function setOnclickOnCards(){
     const main_content_container = document.getElementById("main_content_container");
     const left_card_details = document.querySelectorAll(".left-card-details");
-    const right_card_details = document.querySelectorAll(".right-card-details");
-    const card_edit_button_container = document.querySelectorAll(".card-edit-button-contianer");
-    const add_button_trigger = document.getElementById("add_button_trigger");
     const view_book_details_container = document.getElementById("view_book_details_container");
-    const edit_form_content_container = document.getElementById("edit_form_content_container");
     const back_button_view = document.getElementById("back_button_view");
-    const back_button_edit = document.getElementById("back_button_edit");
 
     left_card_details.forEach(cards => {
         cards.addEventListener('click', () => {
@@ -34,124 +24,11 @@ function setOnclickOnCards(){
         });
     });
 
-    right_card_details.forEach(cards => {
-        cards.addEventListener('click', () => {
-            main_content_container.style.display = "none";
-            view_book_details_container.style.display = "flex";
-        });
-    });
-
-    card_edit_button_container.forEach(cards => {
-        cards.addEventListener('click', () => {
-            main_content_container.style.display = "none";
-            edit_form_content_container.style.display = "flex";
-        });
-    });
-
-    add_button_trigger.addEventListener('click', () => {
-        main_content_container.style.display = "none";
-        edit_form_content_container.style.display = "flex";
-    });
-
     back_button_view.addEventListener('click', () => {
         main_content_container.style.display = "flex";
         view_book_details_container.style.display = "none";
     });
-
-    back_button_edit.addEventListener('click', () => {
-        main_content_container.style.display = "flex";
-        edit_form_content_container.style.display = "none";
-    });
 }
-
-function initializeAuthorForm(){
-    const author_list_main_container = document.getElementById("author_list_main_container");
-    const add_author_container = document.getElementById("add_author_container");
-
-    author_list_main_container.innerHTML += `
-        <div class="author-list-container" id="author${authorCount}">
-            <div class="author-name-container">
-                <label for="authorFirstName${authorCount}">First Name</label>
-                <input type="text" id="authorFirstName${authorCount}" name="authorFirstName${authorCount}" placeholder="First Name" required>
-            </div>
-            <div class="author-name-container">
-                <label for="authorMiddleName${authorCount}">Middle Name</label>
-                <input type="text" id="authorMiddleName${authorCount}" name="authorMiddleName${authorCount}" placeholder="Middle Name">
-            </div>
-            <div class="author-name-container">
-                <label for="authorLastName${authorCount}">Last Name</label>
-                <input type="text" id="authorLastName${authorCount}" name="authorLastName${authorCount}" placeholder="Last Name" required>
-            </div>
-        </div>
-    `;
-
-    add_author_container.addEventListener('click', () => {
-        authorCount += 1;
-
-        author_list_main_container.innerHTML += `
-            <div class="author-list-container" id="author${authorCount}">
-                <div class="author-name-container">
-                    <label for="authorFirstName${authorCount}">First Name</label>
-                    <input type="text" id="authorFirstName${authorCount}" name="authorFirstName${authorCount}" placeholder="First Name" required>
-                </div>
-                <div class="author-name-container">
-                    <label for="authorMiddleName${authorCount}">Middle Name</label>
-                    <input type="text" id="authorMiddleName${authorCount}" name="authorMiddleName${authorCount}" placeholder="Middle Name">
-                </div>
-                <div class="author-name-container">
-                    <label for="authorLastName${authorCount}">Last Name</label>
-                    <input type="text" id="authorLastName${authorCount}" name="authorLastName${authorCount}" placeholder="Last Name" required>
-                </div>
-                <img src="../../static/images/x.png" alt="x" id="remove_author${authorCount}" class="remove-author-form" onclick="removeAuthorDiv('author${authorCount}')">
-            </div>
-        `;
-    });
-}
-
-function initializePanelForm(){
-    const panel_list_main_container = document.getElementById("panel_list_main_container");
-    const add_panel_container = document.getElementById("add_panel_container");
-
-    panel_list_main_container.innerHTML += `
-        <div class="panel-list-container" id="panel${panelCount}">
-            <div class="panel-name-container">
-                <label for="panelFirstName${panelCount}">First Name</label>
-                <input type="text" id="panelFirstName${panelCount}" name="panelFirstName${panelCount}" placeholder="First Name" required>
-            </div>
-            <div class="panel-name-container">
-                <label for="panelMiddleName${panelCount}">Middle Name</label>
-                <input type="text" id="panelMiddleName${panelCount}" name="panelMiddleName${panelCount}" placeholder="Middle Name">
-            </div>
-            <div class="panel-name-container">
-                <label for="panelLastName${panelCount}">Last Name</label>
-                <input type="text" id="panelLastName${panelCount}" name="panelLastName${panelCount}" placeholder="Last Name" required>
-            </div>
-        </div>
-    `;
-
-    add_panel_container.addEventListener('click', () => {
-        panelCount += 1;
-
-        panel_list_main_container.innerHTML += `
-            <div class="panel-list-container" id="panel${panelCount}">
-                <div class="panel-name-container">
-                    <label for="panelFirstName${panelCount}">First Name</label>
-                    <input type="text" id="panelFirstName${panelCount}" name="panelFirstName${panelCount}" placeholder="First Name" required>
-                </div>
-                <div class="panel-name-container">
-                    <label for="panelMiddleName${panelCount}">Middle Name</label>
-                    <input type="text" id="panelMiddleName${panelCount}" name="panelMiddleName${panelCount}" placeholder="Middle Name">
-                </div>
-                <div class="panel-name-container">
-                    <label for="panelLastName${panelCount}">Last Name</label>
-                    <input type="text" id="panelLastName${panelCount}" name="panelLastName${panelCount}" placeholder="Last Name" required>
-                </div>
-                <img src="../../static/images/x.png" alt="x" id="remove_panel${panelCount}" class="remove-panel-form" onclick="removeAuthorDiv('panel${panelCount}')">
-            </div>
-        `;
-    });
-}
-
 
 // this shows the visualization of dashboard
 // using charts base on our data
@@ -684,9 +561,7 @@ function handleTabClick(tabId, containerId) {
     const allContainers = [
         "dashboard_content_container", 
         "main_content_container", 
-        "view_book_details_container", 
-        "edit_form_content_container", 
-        "modal_content_container"
+        "view_book_details_container"
     ];
     allContainers.forEach(id => document.getElementById(id).style.display = "none");
 
@@ -742,16 +617,6 @@ function populateUnderGradStudies(){
                 <p class="card-category">Category</p>
                 <p class="card-field-study">Field of the Study</p>
             </div>
-            <div class="right-card-details-options">
-                <div class="card-edit-button-contianer">
-                    <img src="../../static/images/edit_icon1.png" alt="">
-                    <p>Edit</p>
-                </div>
-                <div class="card-remove-button-container">
-                    <img src="../../static/images/delete_icon1.png" alt="">
-                    <p>Remove</p>
-                </div>
-            </div>
         </div>
         `;
     }
@@ -772,16 +637,6 @@ function populateGradStudies(){
             <div class="right-card-details">
                 <p class="card-category">Category</p>
                 <p class="card-field-study">Field of the Study</p>
-            </div>
-            <div class="right-card-details-options">
-                <div class="card-edit-button-contianer">
-                    <img src="../../static/images/edit_icon1.png" alt="">
-                    <p>Edit</p>
-                </div>
-                <div class="card-remove-button-container">
-                    <img src="../../static/images/delete_icon1.png" alt="">
-                    <p>Remove</p>
-                </div>
             </div>
         </div>
         `;
@@ -804,16 +659,6 @@ function populateMasteralStudies(){
                 <p class="card-category">Category</p>
                 <p class="card-field-study">Field of the Study</p>
             </div>
-            <div class="right-card-details-options">
-                <div class="card-edit-button-contianer">
-                    <img src="../../static/images/edit_icon1.png" alt="">
-                    <p>Edit</p>
-                </div>
-                <div class="card-remove-button-container">
-                    <img src="../../static/images/delete_icon1.png" alt="">
-                    <p>Remove</p>
-                </div>
-            </div>
         </div>
         `;
     }
@@ -835,16 +680,6 @@ function populateDissertationStudies(){
                 <p class="card-category">Category</p>
                 <p class="card-field-study">Field of the Study</p>
             </div>
-            <div class="right-card-details-options">
-                <div class="card-edit-button-contianer">
-                    <img src="../../static/images/edit_icon1.png" alt="">
-                    <p>Edit</p>
-                </div>
-                <div class="card-remove-button-container">
-                    <img src="../../static/images/delete_icon1.png" alt="">
-                    <p>Remove</p>
-                </div>
-            </div>
         </div>
         `;
     }
@@ -865,16 +700,6 @@ function populateDoctorateStudies(){
             <div class="right-card-details">
                 <p class="card-category">Category</p>
                 <p class="card-field-study">Field of the Study</p>
-            </div>
-            <div class="right-card-details-options">
-                <div class="card-edit-button-contianer">
-                    <img src="../../static/images/edit_icon1.png" alt="">
-                    <p>Edit</p>
-                </div>
-                <div class="card-remove-button-container">
-                    <img src="../../static/images/delete_icon1.png" alt="">
-                    <p>Remove</p>
-                </div>
             </div>
         </div>
         `;

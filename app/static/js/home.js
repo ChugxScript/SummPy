@@ -1,17 +1,23 @@
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    //initializeHeader()
+    initializeHeader()
 });
 
 function initializeHeader() {
-    const navbar = document.getElementById("navbar");
-    navbar.innerHTML = `
-        <a href="{{url_for('home.home_page')}}">HOME</a>
-        <a href="{{url_for('how_to_use.how_to_use_page')}}">HOW TO USE</a>
-        <a href="{{url_for('about_us.about_us_page')}}">ABOUT US</a>
-        <a href="{{url_for('donate.donate_page')}}">DONATE</a>
-        <a href="{{url_for('donate.donate_page')}}">HI</a>
+    const homeUrl = navbar.getAttribute("data-home-url");
+    const howToUseUrl = navbar.getAttribute("data-how-to-use-url");
+    const aboutUsUrl = navbar.getAttribute("data-about-us-url");
+    const donateUrl = navbar.getAttribute("data-donate-url");
+    const profileUrl = navbar.getAttribute("data-profile-url");
+    
+    // Build navbar HTML
+    let navbarHTML = `
+        <a href="${homeUrl}">HOME</a>
+        <a href="${howToUseUrl}">HOW TO USE</a>
+        <a href="${aboutUsUrl}">ABOUT US</a>
+        <a href="${donateUrl}">DONATE</a>
+        <a href="${profileUrl}">HI</a>
     `;
-    console.log("navbar: "+navbar);
+    navbar.innerHTML = navbarHTML;
 }

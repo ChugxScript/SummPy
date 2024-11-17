@@ -32,10 +32,10 @@
                     <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”</p>
                     <div class="socials">
                         <div class="fb">
-                            <a href="#"> <img src="{{ url_for('static', filename='images/facebook.png') }}" alt="Facebook"></a>
+                            <a href="https://www.facebook.com/jephoyd" target="_blank"> <img src="{{ url_for('static', filename='images/facebook.png') }}" alt="Facebook"></a>
                         </div>
                         <div class="git">
-                            <a href="https://github.com/" target="_blank"><img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub"></a>
+                            <a href="https://github.com/jephoyd" target="_blank"><img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub"></a>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                     <p>“Fake it 'til you make it.”</p>
                     <div class="socials">
                         <div class="fb">
-                            <a href="https://www.facebook.com/05sophia"> <img src="{{ url_for('static', filename='images/facebook.png') }}" alt="Facebook"></a>
+                            <a href="https://www.facebook.com/05sophia" target="_blank"> <img src="{{ url_for('static', filename='images/facebook.png') }}" alt="Facebook"></a>
                         </div>
                         <div class="git">
                             <a href="https://github.com/enriquez05" target="_blank"><img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub"></a>
@@ -60,15 +60,13 @@
                     <p>“What's meant for me will always find its way.”</p>
                     <div class="socials">
                         <div class="fb">
-                            <a href="#"> <img src="{{ url_for('static', filename='images/facebook.png') }}" alt="Facebook"></a>
+                            <a href="https://www.facebook.com/herrera.janna" target="_blank"> <img src="{{ url_for('static', filename='images/facebook.png') }}" alt="Facebook"></a>
                         </div>
                         <div class="git">
-                            <a href="https://github.com/" target="_blank"><img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub"></a>
+                            <a href="https://github.com/jjnrh" target="_blank"><img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub"></a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="grid-bottom-container">
                 <div class="team-member">
                     <img class="dp" src="{{ url_for('static', filename='images/mirai.png') }}">
                     <h1> Almira Jill Garcia </h1>
@@ -76,10 +74,10 @@
                     <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”</p>
                     <div class="socials">
                         <div class="fb">
-                            <a href="#"> <img src="{{ url_for('static', filename='images/facebook.png') }}" alt="Facebook"></a>
+                            <a href="https://www.facebook.com/almirajill06" target="_blank"> <img src="{{ url_for('static', filename='images/facebook.png') }}" alt="Facebook"></a>
                         </div>
                         <div class="git">
-                            <a href="https://github.com/" target="_blank"><img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub"></a>
+                            <a href="https://github.com/Almirajill" target="_blank"><img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub"></a>
                         </div>
                     </div>
                 </div>
@@ -90,10 +88,10 @@
                     <p> “Sheeesh Basic!”</p>
                     <div class="socials">
                         <div class="fb">
-                            <a href="#"> <img src="{{ url_for('static', filename='images/facebook.png') }}" alt="Facebook"></a>
+                            <a href="https://www.facebook.com/aroloroso" target="_blank"> <img src="{{ url_for('static', filename='images/facebook.png') }}" alt="Facebook"></a>
                         </div>
                         <div class="git">
-                            <a href="https://github.com/" target="_blank"><img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub"></a>
+                            <a href="https://github.com/ChugxScript" target="_blank"><img src="{{ url_for('static', filename='images/github.png') }}" alt="GitHub"></a>
                         </div>
                     </div>
                 </div>
@@ -120,5 +118,16 @@
     <img class="dot" src="{{ url_for('static', filename='images/polka.png') }}">
     <img class="dot1" src="{{ url_for('static', filename='images/polka.png') }}">
     <img class="dot2" src="{{ url_for('static', filename='images/polka.png') }}">
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
