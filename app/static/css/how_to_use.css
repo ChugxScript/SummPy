@@ -17,7 +17,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 60px;
     padding: 1px 5%;
     background: transparent;
@@ -33,17 +33,17 @@ body {
     object-fit: cover;
 }
 
-.navbar a {
+#navbar a {
     position: relative;
-    font-size: 1vw; 
+    font-size: 1vw;
     color: white;
     font-weight: 700;
     text-decoration: none;
-    margin-left: 2vw; 
+    margin-left: 2vw;
     transition: color 0.3s; 
 }
 
-.navbar a::before {
+#navbar a::before {
     content: '';
     position: absolute;
     top: 100%;
@@ -54,17 +54,27 @@ body {
     transition: width 0.3s; 
 }
 
-.navbar a:hover {
+#navbar a:hover {
     color: #ae00ff; 
 }
 
-.navbar a:hover::before {
+#navbar a:hover::before {
     width: 100%;
 }
 
 .scrolled {
     background-color: rgba(1, 27, 61, 0.479); 
     transition: background-color 0.3s;
+}
+
+#loginButton,
+#logoutButton{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 5px;
+    background-color: #1e4ce4;
 }
 
 .how-to-use-main-container {
@@ -217,6 +227,102 @@ body {
 
 .footer-container p {
     margin-bottom: 2vw;
+}
+
+/* ************LOGIN MODAL*********** */
+#login_modal_container{
+    /* display: flex; */
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    z-index: 11;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: #23013dc0;
+}
+
+.login-modal-content{
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    overflow-y: auto;
+    max-height: 95vh;
+    padding: 20px;
+    width: 25%;
+    box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.726);
+}
+
+#login_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-button-form{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    color: black;
+    width: 100%;
+}
+
+#close_button_form{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: rgba(0, 0, 0, 0.199) solid 1px;
+}
+
+#close_button_form:hover{
+    background-color: #09020e36;
+}
+
+#avatar_login_icon1{
+    width: 100px;
+    height: 100px;
+}
+
+.login-title{
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.email-container,
+.password-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#login_button_form{
+    display: flex;
+    color: white;
+    width: 50%;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: #0411c0;
+    cursor: pointer;
+}
+
+#login_button_form:hover{
+    background-color: #2832be;
 }
 
 @keyframes fadeInUp {

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
     <script src="{{ url_for('static', filename='js/home.js') }}" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>SummPy | 5-pager Summarizer</title>
 </head>
 <body>
@@ -28,7 +29,8 @@
                 data-how-to-use-url="{{ url_for('how_to_use.how_to_use_page') }}"
                 data-about-us-url="{{ url_for('about_us.about_us_page') }}"
                 data-donate-url="{{ url_for('donate.donate_page') }}"
-                data-profile-url="{{ url_for('about_us.about_us_page') }}">
+                data-admin-url="{{ url_for('admin_cos_library.admin_cos_library_page') }}"
+                data-student-url="{{url_for('student_cos_library.student_cos_library_page')}}">
             </div>
         </div>
 
@@ -129,6 +131,30 @@
             </div>
 
             <p> © 2024 SummPy. All rights reserved. </p>
+        </div>
+    </div>
+
+    <div id="login_modal_container">
+        <div class="login-modal-content">
+            <form action="" id="login_form">
+                <div class="close-button-form">
+                    <p id="close_button_form">x</p>
+                </div>
+                <img src="{{ url_for('static', filename='images/avatar_login_icon1.png') }}" alt="" id="avatar_login_icon1">
+                <p class="login-title">LOGIN</p>
+
+                <div class="email-container">
+                    <label for="emailInputValue">Email</label>
+                    <input type="email" id="email_input_value" name="emailInputValue" placeholder="example@tup.edu.ph" required>
+                </div>
+                <div class="password-container">
+                    <label for="passwordInputValue">Password</label>
+                    <input type="password" id="password_input_value" name="passwordInputValue" placeholder="****" required>
+                </div>
+                <div id="login_button_form">
+                    <p>LOGIN</p>
+                </div>
+            </form>
         </div>
     </div>
 
