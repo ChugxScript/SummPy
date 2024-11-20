@@ -141,55 +141,9 @@
                 to dynamically display which book is being clicked.
             -->
             <div class="view-book-details-container" id="view_book_details_container">
-                <img src="{{ url_for('static', filename='images/back_button_icon1.png') }}" alt="" id="back_button_view">
-                <div class="margin-container">
-                    <p id="study_title">STUDY TITLE</p>
-                    <p id="publication_date">Publication date</p>
-    
-                    <div class="course-category-container">
-                        <div class="details-course-container">
-                            <p class="details-course-title">Course:</p>
-                            <p id="details_course_value">course</p>
-                        </div>
-                        <div class="details-category-container">
-                            <p class="details-category-title">Category:</p>
-                            <p id="details_category_value">category</p>
-                        </div>
-                    </div>
-
-                    <div class="authors-panels-container">
-                        <div class="details-authors-container">
-                            <p class="details-authors-title">Authors:</p>
-                            <p id="details_authors_value">Author1</p>
-                            <p id="details_authors_value">Author2</p>
-                            <p id="details_authors_value">Author3</p>
-                            <p id="details_authors_value">Author4</p>
-                            <p id="details_authors_value">Author5</p>
-                        </div>
-                        <div class="details-panels-container">
-                            <p class="details-panels-title">Panels:</p>
-                            <p id="details_panels_value">Panel1</p>
-                            <p id="details_panels_value">Panel2</p>
-                            <p id="details_panels_value">Panel3</p>
-                            <p id="details_panels_value">Panel4</p>
-                        </div>
-                    </div>
-
-                    <div class="original-summarized-container">
-                        <div class="details-original-container">
-                            <p class="details-original-title">Original</p>
-                            <embed src="{{ url_for('static', filename='test/se_pdf.pdf') }}" type="application/pdf">
-                        </div>
-                        <div class="details-summarized-container">
-                            <p class="details-summarized-title">Summarized Result</p>
-                            <embed src="{{ url_for('static', filename='test/se_pdf.pdf') }}" type="application/pdf">
-                        </div>
-                    </div>
-
-                    <div id="MOA_container">
-                        <img src="{{ url_for('static', filename='images/redirect_icon1.png') }}" alt="">
-                        <p class="MOA-title">Memorandum of Agreement</p>
-                    </div>
+                <img src="../static/images/back_button_icon1.png" alt="" id="back_button_view">
+                <div class="margin-container" id="margin_container">
+                    
                 </div>
             </div>
 
@@ -214,7 +168,7 @@
                             <div class="day-month-year-container">
                                 <div class="day-container">
                                     <label for="dayInputValue">Day</label>
-                                    <input type="number" id="day_input_value" name="dayInputValue" placeholder="DD" required>
+                                    <input type="number" id="day_input_value" name="dayInputValue" placeholder="DD" required min="1" max="31">
                                 </div>
                                 <div class="month-container">
                                     <label for="monthInputValue">Month</label>
@@ -235,7 +189,7 @@
                                 </div>
                                 <div class="year-container">
                                     <label for="yearInputValue">Year</label>
-                                    <input type="number" id="year_input_value" name="yearInputValue" placeholder="YYYY" required>
+                                    <input type="number" id="year_input_value" name="yearInputValue" placeholder="YYYY" required min="1" max="9999">
                                 </div>
                             </div> 
                         </div>
@@ -244,11 +198,11 @@
                             <p class="title-text-form">Select Category</p>
                             <p class="category-subtitle1">Categories</p>
                             <select name="categories" id="selected_category" required>
-                                <option value="UNDER_GRADUATE">Under Graduate</option>
-                                <option value="GRADUATE">Graduate</option>
-                                <option value="DISSERTATION">Dissertation</option>
-                                <option value="MASTERAL">Masteral</option>
-                                <option value="DOCTORATE">Doctorate</option>
+                                <option value="under_graduate">Under Graduate</option>
+                                <option value="graduate">Graduate</option>
+                                <option value="dissertation">Dissertation</option>
+                                <option value="masteral">Masteral</option>
+                                <option value="doctorate">Doctorate</option>
                             </select>
                         </div>
                     </div>
@@ -290,12 +244,26 @@
 
                     <div class="study-document-container">
                         <p class="title-text-form">Upload study document</p>
-                        <input type="file" id="study_file" accept=".pdf" required>
+                        <div id="uploaded_study_file"></div>
+                        <div class="clear_input_study_document_container">
+                            <input type="file" id="study_file" accept=".pdf" required>
+                            <div id="clear_study_document_container">
+                                <img src="{{ url_for('static', filename='images/x.png') }}" alt="">
+                                <p>Clear</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="moa-container">
                         <p class="title-text-form">Memorandum of Agreement <span>(if applicable)</span></p>
-                        <input type="file" id="moa_file">
+                        <div id="uploaded_moa_file"></div>
+                        <div class="clear_input_study_document_container">
+                            <input type="file" id="moa_file">
+                            <div id="clear_moa_document_container">
+                                <img src="{{ url_for('static', filename='images/x.png') }}" alt="">
+                                <p>Clear</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="sumbit-button-container">

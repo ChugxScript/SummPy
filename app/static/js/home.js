@@ -30,6 +30,11 @@ function checkUserLoginStatus(){
                 if (userDoc.exists()) {
                     const role = userDoc.data().role;
 
+                    `TODO: check which page is the user currently in.
+                        if the user is student, they cannot access the /cos_library_admin
+                        same as if user is admin, then they cannot access the /cos_library_student
+                    `
+
                     switch(role){
                         case "STUDENT":
                             initializeHeader(1);

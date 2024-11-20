@@ -388,6 +388,11 @@ body {
     background-color: #170523;
 }
 
+.author-name {
+    display: block;
+    margin: 0; /* Optional: Customize as needed */
+}
+
 #back_button_view{
     width: 45px;
     height: 45px;
@@ -682,8 +687,41 @@ body {
 }
 
 .moa-container input,
-.study-document-container input{
+.clear_input_study_document_container input{
     cursor: pointer;
+    background-color: #1e4ce41e;
+    flex: 1;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.clear_input_study_document_container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#clear_study_document_container,
+#clear_moa_document_container{
+    display: flex;
+    flex-direction: row;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+    background-color: rgba(75, 4, 4, 0.377);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#uploaded_study_file,
+#uploaded_moa_file {
+    font-size: 10px;
+    font-weight: 300;
 }
 
 .moa-container span{
