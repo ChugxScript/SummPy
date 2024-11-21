@@ -56,37 +56,42 @@ def generate_pdf_with_first_page(summary_list, filename, original_file_path):
             pdf.multi_cell(0, 7, line, align='C')
     
     section_titles = ["INTRODUCTION", "METHOD", "RESULTS", "DISCUSSION"]
-    
+
     for i, summary in enumerate(summary_list):
-        if i > 0:  
-            pdf.add_page()
-        
+        # Add a new page before each section (including the first one)
         pdf.add_page()
 
+        # Set the title dynamically based on the section
         pdf.set_font("Arial", style='B', size=12)
-        pdf.cell(0, 10, "INTRODUCTION", ln=True, align='C')
+        pdf.cell(0, 10, section_titles[i], ln=True, align='C')
 
+        # Add the summary for the current section
         pdf.set_font("Arial", size=12)
-        encoded_summary = summary_list[0].encode('latin-1', 'replace').decode('latin-1')
+        encoded_summary = summary.encode('latin-1', 'replace').decode('latin-1')
 
+        # Add multi_cell for summary text to ensure newlines are preserved
         pdf.multi_cell(0, 10, encoded_summary)
-        pdf.ln(10)  
+        pdf.ln(10)  # Add line break after the summary
 
+    # Ensure the folder exists before saving
     summarized_folder = current_app.config['SUMMARIZED_FOLDER']
     if summarized_folder and not os.path.exists(summarized_folder):
         os.makedirs(summarized_folder)
-    
+
     pdf_path = os.path.join(summarized_folder, filename)
     pdf.output(pdf_path)
+
 
 
 @summary_result.route('/summary_result', methods=['GET'])
 def summary_result_page():
     uploaded_files = get_uploaded_files()
 
+     # get the IMRAD summary
     summarizer = SummPy()
     results = summarizer.generate_summaries()
 
+    # make pdfs with the first page of the original PDF
     for i, result in enumerate(results):
         original_file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], uploaded_files[i])
         pdf_filename = f"summary_{uploaded_files[i]}"
