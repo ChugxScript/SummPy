@@ -23,38 +23,55 @@ def generate_pdf_with_first_page(summary_list, filename, original_file_path):
     
     doc = fitz.open(original_file_path)
     first_page = doc[0]
-    first_page_text = first_page.get_text("text")  
+    blocks = first_page.get_text("dict")["blocks"] 
+
+    formatted_lines = []
+    previous_bottom = 0  
     
-    
-    lines = first_page_text.split("\n")  
-    
+    for block in blocks:
+        if "lines" not in block:
+            continue
+        
+        for line in block["lines"]:
+            for span in line["spans"]:
+                current_top = span["bbox"][1]  
+                font_size = span["size"]     
+                
+                if current_top - previous_bottom > font_size * 0.8:
+                    formatted_lines.append(" ")  
+              
+                formatted_lines.append(span["text"])
+                previous_bottom = span["bbox"][3]  
+
+
+    formatted_text = "\n".join(formatted_lines)
 
     pdf.add_page()
     pdf.set_font("Times", size=12)
     
-    for line in lines:
-        if line.strip() == "":  
-            pdf.ln(7)  
+    for line in formatted_lines:
+        if line.strip() == "":
+            pdf.ln(6)  
         else:
-            pdf.multi_cell(0, 7, line, align='C') 
-        
-  
+            pdf.multi_cell(0, 7, line, align='C')
+    
     section_titles = ["INTRODUCTION", "METHOD", "RESULTS", "DISCUSSION"]
     
     for i, summary in enumerate(summary_list):
         if i > 0:  
             pdf.add_page()
         
+        pdf.add_page()
+
         pdf.set_font("Arial", style='B', size=12)
-        pdf.cell(0, 10, section_titles[i], ln=True, align='C')
-        
+        pdf.cell(0, 10, "INTRODUCTION", ln=True, align='C')
+
         pdf.set_font("Arial", size=12)
-        encoded_summary = summary.encode('latin-1', 'replace').decode('latin-1')
-        
+        encoded_summary = summary_list[0].encode('latin-1', 'replace').decode('latin-1')
+
         pdf.multi_cell(0, 10, encoded_summary)
         pdf.ln(10)  
 
-   
     summarized_folder = current_app.config['SUMMARIZED_FOLDER']
     if summarized_folder and not os.path.exists(summarized_folder):
         os.makedirs(summarized_folder)
@@ -67,11 +84,9 @@ def generate_pdf_with_first_page(summary_list, filename, original_file_path):
 def summary_result_page():
     uploaded_files = get_uploaded_files()
 
-     # get the IMRAD summary
     summarizer = SummPy()
     results = summarizer.generate_summaries()
 
-    # make pdfs with the first page of the original PDF
     for i, result in enumerate(results):
         original_file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], uploaded_files[i])
         pdf_filename = f"summary_{uploaded_files[i]}"
