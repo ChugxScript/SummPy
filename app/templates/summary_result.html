@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/summary_result.css') }}">
     <script src="{{ url_for('static', filename='js/home.js') }}" type="module"></script>
+    <script src="{{ url_for('static', filename='js/summary_result.js') }}" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>SummPy | 5-pager Summarizer</title>
 </head>
@@ -42,11 +43,7 @@
                     </div>
 
                     <!-- dynamically populate base on the files in the summary -->
-                    <!-- {% for file in uploaded_files %}
-                        <div class="summary-result-options {% if loop.first %}active{% endif %}">
-                            <p>{{ file }}</p>
-                        </div>
-                    {% endfor %} -->
+                    <div id="uploaded_files" data-uploaded-files='{{ uploaded_files | tojson }}'></div>
                 </div>
 
                 <!-- chat with pdf option -->
@@ -80,7 +77,7 @@
                     <h1><span class="titlePurple">IMRAD</span> SUMMARY RESULT</h1>
                 </div>
 
-                <div class="imrad-summary-result-content">
+                <div class="imrad-summary-result-content" id="current_clicked_result_content">
                     <!-- 
                         since the uploaded file and the summarized result
                         are already saved in their respective directories;
@@ -88,20 +85,6 @@
                         the displayed document is base on the document
                         cliked by the user?
                     -->
-                    {% for file in uploaded_files %}
-                        {% set summarized_file = 'summary_' + file %}
-                        {% if summarized_file in summarized_folder %}
-                            <p>{{ file }}</p>
-                            <div class="imrad-summary-result-content-container">
-                                <div class="original-pdf-container">
-                                    <embed src="{{ url_for('static', filename='uploads/' + file) }}" type="application/pdf">
-                                </div>
-                                <div class="summarized-pdf-container">
-                                    <embed src="{{ url_for('static', filename='summarized_doc/' + summarized_file) }}" type="application/pdf">
-                                </div>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
                 </div>
 
                 <!-- <div class="imrad-summary-result-download-button">

@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, session, current_app, flash, redirect, url_for
+from flask import Blueprint, render_template, request, session, current_app, flash, redirect, url_for, jsonify
 import os 
 import fitz
 from fpdf import FPDF
@@ -98,5 +98,6 @@ def summary_result_page():
         generate_pdf_with_first_page(result, pdf_filename, original_file_path)
 
     summarized_folder = get_summarized_files()
+    print(f"UPLOAD_FOLDER is: {uploaded_files}")
 
     return render_template('summary_result.html', summarized_folder=summarized_folder, uploaded_files=uploaded_files)

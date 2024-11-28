@@ -11,3 +11,4 @@ scikit-learn
 nltk
 psutil
 pypdf2
+fitz

@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, logging
 from .blueprints.home import home
 from .blueprints.how_to_use import how_to_use
 from .blueprints.about_us import about_us

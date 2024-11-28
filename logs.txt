@@ -1,0 +1,94 @@
+2024-11-28 14:46:47,028 - This is a custom log message.
+2024-11-28 14:46:53,865 - This is a custom log message.
+2024-11-28 14:49:32,435 - This is a custom log message.
+2024-11-28 14:49:34,191 - Summarization for file 'se_pdf.pdf' started.
+2024-11-28 14:49:35,203 - CPU Usage: 48.4%
+2024-11-28 14:49:35,203 - Memory Usage: 89.5% - 1.67 GB available
+2024-11-28 14:49:41,210 - CPU Usage: 23.5%
+2024-11-28 14:49:41,210 - Memory Usage: 93.1% - 1.10 GB available
+2024-11-28 14:49:47,223 - CPU Usage: 50.0%
+2024-11-28 14:49:47,224 - Memory Usage: 95.1% - 0.77 GB available
+2024-11-28 14:49:49,735 - This is a custom log message.
+2024-11-28 14:49:49,742 - This is a custom log message.
+2024-11-28 14:49:49,754 - This is a custom log message.
+2024-11-28 14:49:49,812 - This is a custom log message.
+2024-11-28 14:49:49,919 - This is a custom log message.
+2024-11-28 14:49:53,232 - CPU Usage: 10.5%
+2024-11-28 14:49:53,232 - Memory Usage: 96.4% - 0.57 GB available
+2024-11-28 14:49:59,240 - CPU Usage: 40.7%
+2024-11-28 14:49:59,240 - Memory Usage: 96.5% - 0.56 GB available
+2024-11-28 14:50:05,251 - CPU Usage: 36.0%
+2024-11-28 14:50:05,251 - Memory Usage: 96.4% - 0.57 GB available
+2024-11-28 14:50:11,315 - CPU Usage: 46.9%
+2024-11-28 14:50:11,316 - Memory Usage: 96.8% - 0.50 GB available
+2024-11-28 14:50:17,330 - CPU Usage: 43.4%
+2024-11-28 14:50:17,331 - Memory Usage: 93.8% - 0.99 GB available
+2024-11-28 14:50:23,348 - CPU Usage: 49.5%
+2024-11-28 14:50:23,348 - Memory Usage: 92.6% - 1.17 GB available
+2024-11-28 14:50:29,365 - CPU Usage: 38.2%
+2024-11-28 14:50:29,366 - Memory Usage: 92.3% - 1.22 GB available
+2024-11-28 14:50:35,407 - CPU Usage: 62.8%
+2024-11-28 14:50:35,408 - Memory Usage: 92.5% - 1.19 GB available
+2024-11-28 14:50:41,418 - CPU Usage: 38.8%
+2024-11-28 14:50:41,419 - Memory Usage: 92.8% - 1.15 GB available
+2024-11-28 14:50:47,436 - CPU Usage: 41.9%
+2024-11-28 14:50:47,436 - Memory Usage: 92.7% - 1.16 GB available
+2024-11-28 14:50:53,446 - CPU Usage: 37.9%
+2024-11-28 14:50:53,447 - Memory Usage: 92.7% - 1.16 GB available
+2024-11-28 14:50:59,469 - CPU Usage: 47.1%
+2024-11-28 14:50:59,470 - Memory Usage: 92.7% - 1.16 GB available
+2024-11-28 14:51:05,506 - CPU Usage: 49.5%
+2024-11-28 14:51:05,506 - Memory Usage: 92.9% - 1.12 GB available
+2024-11-28 14:51:11,533 - CPU Usage: 44.9%
+2024-11-28 14:51:11,533 - Memory Usage: 93.0% - 1.10 GB available
+2024-11-28 14:51:17,548 - CPU Usage: 47.9%
+2024-11-28 14:51:17,549 - Memory Usage: 91.9% - 1.28 GB available
+2024-11-28 14:51:23,562 - CPU Usage: 45.9%
+2024-11-28 14:51:23,563 - Memory Usage: 90.9% - 1.45 GB available
+2024-11-28 14:51:29,573 - CPU Usage: 37.3%
+2024-11-28 14:51:29,573 - Memory Usage: 87.3% - 2.02 GB available
+2024-11-28 14:51:35,585 - CPU Usage: 42.9%
+2024-11-28 14:51:35,585 - Memory Usage: 87.8% - 1.93 GB available
+2024-11-28 14:51:41,595 - CPU Usage: 42.3%
+2024-11-28 14:51:41,595 - Memory Usage: 89.3% - 1.71 GB available
+2024-11-28 14:51:47,614 - CPU Usage: 51.3%
+2024-11-28 14:51:47,614 - Memory Usage: 89.9% - 1.60 GB available
+2024-11-28 14:51:53,635 - CPU Usage: 55.1%
+2024-11-28 14:51:53,636 - Memory Usage: 90.1% - 1.57 GB available
+2024-11-28 14:51:59,671 - CPU Usage: 41.7%
+2024-11-28 14:51:59,672 - Memory Usage: 90.8% - 1.46 GB available
+2024-11-28 14:52:05,697 - CPU Usage: 99.4%
+2024-11-28 14:52:05,697 - Memory Usage: 91.9% - 1.29 GB available
+2024-11-28 14:52:11,731 - CPU Usage: 54.2%
+2024-11-28 14:52:11,732 - Memory Usage: 92.2% - 1.23 GB available
+2024-11-28 14:52:17,748 - CPU Usage: 45.4%
+2024-11-28 14:52:17,749 - Memory Usage: 92.2% - 1.24 GB available
+2024-11-28 14:52:23,759 - CPU Usage: 38.5%
+2024-11-28 14:52:23,759 - Memory Usage: 92.3% - 1.23 GB available
+2024-11-28 14:52:29,782 - CPU Usage: 31.1%
+2024-11-28 14:52:29,783 - Memory Usage: 92.4% - 1.21 GB available
+2024-11-28 14:52:35,807 - CPU Usage: 20.0%
+2024-11-28 14:52:35,807 - Memory Usage: 93.1% - 1.10 GB available
+2024-11-28 14:52:41,826 - CPU Usage: 23.3%
+2024-11-28 14:52:41,826 - Memory Usage: 92.3% - 1.22 GB available
+2024-11-28 14:52:47,832 - CPU Usage: 22.0%
+2024-11-28 14:52:47,832 - Memory Usage: 90.0% - 1.59 GB available
+2024-11-28 14:52:53,841 - CPU Usage: 22.6%
+2024-11-28 14:52:53,841 - Memory Usage: 90.1% - 1.57 GB available
+2024-11-28 14:52:59,850 - CPU Usage: 21.9%
+2024-11-28 14:52:59,850 - Memory Usage: 90.3% - 1.54 GB available
+2024-11-28 14:53:05,858 - CPU Usage: 24.0%
+2024-11-28 14:53:05,859 - Memory Usage: 90.5% - 1.50 GB available
+2024-11-28 14:53:11,869 - CPU Usage: 22.1%
+2024-11-28 14:53:11,870 - Memory Usage: 91.0% - 1.43 GB available
+2024-11-28 14:53:14,810 - Summarization for file 'se_pdf.pdf' completed in 220.62 seconds.
+2024-11-28 14:53:16,870 - Monitoring stopped.
+2024-11-28 14:54:37,936 - This is a custom log message.
+2024-11-28 14:54:47,780 - This is a custom log message.
+2024-11-28 14:54:59,014 - This is a custom log message.
+2024-11-28 14:55:10,848 - This is a custom log message.
+2024-11-28 14:55:23,238 - This is a custom log message.
+2024-11-28 14:55:35,200 - This is a custom log message.
+2024-11-28 14:55:46,286 - This is a custom log message.
+2024-11-28 15:05:33,480 - This is a custom log message.
+2024-11-28 15:05:40,057 - This is a custom log message.
