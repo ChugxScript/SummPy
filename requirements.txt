@@ -12,3 +12,4 @@ nltk
 psutil
 pypdf2
 fitz
+PyMuPDF

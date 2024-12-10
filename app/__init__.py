@@ -17,6 +17,7 @@ def create_app():
     app.secret_key = 'secret-key'
     app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), 'app/static/uploads')
     app.config['SUMMARIZED_FOLDER'] = os.path.join(os.getcwd(), 'app/static/summarized_doc')
+    app.config['FILTERED_FOLDER'] = os.path.join(os.getcwd(), 'app/static/filtered_doc')
     app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024  # 100 MB limit
 
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)

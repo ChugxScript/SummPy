@@ -7,6 +7,9 @@ import psutil
 import time
 import logging
 import gc
+from transformers import AutoTokenizer, AutoModel
+import torch
+from scipy.spatial.distance import cosine
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -42,6 +45,11 @@ class SummPy:
         self.model_name = 'facebook/bart-large-cnn'
         self.tokenizer = BartTokenizer.from_pretrained(self.model_name)
         self.model = BartForConditionalGeneration.from_pretrained(self.model_name)
+        self.filtered_folder = current_app.config['FILTERED_FOLDER']
+        self.semantic_model_name = "sentence-transformers/paraphrase-distilroberta-base-v1"
+        self.semantic_tokenizer = AutoTokenizer.from_pretrained(self.semantic_model_name)
+        self.semantic_model = AutoModel.from_pretrained(self.semantic_model_name)
+        self.semantic_average = 0
     
     def generate_summaries(self):
         upload_folder = current_app.config['UPLOAD_FOLDER']
@@ -129,8 +137,8 @@ class SummPy:
         start, end, pages = chapter
         chapter_text = self.extract_chapters(start, end, pages)
 
-        sentences = chapter_text.split('. ')  # Split by period and space for simplicity
-        sentences = [s.strip() for s in sentences if len(s.strip()) > 0]  # Remove empty sentences
+        sentences = chapter_text.split('. ')  
+        sentences = [s.strip() for s in sentences if len(s.strip()) > 0]  
 
         vectorizer = TfidfVectorizer()
         tfidf_matrix = vectorizer.fit_transform(sentences)
@@ -144,8 +152,11 @@ class SummPy:
 
         filtered_text = ' '.join(top_sentences)
         print("filtered_text: ", filtered_text)
+        summarized_text = self.summarize_text(filtered_text)
+        similarity_score = self.calculate_similarity(filtered_text, summarized_text)
+        print(f"Semantic Similarity: {similarity_score:.2f}")
 
-        return self.summarize_text(filtered_text)
+        return summarized_text
 
     # Function to extract chapters from pages
     def extract_chapters(self, start, end, pages):
@@ -202,3 +213,27 @@ class SummPy:
 
         # Once the event is set, stop monitoring
         logger.info("Monitoring stopped.")
+
+    def get_sentence_embedding(self, text):
+        # Tokenize input text
+        inputs = self.semantic_tokenizer(text, return_tensors="pt", truncation=True, padding=True, max_length=512)
+        
+        # Forward pass through the model
+        with torch.no_grad():
+            outputs = self.semantic_model(**inputs)
+        
+        # Get the token embeddings (last hidden state)
+        token_embeddings = outputs.last_hidden_state
+        
+        # Average token embeddings to get the sentence embedding
+        sentence_embedding = torch.mean(token_embeddings, dim=1).squeeze()
+        
+        return sentence_embedding
+
+    def calculate_similarity(self, text1, text2):
+        embedding1 = self.get_sentence_embedding(text1)
+        embedding2 = self.get_sentence_embedding(text2)
+        
+        # Compute cosine similarity (1 - cosine distance)
+        similarity = 1 - cosine(embedding1, embedding2)
+        return similarity
