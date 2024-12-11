@@ -128,12 +128,18 @@
 
     <img class="dot" src="{{ url_for('static', filename='images/polka.png') }}">
     <img class="dot2" src="{{ url_for('static', filename='images/polka.png') }}">
+    <div id="loading_div"><img src="https://media.tenor.com/AjjzN9O03PIAAAAj/dramaturgy-vtuber.gif" alt=""></div>
     <script>
+        if (document.readyState === 'loading') {
+            document.getElementById("loading_div").style.display = 'flex';
+        } 
         document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById("loading_div").style.display = 'none';
             const formInput = document.getElementById("formInput");
             const nextButton = document.getElementById('nextButton');
 
             nextButton.addEventListener("click", function() {
+                document.getElementById("loading_div").style.display = 'flex';
                 if (validateForm()) {
                     formInput.submit();
                 }
@@ -178,8 +184,20 @@
             window.history.back(); 
         }
     </script>
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) { 
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
 <!-- 
-    test values 5 10 29 38 46 49
+    buzz match - 10 19 44 52 63 65
+    ns4a essay checker - 12 18 84 109 131 138
+    se - 5 10 29 38 46 49
  -->

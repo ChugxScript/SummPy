@@ -87,7 +87,7 @@ def generate_pdf_with_first_page(summary_list, filename, original_file_path):
 def summary_result_page():
     uploaded_files = get_uploaded_files()
 
-     # get the IMRAD summary
+    #  get the IMRAD summary
     summarizer = SummPy()
     results = summarizer.generate_summaries()
 

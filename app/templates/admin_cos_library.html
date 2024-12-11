@@ -397,6 +397,7 @@
             </form>
         </div>
     </div>
+    <div id="loading_div"><img src="https://media.tenor.com/AjjzN9O03PIAAAAj/dramaturgy-vtuber.gif" alt=""></div>
 
     <script>
         // this is for the removing the added authors
@@ -411,6 +412,12 @@
                 alert("Not exist.");
             }
         }
+        if (document.readyState === 'loading') {
+            document.getElementById("loading_div").style.display = 'flex';
+        } 
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById("loading_div").style.display = 'none';
+        });
     </script>
 </body>
 </html>

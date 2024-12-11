@@ -1,11 +1,12 @@
 from transformers import BartForConditionalGeneration, BartTokenizer
 from langchain_community.document_loaders import PyPDFium2Loader
-from multiprocessing import Pool, Process, Event
+from multiprocessing import Pool, Process, Event, Semaphore, Manager, cpu_count, Lock
 from flask import Blueprint, render_template, request, session, current_app, flash, redirect, url_for
 import os 
 import psutil
 import time
 import logging
+from datetime import datetime
 import gc
 from transformers import AutoTokenizer, AutoModel
 import torch
@@ -21,7 +22,9 @@ logger = logging.getLogger('SummPyLogger')  # Create a custom logger
 logger.setLevel(logging.INFO)  # Set logging level
 
 # Create file handler
-file_handler = logging.FileHandler('logs.txt')
+current_date = datetime.now().strftime('%Y-%m-%d')
+log_file_name = os.path.join('app', 'logs', f'{current_date}.txt')
+file_handler = logging.FileHandler(log_file_name)
 file_handler.setLevel(logging.INFO)
 
 # Define a custom format for your logs
@@ -50,6 +53,7 @@ class SummPy:
         self.semantic_tokenizer = AutoTokenizer.from_pretrained(self.semantic_model_name)
         self.semantic_model = AutoModel.from_pretrained(self.semantic_model_name)
         self.semantic_average = 0
+        self.current_file = '' 
     
     def generate_summaries(self):
         upload_folder = current_app.config['UPLOAD_FOLDER']
@@ -68,6 +72,7 @@ class SummPy:
                 file_path = os.path.join(upload_folder, file)
                 loader = PyPDFium2Loader(file_path)
                 pages = loader.load_and_split()
+                self.current_file = file
 
                 # get page numbers from session
                 chapter_1_page = int(form_data.get(f'{file}_chapter_1'))
@@ -155,6 +160,33 @@ class SummPy:
         summarized_text = self.summarize_text(filtered_text)
         similarity_score = self.calculate_similarity(filtered_text, summarized_text)
         print(f"Semantic Similarity: {similarity_score:.2f}")
+        logger.info(f"'{self.current_file}' Semantic Similarity: {similarity_score:.2f}")
+
+        return summarized_text
+
+    def process_chapter(self, chapter):
+        start, end, pages = chapter
+        chapter_text = self.extract_chapters(start, end, pages)
+
+        sentences = chapter_text.split('. ')  
+        sentences = [s.strip() for s in sentences if len(s.strip()) > 0]  
+
+        vectorizer = TfidfVectorizer()
+        tfidf_matrix = vectorizer.fit_transform(sentences)
+        similarity_matrix = cosine_similarity(tfidf_matrix)
+
+        graph = nx.from_numpy_array(similarity_matrix)
+        scores = nx.pagerank(graph)
+
+        ranked_sentences = sorted(((scores[i], s) for i, s in enumerate(sentences)), reverse=True)
+        top_sentences = [s for _, s in ranked_sentences[:int(len(ranked_sentences) * 0.7)]]
+
+        filtered_text = ' '.join(top_sentences)
+        print("filtered_text: ", filtered_text)
+        summarized_text = self.summarize_text(filtered_text)
+        similarity_score = self.calculate_similarity(filtered_text, summarized_text)
+        print(f"Semantic Similarity: {similarity_score:.2f}")
+        logger.info(f"'{self.current_file}' Semantic Similarity: {similarity_score:.2f}")
 
         return summarized_text
 

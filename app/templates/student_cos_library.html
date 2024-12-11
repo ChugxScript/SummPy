@@ -293,6 +293,14 @@
             </form>
         </div>
     </div>
-    
+    <div id="loading_div"><img src="https://media.tenor.com/AjjzN9O03PIAAAAj/dramaturgy-vtuber.gif" alt=""></div>
+    <script>
+        if (document.readyState === 'loading') {
+            document.getElementById("loading_div").style.display = 'flex';
+        } 
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById("loading_div").style.display = 'none';
+        });
+    </script>
 </body>
 </html>

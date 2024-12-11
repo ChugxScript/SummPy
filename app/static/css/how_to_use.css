@@ -375,3 +375,21 @@ body {
     left: 20px;
     z-index: 1;
 }
+
+#loading_div{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #12153fa9;
+}
+#loading_div img{
+    width: auto;
+    height: 100px;
+}

@@ -100,6 +100,7 @@
     <img class="dot3-1" src="{{ url_for('static', filename='images/polka.png') }}">
     <img class="dot4" src="{{ url_for('static', filename='images/polka.png') }}">
     <img class="dot5" src="{{ url_for('static', filename='images/polka.png') }}">
+    <div id="loading_div"><img src="https://media.tenor.com/AjjzN9O03PIAAAAj/dramaturgy-vtuber.gif" alt=""></div>
 
     <script>
         window.addEventListener('scroll', function() {
@@ -109,6 +110,12 @@
             } else {
                 header.classList.remove('scrolled');
             }
+        });
+        if (document.readyState === 'loading') {
+            document.getElementById("loading_div").style.display = 'flex';
+        } 
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById("loading_div").style.display = 'none';
         });
     </script>
 </body>

@@ -12,6 +12,7 @@ function initializeSidebarOptions() {
 
     uploadedFiles.forEach(file => {
         const li = document.createElement('li');
+        li.classList.add("uploaded-file-names");
         li.textContent = file;
         uploadedFilesElement.appendChild(li);
 
