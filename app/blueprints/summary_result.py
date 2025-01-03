@@ -1,7 +1,9 @@
 from flask import Blueprint, render_template, request, session, current_app, flash, redirect, url_for, jsonify
 import os 
+import shutil
 import fitz
 from fpdf import FPDF
+from datetime import datetime
 from .BART.summarize_doc import SummPy
 
 summary_result = Blueprint('summary_result', __name__)
@@ -79,13 +81,36 @@ def generate_pdf_with_first_page(summary_list, filename, original_file_path):
         os.makedirs(summarized_folder)
 
     pdf_path = os.path.join(summarized_folder, filename)
+    print("making filename PDF: "+filename)
     pdf.output(pdf_path)
 
+def save_documents(uploaded_files, summarized_files):
+    result_orig_folder = current_app.config['ADMIN_RAW_DOCU_FOLDER']
+    result_summarized_folder = current_app.config['ADMIN_SUMM_DOCU_FOLDER']
 
+    for i, file_name in enumerate(uploaded_files):
+        # Copy original files to result_orig_folder
+        source_path = os.path.join(current_app.config['UPLOAD_FOLDER'], file_name)
+        dest_path = os.path.join(result_orig_folder, file_name)
+        if os.path.exists(source_path):
+            shutil.copy(source_path, dest_path)
+        else:
+            print(f"Warning: Source file {source_path} not found.")
+    
+    for i, file_name in enumerate(summarized_files):
+        # Copy summarized files to result_summarized_folder
+        summarized_file_path = os.path.join(current_app.config['SUMMARIZED_FOLDER'], file_name)
+        summarized_dest_path = os.path.join(result_summarized_folder, file_name)
+        if os.path.exists(summarized_file_path):
+            shutil.copy(summarized_file_path, summarized_dest_path)
+        else:
+            print(f"Warning: Summarized file {summarized_file_path} not found.")
 
 @summary_result.route('/summary_result', methods=['GET'])
 def summary_result_page():
     uploaded_files = get_uploaded_files()
+    print(f"UPLOAD_FOLDER is: {uploaded_files}")
+    # 13 23 51 85 127 131
 
     #  get the IMRAD summary
     summarizer = SummPy()
@@ -93,11 +118,33 @@ def summary_result_page():
 
     # make pdfs with the first page of the original PDF
     for i, result in enumerate(results):
-        original_file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], uploaded_files[i])
-        pdf_filename = f"summary_{uploaded_files[i]}"
-        generate_pdf_with_first_page(result, pdf_filename, original_file_path)
+        try:
+            original_file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], uploaded_files[i])
+            pdf_filename = f"summary_{uploaded_files[i]}"
+            print("Processing file:", pdf_filename)
+            generate_pdf_with_first_page(result, pdf_filename, original_file_path)
+        except Exception as e:
+            # Log the error and continue with the next file
+            print(f"Error processing file {uploaded_files[i]}: {e}")
+            
+            # Define log directory and ensure it exists
+            log_path = os.path.join(os.getcwd(), 'app/logs')
+            if not os.path.exists(log_path):
+                os.makedirs(log_path)
+            
+            # Create log file name based on the current date with .txt extension
+            log_filename = f"error_{datetime.now().strftime('%Y-%m-%d')}.txt"
+            log_file_path = os.path.join(log_path, log_filename)
+            
+            # Append the error to the log file
+            with open(log_file_path, 'a') as log_file:
+                log_file.write(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Error processing file {uploaded_files[i]}: {e}\n")
+            
+            continue
 
     summarized_folder = get_summarized_files()
+    save_documents(uploaded_files, summarized_folder)
     print(f"UPLOAD_FOLDER is: {uploaded_files}")
+    print(f"summarized_folder is: {summarized_folder}")
 
     return render_template('summary_result.html', summarized_folder=summarized_folder, uploaded_files=uploaded_files)

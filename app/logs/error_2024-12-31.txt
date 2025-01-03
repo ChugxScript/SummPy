@@ -1,0 +1,2 @@
+[2024-12-31 20:24:29] Error processing file E_-_LEARNING_VISUALIZED_AND_AUDIO_LEARNING_WEB_FOR_PHONETIC_READING.pdf: 'latin-1' codec can't encode character '\u2013' in position 67: ordinal not in range(256)
+[2024-12-31 20:24:30] Error processing file PROJECT_CORE_-_CYBERNETIC_ORIENTATIONAL_RESPONSIVE_ENHANCEMENT_USING_ORANGE_PI_4_LTS_TECHONOLOGY_WITH_TRACKING_APPLICATION.pdf: 'latin-1' codec can't encode character '\u2013' in position 154: ordinal not in range(256)

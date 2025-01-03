@@ -1,6 +1,6 @@
 from transformers import BartForConditionalGeneration, BartTokenizer
 from langchain_community.document_loaders import PyPDFium2Loader
-from multiprocessing import Pool, Process, Event, Semaphore, Manager, cpu_count, Lock
+from multiprocessing import Pool, Process, Event, Manager, cpu_count, Queue
 from flask import Blueprint, render_template, request, session, current_app, flash, redirect, url_for
 import os 
 import psutil
@@ -16,6 +16,27 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 import networkx as nx
+
+from dataclasses import dataclass
+from typing import Dict, List, Tuple
+
+@dataclass
+class ChapterMetrics:
+    chapter_num: int
+    summary: str
+    processing_time: float
+    similarity_score: float
+    memory_usage: float
+    cpu_usage: float
+
+@dataclass
+class FileMetrics:
+    file_name: str
+    total_processing_time: float
+    chapter_metrics: List[ChapterMetrics]
+    avg_similarity: float
+    peak_memory_usage: float
+    avg_cpu_usage: float
 
 # Setup logging
 logger = logging.getLogger('SummPyLogger')  # Create a custom logger
@@ -54,6 +75,9 @@ class SummPy:
         self.semantic_model = AutoModel.from_pretrained(self.semantic_model_name)
         self.semantic_average = 0
         self.current_file = '' 
+
+        self.max_workers = min(cpu_count(), 4) 
+        self.chapter_workers = 2
     
     def generate_summaries(self):
         upload_folder = current_app.config['UPLOAD_FOLDER']
@@ -164,32 +188,6 @@ class SummPy:
 
         return summarized_text
 
-    def process_chapter(self, chapter):
-        start, end, pages = chapter
-        chapter_text = self.extract_chapters(start, end, pages)
-
-        sentences = chapter_text.split('. ')  
-        sentences = [s.strip() for s in sentences if len(s.strip()) > 0]  
-
-        vectorizer = TfidfVectorizer()
-        tfidf_matrix = vectorizer.fit_transform(sentences)
-        similarity_matrix = cosine_similarity(tfidf_matrix)
-
-        graph = nx.from_numpy_array(similarity_matrix)
-        scores = nx.pagerank(graph)
-
-        ranked_sentences = sorted(((scores[i], s) for i, s in enumerate(sentences)), reverse=True)
-        top_sentences = [s for _, s in ranked_sentences[:int(len(ranked_sentences) * 0.7)]]
-
-        filtered_text = ' '.join(top_sentences)
-        print("filtered_text: ", filtered_text)
-        summarized_text = self.summarize_text(filtered_text)
-        similarity_score = self.calculate_similarity(filtered_text, summarized_text)
-        print(f"Semantic Similarity: {similarity_score:.2f}")
-        logger.info(f"'{self.current_file}' Semantic Similarity: {similarity_score:.2f}")
-
-        return summarized_text
-
     # Function to extract chapters from pages
     def extract_chapters(self, start, end, pages):
         text = ""
@@ -269,3 +267,206 @@ class SummPy:
         # Compute cosine similarity (1 - cosine distance)
         similarity = 1 - cosine(embedding1, embedding2)
         return similarity
+    
+    def process_files(self):
+        upload_folder = current_app.config['UPLOAD_FOLDER']
+        uploaded_files = []
+        form_data = session.get('form_data')
+
+        with Manager() as manager:
+            metrics_dict = manager.dict()
+            processes = []
+            
+            overall_start_time = time.time()
+            
+            for file in uploaded_files:
+                p = Process(
+                    target=self.process_single_file,
+                    args=(file, upload_folder, metrics_dict, form_data)
+                )
+                processes.append(p)
+                p.start()
+                
+                if len(processes) >= self.max_workers:
+                    for p in processes:
+                        p.join()
+                    processes = []
+            
+            for p in processes:
+                p.join()
+            
+            overall_time = time.time() - overall_start_time
+            logger.info(f"Total processing time for all files: {overall_time:.2f} seconds")
+            
+            return self.format_results(metrics_dict)
+
+    def process_single_file(self, file, upload_folder, metrics_dict, form_data):
+        try:
+            file_start_time = time.time()
+            file_path = os.path.join(upload_folder, file)
+            loader = PyPDFium2Loader(file_path)
+            pages = loader.load_and_split()
+            self.current_file = file
+            
+            # get page numbers from session
+            chapter_1_page = int(form_data.get(f'{file}_chapter_1'))
+            chapter_2_page = int(form_data.get(f'{file}_chapter_2'))
+            chapter_3_page = int(form_data.get(f'{file}_chapter_3'))
+            chapter_4_page = int(form_data.get(f'{file}_chapter_4'))
+            chapter_5_page = int(form_data.get(f'{file}_chapter_5'))
+            end_page = int(form_data.get(f'{file}_bibliography_references'))
+
+            # Define chapters with start and end page numbers
+            chapters = [
+                (chapter_1_page - 1, chapter_2_page - 1, pages),
+                #(chapter_2_page - 1, chapter_3_page - 1, pages),
+                (chapter_3_page - 1, chapter_4_page - 1, pages),
+                (chapter_4_page - 1, chapter_5_page - 1, pages),
+                (chapter_5_page - 1, end_page - 1, pages)
+            ]
+            
+            metrics_queue = Queue()
+            
+            with Pool(processes=self.chapter_workers) as pool:
+                chapter_processes = []
+                
+                for chapter_num, chapter in enumerate(chapters):
+                    p = pool.apply_async(
+                        self.process_chapter_with_metrics,
+                        args=(chapter, chapter_num, metrics_queue)
+                    )
+                    chapter_processes.append(p)
+                
+                chapter_metrics = []
+                for _ in range(len(chapters)):
+                    metrics = metrics_queue.get()
+                    chapter_metrics.append(metrics)
+                
+                for p in chapter_processes:
+                    p.wait()
+                
+                # Calculate file-level metrics
+                total_time = time.time() - file_start_time
+                overall_similarity = sum(m.similarity_score for m in chapter_metrics) / len(chapter_metrics)
+                peak_memory = max(m.memory_usage for m in chapter_metrics)
+                avg_cpu = sum(m.cpu_usage for m in chapter_metrics) / len(chapter_metrics)
+                
+                file_metrics = FileMetrics(
+                    file_name=file,
+                    total_processing_time=total_time,
+                    chapter_metrics=sorted(chapter_metrics, key=lambda x: x.chapter_num),
+                    avg_similarity=overall_similarity,
+                    peak_memory_usage=peak_memory,
+                    avg_cpu_usage=avg_cpu
+                )
+                
+                metrics_dict[file] = file_metrics
+                
+                # Log file-level metrics
+                logger.info(f"""
+                File: {file}
+                Total Processing Time: {total_time:.2f} seconds
+                Overall Similarity Score: {overall_similarity:.2f}
+                Peak Memory Usage: {peak_memory:.2f} MB
+                Average CPU Usage: {avg_cpu:.2f}%
+                """)
+                
+        except Exception as e:
+            logger.error(f"Error processing file {file}: {str(e)}")
+            metrics_dict[file] = None
+
+    def process_chapter_with_metrics(self, chapter, chapter_num, metrics_queue):
+        stop_monitoring = Event()
+        resource_queue = Queue()
+        
+        # Start monitoring process
+        monitor_process = Process(
+            target=self.monitor_process,
+            args=(stop_monitoring, resource_queue)
+        )
+        monitor_process.start()
+        
+        try:
+            start_time = time.time()
+            
+            # Process chapter
+            summary, similarity_score = self.process_chapter(chapter)
+            
+            # Calculate metrics
+            processing_time = time.time() - start_time
+            
+            # Get resource usage from monitoring process
+            stop_monitoring.set()
+            monitor_process.join()
+            cpu_usage, memory_usage = resource_queue.get()
+            
+            metrics = ChapterMetrics(
+                chapter_num=chapter_num,
+                summary=summary,
+                processing_time=processing_time,
+                similarity_score=similarity_score,
+                memory_usage=memory_usage,
+                cpu_usage=cpu_usage
+            )
+            
+            # Log chapter metrics
+            logger.info(f"""
+            Chapter {chapter_num + 1} Metrics:
+            Processing Time: {processing_time:.2f} seconds
+            Similarity Score: {similarity_score:.2f}
+            Memory Usage: {memory_usage:.2f} MB
+            CPU Usage: {cpu_usage:.2f}%
+            """)
+            
+            metrics_queue.put(metrics)
+            
+        except Exception as e:
+            logger.error(f"Error processing chapter {chapter_num}: {str(e)}")
+            metrics_queue.put(None)
+
+    def monitor_process(self, stop_event, resource_queue):
+        cpu_readings = []
+        memory_readings = []
+        
+        while not stop_event.is_set():
+            cpu_usage = psutil.cpu_percent(interval=1)
+            memory_info = psutil.virtual_memory()
+            memory_usage = memory_info.used / (1024 * 1024)  # Convert to MB
+            
+            cpu_readings.append(cpu_usage)
+            memory_readings.append(memory_usage)
+            
+            time.sleep(1)
+        
+        # Calculate average resource usage
+        avg_cpu = sum(cpu_readings) / len(cpu_readings) if cpu_readings else 0
+        avg_memory = sum(memory_readings) / len(memory_readings) if memory_readings else 0
+        
+        resource_queue.put((avg_cpu, avg_memory))
+
+    def extract_full_text(self, pages):
+        return " ".join(page.page_content for page in pages)
+
+    def format_results(self, metrics_dict):
+        formatted_results = {}
+        for file, metrics in metrics_dict.items():
+            if metrics:
+                formatted_results[file] = {
+                    'summaries': [m.summary for m in metrics.chapter_metrics],
+                    'metrics': {
+                        'total_time': metrics.total_processing_time,
+                        'overall_similarity': metrics.avg_similarity,
+                        'peak_memory': metrics.peak_memory_usage,
+                        'avg_cpu': metrics.avg_cpu_usage,
+                        'chapter_metrics': [
+                            {
+                                'time': m.processing_time,
+                                'similarity': m.similarity_score,
+                                'memory': m.memory_usage,
+                                'cpu': m.cpu_usage
+                            }
+                            for m in metrics.chapter_metrics
+                        ]
+                    }
+                }
+        return formatted_results

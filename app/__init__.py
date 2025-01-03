@@ -18,6 +18,9 @@ def create_app():
     app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), 'app/static/uploads')
     app.config['SUMMARIZED_FOLDER'] = os.path.join(os.getcwd(), 'app/static/summarized_doc')
     app.config['FILTERED_FOLDER'] = os.path.join(os.getcwd(), 'app/static/filtered_doc')
+    app.config['MOA_FOLDER'] = os.path.join(os.getcwd(), 'app/static/acre_data/moa')
+    app.config['ADMIN_RAW_DOCU_FOLDER'] = os.path.join(os.getcwd(), 'app/static/acre_data/raw')
+    app.config['ADMIN_SUMM_DOCU_FOLDER'] = os.path.join(os.getcwd(), 'app/static/acre_data/summarized')
     app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024  # 100 MB limit
 
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)

@@ -1,0 +1,24 @@
+2025-01-03 14:22:06,074 - This is a custom log message.
+2025-01-03 14:22:17,381 - This is a custom log message.
+2025-01-03 14:26:45,554 - This is a custom log message.
+2025-01-03 14:26:51,664 - Summarization for file 'Adversity_Quotient_Dispositional_Empathy_and_Helping_Behavior_of_Helping.pdf' started.
+2025-01-03 14:27:44,254 - This is a custom log message.
+2025-01-03 14:27:44,255 - This is a custom log message.
+2025-01-03 14:27:44,255 - This is a custom log message.
+2025-01-03 14:30:14,521 - 'Adversity_Quotient_Dispositional_Empathy_and_Helping_Behavior_of_Helping.pdf' Semantic Similarity: 0.71
+2025-01-03 14:31:53,187 - 'Adversity_Quotient_Dispositional_Empathy_and_Helping_Behavior_of_Helping.pdf' Semantic Similarity: 0.65
+2025-01-03 14:32:57,772 - 'Adversity_Quotient_Dispositional_Empathy_and_Helping_Behavior_of_Helping.pdf' Semantic Similarity: 0.68
+2025-01-03 14:33:47,872 - 'Adversity_Quotient_Dispositional_Empathy_and_Helping_Behavior_of_Helping.pdf' Semantic Similarity: 0.80
+2025-01-03 14:33:48,167 - Summarization for file 'Adversity_Quotient_Dispositional_Empathy_and_Helping_Behavior_of_Helping.pdf' completed in 416.50 seconds.
+2025-01-03 17:01:53,454 - This is a custom log message.
+2025-01-03 17:01:59,074 - Summarization for file 'se_pdf.pdf' started.
+2025-01-03 17:02:50,554 - This is a custom log message.
+2025-01-03 17:02:50,555 - This is a custom log message.
+2025-01-03 17:02:50,557 - This is a custom log message.
+2025-01-03 17:02:50,558 - This is a custom log message.
+2025-01-03 17:02:50,558 - This is a custom log message.
+2025-01-03 17:06:43,162 - 'se_pdf.pdf' Semantic Similarity: 0.86
+2025-01-03 17:06:57,854 - 'se_pdf.pdf' Semantic Similarity: 0.81
+2025-01-03 17:07:40,509 - 'se_pdf.pdf' Semantic Similarity: 0.77
+2025-01-03 17:07:41,039 - 'se_pdf.pdf' Semantic Similarity: 0.78
+2025-01-03 17:07:41,334 - Summarization for file 'se_pdf.pdf' completed in 342.26 seconds.

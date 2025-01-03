@@ -1,0 +1,169 @@
+2024-12-29 11:45:22,795 - This is a custom log message.
+2024-12-29 11:45:45,153 - This is a custom log message.
+2024-12-29 11:49:20,620 - This is a custom log message.
+2024-12-29 11:49:30,163 - This is a custom log message.
+2024-12-29 11:49:52,843 - Error processing file se_pdf.pdf: Working outside of request context.
+
+This typically means that you attempted to use functionality that needed
+an active HTTP request. Consult the documentation on testing for
+information about how to avoid this problem.
+2024-12-29 11:49:55,056 - Total processing time for all files: 34.25 seconds
+2024-12-29 11:52:22,738 - This is a custom log message.
+2024-12-29 11:52:29,841 - This is a custom log message.
+2024-12-29 11:52:38,202 - Error processing file se_pdf.pdf: Working outside of request context.
+
+This typically means that you attempted to use functionality that needed
+an active HTTP request. Consult the documentation on testing for
+information about how to avoid this problem.
+2024-12-29 11:52:40,444 - Total processing time for all files: 17.57 seconds
+2024-12-29 11:56:22,830 - This is a custom log message.
+2024-12-29 11:56:33,314 - This is a custom log message.
+2024-12-29 11:57:27,426 - This is a custom log message.
+2024-12-29 11:57:51,559 - This is a custom log message.
+2024-12-29 11:58:04,577 - This is a custom log message.
+2024-12-29 11:58:54,000 - This is a custom log message.
+2024-12-29 11:59:03,118 - This is a custom log message.
+2024-12-29 11:59:21,834 - This is a custom log message.
+2024-12-29 11:59:34,413 - This is a custom log message.
+2024-12-29 12:00:00,505 - This is a custom log message.
+2024-12-29 12:00:07,670 - This is a custom log message.
+2024-12-29 12:02:04,473 - This is a custom log message.
+2024-12-29 12:02:12,782 - This is a custom log message.
+2024-12-29 12:02:45,127 - This is a custom log message.
+2024-12-29 12:02:45,128 - This is a custom log message.
+2024-12-29 13:34:23,635 - Total processing time for all files: 5538.96 seconds
+2024-12-29 13:39:46,853 - This is a custom log message.
+2024-12-29 13:39:53,406 - This is a custom log message.
+2024-12-29 13:42:27,323 - This is a custom log message.
+2024-12-29 13:42:27,463 - Total processing time for all files: 0.00 seconds
+2024-12-29 13:44:44,428 - This is a custom log message.
+2024-12-29 13:45:05,202 - This is a custom log message.
+2024-12-29 13:45:13,413 - This is a custom log message.
+2024-12-29 13:46:34,316 - This is a custom log message.
+2024-12-29 13:46:37,907 - Summarization for file 'se_pdf.pdf' started.
+2024-12-29 13:47:25,273 - This is a custom log message.
+2024-12-29 13:47:25,274 - This is a custom log message.
+2024-12-29 13:47:25,275 - This is a custom log message.
+2024-12-29 13:47:25,277 - This is a custom log message.
+2024-12-29 13:50:11,463 - 'se_pdf.pdf' Semantic Similarity: 0.86
+2024-12-29 13:50:17,629 - 'se_pdf.pdf' Semantic Similarity: 0.81
+2024-12-29 13:51:01,248 - 'se_pdf.pdf' Semantic Similarity: 0.78
+2024-12-29 13:51:04,231 - 'se_pdf.pdf' Semantic Similarity: 0.77
+2024-12-29 13:51:04,714 - Summarization for file 'se_pdf.pdf' completed in 266.80 seconds.
+2024-12-29 13:53:19,070 - This is a custom log message.
+2024-12-29 13:54:27,643 - This is a custom log message.
+2024-12-29 13:54:55,636 - This is a custom log message.
+2024-12-29 13:55:02,824 - This is a custom log message.
+2024-12-29 13:55:38,087 - This is a custom log message.
+2024-12-29 13:57:11,852 - This is a custom log message.
+2024-12-29 13:57:23,811 - Summarization for file 'se_pdf.pdf' started.
+2024-12-29 13:58:13,508 - This is a custom log message.
+2024-12-29 13:58:13,509 - This is a custom log message.
+2024-12-29 13:58:13,527 - This is a custom log message.
+2024-12-29 14:01:02,213 - 'se_pdf.pdf' Semantic Similarity: 0.86
+2024-12-29 14:01:08,039 - 'se_pdf.pdf' Semantic Similarity: 0.81
+2024-12-29 14:01:51,848 - 'se_pdf.pdf' Semantic Similarity: 0.78
+2024-12-29 14:01:52,615 - 'se_pdf.pdf' Semantic Similarity: 0.77
+2024-12-29 14:01:52,831 - Summarization for file 'se_pdf.pdf' completed in 269.02 seconds.
+2024-12-29 15:31:50,575 - This is a custom log message.
+2024-12-29 15:56:25,342 - This is a custom log message.
+2024-12-29 15:56:32,228 - This is a custom log message.
+2024-12-29 15:59:23,543 - This is a custom log message.
+2024-12-29 15:59:43,042 - This is a custom log message.
+2024-12-29 15:59:50,049 - This is a custom log message.
+2024-12-29 16:04:25,864 - This is a custom log message.
+2024-12-29 16:09:25,307 - This is a custom log message.
+2024-12-29 16:09:33,342 - This is a custom log message.
+2024-12-29 16:22:52,295 - This is a custom log message.
+2024-12-29 16:23:08,304 - This is a custom log message.
+2024-12-29 16:23:15,997 - This is a custom log message.
+2024-12-29 16:42:01,614 - This is a custom log message.
+2024-12-29 16:43:07,757 - This is a custom log message.
+2024-12-29 16:43:26,508 - This is a custom log message.
+2024-12-29 16:43:51,171 - This is a custom log message.
+2024-12-29 16:45:14,824 - This is a custom log message.
+2024-12-29 16:45:38,333 - This is a custom log message.
+2024-12-29 16:45:46,439 - This is a custom log message.
+2024-12-29 16:55:59,115 - This is a custom log message.
+2024-12-29 16:56:28,650 - This is a custom log message.
+2024-12-29 16:56:52,158 - This is a custom log message.
+2024-12-29 16:59:01,590 - This is a custom log message.
+2024-12-29 16:59:09,395 - This is a custom log message.
+2024-12-29 17:24:43,498 - This is a custom log message.
+2024-12-29 17:24:54,331 - This is a custom log message.
+2024-12-29 17:26:07,257 - This is a custom log message.
+2024-12-29 17:26:17,057 - This is a custom log message.
+2024-12-29 17:29:21,744 - This is a custom log message.
+2024-12-29 17:29:35,149 - This is a custom log message.
+2024-12-29 17:31:17,863 - This is a custom log message.
+2024-12-29 17:31:34,896 - This is a custom log message.
+2024-12-29 17:31:54,767 - This is a custom log message.
+2024-12-29 17:32:29,434 - This is a custom log message.
+2024-12-29 17:32:43,639 - This is a custom log message.
+2024-12-29 17:32:55,129 - This is a custom log message.
+2024-12-29 17:33:59,107 - This is a custom log message.
+2024-12-29 17:36:28,099 - This is a custom log message.
+2024-12-29 17:36:51,627 - This is a custom log message.
+2024-12-29 17:39:13,663 - This is a custom log message.
+2024-12-29 17:39:39,340 - This is a custom log message.
+2024-12-29 17:39:51,665 - This is a custom log message.
+2024-12-29 17:40:04,496 - This is a custom log message.
+2024-12-29 17:41:37,252 - This is a custom log message.
+2024-12-29 17:41:44,329 - This is a custom log message.
+2024-12-29 17:43:15,514 - This is a custom log message.
+2024-12-29 17:45:11,506 - This is a custom log message.
+2024-12-29 17:48:00,624 - This is a custom log message.
+2024-12-29 17:48:09,916 - Summarization for file 'se_pdf.pdf' started.
+2024-12-29 17:48:54,534 - This is a custom log message.
+2024-12-29 17:48:54,534 - This is a custom log message.
+2024-12-29 17:48:54,534 - This is a custom log message.
+2024-12-29 17:48:54,534 - This is a custom log message.
+2024-12-29 17:48:54,535 - This is a custom log message.
+2024-12-29 17:52:17,323 - 'se_pdf.pdf' Semantic Similarity: 0.86
+2024-12-29 17:52:22,382 - 'se_pdf.pdf' Semantic Similarity: 0.81
+2024-12-29 17:53:22,244 - 'se_pdf.pdf' Semantic Similarity: 0.78
+2024-12-29 17:53:26,248 - 'se_pdf.pdf' Semantic Similarity: 0.77
+2024-12-29 17:53:26,745 - Summarization for file 'se_pdf.pdf' completed in 316.83 seconds.
+2024-12-29 17:55:46,875 - This is a custom log message.
+2024-12-29 17:57:07,074 - This is a custom log message.
+2024-12-29 17:57:13,391 - Summarization for file 'se_pdf.pdf' started.
+2024-12-29 17:57:58,209 - This is a custom log message.
+2024-12-29 17:57:58,210 - This is a custom log message.
+2024-12-29 17:57:58,210 - This is a custom log message.
+2024-12-29 18:01:08,143 - 'se_pdf.pdf' Semantic Similarity: 0.86
+2024-12-29 18:01:17,573 - 'se_pdf.pdf' Semantic Similarity: 0.81
+2024-12-29 18:02:11,877 - 'se_pdf.pdf' Semantic Similarity: 0.78
+2024-12-29 18:02:13,553 - 'se_pdf.pdf' Semantic Similarity: 0.77
+2024-12-29 18:02:13,995 - Summarization for file 'se_pdf.pdf' completed in 300.60 seconds.
+2024-12-29 18:04:06,597 - This is a custom log message.
+2024-12-29 18:04:32,419 - This is a custom log message.
+2024-12-29 18:05:17,791 - This is a custom log message.
+2024-12-29 18:05:21,774 - Summarization for file 'se_pdf.pdf' started.
+2024-12-29 18:05:37,442 - This is a custom log message.
+2024-12-29 18:05:37,967 - This is a custom log message.
+2024-12-29 18:05:37,999 - This is a custom log message.
+2024-12-29 18:05:38,010 - This is a custom log message.
+2024-12-29 18:05:38,059 - This is a custom log message.
+2024-12-29 18:08:33,223 - 'se_pdf.pdf' Semantic Similarity: 0.86
+2024-12-29 18:08:40,771 - 'se_pdf.pdf' Semantic Similarity: 0.81
+2024-12-29 18:09:29,659 - 'se_pdf.pdf' Semantic Similarity: 0.78
+2024-12-29 18:09:31,069 - 'se_pdf.pdf' Semantic Similarity: 0.77
+2024-12-29 18:09:31,276 - Summarization for file 'se_pdf.pdf' completed in 249.50 seconds.
+2024-12-29 18:12:59,521 - This is a custom log message.
+2024-12-29 18:13:10,711 - This is a custom log message.
+2024-12-29 18:20:58,288 - This is a custom log message.
+2024-12-29 18:21:05,737 - This is a custom log message.
+2024-12-29 18:24:30,085 - This is a custom log message.
+2024-12-29 18:24:40,453 - Summarization for file 'se_pdf.pdf' started.
+2024-12-29 18:25:40,999 - This is a custom log message.
+2024-12-29 18:25:40,999 - This is a custom log message.
+2024-12-29 18:25:41,000 - This is a custom log message.
+2024-12-29 18:25:41,000 - This is a custom log message.
+2024-12-29 18:25:41,000 - This is a custom log message.
+2024-12-29 18:29:25,229 - 'se_pdf.pdf' Semantic Similarity: 0.86
+2024-12-29 18:29:31,309 - 'se_pdf.pdf' Semantic Similarity: 0.81
+2024-12-29 18:30:20,051 - 'se_pdf.pdf' Semantic Similarity: 0.78
+2024-12-29 18:30:22,247 - 'se_pdf.pdf' Semantic Similarity: 0.77
+2024-12-29 18:30:22,726 - Summarization for file 'se_pdf.pdf' completed in 342.28 seconds.
+2024-12-30 16:27:19,250 - Summarization for file 'AUTOMATED_ESSAY_CHECKER_-_THESIS_FILES-20240618T052209Z-001.pdf' started.
+2024-12-30 16:34:28,497 - Summarization for file 'AUTOMATED_ESSAY_CHECKER_-_THESIS_FILES-20240618T052209Z-001.pdf' completed in 429.29 seconds.
