@@ -424,25 +424,25 @@ class SummPy:
             logger.error(f"Error processing chapter {chapter_num}: {str(e)}")
             metrics_queue.put(None)
 
-    def monitor_process(self, stop_event, resource_queue):
-        cpu_readings = []
-        memory_readings = []
+    # def monitor_process(self, stop_event, resource_queue):
+    #     cpu_readings = []
+    #     memory_readings = []
         
-        while not stop_event.is_set():
-            cpu_usage = psutil.cpu_percent(interval=1)
-            memory_info = psutil.virtual_memory()
-            memory_usage = memory_info.used / (1024 * 1024)  # Convert to MB
+    #     while not stop_event.is_set():
+    #         cpu_usage = psutil.cpu_percent(interval=1)
+    #         memory_info = psutil.virtual_memory()
+    #         memory_usage = memory_info.used / (1024 * 1024)  # Convert to MB
             
-            cpu_readings.append(cpu_usage)
-            memory_readings.append(memory_usage)
+    #         cpu_readings.append(cpu_usage)
+    #         memory_readings.append(memory_usage)
             
-            time.sleep(1)
+    #         time.sleep(1)
         
-        # Calculate average resource usage
-        avg_cpu = sum(cpu_readings) / len(cpu_readings) if cpu_readings else 0
-        avg_memory = sum(memory_readings) / len(memory_readings) if memory_readings else 0
+    #     # Calculate average resource usage
+    #     avg_cpu = sum(cpu_readings) / len(cpu_readings) if cpu_readings else 0
+    #     avg_memory = sum(memory_readings) / len(memory_readings) if memory_readings else 0
         
-        resource_queue.put((avg_cpu, avg_memory))
+    #     resource_queue.put((avg_cpu, avg_memory))
 
     def extract_full_text(self, pages):
         return " ".join(page.page_content for page in pages)

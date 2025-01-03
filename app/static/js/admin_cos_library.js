@@ -586,97 +586,271 @@ async function populateGradStudies(){
     setOnclickOnCards2();
 }
 
-function populateMasteralStudies(){
+async function populateMasteralStudies(){
     const study_card_container = document.getElementById("study_card_container");
+    const yearSelect = document.getElementById("year_published");
+    const courseSelect = document.getElementById("course_option");
+    const fieldSelect = document.getElementById("field_study_option");
     study_card_container.innerHTML = '';
-    for(let i = 0; i < 5; i++){
-        study_card_container.innerHTML += `
-        <div class="study-card-details">
-            <div class="left-card-details">
-                <p class="card-study-title">STUDY TITLE: MASTERAL ${i}</p>
-                <p class="card-publication-date">Publication date</p>
-                <p class="card-authors">Authors</p>
-                <p class="card-course">Course</p>
-            </div>
-            <div class="right-card-details">
-                <p class="card-category">Category</p>
-                <p class="card-field-study">Field of the Study</p>
-            </div>
-            <div class="right-card-details-options">
-                <div class="card-edit-button-contianer">
-                    <img src="../../static/images/edit_icon1.png" alt="">
-                    <p>Edit</p>
-                </div>
-                <div class="card-remove-button-container">
-                    <img src="../../static/images/delete_icon1.png" alt="">
-                    <p>Remove</p>
-                </div>
-            </div>
-        </div>
-        `;
+
+    const underGradCollectionRef = collection(fdb, 'masteral');
+
+    try {
+        const querySnapshot = await getDocs(underGradCollectionRef);
+        const years = new Set();
+        const courses = new Set();
+        const fields = new Set();
+
+        if (querySnapshot.size === 1) {
+            study_card_container.innerHTML = '<h1>No Data</h1>';
+            return; 
+        }
+        
+        currentSnapshot = querySnapshot;
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+
+            if(doc.id != "test"){
+                const studyTitle = data.title || "No Title";
+                const publicationDate = `${data.year_published.day} ${data.year_published.month} ${data.year_published.year}`;
+                const authors = data.authors ? data.authors.map(author => `${author.firstName} ${author.lastName}`).join(", ") : "No Authors";
+                const course = data.course || "No Course";
+                let category = data.category || "No Category";
+                const fieldStudy = data.field_of_study ? data.field_of_study.join(", ") : "No Fields";
+
+                switch(category){
+                    case "under_graduate": category = "UNDER GRADUATE"; break;
+                    case "graduate": category = "GRADUATE"; break;
+                    case "dissertation": category = "DISSERTATION"; break;
+                    case "masteral": category = "MASTERAL"; break;
+                    case "doctorate": category = "DOCTORATE"; break;
+                    default: break;
+                }
+
+                const jsonData = JSON.stringify(data).replace(/"/g, '&quot;');
+
+                study_card_container.innerHTML += `
+                    <div class="study-card-details">
+                        <div class="left-card-details" data-content="${jsonData}">
+                            <p class="card-study-title">${studyTitle}</p>
+                            <p class="card-publication-date">${publicationDate}</p>
+                            <p class="card-authors">Authors: ${authors}</p>
+                            <p class="card-course">Course: ${course}</p>
+                        </div>
+                        <div class="right-card-details" data-content="${jsonData}">
+                            <p class="card-category">${category}</p>
+                            <p class="card-field-study">Fields: ${fieldStudy}</p>
+                        </div>
+                        <div class="right-card-details-options">
+                            <div class="card-edit-button-contianer" data-content="${jsonData}" data-id="${doc.id}">
+                                <img src="../../static/images/edit_icon1.png" alt="">
+                                <p>Edit</p>
+                            </div>
+                            <div class="card-remove-button-container" data-id="${doc.id}">
+                                <img src="../../static/images/delete_icon1.png" alt="">
+                                <p>Remove</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                if (data.year_published && data.year_published.year) {
+                    years.add(data.year_published.year);
+                }
+                if (data.course) {
+                    courses.add(data.course);
+                }
+                if (data.field_of_study) {
+                    data.field_of_study.forEach(field => fields.add(field));
+                }
+            }
+        });
+
+        populateDropdown(yearSelect, Array.from(years));
+        populateDropdown(courseSelect, Array.from(courses));
+        populateDropdown(fieldSelect, Array.from(fields));
+    } catch (error) {
+        console.error("Error fetching documents: ", error);
     }
+    setOnclickOnCards2();
 }
 
-function populateDissertationStudies(){
+async function populateDissertationStudies(){
     const study_card_container = document.getElementById("study_card_container");
+    const yearSelect = document.getElementById("year_published");
+    const courseSelect = document.getElementById("course_option");
+    const fieldSelect = document.getElementById("field_study_option");
     study_card_container.innerHTML = '';
-    for(let i = 0; i < 5; i++){
-        study_card_container.innerHTML += `
-        <div class="study-card-details">
-            <div class="left-card-details">
-                <p class="card-study-title">STUDY TITLE: DISSERTATION ${i}</p>
-                <p class="card-publication-date">Publication date</p>
-                <p class="card-authors">Authors</p>
-                <p class="card-course">Course</p>
-            </div>
-            <div class="right-card-details">
-                <p class="card-category">Category</p>
-                <p class="card-field-study">Field of the Study</p>
-            </div>
-            <div class="right-card-details-options">
-                <div class="card-edit-button-contianer">
-                    <img src="../../static/images/edit_icon1.png" alt="">
-                    <p>Edit</p>
-                </div>
-                <div class="card-remove-button-container">
-                    <img src="../../static/images/delete_icon1.png" alt="">
-                    <p>Remove</p>
-                </div>
-            </div>
-        </div>
-        `;
+
+    const underGradCollectionRef = collection(fdb, 'dissertation');
+
+    try {
+        const querySnapshot = await getDocs(underGradCollectionRef);
+        const years = new Set();
+        const courses = new Set();
+        const fields = new Set();
+
+        if (querySnapshot.size === 1) {
+            study_card_container.innerHTML = '<h1>No Data</h1>';
+            return; 
+        }
+        
+        currentSnapshot = querySnapshot;
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+
+            if(doc.id != "test"){
+                const studyTitle = data.title || "No Title";
+                const publicationDate = `${data.year_published.day} ${data.year_published.month} ${data.year_published.year}`;
+                const authors = data.authors ? data.authors.map(author => `${author.firstName} ${author.lastName}`).join(", ") : "No Authors";
+                const course = data.course || "No Course";
+                let category = data.category || "No Category";
+                const fieldStudy = data.field_of_study ? data.field_of_study.join(", ") : "No Fields";
+
+                switch(category){
+                    case "under_graduate": category = "UNDER GRADUATE"; break;
+                    case "graduate": category = "GRADUATE"; break;
+                    case "dissertation": category = "DISSERTATION"; break;
+                    case "masteral": category = "MASTERAL"; break;
+                    case "doctorate": category = "DOCTORATE"; break;
+                    default: break;
+                }
+
+                const jsonData = JSON.stringify(data).replace(/"/g, '&quot;');
+
+                study_card_container.innerHTML += `
+                    <div class="study-card-details">
+                        <div class="left-card-details" data-content="${jsonData}">
+                            <p class="card-study-title">${studyTitle}</p>
+                            <p class="card-publication-date">${publicationDate}</p>
+                            <p class="card-authors">Authors: ${authors}</p>
+                            <p class="card-course">Course: ${course}</p>
+                        </div>
+                        <div class="right-card-details" data-content="${jsonData}">
+                            <p class="card-category">${category}</p>
+                            <p class="card-field-study">Fields: ${fieldStudy}</p>
+                        </div>
+                        <div class="right-card-details-options">
+                            <div class="card-edit-button-contianer" data-content="${jsonData}" data-id="${doc.id}">
+                                <img src="../../static/images/edit_icon1.png" alt="">
+                                <p>Edit</p>
+                            </div>
+                            <div class="card-remove-button-container" data-id="${doc.id}">
+                                <img src="../../static/images/delete_icon1.png" alt="">
+                                <p>Remove</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                if (data.year_published && data.year_published.year) {
+                    years.add(data.year_published.year);
+                }
+                if (data.course) {
+                    courses.add(data.course);
+                }
+                if (data.field_of_study) {
+                    data.field_of_study.forEach(field => fields.add(field));
+                }
+            }
+        });
+
+        populateDropdown(yearSelect, Array.from(years));
+        populateDropdown(courseSelect, Array.from(courses));
+        populateDropdown(fieldSelect, Array.from(fields));
+    } catch (error) {
+        console.error("Error fetching documents: ", error);
     }
+    setOnclickOnCards2();
 }
 
-function populateDoctorateStudies(){
+async function populateDoctorateStudies(){
     const study_card_container = document.getElementById("study_card_container");
+    const yearSelect = document.getElementById("year_published");
+    const courseSelect = document.getElementById("course_option");
+    const fieldSelect = document.getElementById("field_study_option");
     study_card_container.innerHTML = '';
-    for(let i = 0; i < 5; i++){
-        study_card_container.innerHTML += `
-        <div class="study-card-details">
-            <div class="left-card-details">
-                <p class="card-study-title">STUDY TITLE: DOCTORATE ${i}</p>
-                <p class="card-publication-date">Publication date</p>
-                <p class="card-authors">Authors</p>
-                <p class="card-course">Course</p>
-            </div>
-            <div class="right-card-details">
-                <p class="card-category">Category</p>
-                <p class="card-field-study">Field of the Study</p>
-            </div>
-            <div class="right-card-details-options">
-                <div class="card-edit-button-contianer">
-                    <img src="../../static/images/edit_icon1.png" alt="">
-                    <p>Edit</p>
-                </div>
-                <div class="card-remove-button-container">
-                    <img src="../../static/images/delete_icon1.png" alt="">
-                    <p>Remove</p>
-                </div>
-            </div>
-        </div>
-        `;
+
+    const underGradCollectionRef = collection(fdb, 'doctorate');
+
+    try {
+        const querySnapshot = await getDocs(underGradCollectionRef);
+        const years = new Set();
+        const courses = new Set();
+        const fields = new Set();
+
+        if (querySnapshot.size === 1) {
+            study_card_container.innerHTML = '<h1>No Data</h1>';
+            return; 
+        }
+        
+        currentSnapshot = querySnapshot;
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+
+            if(doc.id != "test"){
+                const studyTitle = data.title || "No Title";
+                const publicationDate = `${data.year_published.day} ${data.year_published.month} ${data.year_published.year}`;
+                const authors = data.authors ? data.authors.map(author => `${author.firstName} ${author.lastName}`).join(", ") : "No Authors";
+                const course = data.course || "No Course";
+                let category = data.category || "No Category";
+                const fieldStudy = data.field_of_study ? data.field_of_study.join(", ") : "No Fields";
+
+                switch(category){
+                    case "under_graduate": category = "UNDER GRADUATE"; break;
+                    case "graduate": category = "GRADUATE"; break;
+                    case "dissertation": category = "DISSERTATION"; break;
+                    case "masteral": category = "MASTERAL"; break;
+                    case "doctorate": category = "DOCTORATE"; break;
+                    default: break;
+                }
+
+                const jsonData = JSON.stringify(data).replace(/"/g, '&quot;');
+
+                study_card_container.innerHTML += `
+                    <div class="study-card-details">
+                        <div class="left-card-details" data-content="${jsonData}">
+                            <p class="card-study-title">${studyTitle}</p>
+                            <p class="card-publication-date">${publicationDate}</p>
+                            <p class="card-authors">Authors: ${authors}</p>
+                            <p class="card-course">Course: ${course}</p>
+                        </div>
+                        <div class="right-card-details" data-content="${jsonData}">
+                            <p class="card-category">${category}</p>
+                            <p class="card-field-study">Fields: ${fieldStudy}</p>
+                        </div>
+                        <div class="right-card-details-options">
+                            <div class="card-edit-button-contianer" data-content="${jsonData}" data-id="${doc.id}">
+                                <img src="../../static/images/edit_icon1.png" alt="">
+                                <p>Edit</p>
+                            </div>
+                            <div class="card-remove-button-container" data-id="${doc.id}">
+                                <img src="../../static/images/delete_icon1.png" alt="">
+                                <p>Remove</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                if (data.year_published && data.year_published.year) {
+                    years.add(data.year_published.year);
+                }
+                if (data.course) {
+                    courses.add(data.course);
+                }
+                if (data.field_of_study) {
+                    data.field_of_study.forEach(field => fields.add(field));
+                }
+            }
+        });
+
+        populateDropdown(yearSelect, Array.from(years));
+        populateDropdown(courseSelect, Array.from(courses));
+        populateDropdown(fieldSelect, Array.from(fields));
+    } catch (error) {
+        console.error("Error fetching documents: ", error);
     }
+    setOnclickOnCards2();
 }
 
 function populateDropdown(selectElement, options) {
