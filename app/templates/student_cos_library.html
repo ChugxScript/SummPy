@@ -134,54 +134,8 @@
             -->
             <div class="view-book-details-container" id="view_book_details_container">
                 <img src="{{ url_for('static', filename='images/back_button_icon1.png') }}" alt="" id="back_button_view">
-                <div class="margin-container">
-                    <p id="study_title">STUDY TITLE</p>
-                    <p id="publication_date">Publication date</p>
-    
-                    <div class="course-category-container">
-                        <div class="details-course-container">
-                            <p class="details-course-title">Course:</p>
-                            <p id="details_course_value">course</p>
-                        </div>
-                        <div class="details-category-container">
-                            <p class="details-category-title">Category:</p>
-                            <p id="details_category_value">category</p>
-                        </div>
-                    </div>
-
-                    <div class="authors-panels-container">
-                        <div class="details-authors-container">
-                            <p class="details-authors-title">Authors:</p>
-                            <p id="details_authors_value">Author1</p>
-                            <p id="details_authors_value">Author2</p>
-                            <p id="details_authors_value">Author3</p>
-                            <p id="details_authors_value">Author4</p>
-                            <p id="details_authors_value">Author5</p>
-                        </div>
-                        <div class="details-panels-container">
-                            <p class="details-panels-title">Panels:</p>
-                            <p id="details_panels_value">Panel1</p>
-                            <p id="details_panels_value">Panel2</p>
-                            <p id="details_panels_value">Panel3</p>
-                            <p id="details_panels_value">Panel4</p>
-                        </div>
-                    </div>
-
-                    <div class="original-summarized-container">
-                        <div class="details-original-container">
-                            <p class="details-original-title">Original</p>
-                            <embed src="{{ url_for('static', filename='test/se_pdf.pdf') }}" type="application/pdf">
-                        </div>
-                        <div class="details-summarized-container">
-                            <p class="details-summarized-title">Summarized Result</p>
-                            <embed src="{{ url_for('static', filename='test/se_pdf.pdf') }}" type="application/pdf">
-                        </div>
-                    </div>
-
-                    <div id="MOA_container">
-                        <img src="{{ url_for('static', filename='images/redirect_icon1.png') }}" alt="">
-                        <p class="MOA-title">Memorandum of Agreement</p>
-                    </div>
+                <div class="margin-container" id="margin_container">
+                    
                 </div>
             </div>
 

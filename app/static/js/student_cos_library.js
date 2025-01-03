@@ -30,6 +30,8 @@ function setOnclickOnCards(){
         cards.addEventListener('click', () => {
             main_content_container.style.display = "none";
             view_book_details_container.style.display = "flex";
+            const data = JSON.parse(cards.getAttribute("data-content").replace(/&quot;/g, '"'));
+            handleClickedBookDetails(data);
         });
     });
 
@@ -610,7 +612,7 @@ function initializeListenToFilter(){
                 }
             }
         });
-        setOnclickOnCards2();
+        setOnclickOnCards();
     });
 
     courseFilter.addEventListener("change", () => {
@@ -630,7 +632,7 @@ function initializeListenToFilter(){
                 }
             }
         });
-        setOnclickOnCards2();
+        setOnclickOnCards();
     });
 
     fieldFilter.addEventListener("change", () => {
@@ -649,7 +651,7 @@ function initializeListenToFilter(){
                 }
             }
         });
-        setOnclickOnCards2();
+        setOnclickOnCards();
     });
 
     nameFilter.addEventListener("change", () => {
@@ -669,7 +671,7 @@ function initializeListenToFilter(){
                 }
             }
         });
-        setOnclickOnCards2();
+        setOnclickOnCards();
     });
 }
 
@@ -717,6 +719,82 @@ function populateFilteredStudies(data){
             </div>
         </div>
     `;
+}
+
+function handleClickedBookDetails(data){
+    const margin_container = document.getElementById("margin_container");
+
+    const studyTitle = data.title || "No Title";
+    const publicationDate = `${data.year_published.day} ${data.year_published.month} ${data.year_published.year}`;
+    const course = data.course || "No Course";
+    let category = data.category || "No Category";
+    const fieldStudy = data.field_of_study ? data.field_of_study.join(", ") : "No Fields";
+
+    switch(category){
+        case "under_graduate": category = "UNDER GRADUATE"; break;
+        case "graduate": category = "GRADUATE"; break;
+        case "dissertation": category = "DISSERTATION"; break;
+        case "masteral": category = "MASTERAL"; break;
+        case "doctorate": category = "DOCTORATE"; break;
+        default: break;
+    }
+
+    const authorsContent = data.authors
+        ? data.authors.map(author => `<li>${author.firstName} ${author.lastName}</li>`).join("")
+        : "<p>No Authors</p>";
+
+    const panelsContent = data.panels
+        ? data.panels.map(panel => `<li>${panel.firstName} ${panel.lastName}</li>`).join("")
+        : "<p>No Panels</p>";
+
+    margin_container.innerHTML = `
+        <p id="study_title">${studyTitle}</p>
+        <p id="publication_date">${publicationDate}</p>
+
+        <div class="course-category-container">
+            <div class="details-course-container">
+                <p class="details-course-title">Course:</p>
+                <p id="details_course_value">${course}</p>
+            </div>
+            <div class="details-category-container">
+                <p class="details-category-title">Category:</p>
+                <p id="details_category_value">${category}</p>
+            </div>
+        </div>
+
+        <div class="authors-panels-container">
+            <div class="details-authors-container">
+                <p class="details-authors-title">Authors:</p>
+                ${authorsContent}
+            </div>
+            <div class="details-panels-container">
+                <p class="details-panels-title">Panels:</p>
+                ${panelsContent} 
+            </div>
+        </div>
+
+        <div class="original-summarized-container">
+            <div class="details-original-container">
+                <p class="details-original-title">Original</p>
+                <embed src="../static/acre_data/raw/${data.study_document}" type="application/pdf">
+            </div>
+            <div class="details-summarized-container">
+                <p class="details-summarized-title">Summarized Result</p>
+                <embed src="../static/acre_data/summarized/summary_${data.study_document}" type="application/pdf">
+            </div>
+        </div>
+    `;
+
+    if(data.memorandum_of_agreement != "No file selected"){
+        margin_container.innerHTML += `
+        <div id="MOA_container">
+            <img src="../static/images/redirect_icon1.png" alt="">
+            <a href='../static/acre_data/moa/${data.memorandum_of_agreement}' target="_blank">
+                <p class="MOA-title">Memorandum of Agreement</p>
+            </a>
+        </div>
+        `;
+    }
 }
 
 async function initializeDashboard(){

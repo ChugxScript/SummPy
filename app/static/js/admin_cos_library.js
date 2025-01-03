@@ -1066,7 +1066,7 @@ function handleClickedBookDetails(data){
         </div>
     `;
 
-    if(data.memorandum_of_agreement){
+    if(data.memorandum_of_agreement  != "No file selected"){
         margin_container.innerHTML += `
         <div id="MOA_container">
             <img src="../static/images/redirect_icon1.png" alt="">
