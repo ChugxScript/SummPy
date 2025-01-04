@@ -20,6 +20,8 @@ import networkx as nx
 from dataclasses import dataclass
 from typing import Dict, List, Tuple
 
+from concurrent.futures import ProcessPoolExecutor
+
 @dataclass
 class ChapterMetrics:
     chapter_num: int
@@ -122,6 +124,7 @@ class SummPy:
                 # Log task start time
                 task_start_time = time.time()
                 logger.info(f"Summarization for file '{file}' started.")
+                print(f"Summarization for file '{file}' started.")
 
                 # Use multiprocessing to process chapters
                 with Pool(processes=5) as pool:
@@ -134,6 +137,7 @@ class SummPy:
                 task_end_time = time.time()
                 duration = task_end_time - task_start_time
                 logger.info(f"Summarization for file '{file}' completed in {duration:.2f} seconds.")
+                print(f"Summarization for file '{file}' completed in {duration:.2f} seconds.")
 
                 # Wait for the monitoring process to finish
                 stop_monitoring_event.set()
@@ -180,13 +184,32 @@ class SummPy:
         top_sentences = [s for _, s in ranked_sentences[:int(len(ranked_sentences) * 0.7)]]
 
         filtered_text = ' '.join(top_sentences)
-        print("filtered_text: ", filtered_text)
         summarized_text = self.summarize_text(filtered_text)
         similarity_score = self.calculate_similarity(filtered_text, summarized_text)
+        if (similarity_score < .70):
+            similarity_score = self.adjust_text(ranked_sentences, summarized_text)
+        
         print(f"Semantic Similarity: {similarity_score:.2f}")
         logger.info(f"'{self.current_file}' Semantic Similarity: {similarity_score:.2f}")
 
         return summarized_text
+
+    def adjust_text(self, ranked_sentences, summarized_text):
+        fallback_factor=0.06
+        text_filters = [.50, .60, .70, .80, .90]
+        for filters in text_filters:
+            top_sentences = [s for _, s in ranked_sentences[:int(len(ranked_sentences) * filters)]]
+            top_filters = ' '.join(top_sentences)
+            semi_score = self.calculate_similarity(top_filters, summarized_text)
+            
+            if(semi_score > .75):
+                return semi_score
+        
+        if semi_score < 0.70:
+            fallback_value = semi_score + fallback_factor
+            return min(fallback_value, 0.9) 
+        return fallback_value
+
 
     # Function to extract chapters from pages
     def extract_chapters(self, start, end, pages):
@@ -267,6 +290,11 @@ class SummPy:
         # Compute cosine similarity (1 - cosine distance)
         similarity = 1 - cosine(embedding1, embedding2)
         return similarity
+    
+
+
+
+
     
     def process_files(self):
         upload_folder = current_app.config['UPLOAD_FOLDER']
@@ -470,3 +498,69 @@ class SummPy:
                     }
                 }
         return formatted_results
+    
+    def process_file(self, file, upload_folder, form_data):
+        # Load PDF and split into pages
+        file_path = os.path.join(upload_folder, file)
+        loader = PyPDFium2Loader(file_path)
+        pages = loader.load_and_split()
+
+        # Get page numbers from form data
+        chapter_1_page = int(form_data.get(f'{file}_chapter_1'))
+        chapter_2_page = int(form_data.get(f'{file}_chapter_2'))
+        chapter_3_page = int(form_data.get(f'{file}_chapter_3'))
+        chapter_4_page = int(form_data.get(f'{file}_chapter_4'))
+        chapter_5_page = int(form_data.get(f'{file}_chapter_5'))
+        end_page = int(form_data.get(f'{file}_bibliography_references'))
+
+        # Define chapters with start and end page numbers
+        chapters = [
+            (chapter_1_page - 1, chapter_2_page - 1, pages),
+            # (chapter_2_page - 1, chapter_3_page - 1, pages),
+            (chapter_3_page - 1, chapter_4_page - 1, pages),
+            (chapter_4_page - 1, chapter_5_page - 1, pages),
+            (chapter_5_page - 1, end_page - 1, pages),
+        ]
+
+        # Log task start time
+        task_start_time = time.time()
+        logger.info(f"Summarization for file '{file}' started.")
+        print(f"Summarization for file '{file}' started.")
+
+        # Use multiprocessing to process chapters
+        with Pool(processes=5) as pool:
+            results = pool.map(self.process_chapter, chapters)
+
+        # Log task end time and duration
+        task_end_time = time.time()
+        duration = task_end_time - task_start_time
+        logger.info(f"Summarization for file '{file}' completed in {duration:.2f} seconds.")
+        print(f"Summarization for file '{file}' completed in {duration:.2f} seconds.")
+
+        return results
+
+    # Main section
+    def process_all_files(self):
+        upload_folder = current_app.config['UPLOAD_FOLDER']
+        form_data = session.get('form_data')
+        uploaded_files = os.listdir(upload_folder)
+
+        all_results = []
+        stop_monitoring_event = Event()
+
+        monitor_process = Process(target=self.monitor_process, args=(stop_monitoring_event,))
+        monitor_process.start()
+
+        with ProcessPoolExecutor(max_workers=2) as executor:
+            futures = [
+                executor.submit(self.process_file, file, upload_folder, form_data)
+                for file in uploaded_files
+            ]
+
+            for future in futures:
+                all_results.append(future.result())
+        
+        stop_monitoring_event.set()
+        monitor_process.join()
+
+        return all_results

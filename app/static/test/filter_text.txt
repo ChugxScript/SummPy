@@ -1,0 +1,218 @@
+Moreover, 62.22% strongly agreed that the game was very interesting, demonstrating
+high engagement levels.
+In terms of perceived competence, 53.33% strongly agreed that they were good at the
+game, and 31.11% agreed The mean ratings
+across these criteria further illustrate the overall satisfaction: 60.16% strongly agreed, 27.74%
+agreed, 8.57% were neutral, 1.80% disagreed, and 2.22% strongly disagreed.
+46ALGE-BRUH
+In terms of the value and usefulness of the game, 60% of the students strongly agreed that
+the game could be valuable for their learning, with 26.67% agreeing Regarding boredom, only 11.11% strongly agreed that the game was boring, and
+33.33% strongly disagreed, indicating that the majority found the game engaging A noteworthy 64.44% would be willing to play the game again because of its
+educational value.
+Furthermore, 62.22% strongly believed that playing the game could help improve their
+problem-solving abilities, and 57.78% felt it could benefit their overall academic performance.
+The importance of the game as an educational activity was highlighted by 62.22% strongly
+agreeing and 28.89% agreeing.
+When it comes to effort and engagement, the responses were more varied Notably, 53.33% felt skilled at playing
+the game, although 22.22% felt they could not do very well, indicating some variation in
+self-assessment of skills.
+These results suggest that the gamification approach, using the Multi-Armed Bandit
+Algorithm, was effective in creating an engaging, enjoyable, and educational experience for the
+students, achieving high levels of contentment, skill development, and overall satisfaction.
+Moreover, the game was perceived as valuable and useful for learning, particularly in enhancing
+math skills, problem-solving abilities, and overall academic performance PERCEIVED COMPETENCE
+4.1 I think I am pretty good at this
+game.
+53.33% 31.11% 6.67% 6.67% 2.22%
+4.2 I think I did pretty well in this game
+compared to other students.
+51.11% 24.44% 17.78% 4.44% 2.22%
+4.3 After playing this game for a while,
+I felt pretty competent.
+55.56% 28.89% 8.89% 4.44% 2.22%
+4.4 I am satisfied with my performance
+in this game.
+46.47% 40.00% 6.67% 4.44% 2.22%
+4.5 I felt skilled at playing this game Only 17.78%
+strongly agreed and agreed that they didn’t try very hard to succeed in the game, while 28.89%
+strongly disagreed, suggesting that a significant portion of students put in a considerable amount
+of effort Happiness derived from the game was affirmed by 57.78% strongly agreeing, and
+31.11% agreeing, underscoring the positive emotional impact.
+Performance and visual appeal were also positively rated, with 62.22% strongly agreeing
+they performed well and 57.78% finding the game visually pleasing The
+findings indicate a predominantly positive reception among the respondents.
+A significant majority, 60%, strongly agreed that they felt content while playing the
+game, with an additional 28.89% agreeing, suggesting that the game was generally well-received
+emotionally Engagement and
+enjoyment were also high, with 62.22% strongly agreeing that they were engaged in the story
+and found the game enjoyable Additionally,
+8.89% strongly agreed that the game did not hold their attention, while 44.44% strongly
+disagreed When it comes to skill perception, 55.56% strongly agreed and 33.33% agreed,
+indicating that most students felt competent while engaging with the game (R)
+8.89% 11.11% 8.89% 26.67% 44.44%
+3.4 I would describe this game as very
+interesting.
+62.22% 24.44% 4.44% 2.22% 6.67%
+Criteria
+Strongly
+Agree
+Agree Neutral Disagree Strongly
+Disagree
+D Additionally, 57.78%
+strongly agreed that playing the game is useful for enhancing their math skills, with 35.56%
+agreeing Competence was strongly
+felt by 60%, while the game's challenge was appreciated by 57.78% of the respondents 53.33% 28.89% 11.11% 4.44% 2.22%
+45ALGE-BRUH
+4.6 This game was an activity that I
+couldn’t do very well Similarly, 51.11% felt they did well compared to other students, and
+55.56% felt competent after playing the game for a while
+
+The questions given
+to the user are based on the user data to the database and to the current game By providing a gamified and interactive learning environment, the webgame has the
+potential to significantly enhance educational outcomes and support academic achievement in
+Grade 10 algebra.
+In summary, the ALGE-BRUH webgame demonstrates strong performance, effective
+design, robust functionality, and positive user experience, contributing to its overall effectiveness
+and impact as an educational tool The ability to manage extensive data and offer real-time
+analytics further enhances the functionality, making the webgame a comprehensive tool for
+learning and assessment.
+User experience is a central focus of the ALGE-BRUH webgame, with a significant
+portion of the evaluation dedicated to assessing student satisfaction and engagement This is where the user signs
+in their account and the webgame will authenticate the given action and redirect the user to the
+appropriate page.
+39ALGE-BRUH
+Figure 8 The user-friendly
+interface and engaging game design contribute significantly to these positive outcomes,
+suggesting that the webgame successfully fosters an enjoyable learning environment.
+The impact of the ALGE-BRUH webgame on students’ learning experiences is
+substantial Dashboard
+Figure 8 visually displays the dashboard page where it displays the various actions that the user
+can perform such as viewing the profile where it display the updated user status and other details
+such as username, viewing inventory where it displays the current characters and items that the
+user have, taking lessons by clicking the journey and pick which stage or lesson that the user can
+take, viewing the shop where the user can find available characters and items that the user can
+purchase to make the webgame more entertaining and make the user more encage to the game.
+Figure 9 The primary objective of this webgame is to provide an
+effective method for assessing and engaging students' performance and learning, specifically in
+the subject of Grade 10 algebra User-Friendly Interface: With a clean, intuitive interface, the webgame system ensures a
+smooth user experience for students that is more aligned to ‘memes’ in the internet to
+make the user entertain and engage.
+3 The next question
+will depend on the current difficulty level of the question, the time that the user answered the
+question, and if the answer is answered correctly or not using DTTS algorithm.
+Project Capabilities and Limitations
+The following are the capabilities of the developed system:
+1 The actual web-based
+educational game will be diligently developed with HTML5, CSS, and JavaScript, paying close
+attention to the decision to use Bootstrap or React to improve the user interface design and user
+experience overall Real-time Analytics: The System offers real-time analytics capabilities to monitor and
+analyze student performance and progress over time and for the DTTS algorithm to give
+appropriate action to the user during the gameplay.
+Just like any other systems, the system has the following limitations:
+1 By providing continuous feedback
+38ALGE-BRUH
+and a gamified learning environment, the system aims to foster academic excellence and support
+student success.
+Upon completion, ALGE-BRUH will offer students a web game powered by the DTTS
+algorithm, enabling them to evaluate their performance and progress in algebra However,
+the system's performance is highly dependent on a steady internet connection, which could be a
+limitation in areas with inadequate internet infrastructure.
+The design of the ALGE-BRUH web game focuses on providing a user-friendly interface
+that is both clean and intuitive VALUE AND USEFULNESS OF THE GAME
+2.1 I believe this game could be
+valuable for my learning.
+60% 26.67% 8.89% 0% 4.44%
+2.2 I think playing this game is useful for
+enhancing my math skills.
+57.78% 35.56% 6.67% 0% 0%
+2.3 I would be willing to play this game
+again because it has educational value.
+64.44% 26.67% 6.67% 0% 2.22%
+2.4 Playing this game could help me
+improve my problem-solving abilities.
+62.22% 26.67% 8.89% 0% 2.22%
+2.5 I believe playing this game could
+benefit my overall academic performance.
+57.78% 31.11% 8.89% 0% 2.22%
+2.6 I think this game is an important
+educational activity
+62.22% 28.89% 4.44% 2.22% 2.22%
+44 This innovative
+educational tool is designed to enhance learning outcomes and support academic achievement in
+Grade 10 algebra.
+Project Structure
+The project structure contains screenshots and forms used in the program with its
+description and function in the system.
+Figure 7 This aligns seamlessly with the research goals, ensuring that the web-based
+37ALGE-BRUH
+game not only offers an immersive educational experience but also possesses the necessary
+backend support for efficient functionality.
+CHAPTER 4
+RESULTS AND DISCUSSION
+This chapter discusses the project description, project structure, project capabilities and
+limitations, and project evaluation.
+Project Description
+The project involves the development of a web-based game system named
+ALGE-BRUH, designed to integrate the Decision Tree Thompson Sampling (DTTS) algorithm
+into gamified educational content The
+adaptability of the website for both phone and desktop use is crucial for its accessibility, although
+specific details on its mobile optimization are not extensively covered in the provided document.
+The functionality of the ALGE-BRUH webgame is robust, offering several features to
+support educational engagement By
+engaging with the game, students are reminded of and can enhance their knowledge of Grade 10
+algebra topics The system allows students to track their progress through
+detailed statistics, including the number of correct and incorrect answers, time taken to answer
+questions, and more Data Management: The System can manage a vast amount of data related to students,
+including their owned characters and items, days active, username, stage cleared, and
+user stats such as total answer time, game currency, bonus, easy, and difficult questions
+taken, correct and incorrect answers, level, and score.
+2 Firebase is utilized for database management and web
+hosting, ensuring the webgame is accessible online.
+ALGE-BRUH offers an interactive platform where students can track their progress and
+performance This setup ensures that the webgame is
+accessible online and capable of managing a vast amount of data related to student performance
+41ALGE-BRUH
+and progress Users can have issues in places with inadequate internet connectivity.
+Project Evaluation
+The performance of the ALGE-BRUH webgame is a critical aspect of its effectiveness as
+an educational tool While not explicitly mentioned, teachers can potentially use the data to tailor their
+instructional strategies, ensuring they meet the individual needs of each student.
+The use of the DTTS algorithm allows for personalized learning experiences, adapting to
+each student's strengths and weaknesses The integration of the Decision Tree Thompson Sampling (DTTS)
+algorithm enables the game to provide personalized learning experiences by adapting to each
+student's strengths and weaknesses 62.22% 26.67% 6.67% 2.22% 2.22%
+43ALGE-BRUH
+1.5 I was fully immersed in the game 62.22% 22.22% 8.89% 4.44% 2.22%
+1.4 I found the game enjoyable USER’S EXPERIENCE
+1.1 I felt content while playing the
+game.
+60% 28.89% 6.67% 2.22% 2.22%
+1.2 I felt skilled while playing the game The
+website includes essential features such as a home page, sign-in page, dashboard, and gameplay
+interface, each designed to guide users smoothly through their interactions with the game 57.78% 28.89% 8.89% 2.22% 2.22%
+1.9 I felt competent while playing the
+game.
+60% 26.67% 11.11% 2.22% 0%
+1.10 The game presented a good
+challenge.
+57.78% 28.89% 11.11% 0% 2.22%
+1.11 I found the game impressive The system is built using HTML, CSS, and JavaScript for the
+front-end interface and game logic The majority of students reported that the game helped improve their
+42ALGE-BRUH
+problem-solving abilities and overall academic performance It provides a comprehensive view of student statistics, such as number
+of correct and incorrect answers, time taken to answer questions, types and number of questions
+attempted, details of student-owned characters and items, and available stages or lessons This design approach aligns with popular internet 'meme' culture,
+aiming to make the user experience entertaining and engaging for Grade 10 students Home page and Sign in page of ALGE-BRUH webgame
+Figure 7 depicts the Home page and Sign in page of the webgame This personalized approach is expected to significantly
+enhance students' understanding and performance in algebra This method aims to eliminate bias
+and enhance the representativeness of the sample, providing a solid foundation for the study's
+conclusions This baseline information will offer crucial demographic context
+and insights into the characteristics of users engaging with the online learning game The detailed statistics and adaptive learning paths aim to improve their
+understanding and retention of algebra concepts The system offers tools for students to monitor
+their individual progress According
+to survey results, the majority of students reported positive experiences, with high percentages
+indicating they felt content, skilled, engaged, and found the game enjoyable The engagement and enjoyment
+derived from the game likely contribute to higher motivation and sustained interest in learning
+algebra The system’s ability to offer real-time analytics further enhances its performance
+by allowing continuous monitoring and adaptive responses based on user interactions The user can use items to give the current character a ‘power up’
+

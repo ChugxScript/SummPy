@@ -114,7 +114,8 @@ def summary_result_page():
 
     #  get the IMRAD summary
     summarizer = SummPy()
-    results = summarizer.generate_summaries()
+    # results = summarizer.generate_summaries()
+    results = summarizer.process_all_files()
 
     # make pdfs with the first page of the original PDF
     for i, result in enumerate(results):
