@@ -1956,34 +1956,93 @@ function InitializeISPublishedBooksPerCategory(){
     chart.render();
 }
 
+function cosineSimilarity(vecA, vecB) {
+    const dotProduct = vecA.reduce((sum, a, i) => sum + a * vecB[i], 0);
+    const magnitudeA = Math.sqrt(vecA.reduce((sum, val) => sum + val * val, 0));
+    const magnitudeB = Math.sqrt(vecB.reduce((sum, val) => sum + val * val, 0));
+    return magnitudeA && magnitudeB ? dotProduct / (magnitudeA * magnitudeB) : 0;
+}
+
+function vectorizeText(text, allTerms) {
+    const words = text.split(/\s+/);
+    return allTerms.map(term => words.includes(term) ? 1 : 0);
+}
+
+function normalizeField(field) {
+    // bag of words
+    const synonymMap = {
+        'ai': 'artificial intelligence',
+        'artificial intelligence': 'artificial intelligence',
+        'machine learning': 'machine learning',
+        'ml': 'machine learning',
+        'natural language processing': 'nlp',
+        'nlp': 'nlp'
+    };
+
+    const normalizedField = field.toLowerCase().replace(/\./g, '').trim();
+    return synonymMap[normalizedField] || normalizedField;
+}
+
 function InitializeCSPublishedBooksPerYearDB(allItems) {
     // Extract data from allItems
-    const dataByYear = {};
+    const dataByField = {};
+    const allTerms = new Set();
+    const THRESHOLD = 0.85;
 
     allItems.forEach(item => {
-        // Access the 'year' field inside the 'year_published' object
-        const year = item.year_published?.year; // Use optional chaining to avoid errors if 'year_published' is missing
-        const category = item.course; // Assuming 'course' is still a direct property
+        const fields = item.field_of_study; 
+        const category = item.course;
 
-        if (!year) return; // Skip if the year is not defined
-
-        if (!dataByYear[year]) {
-            dataByYear[year] = { CS: 0 };
-        }
+        if (!fields || !Array.isArray(fields)) return;
 
         if (category === 'BS_COMPUTER_SCIENCE') {
-            dataByYear[year].CS += 1;
+            fields.forEach(field => {
+                const normalizedField = normalizeField(field);
+                const terms = normalizedField.split(/\s+/);
+                terms.forEach(term => allTerms.add(term));
+
+                if (!dataByField[normalizedField]) {
+                    dataByField[normalizedField] = 0;
+                }
+                dataByField[normalizedField] += 1;
+            });
         }
     });
 
-    // Convert dataByYear to the required series format
-    const years = Object.keys(dataByYear).sort(); // Sort years for chronological order
-    const CSData = years.map(year => dataByYear[year].CS);
+    // Convert allTerms Set to Array for indexing
+    const allTermsArray = Array.from(allTerms);
+
+    // Group similar fields
+    const groupedFields = {};
+    const usedFields = new Set();
+
+    Object.keys(dataByField).forEach(field1 => {
+        if (usedFields.has(field1)) return;
+
+        const vector1 = vectorizeText(field1, allTermsArray);
+        groupedFields[field1] = dataByField[field1];
+        usedFields.add(field1);
+
+        Object.keys(dataByField).forEach(field2 => {
+            if (field1 === field2 || usedFields.has(field2)) return;
+
+            const vector2 = vectorizeText(field2, allTermsArray);
+            const similarity = cosineSimilarity(vector1, vector2);
+
+            if (similarity >= THRESHOLD) {
+                groupedFields[field1] += dataByField[field2];
+                usedFields.add(field2);
+            }
+        });
+    });
+
+    const fields = Object.keys(groupedFields);
+    const counts = fields.map(field => groupedFields[field]);
 
     // Chart options
     const options = {
         chart: {
-            type: 'line',
+            type: 'bar',
             height: 300,
             toolbar: {
                 show: true,
@@ -1992,11 +2051,11 @@ function InitializeCSPublishedBooksPerYearDB(allItems) {
         series: [
             {
                 name: 'CS',
-                data: CSData,
+                data: counts,
             },
         ],
         xaxis: {
-            categories: years, // Dynamic categories based on years
+            categories: fields, 
             labels: {
                 style: {
                     colors: '#ffffff',
@@ -2042,29 +2101,63 @@ function InitializeCSPublishedBooksPerYearDB(allItems) {
 }
 
 function InitializeITPublishedBooksPerYearDB(allItems) {
-    const dataByYear = {};
+    const dataByField = {};
+    const allTerms = new Set();
+    const THRESHOLD = 0.85;
 
     allItems.forEach(item => {
-        const year = item.year_published?.year; 
+        const fields = item.field_of_study; 
         const category = item.course; 
 
-        if (!year) return; 
-
-        if (!dataByYear[year]) {
-            dataByYear[year] = { IT: 0 };
-        }
+        if (!fields || !Array.isArray(fields)) return;
 
         if (category === 'BS_INFORMATION_TECHNOLOGY') {
-            dataByYear[year].IT += 1;
+            fields.forEach(field => {
+                const normalizedField = normalizeField(field);
+                const terms = normalizedField.split(/\s+/);
+                terms.forEach(term => allTerms.add(term));
+
+                if (!dataByField[normalizedField]) {
+                    dataByField[normalizedField] = 0;
+                }
+                dataByField[normalizedField] += 1;
+            });
         }
     });
 
-    const years = Object.keys(dataByYear).sort(); 
-    const ITData = years.map(year => dataByYear[year].IT);
+    // Convert allTerms Set to Array for indexing
+    const allTermsArray = Array.from(allTerms);
+
+    // Group similar fields
+    const groupedFields = {};
+    const usedFields = new Set();
+
+    Object.keys(dataByField).forEach(field1 => {
+        if (usedFields.has(field1)) return;
+
+        const vector1 = vectorizeText(field1, allTermsArray);
+        groupedFields[field1] = dataByField[field1];
+        usedFields.add(field1);
+
+        Object.keys(dataByField).forEach(field2 => {
+            if (field1 === field2 || usedFields.has(field2)) return;
+
+            const vector2 = vectorizeText(field2, allTermsArray);
+            const similarity = cosineSimilarity(vector1, vector2);
+
+            if (similarity >= THRESHOLD) {
+                groupedFields[field1] += dataByField[field2];
+                usedFields.add(field2);
+            }
+        });
+    });
+
+    const fields = Object.keys(groupedFields);
+    const counts = fields.map(field => groupedFields[field]);
 
     const options = {
         chart: {
-            type: 'line',
+            type: 'bar',
             height: 300,
             toolbar: {
                 show: true,
@@ -2073,11 +2166,11 @@ function InitializeITPublishedBooksPerYearDB(allItems) {
         series: [
             {
                 name: 'CS',
-                data: ITData,
+                data: counts,
             },
         ],
         xaxis: {
-            categories: years, 
+            categories: fields, 
             labels: {
                 style: {
                     colors: '#ffffff',
@@ -2122,29 +2215,63 @@ function InitializeITPublishedBooksPerYearDB(allItems) {
 }
 
 function InitializeISPublishedBooksPerYearDB(allItems) {
-    const dataByYear = {};
+    const dataByField = {};
+    const allTerms = new Set();
+    const THRESHOLD = 0.85;
 
     allItems.forEach(item => {
-        const year = item.year_published?.year; 
+        const fields = item.field_of_study;  
         const category = item.course; 
 
-        if (!year) return; 
-
-        if (!dataByYear[year]) {
-            dataByYear[year] = { IS: 0 };
-        }
+        if (!fields || !Array.isArray(fields)) return;
 
         if (category === 'BS_INFORMATION_SYSTEM') {
-            dataByYear[year].IS += 1;
+            fields.forEach(field => {
+                const normalizedField = normalizeField(field);
+                const terms = normalizedField.split(/\s+/);
+                terms.forEach(term => allTerms.add(term));
+
+                if (!dataByField[normalizedField]) {
+                    dataByField[normalizedField] = 0;
+                }
+                dataByField[normalizedField] += 1;
+            });
         }
     });
 
-    const years = Object.keys(dataByYear).sort(); 
-    const ISData = years.map(year => dataByYear[year].IS);
+    // Convert allTerms Set to Array for indexing
+    const allTermsArray = Array.from(allTerms);
+
+    // Group similar fields
+    const groupedFields = {};
+    const usedFields = new Set();
+
+    Object.keys(dataByField).forEach(field1 => {
+        if (usedFields.has(field1)) return;
+
+        const vector1 = vectorizeText(field1, allTermsArray);
+        groupedFields[field1] = dataByField[field1];
+        usedFields.add(field1);
+
+        Object.keys(dataByField).forEach(field2 => {
+            if (field1 === field2 || usedFields.has(field2)) return;
+
+            const vector2 = vectorizeText(field2, allTermsArray);
+            const similarity = cosineSimilarity(vector1, vector2);
+
+            if (similarity >= THRESHOLD) {
+                groupedFields[field1] += dataByField[field2];
+                usedFields.add(field2);
+            }
+        });
+    });
+
+    const fields = Object.keys(groupedFields);
+    const counts = fields.map(field => groupedFields[field]);
 
     const options = {
         chart: {
-            type: 'line',
+            type: 'bar',
             height: 300,
             toolbar: {
                 show: true,
@@ -2153,11 +2280,11 @@ function InitializeISPublishedBooksPerYearDB(allItems) {
         series: [
             {
                 name: 'IS',
-                data: ISData,
+                data: counts,
             },
         ],
         xaxis: {
-            categories: years, 
+            categories: fields, 
             labels: {
                 style: {
                     colors: '#ffffff',

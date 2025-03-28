@@ -1,0 +1,6 @@
+2025-03-28 12:28:06,051 - This is a custom log message.
+2025-03-28 12:28:12,343 - This is a custom log message.
+2025-03-28 12:32:04,353 - This is a custom log message.
+2025-03-28 12:32:10,584 - This is a custom log message.
+2025-03-28 12:53:24,926 - This is a custom log message.
+2025-03-28 12:53:27,567 - Monitoring stopped.
