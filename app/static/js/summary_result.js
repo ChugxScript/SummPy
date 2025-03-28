@@ -37,6 +37,8 @@ function handleDocumentClicked(filename, li){
     }
 
     const current_clicked_result_content = document.getElementById("current_clicked_result_content");
+    
+    // add 'download as docs' for the user to edit the generated summary
     current_clicked_result_content.innerHTML = `
     <p>${filename}</p>
     <div class="imrad-summary-result-content-container">
@@ -44,6 +46,7 @@ function handleDocumentClicked(filename, li){
             <embed src="../static/uploads/${filename}" type="application/pdf">
         </div>
         <div class="summarized-pdf-container">
+            <p>Download as docx</p>
             <embed src="../static/summarized_doc/summary_${filename}" type="application/pdf">
         </div>
     </div>

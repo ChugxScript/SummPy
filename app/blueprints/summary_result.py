@@ -5,6 +5,8 @@ import fitz
 from fpdf import FPDF
 from datetime import datetime
 from .BART.summarize_doc import SummPy
+from docx import Document
+from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 
 summary_result = Blueprint('summary_result', __name__)
 
@@ -84,6 +86,61 @@ def generate_pdf_with_first_page(summary_list, filename, original_file_path):
     print("making filename PDF: "+filename)
     pdf.output(pdf_path)
 
+def generate_docx_with_first_page(summary_list, filename, original_file_path): 
+    doc = fitz.open(original_file_path)
+    first_page = doc[0]
+    blocks = first_page.get_text("dict")["blocks"] 
+
+    formatted_lines = []
+    previous_bottom = 0  
+
+    for block in blocks:
+        if "lines" not in block:
+            continue
+        
+        for line in block["lines"]:
+            for span in line["spans"]:
+                current_top = span["bbox"][1]  
+                font_size = span["size"]     
+                
+                if current_top - previous_bottom > font_size * 0.8:
+                    formatted_lines.append("")  # Add a blank line for spacing
+              
+                formatted_lines.append(span["text"])
+                previous_bottom = span["bbox"][3]  
+
+    # Create a new Word document
+    docx_document = Document()
+    formatted_text = "\n".join(formatted_lines)
+
+    # Add the first page text
+    docx_document.add_heading('First Page Text', level=1)
+    for line in formatted_lines:
+        if line.strip() == "":
+            docx_document.add_paragraph()  # Add a blank line
+        else:
+            paragraph = docx_document.add_paragraph(line)
+            paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER  # Center-align the text
+
+    section_titles = ["INTRODUCTION", "METHOD", "RESULTS", "DISCUSSION"]
+
+    for i, summary in enumerate(summary_list):
+        # Add a heading for each section
+        docx_document.add_page_break()
+        docx_document.add_heading(section_titles[i], level=1)
+
+        # Add the summary text
+        docx_document.add_paragraph(summary)
+
+    # Ensure the folder exists before saving
+    summarized_folder = current_app.config['SUMMARIZED_FOLDER']
+    if summarized_folder and not os.path.exists(summarized_folder):
+        os.makedirs(summarized_folder)
+
+    docx_path = os.path.join(summarized_folder, filename)
+    print("making filename DOCX: " + filename)
+    docx_document.save(docx_path)
+
 def save_documents(uploaded_files, summarized_files):
     result_orig_folder = current_app.config['ADMIN_RAW_DOCU_FOLDER']
     result_summarized_folder = current_app.config['ADMIN_SUMM_DOCU_FOLDER']
@@ -122,8 +179,10 @@ def summary_result_page():
         try:
             original_file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], uploaded_files[i])
             pdf_filename = f"summary_{uploaded_files[i]}"
-            print("Processing file:", pdf_filename)
+            docx_filename = f"summary_{uploaded_files[i].replace('.pdf', '.docx')}"
+            print("Processing file:", docx_filename)
             generate_pdf_with_first_page(result, pdf_filename, original_file_path)
+            generate_docx_with_first_page(result, docx_filename, original_file_path)
         except Exception as e:
             # Log the error and continue with the next file
             print(f"Error processing file {uploaded_files[i]}: {e}")

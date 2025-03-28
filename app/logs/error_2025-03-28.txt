@@ -1,0 +1,5 @@
+[2025-03-28 15:00:47] Error processing file se_pdf.pdf: name 'pdf_filename' is not defined
+[2025-03-28 15:11:27] Error processing file se_pdf.pdf: name 'pdf_filename' is not defined
+[2025-03-28 15:21:59] Error processing file se_pdf.pdf: name 'docx_filename' is not defined
+[2025-03-28 15:28:06] Error processing file se_pdf.pdf: name 'docx_filename' is not defined
+[2025-03-28 15:34:31] Error processing file se_pdf.pdf: name 'docx_filename' is not defined
