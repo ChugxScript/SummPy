@@ -129,6 +129,12 @@ class SummPy:
                 # Use multiprocessing to process chapters
                 with Pool(processes=5) as pool:
                     results = pool.map(self.process_chapter, chapters)
+                
+                # serial processing
+                # results = []
+                # for chapter in chapters:
+                #     result = self.process_chapter(chapter)
+                #     results.append(result)
 
                 # Append the results to the all_results list
                 all_results.append(results)

@@ -42,3 +42,13 @@ if __name__ == '__main__':
     ├── README.md
     ├── requirements.txt
 '''
+
+'''
+    page nums
+        se - 5 10 29 38 46 49
+        buzz match - 10 19 44 52 63 65
+        ns4a essay checker - 12 18 84 109 131 138
+        automating - 10 20 32 41 50 52
+        automated assay - 12 18 84 109 131 138
+        adversity - 2 15 43 52 59 63
+'''

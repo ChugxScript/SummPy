@@ -1,0 +1,124 @@
+2025-01-14 13:12:49,906 - This is a custom log message.
+2025-01-14 13:12:59,971 - CPU Usage: 13.2%
+2025-01-14 13:12:59,971 - Memory Usage: 82.5% - 2.78 GB available
+2025-01-14 13:13:05,978 - CPU Usage: 15.6%
+2025-01-14 13:13:05,978 - Memory Usage: 82.9% - 2.71 GB available
+2025-01-14 13:13:11,991 - CPU Usage: 11.9%
+2025-01-14 13:13:11,992 - Memory Usage: 83.5% - 2.62 GB available
+2025-01-14 13:13:17,999 - CPU Usage: 9.3%
+2025-01-14 13:13:17,999 - Memory Usage: 84.1% - 2.52 GB available
+2025-01-14 13:13:18,699 - This is a custom log message.
+2025-01-14 13:13:21,382 - Summarization for file 'se_pdf.pdf' started.
+2025-01-14 13:13:24,006 - CPU Usage: 47.0%
+2025-01-14 13:13:24,006 - Memory Usage: 85.6% - 2.29 GB available
+2025-01-14 13:13:30,020 - CPU Usage: 41.0%
+2025-01-14 13:13:30,020 - Memory Usage: 88.6% - 1.81 GB available
+2025-01-14 13:13:36,027 - CPU Usage: 56.0%
+2025-01-14 13:13:36,027 - Memory Usage: 90.9% - 1.45 GB available
+2025-01-14 13:13:39,332 - This is a custom log message.
+2025-01-14 13:13:39,332 - This is a custom log message.
+2025-01-14 13:13:39,367 - This is a custom log message.
+2025-01-14 13:13:39,455 - This is a custom log message.
+2025-01-14 13:13:39,913 - This is a custom log message.
+2025-01-14 13:13:42,038 - CPU Usage: 14.3%
+2025-01-14 13:13:42,038 - Memory Usage: 93.9% - 0.97 GB available
+2025-01-14 13:13:48,052 - CPU Usage: 38.5%
+2025-01-14 13:13:48,052 - Memory Usage: 94.8% - 0.82 GB available
+2025-01-14 13:13:54,065 - CPU Usage: 47.6%
+2025-01-14 13:13:54,065 - Memory Usage: 94.4% - 0.89 GB available
+2025-01-14 13:14:00,079 - CPU Usage: 49.3%
+2025-01-14 13:14:00,079 - Memory Usage: 94.0% - 0.96 GB available
+2025-01-14 13:14:06,086 - CPU Usage: 45.8%
+2025-01-14 13:14:06,086 - Memory Usage: 95.6% - 0.70 GB available
+2025-01-14 13:14:12,108 - CPU Usage: 78.9%
+2025-01-14 13:14:12,108 - Memory Usage: 95.9% - 0.65 GB available
+2025-01-14 13:14:18,140 - CPU Usage: 83.4%
+2025-01-14 13:14:18,140 - Memory Usage: 94.9% - 0.81 GB available
+2025-01-14 13:14:24,171 - CPU Usage: 60.1%
+2025-01-14 13:14:24,171 - Memory Usage: 94.3% - 0.91 GB available
+2025-01-14 13:14:30,203 - CPU Usage: 73.6%
+2025-01-14 13:14:30,211 - Memory Usage: 94.5% - 0.88 GB available
+2025-01-14 13:14:36,248 - CPU Usage: 76.8%
+2025-01-14 13:14:36,248 - Memory Usage: 94.8% - 0.83 GB available
+2025-01-14 13:14:42,269 - CPU Usage: 99.8%
+2025-01-14 13:14:42,269 - Memory Usage: 95.1% - 0.78 GB available
+2025-01-14 13:14:48,298 - CPU Usage: 57.7%
+2025-01-14 13:14:48,298 - Memory Usage: 95.1% - 0.78 GB available
+2025-01-14 13:14:54,336 - CPU Usage: 79.8%
+2025-01-14 13:14:54,336 - Memory Usage: 95.6% - 0.69 GB available
+2025-01-14 13:15:00,378 - CPU Usage: 79.8%
+2025-01-14 13:15:00,380 - Memory Usage: 96.0% - 0.64 GB available
+2025-01-14 13:15:06,399 - CPU Usage: 69.0%
+2025-01-14 13:15:06,399 - Memory Usage: 95.9% - 0.64 GB available
+2025-01-14 13:15:12,436 - CPU Usage: 85.9%
+2025-01-14 13:15:12,436 - Memory Usage: 94.7% - 0.84 GB available
+2025-01-14 13:15:18,467 - CPU Usage: 48.7%
+2025-01-14 13:15:18,467 - Memory Usage: 94.2% - 0.92 GB available
+2025-01-14 13:15:24,497 - CPU Usage: 52.8%
+2025-01-14 13:15:24,499 - Memory Usage: 94.6% - 0.86 GB available
+2025-01-14 13:15:30,524 - CPU Usage: 50.8%
+2025-01-14 13:15:30,531 - Memory Usage: 94.6% - 0.86 GB available
+2025-01-14 13:15:36,555 - CPU Usage: 61.7%
+2025-01-14 13:15:36,555 - Memory Usage: 94.4% - 0.89 GB available
+2025-01-14 13:15:42,577 - CPU Usage: 63.2%
+2025-01-14 13:15:42,577 - Memory Usage: 94.6% - 0.85 GB available
+2025-01-14 13:15:48,598 - CPU Usage: 52.8%
+2025-01-14 13:15:48,600 - Memory Usage: 93.4% - 1.06 GB available
+2025-01-14 13:15:54,616 - CPU Usage: 47.3%
+2025-01-14 13:15:54,616 - Memory Usage: 92.2% - 1.24 GB available
+2025-01-14 13:16:00,632 - CPU Usage: 45.2%
+2025-01-14 13:16:00,632 - Memory Usage: 90.6% - 1.50 GB available
+2025-01-14 13:16:06,654 - CPU Usage: 49.9%
+2025-01-14 13:16:06,654 - Memory Usage: 90.8% - 1.46 GB available
+2025-01-14 13:16:12,688 - CPU Usage: 61.7%
+2025-01-14 13:16:12,689 - Memory Usage: 91.5% - 1.35 GB available
+2025-01-14 13:16:18,707 - CPU Usage: 58.5%
+2025-01-14 13:16:18,707 - Memory Usage: 93.2% - 1.09 GB available
+2025-01-14 13:16:24,733 - CPU Usage: 56.5%
+2025-01-14 13:16:24,733 - Memory Usage: 93.5% - 1.03 GB available
+2025-01-14 13:16:30,756 - CPU Usage: 82.3%
+2025-01-14 13:16:30,759 - Memory Usage: 93.7% - 1.00 GB available
+2025-01-14 13:16:36,786 - CPU Usage: 61.0%
+2025-01-14 13:16:36,786 - Memory Usage: 93.9% - 0.96 GB available
+2025-01-14 13:16:42,820 - CPU Usage: 54.8%
+2025-01-14 13:16:42,827 - Memory Usage: 94.0% - 0.95 GB available
+2025-01-14 13:16:48,854 - CPU Usage: 64.1%
+2025-01-14 13:16:48,854 - Memory Usage: 94.0% - 0.96 GB available
+2025-01-14 13:16:54,878 - CPU Usage: 59.0%
+2025-01-14 13:16:54,878 - Memory Usage: 94.0% - 0.95 GB available
+2025-01-14 13:17:00,907 - CPU Usage: 63.8%
+2025-01-14 13:17:00,907 - Memory Usage: 94.2% - 0.93 GB available
+2025-01-14 13:17:06,930 - CPU Usage: 58.2%
+2025-01-14 13:17:06,931 - Memory Usage: 93.9% - 0.96 GB available
+2025-01-14 13:17:12,096 - '' Semantic Similarity: 0.86
+2025-01-14 13:17:12,950 - CPU Usage: 44.8%
+2025-01-14 13:17:12,950 - Memory Usage: 94.1% - 0.93 GB available
+2025-01-14 13:17:18,964 - CPU Usage: 63.8%
+2025-01-14 13:17:18,964 - Memory Usage: 93.7% - 1.00 GB available
+2025-01-14 13:17:24,981 - CPU Usage: 34.3%
+2025-01-14 13:17:24,981 - Memory Usage: 92.6% - 1.18 GB available
+2025-01-14 13:17:26,327 - '' Semantic Similarity: 0.81
+2025-01-14 13:17:31,012 - CPU Usage: 25.4%
+2025-01-14 13:17:31,012 - Memory Usage: 92.6% - 1.17 GB available
+2025-01-14 13:17:37,031 - CPU Usage: 22.6%
+2025-01-14 13:17:37,031 - Memory Usage: 91.1% - 1.42 GB available
+2025-01-14 13:17:43,052 - CPU Usage: 26.0%
+2025-01-14 13:17:43,052 - Memory Usage: 89.6% - 1.66 GB available
+2025-01-14 13:17:49,060 - CPU Usage: 24.6%
+2025-01-14 13:17:49,060 - Memory Usage: 90.2% - 1.55 GB available
+2025-01-14 13:17:55,086 - CPU Usage: 30.8%
+2025-01-14 13:17:55,088 - Memory Usage: 90.2% - 1.55 GB available
+2025-01-14 13:18:01,105 - CPU Usage: 22.6%
+2025-01-14 13:18:01,105 - Memory Usage: 90.3% - 1.54 GB available
+2025-01-14 13:18:07,120 - CPU Usage: 18.9%
+2025-01-14 13:18:07,120 - Memory Usage: 90.7% - 1.47 GB available
+2025-01-14 13:18:13,130 - CPU Usage: 20.4%
+2025-01-14 13:18:13,130 - Memory Usage: 90.9% - 1.45 GB available
+2025-01-14 13:18:19,140 - CPU Usage: 21.6%
+2025-01-14 13:18:19,140 - Memory Usage: 91.0% - 1.43 GB available
+2025-01-14 13:18:25,147 - CPU Usage: 23.2%
+2025-01-14 13:18:25,147 - Memory Usage: 91.4% - 1.37 GB available
+2025-01-14 13:18:25,150 - '' Semantic Similarity: 0.78
+2025-01-14 13:18:26,750 - '' Semantic Similarity: 0.77
+2025-01-14 13:18:26,938 - Summarization for file 'se_pdf.pdf' completed in 305.56 seconds.
+2025-01-14 13:18:30,148 - Monitoring stopped.
