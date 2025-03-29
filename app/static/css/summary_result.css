@@ -275,11 +275,13 @@ body {
     border: white 1px solid;
 }
 
-.summarized-pdf-container p {
+.summarized-pdf-container a {
     background-color: rgba(0, 255, 0, 0.6);
     cursor: pointer;
     text-align: center;
     padding: 10px;
+    text-decoration: none;
+    color: white;
 }
 
 .summarized-pdf-container embed {
