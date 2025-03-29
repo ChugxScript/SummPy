@@ -8,11 +8,18 @@ import {
     updateDoc,
     setDoc,
 } from "./firebase_config.js";
+const { jsPDF } = window.jspdf;
 
 let currentSidebarMenuOption;
 let dataFlag = "";
 let currentSnapshot = null;
 let isSubmit = false;
+let CSTrendsField;
+let CSTrendsCount;
+let ITTrendsField;
+let ITTrendsCount;
+let ISTrendsField;
+let ISTrendsCount;
 
 document.addEventListener("DOMContentLoaded", function() {
     // setOnclickOnCards();
@@ -22,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
     initializeDashboard();
     initializeListenToFilter();
     initializeUploadDocu();
+    initializeExportButton();
 
     currentSidebarMenuOption = document.getElementById("dashboard_tab");
     currentSidebarMenuOption.classList.add("selected-side-bar-option");
@@ -2038,6 +2046,8 @@ function InitializeCSPublishedBooksPerYearDB(allItems) {
 
     const fields = Object.keys(groupedFields);
     const counts = fields.map(field => groupedFields[field]);
+    CSTrendsField = fields;
+    CSTrendsCount = counts;
 
     // Chart options
     const options = {
@@ -2154,6 +2164,8 @@ function InitializeITPublishedBooksPerYearDB(allItems) {
 
     const fields = Object.keys(groupedFields);
     const counts = fields.map(field => groupedFields[field]);
+    ITTrendsField = fields;
+    ITTrendsCount = counts;
 
     const options = {
         chart: {
@@ -2268,6 +2280,8 @@ function InitializeISPublishedBooksPerYearDB(allItems) {
 
     const fields = Object.keys(groupedFields);
     const counts = fields.map(field => groupedFields[field]);
+    ISTrendsField = fields;
+    ISTrendsCount = counts;
 
     const options = {
         chart: {
@@ -2640,4 +2654,84 @@ function InitializeISPublishedBooksPerCategoryDB(allItems){
 
     const chart = new ApexCharts(document.querySelector("#is_published_books_chart_per_category_container"), options);
     chart.render();
+}
+
+function initializeExportButton() {
+    const exportButton = document.getElementById("exportButton");
+
+    if (!exportButton) {
+        console.error("Export button not found!");
+        return;
+    }
+
+    exportButton.addEventListener("click", () => {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        let currentY = 10;
+
+        // Title
+        doc.setFontSize(16);
+        doc.text("Dashboard Report", 10, currentY);
+        currentY += 10;
+
+        // Category Totals Table
+        addCategoryTotalsTable(doc);
+
+        // Trends Tables
+        addTrendsTable(doc, "CS Trends", CSTrendsField, CSTrendsCount);
+        addTrendsTable(doc, "IT Trends", ITTrendsField, ITTrendsCount);
+        addTrendsTable(doc, "IS Trends", ISTrendsField, ISTrendsCount);
+
+        // Save the PDF
+        doc.save("dashboard_report.pdf");
+    });
+}
+
+function addCategoryTotalsTable(doc) {
+    const categories = [
+        { name: "Undergraduate", id: "undergraduate_total_value" },
+        { name: "Graduate", id: "graduate_total_value" },
+        { name: "Masteral", id: "masteral_total_value" },
+        { name: "Dissertation", id: "dissertation_total_value" },
+        { name: "Doctorate", id: "doctorate_total_value" }
+    ];
+
+    const rows = categories.map(category => {
+        const valueElement = document.getElementById(category.id);
+        const value = valueElement ? valueElement.innerText : "N/A";
+        return [category.name, value];
+    });
+
+    console.log("addCategoryTotalsTable rows:", rows);
+
+    doc.autoTable({
+        startY: 20,
+        head: [['Categories', 'Value']],
+        body: rows,
+        theme: 'grid',
+        styles: { fontSize: 12 },
+        headStyles: { fillColor: [169, 4, 254], textColor: [255, 255, 255], halign: 'center' }
+    });
+}
+
+function addTrendsTable(doc, title, fields, counts) {
+    const trendsData = fields.map((field, index) => ({
+        name: field,
+        count: counts[index]
+    }));
+
+    // Sort the data in descending order based on count
+    trendsData.sort((a, b) => b.count - a.count);
+
+    // Prepare rows for the table
+    const rows = trendsData.map(item => [item.name, item.count.toString()]);
+
+    doc.autoTable({
+        startY: doc.lastAutoTable.finalY + 10,
+        head: [[title, "Value"]],
+        body: rows,
+        theme: 'grid',
+        styles: { fontSize: 12 },
+        headStyles: { fillColor: [169, 4, 254], textColor: [255, 255, 255], halign: 'center' }
+    });
 }

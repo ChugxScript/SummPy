@@ -765,6 +765,8 @@ body {
 .dashboard-welcome-text{
     display: flex;
     padding: 20px;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .dashboard-welcome-text p{
@@ -775,6 +777,25 @@ body {
     font-style: normal;
     font-weight: 800;
     font-size: 20px;
+}
+
+#exportButton{
+    display: flex;
+    flex-direction: row;
+    background-color: #A904FE;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-style: normal;
+    margin-left: auto;
+    font-size: 12px;
+    gap: 5px;
 }
 
 .dashboard-total-book-numbers-container{
