@@ -113,24 +113,29 @@ def generate_docx_with_first_page(summary_list, filename, original_file_path):
     docx_document = Document()
     formatted_text = "\n".join(formatted_lines)
 
-    # Add the first page text
+    # Add the first page text - keep it centered
     docx_document.add_heading('First Page Text', level=1)
     for line in formatted_lines:
         if line.strip() == "":
             docx_document.add_paragraph()  # Add a blank line
         else:
             paragraph = docx_document.add_paragraph(line)
-            paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER  # Center-align the text
+            paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER  # Keep first page centered
 
     section_titles = ["INTRODUCTION", "METHOD", "RESULTS", "DISCUSSION"]
 
+    # Add the IMRAD sections with page breaks
     for i, summary in enumerate(summary_list):
+        # Add a page break before each section (except the first one)
+        if i > 0:
+            docx_document.add_page_break()
+            
         # Add a heading for each section
-        docx_document.add_page_break()
         docx_document.add_heading(section_titles[i], level=1)
 
-        # Add the summary text
-        docx_document.add_paragraph(summary)
+        # Add the summary text with justified alignment
+        paragraph = docx_document.add_paragraph(summary)
+        paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.JUSTIFY
 
     # Ensure the folder exists before saving
     summarized_folder = current_app.config['SUMMARIZED_FOLDER']
