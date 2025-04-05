@@ -47,7 +47,7 @@ function handleDocumentClicked(filename, li){
         </div>
         <div class="summarized-pdf-container">
             <embed src="../static/summarized_doc/summary_${filename}" type="application/pdf">
-            <a href="../static/summarized_doc/summary_${filename}" download>Download as docx</a>
+            <a href="../static/summarized_doc/summary_${filename.replace('.pdf', '.docx')}" download>Download as docx</a>
         </div>
     </div>
     `
