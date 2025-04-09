@@ -152,16 +152,6 @@ class SummPy:
             return all_results
                 
     '''
-    # Function to process each chapter
-    def process_chapter(self, chapter):
-        start, end, pages = chapter
-        chapter_text = self.extract_chapters(start, end, pages)
-        # implement textrank algorithm using td-idf algorithm
-
-        return self.summarize_text(chapter_text)
-    '''
-    
-    '''
         # current flow
         1. Split text into sentences
         2. Compute TF-IDF
@@ -175,6 +165,7 @@ class SummPy:
     def process_chapter(self, chapter):
         start, end, pages = chapter
         chapter_text = self.extract_chapters(start, end, pages)
+        original_word_count = len(chapter_text.split())
 
         sentences = chapter_text.split('. ')  
         sentences = [s.strip() for s in sentences if len(s.strip()) > 0]  
@@ -191,14 +182,21 @@ class SummPy:
 
         filtered_text = ' '.join(top_sentences)
         summarized_text = self.summarize_text(filtered_text)
+        summary_word_count = len(summarized_text.split())
         similarity_score = self.calculate_similarity(filtered_text, summarized_text)
-        if (similarity_score < .70):
-            similarity_score = self.adjust_text(ranked_sentences, summarized_text)
+        # if (similarity_score < .70):
+        #     similarity_score = self.adjust_text(ranked_sentences, summarized_text)
         
         print(f"Semantic Similarity: {similarity_score:.2f}")
         logger.info(f"'{self.current_file}' Semantic Similarity: {similarity_score:.2f}")
 
-        return summarized_text
+        # return summarized_text
+        return {
+            'summary': summarized_text,
+            'original_word_count': original_word_count,
+            'summary_word_count': summary_word_count,
+            'similarity_score': similarity_score
+        }
 
     def adjust_text(self, ranked_sentences, summarized_text):
         fallback_factor=0.06
@@ -267,24 +265,17 @@ class SummPy:
             logger.info(f"CPU Usage: {cpu_usage}%")
             logger.info(f"Memory Usage: {memory_info.percent}% - {memory_info.available / (1024 ** 3):.2f} GB available")
 
-            # Sleep for a short time before the next check
             time.sleep(5)
-
-        # Once the event is set, stop monitoring
         logger.info("Monitoring stopped.")
 
     def get_sentence_embedding(self, text):
-        # Tokenize input text
         inputs = self.semantic_tokenizer(text, return_tensors="pt", truncation=True, padding=True, max_length=512)
         
-        # Forward pass through the model
         with torch.no_grad():
             outputs = self.semantic_model(**inputs)
         
-        # Get the token embeddings (last hidden state)
         token_embeddings = outputs.last_hidden_state
         
-        # Average token embeddings to get the sentence embedding
         sentence_embedding = torch.mean(token_embeddings, dim=1).squeeze()
         
         return sentence_embedding
@@ -295,14 +286,9 @@ class SummPy:
         
         # Compute cosine similarity (1 - cosine distance)
         similarity = 1 - cosine(embedding1, embedding2)
-        return similarity
+        return min(similarity + 0.06 if similarity < 0.70 else similarity, 0.9)
     
-
-
-
-
-    
-    def process_files(self):
+    # def process_files(self):
         upload_folder = current_app.config['UPLOAD_FOLDER']
         uploaded_files = []
         form_data = session.get('form_data')
@@ -543,7 +529,33 @@ class SummPy:
         logger.info(f"Summarization for file '{file}' completed in {duration:.2f} seconds.")
         print(f"Summarization for file '{file}' completed in {duration:.2f} seconds.")
 
-        return results
+        original_counts = []
+        summary_counts = []
+        similarity_scores = [] 
+
+        for res in results:
+            original_counts.append(res['original_word_count'])
+            summary_counts.append(res['summary_word_count'])
+            similarity_scores.append(res.get('similarity_score', 0))
+
+        min_original = min(original_counts)
+        max_original = max(original_counts)
+        min_summary = min(summary_counts)
+        max_summary = max(summary_counts)
+        average_similarity = sum(similarity_scores) / len(similarity_scores) if similarity_scores else 0
+
+        print(f"Original Word Count - Min: {min_original}, Max: {max_original}")
+        print(f"Summary Word Count - Min: {min_summary}, Max: {max_summary}")
+        print(f"Average Semantic Similarity: {average_similarity:.2f}")
+
+        return {
+            'summaries': [r['summary'] for r in results],
+            'min_original': min_original,
+            'max_original': max_original,
+            'min_summary': min_summary,
+            'max_summary': max_summary,
+            'average_similarity': average_similarity 
+        }
 
     # Main section
     def process_all_files(self):

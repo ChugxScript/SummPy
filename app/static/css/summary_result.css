@@ -471,6 +471,15 @@ body {
     height: 100px;
 }
 
+.result-summary-container{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+
 .login-title{
     font-size: 20px;
     font-weight: 800;

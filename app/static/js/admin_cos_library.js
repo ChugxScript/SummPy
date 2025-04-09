@@ -151,6 +151,7 @@ function setOnclickOnCards2(){
             main_content_container.style.display = "none";
             view_book_details_container.style.display = "flex";
             const data = JSON.parse(cards.getAttribute("data-content").replace(/&quot;/g, '"'));
+            console.log("clicked card: ", data);
             handleClickedBookDetails(data);
         });
     });
@@ -185,6 +186,7 @@ function setOnclickOnCards2(){
             }).then(async (result) => {
                 if (result.isConfirmed) {
                     const documentId = cards.getAttribute("data-id");
+                    console.log("Delete documentId: ",documentId);
                     const collectionRef = currentSidebarMenuOption.textContent.trim().toLowerCase().replace(/ /g, "_")
                     const referenceRef = collection(fdb, collectionRef);
                     
@@ -956,7 +958,7 @@ function initializeListenToFilter(){
     
                 // Check for partial match
                 if (dataName.includes(searchTermLower)) {
-                    populateFilteredStudies(data);
+                    populateFilteredStudies(data, doc.id);
                 }
             }
         });
@@ -964,7 +966,7 @@ function initializeListenToFilter(){
     });
 }
 
-function populateFilteredStudies(data){
+function populateFilteredStudies(data, docId){
     const studyTitle = data.title || "No Title";
     const publicationDate = `${data.year_published.day} ${data.year_published.month} ${data.year_published.year}`;
     const authors = data.authors ? data.authors.map(author => `${author.firstName} ${author.lastName}`).join(", ") : "No Authors";
@@ -997,11 +999,11 @@ function populateFilteredStudies(data){
                 <p class="card-field-study">Fields: ${fieldStudy}</p>
             </div>
             <div class="right-card-details-options">
-                <div class="card-edit-button-contianer" data-content="${jsonData}" data-id="${doc.id}">
+                <div class="card-edit-button-contianer" data-content="${jsonData}" data-id="${docId}">
                     <img src="../../static/images/edit_icon1.png" alt="">
                     <p>Edit</p>
                 </div>
-                <div class="card-remove-button-container" data-id="${doc.id}">
+                <div class="card-remove-button-container" data-id="${docId}">
                     <img src="../../static/images/delete_icon1.png" alt="">
                     <p>Remove</p>
                 </div>
@@ -1028,61 +1030,105 @@ function handleClickedBookDetails(data){
         default: break;
     }
 
-    const authorsContent = data.authors
-        ? data.authors.map(author => `<li>${author.firstName} ${author.lastName}</li>`).join("")
-        : "<p>No Authors</p>";
+    const baseName = data.study_document.replace('.pdf', '');
+    const jsonUrl = `../static/acre_data/minmax/${baseName}_minmax.json`;
+    
+    let minmaxData = {
+        min_original: "Loading...",
+        max_original: "Loading...",
+        min_summary: "Loading...",
+        max_summary: "Loading...",
+        average_similarity: "Loading..."
+    };
 
-    const panelsContent = data.panels
-        ? data.panels.map(panel => `<li>${panel.firstName} ${panel.lastName}</li>`).join("")
-        : "<p>No Panels</p>";
+    fetch(jsonUrl)
+        .then(response => response.json())
+        .then(data => {
+            minmaxData = data;
+            updateMarginContainer(minmaxData);
+        })
+        .catch(error => {
+            console.error('Error loading minmax:', error);
+            minmaxData = {
+                min_original: "Failed to load",
+                max_original: "Failed to load",
+                min_summary: "Failed to load",
+                max_summary: "Failed to load",
+                average_similarity: "Failed to load"
+            };
+            updateMarginContainer(minmaxData);
+        });
 
-    margin_container.innerHTML = `
-        <p id="study_title">${studyTitle}</p>
-        <p id="publication_date">${publicationDate}</p>
+    function updateMarginContainer(minmaxData) {
+        const authorsContent = data.authors
+            ? data.authors.map(author => `<li>${author.firstName} ${author.lastName}</li>`).join("")
+            : "<p>No Authors</p>";
 
-        <div class="course-category-container">
-            <div class="details-course-container">
-                <p class="details-course-title">Course:</p>
-                <p id="details_course_value">${course}</p>
-            </div>
-            <div class="details-category-container">
-                <p class="details-category-title">Category:</p>
-                <p id="details_category_value">${category}</p>
-            </div>
-        </div>
+        const panelsContent = data.panels
+            ? data.panels.map(panel => `<li>${panel.firstName} ${panel.lastName}</li>`).join("")
+            : "<p>No Panels</p>";
 
-        <div class="authors-panels-container">
-            <div class="details-authors-container">
-                <p class="details-authors-title">Authors:</p>
-                ${authorsContent}
-            </div>
-            <div class="details-panels-container">
-                <p class="details-panels-title">Panels:</p>
-                ${panelsContent} 
-            </div>
-        </div>
+        margin_container.innerHTML = `
+            <p id="study_title">${studyTitle}</p>
+            <p id="publication_date">${publicationDate}</p>
 
-        <div class="original-summarized-container">
-            <div class="details-original-container">
-                <p class="details-original-title">Original</p>
-                <embed src="../static/acre_data/raw/${data.study_document}" type="application/pdf">
+            <div class="course-category-container">
+                <div class="details-course-container">
+                    <p class="details-course-title">Course:</p>
+                    <p id="details_course_value">${course}</p>
+                </div>
+                <div class="details-category-container">
+                    <p class="details-category-title">Category:</p>
+                    <p id="details_category_value">${category}</p>
+                </div>
+                <div class="details-category-container">
+                    <p><strong>Original Word Count</strong></p>
+                    <p id="details_category_value">Min = ${minmaxData.min_original}, Max = ${minmaxData.max_original}</p>
+                </div>
+                <div class="details-category-container">
+                    <p><strong>Summary Word Count:</strong></p>
+                    <p id="details_category_value">Min = ${minmaxData.min_summary}, Max = ${minmaxData.max_summary}</p>
+                </div>
+                <div class="details-category-container">
+                    <p><strong>Semantic Score</strong></p>
+                    <p id="details_category_value">${minmaxData.average_similarity}</p>
+                </div>
             </div>
-            <div class="details-summarized-container">
-                <p class="details-summarized-title">Summarized Result</p>
-                <embed src="../static/acre_data/summarized/summary_${data.study_document}" type="application/pdf">
-            </div>
-        </div>
-    `;
 
-    if(data.memorandum_of_agreement  != "No file selected"){
-        margin_container.innerHTML += `
-        <div id="MOA_container">
-            <img src="../static/images/redirect_icon1.png" alt="">
-            <a href='../static/acre_data/moa/${data.memorandum_of_agreement}' target="_blank">
-                <p class="MOA-title">Memorandum of Agreement</p>
-            </a>
-        </div>
+            <div class="authors-panels-container">
+                <div class="details-authors-container">
+                    <p class="details-authors-title">Authors:</p>
+                    ${authorsContent}
+                </div>
+                <div class="details-panels-container">
+                    <p class="details-panels-title">Panels:</p>
+                    ${panelsContent} 
+                </div>
+            </div>
+
+            <div class="original-summarized-container">
+                <div class="details-original-container">
+                    <p class="details-original-title">Original</p>
+                    <embed src="../static/acre_data/raw/${data.study_document}" type="application/pdf">
+                </div>
+                <div class="details-summarized-container">
+                    <p class="details-summarized-title">Summarized Result</p>
+                    <embed src="../static/acre_data/summarized/summary_${data.study_document}" type="application/pdf">
+                </div>
+            </div>
         `;
+
+        // If there is a Memorandum of Agreement (MOA) file
+        if (data.memorandum_of_agreement !== "No file selected") {
+            margin_container.innerHTML += `
+            <div id="MOA_container">
+                <img src="../static/images/redirect_icon1.png" alt="">
+                <a href='../static/acre_data/moa/${data.memorandum_of_agreement}' target="_blank">
+                    <p class="MOA-title">Memorandum of Agreement</p>
+                </a>
+            </div>
+            `;
+        }
     }
 }
 

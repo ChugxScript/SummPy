@@ -21,10 +21,12 @@ def create_app():
     app.config['MOA_FOLDER'] = os.path.join(os.getcwd(), 'app/static/acre_data/moa')
     app.config['ADMIN_RAW_DOCU_FOLDER'] = os.path.join(os.getcwd(), 'app/static/acre_data/raw')
     app.config['ADMIN_SUMM_DOCU_FOLDER'] = os.path.join(os.getcwd(), 'app/static/acre_data/summarized')
+    app.config['MINMAX_WORD_COUNT_FOLDER'] = os.path.join(os.getcwd(), 'app/static/acre_data/minmax')
     app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024  # 100 MB limit
 
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
     os.makedirs(app.config['SUMMARIZED_FOLDER'], exist_ok=True)
+    os.makedirs(app.config['MINMAX_WORD_COUNT_FOLDER'], exist_ok=True)
 
     app.register_blueprint(home)
     app.register_blueprint(how_to_use)
