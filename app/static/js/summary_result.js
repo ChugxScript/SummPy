@@ -38,7 +38,7 @@ function handleDocumentClicked(filename, li){
 
     const current_clicked_result_content = document.getElementById("current_clicked_result_content");
     const baseName = filename.replace('.pdf', '');
-    const jsonUrl = `../static/acre_data/minmax/${baseName}_minmax.json`;
+    const jsonUrl = `/static/acre_data/minmax/${baseName}_minmax.json`;
 
     fetch(jsonUrl)
         .then(response => response.json())
@@ -61,11 +61,11 @@ function handleDocumentClicked(filename, li){
                 </div>
                 <div class="imrad-summary-result-content-container">
                     <div class="original-pdf-container">
-                        <embed src="../static/uploads/${filename}" type="application/pdf">
+                        <embed src="/static/uploads/${filename}" type="application/pdf">
                     </div>
                     <div class="summarized-pdf-container">
-                        <embed src="../static/summarized_doc/summary_${filename}" type="application/pdf">
-                        <a href="../static/summarized_doc/summary_${filename.replace('.pdf', '.docx')}" download>Download as docx</a>
+                        <embed src="/static/summarized_doc/summary_${filename}" type="application/pdf">
+                        <a href="/static/summarized_doc/summary_${filename.replace('.pdf', '.docx')}" download>Download as docx</a>
                     </div>
                 </div>
             `
