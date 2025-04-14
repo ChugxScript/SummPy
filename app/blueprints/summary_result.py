@@ -2,7 +2,6 @@ from flask import Blueprint, render_template, request, session, current_app, fla
 import os 
 import shutil
 import fitz
-import json
 from fpdf import FPDF
 from datetime import datetime
 from .BART.summarize_doc import SummPy
@@ -114,29 +113,25 @@ def generate_docx_with_first_page(summary_list, filename, original_file_path):
     docx_document = Document()
     formatted_text = "\n".join(formatted_lines)
 
-    # Add the first page text - keep it centered
+    # Add the first page text
     docx_document.add_heading('First Page Text', level=1)
     for line in formatted_lines:
         if line.strip() == "":
             docx_document.add_paragraph()  # Add a blank line
         else:
             paragraph = docx_document.add_paragraph(line)
-            paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER  # Keep first page centered
+            paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER  # Center-align the text
 
     section_titles = ["INTRODUCTION", "METHOD", "RESULTS", "DISCUSSION"]
 
-    # Add the IMRAD sections with page breaks
     for i, summary in enumerate(summary_list):
-        # Add a page break before each section (except the first one)
-        if i > 0:
-            docx_document.add_page_break()
-            
-        # Add a heading for each section
+        # Add a heading for each section without page break
         docx_document.add_heading(section_titles[i], level=1)
-
-        # Add the summary text with justified alignment
-        paragraph = docx_document.add_paragraph(summary)
-        paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.JUSTIFY
+        # Add the summary text
+        docx_document.add_paragraph(summary)
+        # Add page break after each section except the last one
+        if i < len(summary_list) - 1:
+            docx_document.add_page_break()
 
     # Ensure the folder exists before saving
     summarized_folder = current_app.config['SUMMARIZED_FOLDER']
@@ -147,10 +142,9 @@ def generate_docx_with_first_page(summary_list, filename, original_file_path):
     print("making filename DOCX: " + filename)
     docx_document.save(docx_path)
 
-def save_documents(uploaded_files, summarized_files, results):
+def save_documents(uploaded_files, summarized_files):
     result_orig_folder = current_app.config['ADMIN_RAW_DOCU_FOLDER']
     result_summarized_folder = current_app.config['ADMIN_SUMM_DOCU_FOLDER']
-    minmax_folder = current_app.config['MINMAX_WORD_COUNT_FOLDER']
 
     for i, file_name in enumerate(uploaded_files):
         # Copy original files to result_orig_folder
@@ -169,44 +163,30 @@ def save_documents(uploaded_files, summarized_files, results):
             shutil.copy(summarized_file_path, summarized_dest_path)
         else:
             print(f"Warning: Summarized file {summarized_file_path} not found.")
-    
-    for i, result in enumerate(results):
-        file_name = uploaded_files[i].replace('.pdf', '')
-        minmax_data = {
-            "file": uploaded_files[i],
-            "min_original": result['min_original'],
-            "max_original": result['max_original'],
-            "min_summary": result['min_summary'],
-            "max_summary": result['max_summary'],
-            "average_similarity": float(result['average_similarity'])
-        }
-
-        minmax_path = os.path.join(minmax_folder, f"{file_name}_minmax.json")
-        with open(minmax_path, 'w') as f:
-            json.dump(minmax_data, f, indent=4)
 
 @summary_result.route('/summary_result', methods=['GET'])
 def summary_result_page():
     uploaded_files = get_uploaded_files()
     print(f"UPLOAD_FOLDER is: {uploaded_files}")
-    # 13 23 51 85 127 131
 
-    #  get the IMRAD summary
+    # Get the IMRAD summary
     summarizer = SummPy()
-    # results = summarizer.generate_summaries()
     results = summarizer.process_all_files()
 
-
-    # make pdfs with the first page of the original PDF
+    # Make pdfs with the first page of the original PDF
     for i, result in enumerate(results):
         try:
-
-            original_file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], uploaded_files[i])
-            pdf_filename = f"summary_{uploaded_files[i]}"
-            docx_filename = f"summary_{uploaded_files[i].replace('.pdf', '.docx')}"
-            print("Processing file:", docx_filename)
-            generate_pdf_with_first_page(result, pdf_filename, original_file_path)
-            generate_docx_with_first_page(result, docx_filename, original_file_path)
+            if i < len(uploaded_files):  # Ensure we have a corresponding file
+                original_file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], uploaded_files[i])
+                pdf_filename = f"summary_{uploaded_files[i]}"
+                docx_filename = f"summary_{uploaded_files[i].replace('.pdf', '.docx')}"
+                print("Processing file:", docx_filename)
+                
+                if result and len(result) > 0:  # Ensure we have summaries to process
+                    generate_pdf_with_first_page(result, pdf_filename, original_file_path)
+                    generate_docx_with_first_page(result, docx_filename, original_file_path)
+                else:
+                    print(f"No summaries generated for file {uploaded_files[i]}")
         except Exception as e:
             # Log the error and continue with the next file
             print(f"Error processing file {uploaded_files[i]}: {e}")
@@ -227,12 +207,8 @@ def summary_result_page():
             continue
 
     summarized_folder = get_summarized_files()
-    save_documents(uploaded_files, summarized_folder, results)
+    save_documents(uploaded_files, summarized_folder)
     print(f"UPLOAD_FOLDER is: {uploaded_files}")
     print(f"summarized_folder is: {summarized_folder}")
 
-    return render_template(
-        'summary_result.html',
-        summarized_folder=summarized_folder,
-        uploaded_files=uploaded_files
-    )
+    return render_template('summary_result.html', summarized_folder=summarized_folder, uploaded_files=uploaded_files)
