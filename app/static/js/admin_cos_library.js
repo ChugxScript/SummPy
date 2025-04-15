@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
     initializeListenToFilter();
     initializeUploadDocu();
     initializeExportButton();
+    initializeDepartmentCourse();
 
     currentSidebarMenuOption = document.getElementById("dashboard_tab");
     currentSidebarMenuOption.classList.add("selected-side-bar-option");
@@ -458,6 +459,7 @@ async function populateUnderGradStudies() {
                             <p class="card-study-title">${studyTitle}</p>
                             <p class="card-publication-date">${publicationDate}</p>
                             <p class="card-authors">Authors: ${authors}</p>
+                            <p class="card-department">Department: ${data.department}</p>
                             <p class="card-course">Course: ${course}</p>
                         </div>
                         <div class="right-card-details" data-content="${jsonData}">
@@ -555,6 +557,7 @@ async function populateGradStudies(){
                             <p class="card-study-title">${studyTitle}</p>
                             <p class="card-publication-date">${publicationDate}</p>
                             <p class="card-authors">Authors: ${authors}</p>
+                            <p class="card-department">Department: ${data.department}</p>
                             <p class="card-course">Course: ${course}</p>
                         </div>
                         <div class="right-card-details" data-content="${jsonData}">
@@ -645,6 +648,7 @@ async function populateMasteralStudies(){
                             <p class="card-study-title">${studyTitle}</p>
                             <p class="card-publication-date">${publicationDate}</p>
                             <p class="card-authors">Authors: ${authors}</p>
+                            <p class="card-department">Department: ${data.department}</p>
                             <p class="card-course">Course: ${course}</p>
                         </div>
                         <div class="right-card-details" data-content="${jsonData}">
@@ -734,6 +738,7 @@ async function populateDissertationStudies(){
                             <p class="card-study-title">${studyTitle}</p>
                             <p class="card-publication-date">${publicationDate}</p>
                             <p class="card-authors">Authors: ${authors}</p>
+                            <p class="card-department">Department: ${data.department}</p>
                             <p class="card-course">Course: ${course}</p>
                         </div>
                         <div class="right-card-details" data-content="${jsonData}">
@@ -823,6 +828,7 @@ async function populateDoctorateStudies(){
                             <p class="card-study-title">${studyTitle}</p>
                             <p class="card-publication-date">${publicationDate}</p>
                             <p class="card-authors">Authors: ${authors}</p>
+                            <p class="card-department">Department: ${data.department}</p>
                             <p class="card-course">Course: ${course}</p>
                         </div>
                         <div class="right-card-details" data-content="${jsonData}">
@@ -884,6 +890,7 @@ function initializeListenToFilter(){
     const yearFilter = document.getElementById("year_published");
     const courseFilter = document.getElementById("course_option");
     const fieldFilter = document.getElementById("field_study_option");
+    const departmentFilter = document.getElementById("department_option");
     const nameFilter = document.getElementById("search_study");
 
     yearFilter.addEventListener("change", () => {
@@ -945,6 +952,26 @@ function initializeListenToFilter(){
         setOnclickOnCards2();
     });
 
+    departmentFilter.addEventListener("change", () => {
+        const dataSearchFilterValue = document.getElementById("department_option").value;
+        study_card_container.innerHTML = '';
+
+        currentSnapshot.forEach((doc) => {
+            const data = doc.data();
+
+            if(doc.id != "test"){
+                const dataName = data.department.toLowerCase();
+                const searchTermLower = dataSearchFilterValue.toLowerCase(); 
+    
+                // Check for partial match
+                if (dataName.includes(searchTermLower)) {
+                    populateFilteredStudies(data);
+                }
+            }
+        });
+        setOnclickOnCards2();
+    });
+
     nameFilter.addEventListener("change", () => {
         const dataSearchFilterValue = document.getElementById("search_study").value;
         study_card_container.innerHTML = '';
@@ -973,18 +1000,9 @@ function populateFilteredStudies(data, docId){
     const course = data.course || "No Course";
     let category = data.category || "No Category";
     const fieldStudy = data.field_of_study ? data.field_of_study.join(", ") : "No Fields";
+    const department = data.department || "No Department";
 
-    switch(category){
-        case "under_graduate": category = "UNDER GRADUATE"; break;
-        case "graduate": category = "GRADUATE"; break;
-        case "dissertation": category = "DISSERTATION"; break;
-        case "masteral": category = "MASTERAL"; break;
-        case "doctorate": category = "DOCTORATE"; break;
-        default: break;
-    }
-
-    // Append the study card with dynamic data
-    const jsonData = JSON.stringify(data).replace(/"/g, '&quot;');
+    const jsonData = JSON.stringify(data);
 
     study_card_container.innerHTML += `
         <div class="study-card-details">
@@ -992,6 +1010,7 @@ function populateFilteredStudies(data, docId){
                 <p class="card-study-title">${studyTitle}</p>
                 <p class="card-publication-date">${publicationDate}</p>
                 <p class="card-authors">Authors: ${authors}</p>
+                <p class="card-department">Department: ${department}</p>
                 <p class="card-course">Course: ${course}</p>
             </div>
             <div class="right-card-details" data-content="${jsonData}">
@@ -1149,6 +1168,7 @@ function handleAddBookForm() {
         const yearInputValue = document.getElementById("year_input_value").value;
         const selectedCategory = document.getElementById("selected_category").value;
         const selectedCourse = document.getElementById("selected_course").value;
+        const selectedDepartment = document.getElementById("selected_department").value;
         const fieldOfTheStudy = document.getElementById("field_of_the_study").value;
         const studyFile = document.getElementById("study_file").files[0];
         const moaFile = document.getElementById("moa_file").files[0];
@@ -1207,6 +1227,7 @@ function handleAddBookForm() {
             authors: authors,
             category: selectedCategory,
             course: selectedCourse,
+            department: selectedDepartment,
             field_of_study: fieldStudy,
             memorandum_of_agreement: moaFile ? formatFileName(moaFile) : "No file selected",
             study_document: studyFile ? formatFileName(studyFile) : "No file selected",
@@ -1290,6 +1311,7 @@ function handleEditBookForm(data, documentId){
     document.getElementById("year_input_value").value = data.year_published.year;
     document.getElementById("selected_category").value = data.category;
     document.getElementById("selected_course").value = data.course;
+    document.getElementById("selected_department").value = data.department;
     document.getElementById("field_of_the_study").value = data.field_of_study ? data.field_of_study.join(", ") : "No Fields";
     document.getElementById("uploaded_study_file").textContent = data.study_document ? `Uploaded file: ${data.study_document}` : "No file uploaded";
     document.getElementById("uploaded_moa_file").textContent = data.memorandum_of_agreement ? `Uploaded file: ${data.memorandum_of_agreement}` : "No file uploaded";
@@ -1400,6 +1422,7 @@ function handleEditBookForm(data, documentId){
             },
             category: document.getElementById("selected_category").value,
             course: document.getElementById("selected_course").value,
+            department: document.getElementById("selected_department").value,
             field_of_study: document.getElementById("field_of_the_study").value.split(", "),
             study_document: document.getElementById("study_file").value ? document.getElementById("study_file").value : previousStudyFile,
             memorandum_of_agreement: document.getElementById("moa_file").value ? document.getElementById("moa_file").value : previousMOA,
@@ -1420,7 +1443,7 @@ function handleEditBookForm(data, documentId){
                 console.log("previousCategory: ", previousCategory);
                 console.log("updatedData.category: ", updatedData.category);
                 if(previousCategory === updatedData.category){
-                    // If the category hasn’t changed, simply update the document
+                    // If the category hasn't changed, simply update the document
                     await updateDoc(doc(fdb, updatedData.category, documentId), updatedData);
                     Swal.fire("Success", "Document updated successfully!", "success");
                 } else {
@@ -2780,4 +2803,75 @@ function addTrendsTable(doc, title, fields, counts) {
         styles: { fontSize: 12 },
         headStyles: { fillColor: [169, 4, 254], textColor: [255, 255, 255], halign: 'center' }
     });
+}
+
+function initializeDepartmentCourse() {
+    const departmentSelect = document.getElementById("department_option");
+    const courseSelect = document.getElementById("course_option");
+
+    // Define course options for each department
+    const departmentCourses = {
+        "COMPUTER_STUDIES": [
+            { value: "BS_COMPUTER_SCIENCE", text: "BS Computer Science" },
+            { value: "BS_INFORMATION_TECHNOLOGY", text: "BS Information Technology" },
+            { value: "BS_INFORMATION_SYSTEM", text: "BS Information System" }
+        ],
+        "ENGINEERING": [
+            { value: "BS_ELECTRICAL_ENGINEERING", text: "BS Electrical Engineering" },
+            { value: "BS_MECHANICAL_ENGINEERING", text: "BS Mechanical Engineering" },
+            { value: "BS_CIVIL_ENGINEERING", text: "BS Civil Engineering" }
+        ],
+        "BUSINESS": [
+            { value: "BS_BUSINESS_ADMINISTRATION", text: "BS Business Administration" },
+            { value: "BS_ACCOUNTANCY", text: "BS Accountancy" },
+            { value: "BS_MARKETING", text: "BS Marketing" }
+        ]
+    };
+
+    // Function to update course options based on selected department
+    function updateCourseOptions() {
+        const selectedDepartment = departmentSelect.value;
+        const courses = departmentCourses[selectedDepartment] || [];
+        
+        // Clear existing options
+        courseSelect.innerHTML = '';
+        
+        // Add default option
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = '---';
+        courseSelect.appendChild(defaultOption);
+        
+        // Add new options
+        courses.forEach(course => {
+            const option = document.createElement('option');
+            option.value = course.value;
+            option.textContent = course.text;
+            courseSelect.appendChild(option);
+        });
+    }
+
+    // Add event listener for department change
+    departmentSelect.addEventListener('change', updateCourseOptions);
+
+    // Initialize course options with default department
+    updateCourseOptions();
+
+    document.getElementById('selected_department').addEventListener('change', function() {
+        const selectedDepartment = this.value;
+        const courseSelect = document.getElementById('selected_course');
+        courseSelect.innerHTML = '';
+        
+        if (departmentCourses[selectedDepartment]) {
+            departmentCourses[selectedDepartment].forEach(course => {
+                const option = document.createElement('option');
+                option.value = course.value;
+                option.textContent = course.text;
+                courseSelect.appendChild(option);
+            });
+        }
+    });
+
+    // Trigger change event on page load to populate initial courses
+    document.getElementById('selected_department').dispatchEvent(new Event('change'));
 }

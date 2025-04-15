@@ -8,6 +8,24 @@ import {
 let currentSnapshot = null;
 let currentSidebarMenuOption;
 
+const departmentCourses = {
+    "COMPUTER_STUDIES": [
+        { value: "BS_COMPUTER_SCIENCE", text: "BS Computer Science" },
+        { value: "BS_INFORMATION_TECHNOLOGY", text: "BS Information Technology" },
+        { value: "BS_INFORMATION_SYSTEM", text: "BS Information System" }
+    ],
+    "ENGINEERING": [
+        { value: "BS_ELECTRICAL_ENGINEERING", text: "BS Electrical Engineering" },
+        { value: "BS_MECHANICAL_ENGINEERING", text: "BS Mechanical Engineering" },
+        { value: "BS_CIVIL_ENGINEERING", text: "BS Civil Engineering" }
+    ],
+    "BUSINESS": [
+        { value: "BS_BUSINESS_ADMINISTRATION", text: "BS Business Administration" },
+        { value: "BS_ACCOUNTANCY", text: "BS Accountancy" },
+        { value: "BS_MARKETING", text: "BS Marketing" }
+    ]
+};
+
 document.addEventListener("DOMContentLoaded", function() {
     setOnclickOnCards();
     initializeDashboard();
@@ -167,21 +185,12 @@ async function populateUnderGradStudies() {
                             <p class="card-study-title">${studyTitle}</p>
                             <p class="card-publication-date">${publicationDate}</p>
                             <p class="card-authors">Authors: ${authors}</p>
+                            <p class="card-department">Department: ${data.department || "No Department"}</p>
                             <p class="card-course">Course: ${course}</p>
                         </div>
                         <div class="right-card-details" data-content="${jsonData}">
                             <p class="card-category">${category}</p>
                             <p class="card-field-study">Fields: ${fieldStudy}</p>
-                        </div>
-                        <div class="right-card-details-options">
-                            <div class="card-edit-button-contianer" data-content="${jsonData}" data-id="${doc.id}">
-                                <img src="../../static/images/edit_icon1.png" alt="">
-                                <p>Edit</p>
-                            </div>
-                            <div class="card-remove-button-container" data-id="${doc.id}">
-                                <img src="../../static/images/delete_icon1.png" alt="">
-                                <p>Remove</p>
-                            </div>
                         </div>
                     </div>
                 `;
@@ -264,21 +273,12 @@ async function populateGradStudies(){
                             <p class="card-study-title">${studyTitle}</p>
                             <p class="card-publication-date">${publicationDate}</p>
                             <p class="card-authors">Authors: ${authors}</p>
+                            <p class="card-department">Department: ${data.department || "No Department"}</p>
                             <p class="card-course">Course: ${course}</p>
                         </div>
                         <div class="right-card-details" data-content="${jsonData}">
                             <p class="card-category">${category}</p>
                             <p class="card-field-study">Fields: ${fieldStudy}</p>
-                        </div>
-                        <div class="right-card-details-options">
-                            <div class="card-edit-button-contianer" data-content="${jsonData}" data-id="${doc.id}">
-                                <img src="../../static/images/edit_icon1.png" alt="">
-                                <p>Edit</p>
-                            </div>
-                            <div class="card-remove-button-container" data-id="${doc.id}">
-                                <img src="../../static/images/delete_icon1.png" alt="">
-                                <p>Remove</p>
-                            </div>
                         </div>
                     </div>
                 `;
@@ -354,21 +354,12 @@ async function populateMasteralStudies(){
                             <p class="card-study-title">${studyTitle}</p>
                             <p class="card-publication-date">${publicationDate}</p>
                             <p class="card-authors">Authors: ${authors}</p>
+                            <p class="card-department">Department: ${data.department || "No Department"}</p>
                             <p class="card-course">Course: ${course}</p>
                         </div>
                         <div class="right-card-details" data-content="${jsonData}">
                             <p class="card-category">${category}</p>
                             <p class="card-field-study">Fields: ${fieldStudy}</p>
-                        </div>
-                        <div class="right-card-details-options">
-                            <div class="card-edit-button-contianer" data-content="${jsonData}" data-id="${doc.id}">
-                                <img src="../../static/images/edit_icon1.png" alt="">
-                                <p>Edit</p>
-                            </div>
-                            <div class="card-remove-button-container" data-id="${doc.id}">
-                                <img src="../../static/images/delete_icon1.png" alt="">
-                                <p>Remove</p>
-                            </div>
                         </div>
                     </div>
                 `;
@@ -443,21 +434,12 @@ async function populateDissertationStudies(){
                             <p class="card-study-title">${studyTitle}</p>
                             <p class="card-publication-date">${publicationDate}</p>
                             <p class="card-authors">Authors: ${authors}</p>
+                            <p class="card-department">Department: ${data.department || "No Department"}</p>
                             <p class="card-course">Course: ${course}</p>
                         </div>
                         <div class="right-card-details" data-content="${jsonData}">
                             <p class="card-category">${category}</p>
                             <p class="card-field-study">Fields: ${fieldStudy}</p>
-                        </div>
-                        <div class="right-card-details-options">
-                            <div class="card-edit-button-contianer" data-content="${jsonData}" data-id="${doc.id}">
-                                <img src="../../static/images/edit_icon1.png" alt="">
-                                <p>Edit</p>
-                            </div>
-                            <div class="card-remove-button-container" data-id="${doc.id}">
-                                <img src="../../static/images/delete_icon1.png" alt="">
-                                <p>Remove</p>
-                            </div>
                         </div>
                     </div>
                 `;
@@ -532,21 +514,12 @@ async function populateDoctorateStudies(){
                             <p class="card-study-title">${studyTitle}</p>
                             <p class="card-publication-date">${publicationDate}</p>
                             <p class="card-authors">Authors: ${authors}</p>
+                            <p class="card-department">Department: ${data.department || "No Department"}</p>
                             <p class="card-course">Course: ${course}</p>
                         </div>
                         <div class="right-card-details" data-content="${jsonData}">
                             <p class="card-category">${category}</p>
                             <p class="card-field-study">Fields: ${fieldStudy}</p>
-                        </div>
-                        <div class="right-card-details-options">
-                            <div class="card-edit-button-contianer" data-content="${jsonData}" data-id="${doc.id}">
-                                <img src="../../static/images/edit_icon1.png" alt="">
-                                <p>Edit</p>
-                            </div>
-                            <div class="card-remove-button-container" data-id="${doc.id}">
-                                <img src="../../static/images/delete_icon1.png" alt="">
-                                <p>Remove</p>
-                            </div>
                         </div>
                     </div>
                 `;
@@ -593,6 +566,7 @@ function initializeListenToFilter(){
     const yearFilter = document.getElementById("year_published");
     const courseFilter = document.getElementById("course_option");
     const fieldFilter = document.getElementById("field_study_option");
+    const departmentFilter = document.getElementById("department_option");
     const nameFilter = document.getElementById("search_study");
 
     yearFilter.addEventListener("change", () => {
@@ -654,6 +628,39 @@ function initializeListenToFilter(){
         setOnclickOnCards();
     });
 
+    departmentFilter.addEventListener("change", () => {
+        const dataSearchFilterValue = document.getElementById("department_option").value;
+        study_card_container.innerHTML = '';
+
+        // Update course options based on selected department
+        const courseSelect = document.getElementById("course_option");
+        courseSelect.innerHTML = '---';
+        
+        if (dataSearchFilterValue && departmentCourses[dataSearchFilterValue]) {
+            departmentCourses[dataSearchFilterValue].forEach(course => {
+                const option = document.createElement('option');
+                option.value = course.value;
+                option.textContent = course.text;
+                courseSelect.appendChild(option);
+            });
+        }
+
+        currentSnapshot.forEach((doc) => {
+            const data = doc.data();
+
+            if(doc.id != "test"){
+                const dataName = data.department.toLowerCase();
+                const searchTermLower = dataSearchFilterValue.toLowerCase(); 
+    
+                // Check for partial match
+                if (dataName.includes(searchTermLower)) {
+                    populateFilteredStudies(data);
+                }
+            }
+        });
+        setOnclickOnCards();
+    });
+
     nameFilter.addEventListener("change", () => {
         const dataSearchFilterValue = document.getElementById("search_study").value;
         study_card_container.innerHTML = '';
@@ -667,7 +674,7 @@ function initializeListenToFilter(){
     
                 // Check for partial match
                 if (dataName.includes(searchTermLower)) {
-                    populateFilteredStudies(data);
+                    populateFilteredStudies(data, doc.id);
                 }
             }
         });
@@ -675,25 +682,16 @@ function initializeListenToFilter(){
     });
 }
 
-function populateFilteredStudies(data){
+function populateFilteredStudies(data, docId){
     const studyTitle = data.title || "No Title";
     const publicationDate = `${data.year_published.day} ${data.year_published.month} ${data.year_published.year}`;
     const authors = data.authors ? data.authors.map(author => `${author.firstName} ${author.lastName}`).join(", ") : "No Authors";
     const course = data.course || "No Course";
     let category = data.category || "No Category";
     const fieldStudy = data.field_of_study ? data.field_of_study.join(", ") : "No Fields";
+    const department = data.department || "No Department";
 
-    switch(category){
-        case "under_graduate": category = "UNDER GRADUATE"; break;
-        case "graduate": category = "GRADUATE"; break;
-        case "dissertation": category = "DISSERTATION"; break;
-        case "masteral": category = "MASTERAL"; break;
-        case "doctorate": category = "DOCTORATE"; break;
-        default: break;
-    }
-
-    // Append the study card with dynamic data
-    const jsonData = JSON.stringify(data).replace(/"/g, '&quot;');
+    const jsonData = JSON.stringify(data);
 
     study_card_container.innerHTML += `
         <div class="study-card-details">
@@ -701,21 +699,12 @@ function populateFilteredStudies(data){
                 <p class="card-study-title">${studyTitle}</p>
                 <p class="card-publication-date">${publicationDate}</p>
                 <p class="card-authors">Authors: ${authors}</p>
+                <p class="card-department">Department: ${department}</p>
                 <p class="card-course">Course: ${course}</p>
             </div>
             <div class="right-card-details" data-content="${jsonData}">
                 <p class="card-category">${category}</p>
                 <p class="card-field-study">Fields: ${fieldStudy}</p>
-            </div>
-            <div class="right-card-details-options">
-                <div class="card-edit-button-contianer" data-content="${jsonData}" data-id="${doc.id}">
-                    <img src="../../static/images/edit_icon1.png" alt="">
-                    <p>Edit</p>
-                </div>
-                <div class="card-remove-button-container" data-id="${doc.id}">
-                    <img src="../../static/images/delete_icon1.png" alt="">
-                    <p>Remove</p>
-                </div>
             </div>
         </div>
     `;
