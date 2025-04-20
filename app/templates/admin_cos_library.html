@@ -79,22 +79,29 @@
                     </div>
                 </div>
                 <p class="filter-tabs">Filter</p>
-
-                <!-- 
-                    the options will be transfered to the js file
-                    to process dynamically all the options
-                    base on the data we have in the database
-                    but for now it just a temporary value
-                -->
+                
+                <!-- Modified filter form with added Department option -->
                 <div action="" id="filter_form">
                     <div class="filter-container">
                         <div class="filter-tabs-container">
                             <p>Year Published</p>
                             <div class="select-options-container">
                                 <select id="year_published">
+                                    <option value="">---</option>
                                     <option value="2020">2020</option>
                                     <option value="2021">2021</option>
                                     <option value="2022">2022</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="filter-tabs-course-field-container">
+                            <p>Department</p>
+                            <div class="select-options-container">
+                                <select id="department_option">
+                                    <option value="">---</option>
+                                    <option value="COMPUTER_STUDIES">Computer Studies</option>
+                                    <option value="ENGINEERING">Engineering</option>
+                                    <option value="BUSINESS">Business</option>
                                 </select>
                             </div>
                         </div>
@@ -102,9 +109,10 @@
                             <p>Course</p>
                             <div class="select-options-container">
                                 <select id="course_option">
-                                    <option value="2020">2020</option>
-                                    <option value="2021">2021</option>
-                                    <option value="2022">2022</option>
+                                    <option value="">---</option>
+                                    <option value="BS_COMPUTER_SCIENCE">BS Computer Science</option>
+                                    <option value="BS_INFORMATION_TECHNOLOGY">BS Information Technology</option>
+                                    <option value="BS_INFORMATION_SYSTEM">BS Information System</option>
                                 </select>
                             </div>
                         </div>
@@ -112,9 +120,10 @@
                             <p>Field of the Study</p>
                             <div class="select-options-container">
                                 <select id="field_study_option">
-                                    <option value="2020">2020</option>
-                                    <option value="2021">2021</option>
-                                    <option value="2022">2022</option>
+                                    <option value="">---</option>
+                                    <option value="AI">Artificial Intelligence</option>
+                                    <option value="ML">Machine Learning</option>
+                                    <option value="DATA_SCIENCE">Data Science</option>
                                 </select>
                             </div>
                         </div>
@@ -214,12 +223,17 @@
                     <p class="title-text-form other-details-text">Other Details</p>
 
                     <div class="course-field-container">
+                        <div class="department-container">
+                            <p>Department</p>
+                            <select name="department" id="selected_department" required>
+                                <option value="COMPUTER_STUDIES">Computer Studies</option>
+                                <option value="ENGINEERING">Engineering</option>
+                                <option value="BUSINESS">Business</option>
+                            </select>
+                        </div>
                         <div class="course-container">
                             <p>Course</p>
                             <select name="course" id="selected_course" required>
-                                <option value="BS_COMPUTER_SCIENCE">BS Computer Science</option>
-                                <option value="BS_INFORMATION_TECHNOLOGY">BS Information Technology</option>
-                                <option value="BS_INFORMATION_SYSTEM">BS Information System</option>
                             </select>
                         </div>
                         <div class="field-study-container">

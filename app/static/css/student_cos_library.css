@@ -655,3 +655,20 @@ body {
     width: auto;
     height: 100px;
 }
+
+.card-department {
+    margin: 5px 0;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+#department_option {
+    width: 100%;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 17px;
+    border-radius: 5px;
+    height: 35px;
+    font-size: 15px;
+}

@@ -215,6 +215,8 @@ body {
 
 #year_published,
 #course_option,
+#selected_department,
+#department_option,
 #field_study_option{
     width: 100%;
     padding-left: 5px;
@@ -1065,4 +1067,21 @@ body {
 #loading_div img{
     width: auto;
     height: 100px;
+}
+
+.card-department {
+    margin: 5px 0;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+#department_option {
+    width: 100%;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 17px;
+    border-radius: 5px;
+    height: 35px;
+    font-size: 15px;
 }
