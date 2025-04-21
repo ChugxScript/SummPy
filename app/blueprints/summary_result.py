@@ -125,8 +125,14 @@ def generate_docx_with_first_page(summary_list, filename, original_file_path):
     section_titles = ["INTRODUCTION", "METHOD", "RESULTS", "DISCUSSION"]
 
     for i, summary in enumerate(summary_list):
-        # Add a heading for each section
-        docx_document.add_page_break()
+        # Add a heading for each section - no need for page break before first section
+        if i > 0:
+            docx_document.add_page_break()
+        else:
+            # Add some space between first page content and first section
+            docx_document.add_paragraph()
+            docx_document.add_paragraph()
+            
         docx_document.add_heading(section_titles[i], level=1)
 
         # Add the summary text
