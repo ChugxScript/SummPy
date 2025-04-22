@@ -1,0 +1,1 @@
+[2025-04-20 10:45:49] Error processing file se_pdf.pdf: module 'fitz' has no attribute 'open'
