@@ -125,13 +125,18 @@ def generate_docx_with_first_page(summary_list, filename, original_file_path):
     section_titles = ["INTRODUCTION", "METHOD", "RESULTS", "DISCUSSION"]
 
     for i, summary in enumerate(summary_list):
-        # Add a heading for each section without page break
+        # Add a heading for each section - no need for page break before first section
+        if i > 0:
+            docx_document.add_page_break()
+        else:
+            # Add some space between first page content and first section
+            docx_document.add_paragraph()
+            docx_document.add_paragraph()
+            
         docx_document.add_heading(section_titles[i], level=1)
+
         # Add the summary text
         docx_document.add_paragraph(summary)
-        # Add page break after each section except the last one
-        if i < len(summary_list) - 1:
-            docx_document.add_page_break()
 
     # Ensure the folder exists before saving
     summarized_folder = current_app.config['SUMMARIZED_FOLDER']
@@ -168,25 +173,40 @@ def save_documents(uploaded_files, summarized_files):
 def summary_result_page():
     uploaded_files = get_uploaded_files()
     print(f"UPLOAD_FOLDER is: {uploaded_files}")
+    # 13 23 51 85 127 131
 
-    # Get the IMRAD summary
+    #  get the IMRAD summary
     summarizer = SummPy()
+    # results = summarizer.generate_summaries()
     results = summarizer.process_all_files()
 
-    # Make pdfs with the first page of the original PDF
+    # make pdfs with the first page of the original PDF
     for i, result in enumerate(results):
         try:
-            if i < len(uploaded_files):  # Ensure we have a corresponding file
-                original_file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], uploaded_files[i])
-                pdf_filename = f"summary_{uploaded_files[i]}"
-                docx_filename = f"summary_{uploaded_files[i].replace('.pdf', '.docx')}"
-                print("Processing file:", docx_filename)
+            if i >= len(uploaded_files):
+                print(f"Warning: More results ({len(results)}) than uploaded files ({len(uploaded_files)})")
+                continue
                 
-                if result and len(result) > 0:  # Ensure we have summaries to process
-                    generate_pdf_with_first_page(result, pdf_filename, original_file_path)
-                    generate_docx_with_first_page(result, docx_filename, original_file_path)
-                else:
-                    print(f"No summaries generated for file {uploaded_files[i]}")
+            if not result or 'summaries' not in result or not result['summaries']:
+                print(f"Warning: No summaries found for file {uploaded_files[i]}")
+                continue
+                
+            original_file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], uploaded_files[i])
+            pdf_filename = f"summary_{uploaded_files[i]}"
+            docx_filename = f"summary_{uploaded_files[i].replace('.pdf', '.docx')}"
+            print("Processing file:", docx_filename)
+            
+            # Ensure we have valid summaries
+            if isinstance(result, list) and len(result) > 0:
+                summaries = result
+            elif isinstance(result, dict) and 'summaries' in result and len(result['summaries']) > 0:
+                summaries = result['summaries']
+            else:
+                print(f"Warning: Invalid result format for file {uploaded_files[i]}")
+                continue
+                
+            generate_pdf_with_first_page(summaries, pdf_filename, original_file_path)
+            generate_docx_with_first_page(summaries, docx_filename, original_file_path)
         except Exception as e:
             # Log the error and continue with the next file
             print(f"Error processing file {uploaded_files[i]}: {e}")
