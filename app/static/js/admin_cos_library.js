@@ -1002,7 +1002,7 @@ function populateFilteredStudies(data, docId){
     const fieldStudy = data.field_of_study ? data.field_of_study.join(", ") : "No Fields";
     const department = data.department || "No Department";
 
-    const jsonData = JSON.stringify(data);
+    const jsonData = JSON.stringify(data).replace(/"/g, '&quot;');
 
     study_card_container.innerHTML += `
         <div class="study-card-details">
@@ -1128,11 +1128,11 @@ function handleClickedBookDetails(data){
             <div class="original-summarized-container">
                 <div class="details-original-container">
                     <p class="details-original-title">Original</p>
-                    <embed src="../static/acre_data/raw/${data.study_document}" type="application/pdf">
+                    <embed src="../../static/acre_data/raw/${data.study_document}" type="application/pdf">
                 </div>
                 <div class="details-summarized-container">
                     <p class="details-summarized-title">Summarized Result</p>
-                    <embed src="../static/acre_data/summarized/summary_${data.study_document}" type="application/pdf">
+                    <embed src="../../static/acre_data/summarized/summary_${data.study_document}" type="application/pdf">
                 </div>
             </div>
         `;

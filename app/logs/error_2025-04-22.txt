@@ -1,0 +1,3 @@
+[2025-04-22 09:33:06] Error processing file se_pdf.pdf: module 'fitz' has no attribute 'open'
+[2025-04-22 09:42:14] Error processing file se_pdf.pdf: module 'fitz' has no attribute 'open'
+[2025-04-22 09:50:22] Error processing file se_pdf.pdf: module 'fitz' has no attribute 'open'

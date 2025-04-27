@@ -12,3 +12,5 @@ nltk
 psutil
 pypdf2
 PyMuPDF
+python-docx
+pyinstaller

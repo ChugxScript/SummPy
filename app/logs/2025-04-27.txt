@@ -1,0 +1,410 @@
+2025-04-27 13:25:32,429 - This is a custom log message.
+2025-04-27 13:25:41,049 - This is a custom log message.
+2025-04-27 13:26:16,050 - This is a custom log message.
+2025-04-27 13:26:24,426 - This is a custom log message.
+2025-04-27 13:34:28,859 - This is a custom log message.
+2025-04-27 15:59:18,941 - This is a custom log message.
+2025-04-27 15:59:27,999 - This is a custom log message.
+2025-04-27 16:28:50,703 - This is a custom log message.
+2025-04-27 16:29:22,278 - CPU Usage: 20.2%
+2025-04-27 16:29:22,278 - Memory Usage: 75.4% - 3.91 GB available
+2025-04-27 16:29:28,281 - CPU Usage: 19.6%
+2025-04-27 16:29:28,296 - Memory Usage: 77.0% - 3.65 GB available
+2025-04-27 16:29:29,308 - This is a custom log message.
+2025-04-27 16:29:30,383 - Summarization for file 'COPMS_LOGISTICS_A_TRUCK_RESERVATION_WEB_APPLICATION_THAT_ALLOWS_USERS_TO_BOOK_TRUCKS_IN_ADVANCE_AND_PROVIDES_REAL_TIME_UPDATES_AND_TRACKING_OF_USERS_CARGO.pdf' started.
+2025-04-27 16:29:34,302 - CPU Usage: 76.8%
+2025-04-27 16:29:34,302 - Memory Usage: 81.7% - 2.91 GB available
+2025-04-27 16:29:40,309 - CPU Usage: 89.7%
+2025-04-27 16:29:40,309 - Memory Usage: 84.4% - 2.48 GB available
+2025-04-27 16:29:45,840 - This is a custom log message.
+2025-04-27 16:29:45,865 - This is a custom log message.
+2025-04-27 16:29:45,926 - This is a custom log message.
+2025-04-27 16:29:46,001 - This is a custom log message.
+2025-04-27 16:29:46,059 - This is a custom log message.
+2025-04-27 16:29:46,316 - CPU Usage: 73.1%
+2025-04-27 16:29:46,316 - Memory Usage: 87.1% - 2.05 GB available
+2025-04-27 16:29:52,402 - CPU Usage: 100.0%
+2025-04-27 16:29:52,402 - Memory Usage: 89.4% - 1.69 GB available
+2025-04-27 16:29:58,433 - CPU Usage: 100.0%
+2025-04-27 16:29:58,434 - Memory Usage: 91.0% - 1.43 GB available
+2025-04-27 16:30:04,470 - CPU Usage: 100.0%
+2025-04-27 16:30:04,470 - Memory Usage: 93.4% - 1.04 GB available
+2025-04-27 16:30:10,503 - CPU Usage: 100.0%
+2025-04-27 16:30:10,503 - Memory Usage: 93.7% - 1.00 GB available
+2025-04-27 16:30:16,528 - CPU Usage: 100.0%
+2025-04-27 16:30:16,529 - Memory Usage: 93.2% - 1.07 GB available
+2025-04-27 16:30:22,550 - CPU Usage: 100.0%
+2025-04-27 16:30:22,550 - Memory Usage: 93.0% - 1.11 GB available
+2025-04-27 16:30:28,600 - CPU Usage: 100.0%
+2025-04-27 16:30:28,600 - Memory Usage: 93.3% - 1.06 GB available
+2025-04-27 16:30:34,623 - CPU Usage: 100.0%
+2025-04-27 16:30:34,623 - Memory Usage: 93.3% - 1.07 GB available
+2025-04-27 16:30:40,657 - CPU Usage: 100.0%
+2025-04-27 16:30:40,658 - Memory Usage: 93.3% - 1.07 GB available
+2025-04-27 16:30:46,690 - CPU Usage: 100.0%
+2025-04-27 16:30:46,691 - Memory Usage: 93.3% - 1.07 GB available
+2025-04-27 16:30:49,758 - '' Semantic Similarity: 0.62
+2025-04-27 16:30:52,720 - CPU Usage: 100.0%
+2025-04-27 16:30:52,721 - Memory Usage: 89.4% - 1.68 GB available
+2025-04-27 16:30:58,822 - CPU Usage: 100.0%
+2025-04-27 16:30:58,822 - Memory Usage: 89.0% - 1.75 GB available
+2025-04-27 16:31:04,838 - CPU Usage: 100.0%
+2025-04-27 16:31:04,838 - Memory Usage: 90.0% - 1.58 GB available
+2025-04-27 16:31:10,853 - CPU Usage: 100.0%
+2025-04-27 16:31:10,853 - Memory Usage: 90.3% - 1.54 GB available
+2025-04-27 16:31:16,887 - CPU Usage: 100.0%
+2025-04-27 16:31:16,887 - Memory Usage: 90.5% - 1.52 GB available
+2025-04-27 16:31:22,903 - CPU Usage: 100.0%
+2025-04-27 16:31:22,903 - Memory Usage: 90.7% - 1.47 GB available
+2025-04-27 16:31:28,922 - CPU Usage: 100.0%
+2025-04-27 16:31:28,922 - Memory Usage: 90.9% - 1.45 GB available
+2025-04-27 16:31:34,962 - CPU Usage: 100.0%
+2025-04-27 16:31:34,962 - Memory Usage: 89.7% - 1.64 GB available
+2025-04-27 16:31:36,584 - '' Semantic Similarity: 0.78
+2025-04-27 16:31:40,978 - CPU Usage: 100.0%
+2025-04-27 16:31:40,978 - Memory Usage: 85.0% - 2.39 GB available
+2025-04-27 16:31:46,990 - CPU Usage: 100.0%
+2025-04-27 16:31:46,991 - Memory Usage: 83.1% - 2.69 GB available
+2025-04-27 16:31:53,007 - CPU Usage: 100.0%
+2025-04-27 16:31:53,007 - Memory Usage: 83.2% - 2.67 GB available
+2025-04-27 16:31:59,027 - CPU Usage: 100.0%
+2025-04-27 16:31:59,028 - Memory Usage: 83.3% - 2.66 GB available
+2025-04-27 16:32:03,616 - '' Semantic Similarity: 0.71
+2025-04-27 16:32:05,036 - CPU Usage: 64.9%
+2025-04-27 16:32:05,036 - Memory Usage: 83.0% - 2.70 GB available
+2025-04-27 16:32:11,046 - CPU Usage: 60.9%
+2025-04-27 16:32:11,046 - Memory Usage: 81.7% - 2.91 GB available
+2025-04-27 16:32:17,053 - CPU Usage: 57.3%
+2025-04-27 16:32:17,053 - Memory Usage: 81.9% - 2.88 GB available
+2025-04-27 16:32:22,185 - '' Semantic Similarity: 0.72
+2025-04-27 16:32:22,451 - Summarization for file 'COPMS_LOGISTICS_A_TRUCK_RESERVATION_WEB_APPLICATION_THAT_ALLOWS_USERS_TO_BOOK_TRUCKS_IN_ADVANCE_AND_PROVIDES_REAL_TIME_UPDATES_AND_TRACKING_OF_USERS_CARGO.pdf' completed in 172.07 seconds.
+2025-04-27 16:32:23,059 - CPU Usage: 45.2%
+2025-04-27 16:32:23,059 - Memory Usage: 70.1% - 4.75 GB available
+2025-04-27 16:32:28,060 - Monitoring stopped.
+2025-04-27 16:38:28,715 - This is a custom log message.
+2025-04-27 16:38:36,891 - This is a custom log message.
+2025-04-27 16:38:56,938 - This is a custom log message.
+2025-04-27 16:39:09,451 - This is a custom log message.
+2025-04-27 16:41:19,857 - This is a custom log message.
+2025-04-27 16:41:35,240 - CPU Usage: 18.3%
+2025-04-27 16:41:35,240 - Memory Usage: 68.9% - 4.94 GB available
+2025-04-27 16:41:41,245 - CPU Usage: 23.2%
+2025-04-27 16:41:41,245 - Memory Usage: 70.3% - 4.72 GB available
+2025-04-27 16:41:42,047 - This is a custom log message.
+2025-04-27 16:41:42,839 - Summarization for file 'COPMS_LOGISTICS_A_TRUCK_RESERVATION_WEB_APPLICATION_THAT_ALLOWS_USERS_TO_BOOK_TRUCKS_IN_ADVANCE_AND_PROVIDES_REAL_TIME_UPDATES_AND_TRACKING_OF_USERS_CARGO.pdf' started.
+2025-04-27 16:41:47,249 - CPU Usage: 73.4%
+2025-04-27 16:41:47,249 - Memory Usage: 75.6% - 3.87 GB available
+2025-04-27 16:41:53,255 - CPU Usage: 71.0%
+2025-04-27 16:41:53,256 - Memory Usage: 78.6% - 3.40 GB available
+2025-04-27 16:41:56,794 - This is a custom log message.
+2025-04-27 16:41:56,820 - This is a custom log message.
+2025-04-27 16:41:56,874 - This is a custom log message.
+2025-04-27 16:41:56,924 - This is a custom log message.
+2025-04-27 16:41:56,934 - This is a custom log message.
+2025-04-27 16:41:59,364 - CPU Usage: 100.0%
+2025-04-27 16:41:59,365 - Memory Usage: 82.4% - 2.79 GB available
+2025-04-27 16:42:05,462 - CPU Usage: 100.0%
+2025-04-27 16:42:05,462 - Memory Usage: 82.5% - 2.79 GB available
+2025-04-27 16:42:11,579 - CPU Usage: 100.0%
+2025-04-27 16:42:11,579 - Memory Usage: 86.5% - 2.14 GB available
+2025-04-27 16:42:17,604 - CPU Usage: 100.0%
+2025-04-27 16:42:17,604 - Memory Usage: 86.6% - 2.14 GB available
+2025-04-27 16:42:23,643 - CPU Usage: 100.0%
+2025-04-27 16:42:23,644 - Memory Usage: 87.0% - 2.06 GB available
+2025-04-27 16:42:29,659 - CPU Usage: 100.0%
+2025-04-27 16:42:29,659 - Memory Usage: 87.1% - 2.04 GB available
+2025-04-27 16:42:35,697 - CPU Usage: 100.0%
+2025-04-27 16:42:35,697 - Memory Usage: 87.4% - 2.00 GB available
+2025-04-27 16:42:41,728 - CPU Usage: 100.0%
+2025-04-27 16:42:41,728 - Memory Usage: 87.5% - 1.99 GB available
+2025-04-27 16:42:47,759 - CPU Usage: 100.0%
+2025-04-27 16:42:47,760 - Memory Usage: 87.8% - 1.94 GB available
+2025-04-27 16:42:53,788 - CPU Usage: 100.0%
+2025-04-27 16:42:53,788 - Memory Usage: 88.0% - 1.91 GB available
+2025-04-27 16:42:59,839 - CPU Usage: 100.0%
+2025-04-27 16:42:59,840 - Memory Usage: 86.8% - 2.09 GB available
+2025-04-27 16:43:01,133 - '' Semantic Similarity: 0.62
+2025-04-27 16:43:05,898 - CPU Usage: 100.0%
+2025-04-27 16:43:05,899 - Memory Usage: 83.1% - 2.69 GB available
+2025-04-27 16:43:11,916 - CPU Usage: 100.0%
+2025-04-27 16:43:11,917 - Memory Usage: 84.9% - 2.40 GB available
+2025-04-27 16:43:17,949 - CPU Usage: 100.0%
+2025-04-27 16:43:17,949 - Memory Usage: 85.1% - 2.37 GB available
+2025-04-27 16:43:23,965 - CPU Usage: 100.0%
+2025-04-27 16:43:23,966 - Memory Usage: 85.4% - 2.33 GB available
+2025-04-27 16:43:30,007 - CPU Usage: 100.0%
+2025-04-27 16:43:30,008 - Memory Usage: 85.7% - 2.27 GB available
+2025-04-27 16:43:36,026 - CPU Usage: 100.0%
+2025-04-27 16:43:36,027 - Memory Usage: 85.8% - 2.26 GB available
+2025-04-27 16:43:41,310 - '' Semantic Similarity: 0.76
+2025-04-27 16:43:42,041 - CPU Usage: 100.0%
+2025-04-27 16:43:42,041 - Memory Usage: 85.1% - 2.36 GB available
+2025-04-27 16:43:48,051 - CPU Usage: 100.0%
+2025-04-27 16:43:48,051 - Memory Usage: 81.9% - 2.88 GB available
+2025-04-27 16:43:54,064 - CPU Usage: 100.0%
+2025-04-27 16:43:54,065 - Memory Usage: 83.1% - 2.69 GB available
+2025-04-27 16:44:00,076 - CPU Usage: 100.0%
+2025-04-27 16:44:00,076 - Memory Usage: 83.4% - 2.64 GB available
+2025-04-27 16:44:06,091 - CPU Usage: 100.0%
+2025-04-27 16:44:06,091 - Memory Usage: 83.3% - 2.65 GB available
+2025-04-27 16:44:12,103 - CPU Usage: 100.0%
+2025-04-27 16:44:12,103 - Memory Usage: 83.2% - 2.68 GB available
+2025-04-27 16:44:12,460 - '' Semantic Similarity: 0.71
+2025-04-27 16:44:18,113 - CPU Usage: 62.3%
+2025-04-27 16:44:18,113 - Memory Usage: 81.4% - 2.95 GB available
+2025-04-27 16:44:24,118 - CPU Usage: 70.5%
+2025-04-27 16:44:24,118 - Memory Usage: 82.3% - 2.82 GB available
+2025-04-27 16:44:30,126 - CPU Usage: 60.7%
+2025-04-27 16:44:30,126 - Memory Usage: 82.5% - 2.79 GB available
+2025-04-27 16:44:32,716 - '' Semantic Similarity: 0.72
+2025-04-27 16:44:33,005 - Summarization for file 'COPMS_LOGISTICS_A_TRUCK_RESERVATION_WEB_APPLICATION_THAT_ALLOWS_USERS_TO_BOOK_TRUCKS_IN_ADVANCE_AND_PROVIDES_REAL_TIME_UPDATES_AND_TRACKING_OF_USERS_CARGO.pdf' completed in 170.17 seconds.
+2025-04-27 16:44:35,127 - Monitoring stopped.
+2025-04-27 16:56:07,658 - This is a custom log message.
+2025-04-27 16:56:18,553 - This is a custom log message.
+2025-04-27 16:56:28,983 - This is a custom log message.
+2025-04-27 16:57:01,648 - This is a custom log message.
+2025-04-27 16:57:33,130 - This is a custom log message.
+2025-04-27 16:59:38,534 - This is a custom log message.
+2025-04-27 16:59:43,002 - CPU Usage: 18.1%
+2025-04-27 16:59:43,002 - Memory Usage: 73.2% - 4.26 GB available
+2025-04-27 16:59:49,006 - CPU Usage: 25.7%
+2025-04-27 16:59:49,006 - Memory Usage: 74.9% - 3.99 GB available
+2025-04-27 16:59:49,852 - This is a custom log message.
+2025-04-27 16:59:50,664 - Summarization for file 'COPMS_LOGISTICS_A_TRUCK_RESERVATION_WEB_APPLICATION_THAT_ALLOWS_USERS_TO_BOOK_TRUCKS_IN_ADVANCE_AND_PROVIDES_REAL_TIME_UPDATES_AND_TRACKING_OF_USERS_CARGO.pdf' started.
+2025-04-27 16:59:55,011 - CPU Usage: 72.1%
+2025-04-27 16:59:55,011 - Memory Usage: 80.2% - 3.14 GB available
+2025-04-27 17:00:01,038 - CPU Usage: 83.1%
+2025-04-27 17:00:01,038 - Memory Usage: 83.8% - 2.57 GB available
+2025-04-27 17:00:04,997 - This is a custom log message.
+2025-04-27 17:00:05,020 - This is a custom log message.
+2025-04-27 17:00:05,038 - This is a custom log message.
+2025-04-27 17:00:05,097 - This is a custom log message.
+2025-04-27 17:00:05,180 - This is a custom log message.
+2025-04-27 17:00:07,044 - CPU Usage: 51.1%
+2025-04-27 17:00:07,045 - Memory Usage: 86.7% - 2.12 GB available
+2025-04-27 17:00:13,328 - CPU Usage: 100.0%
+2025-04-27 17:00:13,328 - Memory Usage: 87.4% - 2.00 GB available
+2025-04-27 17:00:19,440 - CPU Usage: 100.0%
+2025-04-27 17:00:19,441 - Memory Usage: 88.7% - 1.80 GB available
+2025-04-27 17:00:25,467 - CPU Usage: 100.0%
+2025-04-27 17:00:25,468 - Memory Usage: 91.4% - 1.37 GB available
+2025-04-27 17:00:31,496 - CPU Usage: 100.0%
+2025-04-27 17:00:31,496 - Memory Usage: 91.6% - 1.33 GB available
+2025-04-27 17:00:37,513 - CPU Usage: 100.0%
+2025-04-27 17:00:37,513 - Memory Usage: 91.8% - 1.31 GB available
+2025-04-27 17:00:43,550 - CPU Usage: 100.0%
+2025-04-27 17:00:43,550 - Memory Usage: 91.9% - 1.29 GB available
+2025-04-27 17:00:49,571 - CPU Usage: 100.0%
+2025-04-27 17:00:49,571 - Memory Usage: 92.3% - 1.23 GB available
+2025-04-27 17:00:55,590 - CPU Usage: 100.0%
+2025-04-27 17:00:55,590 - Memory Usage: 92.4% - 1.21 GB available
+2025-04-27 17:01:01,628 - CPU Usage: 100.0%
+2025-04-27 17:01:01,628 - Memory Usage: 92.6% - 1.17 GB available
+2025-04-27 17:01:07,671 - CPU Usage: 100.0%
+2025-04-27 17:01:07,672 - Memory Usage: 91.6% - 1.34 GB available
+2025-04-27 17:01:07,673 - '' Semantic Similarity: 0.62
+2025-04-27 17:01:13,775 - CPU Usage: 100.0%
+2025-04-27 17:01:13,775 - Memory Usage: 88.9% - 1.77 GB available
+2025-04-27 17:01:19,802 - CPU Usage: 100.0%
+2025-04-27 17:01:19,802 - Memory Usage: 89.6% - 1.66 GB available
+2025-04-27 17:01:25,833 - CPU Usage: 100.0%
+2025-04-27 17:01:25,834 - Memory Usage: 89.8% - 1.63 GB available
+2025-04-27 17:01:31,850 - CPU Usage: 100.0%
+2025-04-27 17:01:31,851 - Memory Usage: 90.0% - 1.59 GB available
+2025-04-27 17:01:37,865 - CPU Usage: 100.0%
+2025-04-27 17:01:37,865 - Memory Usage: 90.2% - 1.55 GB available
+2025-04-27 17:01:43,903 - CPU Usage: 100.0%
+2025-04-27 17:01:43,903 - Memory Usage: 90.5% - 1.50 GB available
+2025-04-27 17:01:49,923 - CPU Usage: 100.0%
+2025-04-27 17:01:49,923 - Memory Usage: 89.5% - 1.67 GB available
+2025-04-27 17:01:52,140 - '' Semantic Similarity: 0.78
+2025-04-27 17:01:55,940 - CPU Usage: 100.0%
+2025-04-27 17:01:55,941 - Memory Usage: 87.2% - 2.03 GB available
+2025-04-27 17:02:01,953 - CPU Usage: 100.0%
+2025-04-27 17:02:01,954 - Memory Usage: 85.6% - 2.29 GB available
+2025-04-27 17:02:07,968 - CPU Usage: 100.0%
+2025-04-27 17:02:07,968 - Memory Usage: 86.9% - 2.08 GB available
+2025-04-27 17:02:13,982 - CPU Usage: 100.0%
+2025-04-27 17:02:13,982 - Memory Usage: 86.9% - 2.09 GB available
+2025-04-27 17:02:19,992 - CPU Usage: 100.0%
+2025-04-27 17:02:19,993 - Memory Usage: 86.8% - 2.10 GB available
+2025-04-27 17:02:20,001 - '' Semantic Similarity: 0.71
+2025-04-27 17:02:26,000 - CPU Usage: 62.9%
+2025-04-27 17:02:26,001 - Memory Usage: 85.1% - 2.37 GB available
+2025-04-27 17:02:32,009 - CPU Usage: 58.7%
+2025-04-27 17:02:32,010 - Memory Usage: 85.2% - 2.35 GB available
+2025-04-27 17:02:37,832 - '' Semantic Similarity: 0.72
+2025-04-27 17:02:38,016 - CPU Usage: 59.6%
+2025-04-27 17:02:38,016 - Memory Usage: 75.3% - 3.92 GB available
+2025-04-27 17:02:38,122 - Summarization for file 'COPMS_LOGISTICS_A_TRUCK_RESERVATION_WEB_APPLICATION_THAT_ALLOWS_USERS_TO_BOOK_TRUCKS_IN_ADVANCE_AND_PROVIDES_REAL_TIME_UPDATES_AND_TRACKING_OF_USERS_CARGO.pdf' completed in 167.46 seconds.
+2025-04-27 17:02:43,017 - Monitoring stopped.
+2025-04-27 17:16:02,018 - This is a custom log message.
+2025-04-27 17:16:15,209 - CPU Usage: 19.0%
+2025-04-27 17:16:15,209 - Memory Usage: 81.4% - 2.95 GB available
+2025-04-27 17:16:21,213 - CPU Usage: 21.4%
+2025-04-27 17:16:21,214 - Memory Usage: 82.9% - 2.72 GB available
+2025-04-27 17:16:22,013 - This is a custom log message.
+2025-04-27 17:16:22,941 - Summarization for file 'WEB-BASED_STUDY_PLANNER_FOR_IRREGULAR_STUDENTS_AT_TECHNOLOGICAL_UNIVERSITY_OF_THE_PHILIPPINES__MANILA.pdf' started.
+2025-04-27 17:16:27,221 - CPU Usage: 68.0%
+2025-04-27 17:16:27,221 - Memory Usage: 88.0% - 1.91 GB available
+2025-04-27 17:16:33,227 - CPU Usage: 72.6%
+2025-04-27 17:16:33,228 - Memory Usage: 88.6% - 1.82 GB available
+2025-04-27 17:16:37,007 - This is a custom log message.
+2025-04-27 17:16:37,020 - This is a custom log message.
+2025-04-27 17:16:37,091 - This is a custom log message.
+2025-04-27 17:16:37,126 - This is a custom log message.
+2025-04-27 17:16:37,170 - This is a custom log message.
+2025-04-27 17:16:39,280 - CPU Usage: 99.8%
+2025-04-27 17:16:39,280 - Memory Usage: 89.2% - 1.71 GB available
+2025-04-27 17:16:45,691 - CPU Usage: 100.0%
+2025-04-27 17:16:45,691 - Memory Usage: 89.2% - 1.72 GB available
+2025-04-27 17:16:51,720 - CPU Usage: 100.0%
+2025-04-27 17:16:51,721 - Memory Usage: 93.0% - 1.12 GB available
+2025-04-27 17:16:57,750 - CPU Usage: 100.0%
+2025-04-27 17:16:57,751 - Memory Usage: 93.1% - 1.10 GB available
+2025-04-27 17:17:03,771 - CPU Usage: 100.0%
+2025-04-27 17:17:03,772 - Memory Usage: 93.2% - 1.08 GB available
+2025-04-27 17:17:09,784 - CPU Usage: 100.0%
+2025-04-27 17:17:09,784 - Memory Usage: 93.2% - 1.08 GB available
+2025-04-27 17:17:15,811 - CPU Usage: 100.0%
+2025-04-27 17:17:15,812 - Memory Usage: 93.2% - 1.08 GB available
+2025-04-27 17:17:21,840 - CPU Usage: 100.0%
+2025-04-27 17:17:21,841 - Memory Usage: 93.2% - 1.08 GB available
+2025-04-27 17:17:27,868 - CPU Usage: 100.0%
+2025-04-27 17:17:27,869 - Memory Usage: 93.2% - 1.08 GB available
+2025-04-27 17:17:33,897 - CPU Usage: 100.0%
+2025-04-27 17:17:33,898 - Memory Usage: 93.2% - 1.08 GB available
+2025-04-27 17:17:35,220 - '' Semantic Similarity: 0.74
+2025-04-27 17:17:39,906 - CPU Usage: 100.0%
+2025-04-27 17:17:39,906 - Memory Usage: 91.0% - 1.43 GB available
+2025-04-27 17:17:45,923 - CPU Usage: 100.0%
+2025-04-27 17:17:45,924 - Memory Usage: 90.5% - 1.51 GB available
+2025-04-27 17:17:51,957 - CPU Usage: 100.0%
+2025-04-27 17:17:51,957 - Memory Usage: 89.3% - 1.71 GB available
+2025-04-27 17:17:57,970 - CPU Usage: 100.0%
+2025-04-27 17:17:57,970 - Memory Usage: 90.1% - 1.57 GB available
+2025-04-27 17:18:03,994 - CPU Usage: 100.0%
+2025-04-27 17:18:03,994 - Memory Usage: 90.4% - 1.52 GB available
+2025-04-27 17:18:10,024 - CPU Usage: 100.0%
+2025-04-27 17:18:10,024 - Memory Usage: 90.6% - 1.50 GB available
+2025-04-27 17:18:16,043 - CPU Usage: 100.0%
+2025-04-27 17:18:16,044 - Memory Usage: 90.9% - 1.45 GB available
+2025-04-27 17:18:22,060 - CPU Usage: 100.0%
+2025-04-27 17:18:22,060 - Memory Usage: 91.2% - 1.40 GB available
+2025-04-27 17:18:23,326 - '' Semantic Similarity: 0.80
+2025-04-27 17:18:28,072 - CPU Usage: 100.0%
+2025-04-27 17:18:28,072 - Memory Usage: 85.7% - 2.27 GB available
+2025-04-27 17:18:33,199 - '' Semantic Similarity: 0.80
+2025-04-27 17:18:34,083 - CPU Usage: 85.0%
+2025-04-27 17:18:34,084 - Memory Usage: 81.8% - 2.89 GB available
+2025-04-27 17:18:40,093 - CPU Usage: 59.5%
+2025-04-27 17:18:40,094 - Memory Usage: 81.5% - 2.94 GB available
+2025-04-27 17:18:46,103 - CPU Usage: 60.4%
+2025-04-27 17:18:46,103 - Memory Usage: 81.4% - 2.95 GB available
+2025-04-27 17:18:49,255 - '' Semantic Similarity: 0.76
+2025-04-27 17:18:49,545 - Summarization for file 'WEB-BASED_STUDY_PLANNER_FOR_IRREGULAR_STUDENTS_AT_TECHNOLOGICAL_UNIVERSITY_OF_THE_PHILIPPINES__MANILA.pdf' completed in 146.60 seconds.
+2025-04-27 17:18:51,104 - Monitoring stopped.
+2025-04-27 17:24:59,756 - This is a custom log message.
+2025-04-27 17:25:24,398 - CPU Usage: 16.6%
+2025-04-27 17:25:24,398 - Memory Usage: 80.7% - 3.07 GB available
+2025-04-27 17:25:30,403 - CPU Usage: 20.7%
+2025-04-27 17:25:30,403 - Memory Usage: 82.1% - 2.85 GB available
+2025-04-27 17:25:31,205 - This is a custom log message.
+2025-04-27 17:25:32,342 - Summarization for file 'PLANORAMA_-_A_DEVELOPMENT_OF_WEB-BASED_SCHEDULING_SYSTEM_FOR_TUP_VENUE_AND_FACILITIES.pdf' started.
+2025-04-27 17:25:36,409 - CPU Usage: 73.9%
+2025-04-27 17:25:36,410 - Memory Usage: 86.8% - 2.10 GB available
+2025-04-27 17:25:42,416 - CPU Usage: 78.3%
+2025-04-27 17:25:42,416 - Memory Usage: 84.7% - 2.44 GB available
+2025-04-27 17:25:46,034 - This is a custom log message.
+2025-04-27 17:25:46,035 - This is a custom log message.
+2025-04-27 17:25:46,053 - This is a custom log message.
+2025-04-27 17:25:46,075 - This is a custom log message.
+2025-04-27 17:25:46,115 - This is a custom log message.
+2025-04-27 17:25:48,618 - CPU Usage: 99.3%
+2025-04-27 17:25:48,618 - Memory Usage: 88.9% - 1.76 GB available
+2025-04-27 17:25:55,067 - CPU Usage: 100.0%
+2025-04-27 17:25:55,067 - Memory Usage: 89.0% - 1.75 GB available
+2025-04-27 17:26:01,122 - CPU Usage: 100.0%
+2025-04-27 17:26:01,122 - Memory Usage: 87.1% - 2.05 GB available
+2025-04-27 17:26:07,148 - CPU Usage: 100.0%
+2025-04-27 17:26:07,148 - Memory Usage: 87.3% - 2.03 GB available
+2025-04-27 17:26:13,191 - CPU Usage: 100.0%
+2025-04-27 17:26:13,191 - Memory Usage: 87.6% - 1.97 GB available
+2025-04-27 17:26:19,211 - CPU Usage: 100.0%
+2025-04-27 17:26:19,211 - Memory Usage: 87.7% - 1.95 GB available
+2025-04-27 17:26:25,242 - CPU Usage: 100.0%
+2025-04-27 17:26:25,243 - Memory Usage: 87.9% - 1.93 GB available
+2025-04-27 17:26:31,268 - CPU Usage: 100.0%
+2025-04-27 17:26:31,268 - Memory Usage: 87.8% - 1.94 GB available
+2025-04-27 17:26:37,294 - CPU Usage: 100.0%
+2025-04-27 17:26:37,294 - Memory Usage: 88.0% - 1.90 GB available
+2025-04-27 17:26:43,338 - CPU Usage: 100.0%
+2025-04-27 17:26:43,338 - Memory Usage: 88.3% - 1.87 GB available
+2025-04-27 17:26:49,425 - CPU Usage: 100.0%
+2025-04-27 17:26:49,425 - Memory Usage: 85.5% - 2.30 GB available
+2025-04-27 17:26:55,466 - CPU Usage: 100.0%
+2025-04-27 17:26:55,467 - Memory Usage: 85.7% - 2.28 GB available
+2025-04-27 17:27:01,534 - CPU Usage: 100.0%
+2025-04-27 17:27:01,534 - Memory Usage: 84.4% - 2.47 GB available
+2025-04-27 17:27:07,550 - CPU Usage: 100.0%
+2025-04-27 17:27:07,550 - Memory Usage: 85.4% - 2.32 GB available
+2025-04-27 17:27:13,583 - CPU Usage: 100.0%
+2025-04-27 17:27:13,583 - Memory Usage: 85.7% - 2.28 GB available
+2025-04-27 17:27:19,605 - CPU Usage: 100.0%
+2025-04-27 17:27:19,605 - Memory Usage: 85.9% - 2.24 GB available
+2025-04-27 17:27:25,627 - CPU Usage: 100.0%
+2025-04-27 17:27:25,628 - Memory Usage: 86.1% - 2.21 GB available
+2025-04-27 17:27:31,655 - CPU Usage: 100.0%
+2025-04-27 17:27:31,656 - Memory Usage: 86.2% - 2.19 GB available
+2025-04-27 17:27:37,677 - CPU Usage: 100.0%
+2025-04-27 17:27:37,677 - Memory Usage: 86.4% - 2.16 GB available
+2025-04-27 17:27:39,103 - '' Semantic Similarity: 0.72
+2025-04-27 17:27:40,964 - '' Semantic Similarity: 0.76
+2025-04-27 17:27:43,703 - CPU Usage: 100.0%
+2025-04-27 17:27:43,703 - Memory Usage: 84.4% - 2.48 GB available
+2025-04-27 17:27:49,727 - CPU Usage: 100.0%
+2025-04-27 17:27:49,728 - Memory Usage: 82.8% - 2.74 GB available
+2025-04-27 17:27:55,743 - CPU Usage: 100.0%
+2025-04-27 17:27:55,743 - Memory Usage: 83.7% - 2.60 GB available
+2025-04-27 17:28:01,758 - CPU Usage: 100.0%
+2025-04-27 17:28:01,758 - Memory Usage: 83.9% - 2.57 GB available
+2025-04-27 17:28:07,768 - CPU Usage: 100.0%
+2025-04-27 17:28:07,768 - Memory Usage: 84.1% - 2.53 GB available
+2025-04-27 17:28:13,779 - CPU Usage: 100.0%
+2025-04-27 17:28:13,779 - Memory Usage: 84.4% - 2.47 GB available
+2025-04-27 17:28:19,794 - CPU Usage: 100.0%
+2025-04-27 17:28:19,795 - Memory Usage: 82.2% - 2.82 GB available
+2025-04-27 17:28:25,806 - CPU Usage: 100.0%
+2025-04-27 17:28:25,806 - Memory Usage: 83.7% - 2.60 GB available
+2025-04-27 17:28:31,822 - CPU Usage: 100.0%
+2025-04-27 17:28:31,822 - Memory Usage: 83.9% - 2.56 GB available
+2025-04-27 17:28:37,840 - CPU Usage: 100.0%
+2025-04-27 17:28:37,840 - Memory Usage: 84.1% - 2.53 GB available
+2025-04-27 17:28:43,858 - CPU Usage: 100.0%
+2025-04-27 17:28:43,858 - Memory Usage: 84.7% - 2.43 GB available
+2025-04-27 17:28:49,877 - CPU Usage: 100.0%
+2025-04-27 17:28:49,877 - Memory Usage: 83.6% - 2.61 GB available
+2025-04-27 17:28:55,908 - CPU Usage: 100.0%
+2025-04-27 17:28:55,909 - Memory Usage: 82.4% - 2.80 GB available
+2025-04-27 17:29:01,920 - CPU Usage: 100.0%
+2025-04-27 17:29:01,920 - Memory Usage: 83.7% - 2.58 GB available
+2025-04-27 17:29:07,934 - CPU Usage: 100.0%
+2025-04-27 17:29:07,934 - Memory Usage: 84.1% - 2.53 GB available
+2025-04-27 17:29:13,945 - CPU Usage: 100.0%
+2025-04-27 17:29:13,945 - Memory Usage: 84.1% - 2.53 GB available
+2025-04-27 17:29:19,961 - CPU Usage: 100.0%
+2025-04-27 17:29:19,962 - Memory Usage: 83.4% - 2.64 GB available
+2025-04-27 17:29:25,973 - CPU Usage: 100.0%
+2025-04-27 17:29:25,974 - Memory Usage: 84.8% - 2.42 GB available
+2025-04-27 17:29:31,986 - CPU Usage: 100.0%
+2025-04-27 17:29:31,986 - Memory Usage: 82.4% - 2.79 GB available
+2025-04-27 17:29:37,999 - CPU Usage: 100.0%
+2025-04-27 17:29:38,000 - Memory Usage: 80.4% - 3.11 GB available
+2025-04-27 17:29:44,015 - CPU Usage: 100.0%
+2025-04-27 17:29:44,016 - Memory Usage: 80.7% - 3.07 GB available
+2025-04-27 17:29:49,095 - '' Semantic Similarity: 0.78
+2025-04-27 17:29:50,059 - CPU Usage: 87.9%
+2025-04-27 17:29:50,059 - Memory Usage: 80.6% - 3.09 GB available
+2025-04-27 17:29:52,545 - '' Semantic Similarity: 0.70
+2025-04-27 17:29:52,837 - Summarization for file 'PLANORAMA_-_A_DEVELOPMENT_OF_WEB-BASED_SCHEDULING_SYSTEM_FOR_TUP_VENUE_AND_FACILITIES.pdf' completed in 260.49 seconds.
+2025-04-27 17:29:55,060 - Monitoring stopped.

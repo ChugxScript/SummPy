@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, session, current_app, fla
 import os 
 import shutil
 import fitz
+import json
 from fpdf import FPDF
 from datetime import datetime
 from .BART.summarize_doc import SummPy
@@ -57,7 +58,8 @@ def generate_pdf_with_first_page(summary_list, filename, original_file_path):
         if line.strip() == "":
             pdf.ln(6)  
         else:
-            pdf.multi_cell(0, 7, line, align='C')
+            clean_line = line.encode('latin-1', 'ignore').decode('latin-1')
+            pdf.multi_cell(0, 7, clean_line, align='C')
     
     section_titles = ["INTRODUCTION", "METHOD", "RESULTS", "DISCUSSION"]
 
@@ -71,7 +73,7 @@ def generate_pdf_with_first_page(summary_list, filename, original_file_path):
 
         # Add the summary for the current section
         pdf.set_font("Arial", size=12)
-        encoded_summary = summary.encode('latin-1', 'replace').decode('latin-1')
+        encoded_summary = summary.encode('latin-1', 'ignore').decode('latin-1')
 
         # Add multi_cell for summary text to ensure newlines are preserved
         pdf.multi_cell(0, 10, encoded_summary)
@@ -147,9 +149,10 @@ def generate_docx_with_first_page(summary_list, filename, original_file_path):
     print("making filename DOCX: " + filename)
     docx_document.save(docx_path)
 
-def save_documents(uploaded_files, summarized_files):
+def save_documents(uploaded_files, summarized_files, results):
     result_orig_folder = current_app.config['ADMIN_RAW_DOCU_FOLDER']
     result_summarized_folder = current_app.config['ADMIN_SUMM_DOCU_FOLDER']
+    minmax_folder = current_app.config['MINMAX_WORD_COUNT_FOLDER']
 
     for i, file_name in enumerate(uploaded_files):
         # Copy original files to result_orig_folder
@@ -168,6 +171,21 @@ def save_documents(uploaded_files, summarized_files):
             shutil.copy(summarized_file_path, summarized_dest_path)
         else:
             print(f"Warning: Summarized file {summarized_file_path} not found.")
+    
+    for i, result in enumerate(results):
+        file_name = uploaded_files[i].replace('.pdf', '')
+        minmax_data = {
+            "file": uploaded_files[i],
+            "min_original": result['min_original'],
+            "max_original": result['max_original'],
+            "min_summary": result['min_summary'],
+            "max_summary": result['max_summary'],
+            "average_similarity": float(result['average_similarity'])
+        }
+
+        minmax_path = os.path.join(minmax_folder, f"{file_name}_minmax.json")
+        with open(minmax_path, 'w') as f:
+            json.dump(minmax_data, f, indent=4)
 
 @summary_result.route('/summary_result', methods=['GET'])
 def summary_result_page():
@@ -227,7 +245,8 @@ def summary_result_page():
             continue
 
     summarized_folder = get_summarized_files()
-    save_documents(uploaded_files, summarized_folder)
+    print(f"init summarized_folder is: {summarized_folder}")
+    save_documents(uploaded_files, summarized_folder, results)
     print(f"UPLOAD_FOLDER is: {uploaded_files}")
     print(f"summarized_folder is: {summarized_folder}")
 
