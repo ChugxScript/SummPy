@@ -152,6 +152,8 @@ function setOnclickOnCards2(){
             main_content_container.style.display = "none";
             view_book_details_container.style.display = "flex";
             const data = JSON.parse(cards.getAttribute("data-content").replace(/&quot;/g, '"'));
+            const documentId = cards.getAttribute("data-id");
+            data.docId = documentId;
             console.log("clicked card: ", data);
             handleClickedBookDetails(data);
         });
@@ -455,14 +457,14 @@ async function populateUnderGradStudies() {
 
                 study_card_container.innerHTML += `
                     <div class="study-card-details">
-                        <div class="left-card-details" data-content="${jsonData}">
+                        <div class="left-card-details" data-content="${jsonData}" data-id="${doc.id}">
                             <p class="card-study-title">${studyTitle}</p>
                             <p class="card-publication-date">${publicationDate}</p>
                             <p class="card-authors">Authors: ${authors}</p>
                             <p class="card-department">Department: ${data.department}</p>
                             <p class="card-course">Course: ${course}</p>
                         </div>
-                        <div class="right-card-details" data-content="${jsonData}">
+                        <div class="right-card-details" data-content="${jsonData}" data-id="${doc.id}">
                             <p class="card-category">${category}</p>
                             <p class="card-field-study">Fields: ${fieldStudy}</p>
                         </div>
@@ -553,14 +555,14 @@ async function populateGradStudies(){
 
                 study_card_container.innerHTML += `
                     <div class="study-card-details">
-                        <div class="left-card-details" data-content="${jsonData}">
+                        <div class="left-card-details" data-content="${jsonData}" data-id="${doc.id}">
                             <p class="card-study-title">${studyTitle}</p>
                             <p class="card-publication-date">${publicationDate}</p>
                             <p class="card-authors">Authors: ${authors}</p>
                             <p class="card-department">Department: ${data.department}</p>
                             <p class="card-course">Course: ${course}</p>
                         </div>
-                        <div class="right-card-details" data-content="${jsonData}">
+                        <div class="right-card-details" data-content="${jsonData}" data-id="${doc.id}">
                             <p class="card-category">${category}</p>
                             <p class="card-field-study">Fields: ${fieldStudy}</p>
                         </div>
@@ -644,14 +646,14 @@ async function populateMasteralStudies(){
 
                 study_card_container.innerHTML += `
                     <div class="study-card-details">
-                        <div class="left-card-details" data-content="${jsonData}">
+                        <div class="left-card-details" data-content="${jsonData}" data-id="${doc.id}">
                             <p class="card-study-title">${studyTitle}</p>
                             <p class="card-publication-date">${publicationDate}</p>
                             <p class="card-authors">Authors: ${authors}</p>
                             <p class="card-department">Department: ${data.department}</p>
                             <p class="card-course">Course: ${course}</p>
                         </div>
-                        <div class="right-card-details" data-content="${jsonData}">
+                        <div class="right-card-details" data-content="${jsonData}" data-id="${doc.id}">
                             <p class="card-category">${category}</p>
                             <p class="card-field-study">Fields: ${fieldStudy}</p>
                         </div>
@@ -734,14 +736,14 @@ async function populateDissertationStudies(){
 
                 study_card_container.innerHTML += `
                     <div class="study-card-details">
-                        <div class="left-card-details" data-content="${jsonData}">
+                        <div class="left-card-details" data-content="${jsonData}" data-id="${doc.id}">
                             <p class="card-study-title">${studyTitle}</p>
                             <p class="card-publication-date">${publicationDate}</p>
                             <p class="card-authors">Authors: ${authors}</p>
                             <p class="card-department">Department: ${data.department}</p>
                             <p class="card-course">Course: ${course}</p>
                         </div>
-                        <div class="right-card-details" data-content="${jsonData}">
+                        <div class="right-card-details" data-content="${jsonData}" data-id="${doc.id}">
                             <p class="card-category">${category}</p>
                             <p class="card-field-study">Fields: ${fieldStudy}</p>
                         </div>
@@ -824,14 +826,14 @@ async function populateDoctorateStudies(){
 
                 study_card_container.innerHTML += `
                     <div class="study-card-details">
-                        <div class="left-card-details" data-content="${jsonData}">
+                        <div class="left-card-details" data-content="${jsonData}" data-id="${doc.id}">
                             <p class="card-study-title">${studyTitle}</p>
                             <p class="card-publication-date">${publicationDate}</p>
                             <p class="card-authors">Authors: ${authors}</p>
                             <p class="card-department">Department: ${data.department}</p>
                             <p class="card-course">Course: ${course}</p>
                         </div>
-                        <div class="right-card-details" data-content="${jsonData}">
+                        <div class="right-card-details" data-content="${jsonData}" data-id="${doc.id}">
                             <p class="card-category">${category}</p>
                             <p class="card-field-study">Fields: ${fieldStudy}</p>
                         </div>
@@ -906,7 +908,7 @@ function initializeListenToFilter(){
     
                 // Check for partial match
                 if (dataName.includes(searchTermLower)) {
-                    populateFilteredStudies(data);
+                    populateFilteredStudies(data, doc.id);
                 }
             }
         });
@@ -926,7 +928,7 @@ function initializeListenToFilter(){
     
                 // Check for partial match
                 if (dataName.includes(searchTermLower)) {
-                    populateFilteredStudies(data);
+                    populateFilteredStudies(data, doc.id);
                 }
             }
         });
@@ -945,7 +947,7 @@ function initializeListenToFilter(){
                 const matchesField = fieldOfStudy.some(field => field.toLowerCase().includes(dataSearchFilterValue));
 
                 if (matchesField) {
-                    populateFilteredStudies(data); 
+                    populateFilteredStudies(data, doc.id); 
                 }
             }
         });
@@ -965,7 +967,7 @@ function initializeListenToFilter(){
     
                 // Check for partial match
                 if (dataName.includes(searchTermLower)) {
-                    populateFilteredStudies(data);
+                    populateFilteredStudies(data, doc.id);
                 }
             }
         });
@@ -1006,14 +1008,14 @@ function populateFilteredStudies(data, docId){
 
     study_card_container.innerHTML += `
         <div class="study-card-details">
-            <div class="left-card-details" data-content="${jsonData}">
+            <div class="left-card-details" data-content="${jsonData}" data-id="${doc.id}">
                 <p class="card-study-title">${studyTitle}</p>
                 <p class="card-publication-date">${publicationDate}</p>
                 <p class="card-authors">Authors: ${authors}</p>
                 <p class="card-department">Department: ${department}</p>
                 <p class="card-course">Course: ${course}</p>
             </div>
-            <div class="right-card-details" data-content="${jsonData}">
+            <div class="right-card-details" data-content="${jsonData}" data-id="${doc.id}">
                 <p class="card-category">${category}</p>
                 <p class="card-field-study">Fields: ${fieldStudy}</p>
             </div>
@@ -1039,6 +1041,10 @@ function handleClickedBookDetails(data){
     const course = data.course || "No Course";
     let category = data.category || "No Category";
     const fieldStudy = data.field_of_study ? data.field_of_study.join(", ") : "No Fields";
+    const mList = ["5JvzxnLf127GgsmXKeA4", "bZM6ADjXy2ggZcCVLGa5", "cyJU8EOGkKaXYKIptsvj", "q4T1cNuZRoQaDiPgaowr",
+        "3gFQ06LbUxGHHlSbMQjs", "3zhX07vKPlaR84ncWrw1", "e3mC7LfHB0kBW7RpFPip", "7rTGayL8DKCOUuApEqQW",
+        "YD8Hr0NI1xvPeonNQy5I", "WxHKW2JH1cUUUVyg7c91",
+    ];
 
     switch(category){
         case "under_graduate": category = "UNDER GRADUATE"; break;
@@ -1136,6 +1142,58 @@ function handleClickedBookDetails(data){
                 </div>
             </div>
         `;
+
+        if (mList.includes(data.docId)) {
+            margin_container.innerHTML = `
+                <p id="study_title">${studyTitle}</p>
+                <p id="publication_date">${publicationDate}</p>
+
+                <div class="course-category-container">
+                    <div class="details-course-container">
+                        <p class="details-course-title">Course:</p>
+                        <p id="details_course_value">${course}</p>
+                    </div>
+                    <div class="details-category-container">
+                        <p class="details-category-title">Category:</p>
+                        <p id="details_category_value">${category}</p>
+                    </div>
+                    <div class="details-category-container">
+                        <p><strong>Original Word Count</strong></p>
+                        <p id="details_category_value">Not Available</p>
+                    </div>
+                    <div class="details-category-container">
+                        <p><strong>Summary Word Count:</strong></p>
+                        <p id="details_category_value">Not Available</p>
+                    </div>
+                    <div class="details-category-container">
+                        <p><strong>Semantic Score</strong></p>
+                        <p id="details_category_value">Not Available</p>
+                    </div>
+                </div>
+
+                <div class="authors-panels-container">
+                    <div class="details-authors-container">
+                        <p class="details-authors-title">Authors:</p>
+                        ${authorsContent}
+                    </div>
+                    <div class="details-panels-container">
+                        <p class="details-panels-title">Panels:</p>
+                        Not Available
+                    </div>
+                </div>
+
+                <div class="original-summarized-container" style="height: 100vh;">
+                    <div class="details-original-container">
+                        <p class="details-original-title">Original</p>
+                        <p style="color: white;">No Softcopy Available</p>
+                    </div>
+                    <div class="details-summarized-container">
+                        <p class="details-summarized-title">Summarized Result</p>
+                        <p style="color: white;">No Softcopy Available</p>
+                    </div>
+                </div>
+            `;
+        }
 
         // If there is a Memorandum of Agreement (MOA) file
         if (data.memorandum_of_agreement !== "No file selected") {

@@ -7,7 +7,7 @@ if __name__ == '__main__':
     port = 5000
     print(f"Server running at http://{host}:{port}")
 
-    app.run(debug=True, host=host, port=port)
+    app.run(debug=False, host=host, port=port)
 
 '''
     File structure
